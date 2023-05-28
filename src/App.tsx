@@ -20,7 +20,16 @@ const App: FC = () => {
             <Routes>
               <Route path={ROUTES.LANDING} element={<LandingPage />} />
               <Route path={ROUTES.PRODUCT_DETAILS} element={<ProductDetailsPage />} />
-              <Route path={ROUTES.CONFIRMATION} element={<ConfirmationPage />} />
+              <Route path={ROUTES.CONFIRMATION} element={<PrivateConfirmationRoute />}>
+                <Route
+                  path={ROUTES.CONFIRMATION}
+                  element={
+                    <Suspense fallback={'loading...'}>
+                      <ConfirmationPage />
+                    </Suspense>
+                  }
+                />
+              </Route>
             </Routes>
           </Router>
         </ProductsContextProvider>
