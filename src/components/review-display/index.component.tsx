@@ -1,5 +1,6 @@
 import { FC } from "react";
 import _ from "lodash";
+import { v4 as uuidv4 } from 'uuid';
 
 import ReviewDisplayInterface from "./index.interface";
 import ReviewInterface from "../review/index.interface";
@@ -18,7 +19,7 @@ const ReviewDisplay: FC<ReviewDisplayInterface> = ({ reviews }) => {
       <ReviewStackSC direction="column" spacing={4}>
         {!_.isEmpty(reviews) &&
           reviews.map((review: ReviewInterface) => {
-            return <Review {...review} />;
+            return <Review key={uuidv4()} {...review} />;
           })}
       </ReviewStackSC>
       {_.isEmpty(reviews) && <EmptyTextSC>No Reviews...</EmptyTextSC>}

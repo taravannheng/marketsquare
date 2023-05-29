@@ -26,7 +26,7 @@ const NavigationMenuItem: FC<NavigationMenuItemInterface> = ({ imgUrl, categorie
               <CategoryItemTitleSC>{category.title}</CategoryItemTitleSC>
               <CategoryItemStackSC direction="column" spacing={1.5}>
               {!_.isEmpty(category.categoryListItem) && category.categoryListItem.map((categoryItem: any) => {
-                return <CategoryItemSC>
+                return <CategoryItemSC key={uuidv4()}>
                  <LinkSC href={categoryItem.url}>{categoryItem.text}</LinkSC> 
                 </CategoryItemSC>
               })}
