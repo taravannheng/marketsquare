@@ -43,7 +43,7 @@ const ProductsDisplay: FC<ProductsDisplayInterface> = ({ title, products }) => {
   return (
     <ProductsDisplaySC>
       <SlideShowContainerSC>
-        <SlideShow indicatorType="dot" images={slideShowSample} />
+        <SlideShow indicatorType="dot" images={slideShowSample} autoSlide />
       </SlideShowContainerSC>
       {!_.isEmpty(title) && (
         <ProductsDisplayTitleSC variant="h5">{title}</ProductsDisplayTitleSC>
