@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { Box, Container, Grid, Typography } from "@mui/material";
 import _ from "lodash";
 import { v4 as uuidv4 } from "uuid";
@@ -19,6 +19,7 @@ import slideShowSample from "../../sample/slideshow/slideshow-sample";
 import { Pagination, Stack } from "@mui/material";
 import colors from "../../styles/colors";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import ProgressIndicator from "../progress-indicator/index.component";
 
 const theme = createTheme({
   palette: {
@@ -29,12 +30,19 @@ const theme = createTheme({
 });
 
 const ProductsDisplay: FC<ProductsDisplayInterface> = ({ title, products }) => {
+  const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 8;
-  const totalPages = Math.ceil(products.length / productsPerPage);
+  let totalPages = !_.isEmpty(products) ? Math.ceil(products.length / productsPerPage) : 0;
   const startIndex = (currentPage - 1) * productsPerPage;
   const endIndex = startIndex + productsPerPage;
-  const displayedProducts = products.slice(startIndex, endIndex);
+  let displayedProducts = !_.isEmpty(products) ? products.slice(startIndex, endIndex) : [];
+
+  useEffect(() => {
+    if (!_.isEmpty(products) || products === null) {
+      setLoading(false);
+    }
+  }, [products]);
 
   const pageChangeHandler = (event: any, value: number) => {
     setCurrentPage(value);
@@ -48,29 +56,35 @@ const ProductsDisplay: FC<ProductsDisplayInterface> = ({ title, products }) => {
       {!_.isEmpty(title) && (
         <ProductsDisplayTitleSC variant="h5">{title}</ProductsDisplayTitleSC>
       )}
-      <ThemeProvider theme={theme}>
-        <Grid container spacing={3} sx={{ marginBottom: "40px" }}>
-          {!_.isEmpty(products) &&
-            displayedProducts.map(
-              (product: ProductInterface, index: number) => {
-                return (
-                  <Grid item xs={6} lg={4} xl={3} key={uuidv4()}>
-                    <ProductCard {...product} />
-                  </Grid>
-                );
-              }
-            )}
-        </Grid>
-        <PaginationStackSC>
-          <Pagination
-            count={totalPages}
-            color="primary"
-            page={currentPage}
-            onChange={pageChangeHandler}
-          />
-        </PaginationStackSC>
-      </ThemeProvider>
-      {_.isEmpty(products) && (
+      {loading && <ProgressIndicator />}
+      {!loading && (
+        <ThemeProvider theme={theme}>
+          <Grid container spacing={3} sx={{ marginBottom: "40px" }}>
+            {!_.isEmpty(products) &&
+              displayedProducts.map(
+                (product: ProductInterface, index: number) => {
+                  return (
+                    <Grid item xs={6} lg={4} xl={3} key={uuidv4()}>
+                      <ProductCard {...product} />
+                    </Grid>
+                  );
+                }
+              )}
+          </Grid>
+          {!_.isEmpty(products) && (
+            <PaginationStackSC>
+              <Pagination
+                count={totalPages}
+                color="primary"
+                page={currentPage}
+                onChange={pageChangeHandler}
+              />
+            </PaginationStackSC>
+          )}
+        </ThemeProvider>
+      )}
+
+      {_.isEmpty(products) && !loading && (
         <ProductsDisplayEmptyTextSC variant="body1">
           No products...
         </ProductsDisplayEmptyTextSC>
