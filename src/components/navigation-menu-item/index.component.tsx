@@ -20,7 +20,7 @@ const NavigationMenuItem: FC<NavigationMenuItemInterface> = ({ imgUrl, categorie
     <NavigationMenuItemSC>
       <MenuSC sx={{ backgroundColor: `${showSubMenu && '#758AE3'}` }} onClick={showDropdownHandler} onMouseLeave={hideDropdownHandler} onMouseEnter={showDropdownHandler}><MenuTextSC sx={{ color: `${showSubMenu && '#FFF'}` }}>{title}</MenuTextSC></MenuSC>
       {showSubMenu && <SubMenuSC onMouseEnter={showDropdownHandler} onMouseLeave={hideDropdownHandler}>
-          <CategoryContainerSC>
+          <CategoryContainerSC direction="row" spacing={8}>
           {!_.isEmpty(categories) && categories.map((category: any) => {
             return <CategorySC key={uuidv4()}>
               <CategoryItemTitleSC>{category.title}</CategoryItemTitleSC>
@@ -35,7 +35,6 @@ const NavigationMenuItem: FC<NavigationMenuItemInterface> = ({ imgUrl, categorie
           })}
 
           </CategoryContainerSC>
-          <SubMenuMediaSC image={imgUrl} />
         </SubMenuSC>}
       
     </NavigationMenuItemSC>
