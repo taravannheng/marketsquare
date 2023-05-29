@@ -21,16 +21,18 @@ import {
   SlideShowSC,
 } from "./index.styles";
 
-const SlideShow: FC<SlideShowInterface> = ({ images, indicatorType }) => {
+const SlideShow: FC<SlideShowInterface> = ({ images, indicatorType, autoSlide = false }) => {
   const [activeItemIndex, setActiveItemIndex] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveItemIndex((prevSlide) => (prevSlide + 1) % images.length);
-    }, 5000);
+    if (autoSlide) {
+      const interval = setInterval(() => {
+        setActiveItemIndex((prevSlide) => (prevSlide + 1) % images.length);
+      }, 5000);
 
-    return () => clearInterval(interval);
-  }, [images.length]);
+      return () => clearInterval(interval);
+    }
+  }, [images.length, autoSlide]);
 
   const prevButtonHandler = () => {
     if (activeItemIndex !== 0) {
