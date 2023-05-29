@@ -35,7 +35,6 @@ const NavigationMenuItem: FC<NavigationMenuItemInterface> = ({ imgUrl, categorie
           })}
 
           </CategoryContainerSC>
-          {/* <SubMenuMediaSC image={imgUrl} /> */}
         </SubMenuSC>}
       
     </NavigationMenuItemSC>
