@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import _ from "lodash";
 import { v4 as uuidv4 } from "uuid";
 
@@ -24,13 +24,17 @@ import {
 const SlideShow: FC<SlideShowInterface> = ({ images, indicatorType }) => {
   const [activeItemIndex, setActiveItemIndex] = useState(0);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveItemIndex((prevSlide) => (prevSlide + 1) % images.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [images.length]);
+
   const prevButtonHandler = () => {
     if (activeItemIndex !== 0) {
-      setActiveItemIndex((prevIndex) => prevIndex - 1);
-    }
-
-    if (activeItemIndex === 0) {
-      setActiveItemIndex(images.length - 1);
+      setActiveItemIndex((prevIndex) => (prevIndex - 1) % images.length);
     }
   };
 
@@ -39,13 +43,7 @@ const SlideShow: FC<SlideShowInterface> = ({ images, indicatorType }) => {
   };
 
   const nextButtonHandler = () => {
-    if (activeItemIndex !== images.length - 1) {
-      setActiveItemIndex((prevIndex) => prevIndex + 1);
-    }
-
-    if (activeItemIndex === images.length - 1) {
-      setActiveItemIndex(0);
-    }
+    setActiveItemIndex((prevSlide) => (prevSlide + 1) % images.length);
   };
 
   return (
@@ -62,52 +60,54 @@ const SlideShow: FC<SlideShowInterface> = ({ images, indicatorType }) => {
             );
           })}
       </SlideShowCardSC>
-      <SlideShowPaginationSC>
-        <PrevButtonSC>
-          <Button
-            width="120px"
-            height="36px"
-            type="rounded"
-            label="Prev"
-            clickHandler={prevButtonHandler}
-          />
-        </PrevButtonSC>
-        {indicatorType === "dot" && (
-          <SlideShowPaginationIndicatorStackSC direction="row" spacing={1}>
-            {!_.isEmpty(images) &&
-              images.map((image: string, index: number) => {
-                if (index === activeItemIndex) {
+      {images.length > 1 && (
+        <SlideShowPaginationSC>
+          <PrevButtonSC>
+            <Button
+              width="120px"
+              height="36px"
+              type="rounded"
+              label="Prev"
+              clickHandler={prevButtonHandler}
+            />
+          </PrevButtonSC>
+          {indicatorType === "dot" && (
+            <SlideShowPaginationIndicatorStackSC direction="row" spacing={1}>
+              {!_.isEmpty(images) &&
+                images.map((image: string, index: number) => {
+                  if (index === activeItemIndex) {
+                    return (
+                      <SlideShowPaginationActiveIndicatorSC
+                        key={uuidv4()}
+                        onClick={() => paginationIndicatorHandler(index)}
+                      ></SlideShowPaginationActiveIndicatorSC>
+                    );
+                  }
                   return (
-                    <SlideShowPaginationActiveIndicatorSC
+                    <SlideShowPaginationIndicatorSC
                       key={uuidv4()}
                       onClick={() => paginationIndicatorHandler(index)}
-                    ></SlideShowPaginationActiveIndicatorSC>
+                    ></SlideShowPaginationIndicatorSC>
                   );
-                }
-                return (
-                  <SlideShowPaginationIndicatorSC
-                    key={uuidv4()}
-                    onClick={() => paginationIndicatorHandler(index)}
-                  ></SlideShowPaginationIndicatorSC>
-                );
-              })}
-          </SlideShowPaginationIndicatorStackSC>
-        )}
-        {indicatorType === "number" && (
-          <IndicatorTextSC variant="h5">
-            {activeItemIndex + 1}/{images.length}
-          </IndicatorTextSC>
-        )}
-        <NextButtonSC>
-          <Button
-            width="120px"
-            height="36px"
-            type="rounded"
-            label="Next"
-            clickHandler={nextButtonHandler}
-          />
-        </NextButtonSC>
-      </SlideShowPaginationSC>
+                })}
+            </SlideShowPaginationIndicatorStackSC>
+          )}
+          {indicatorType === "number" && (
+            <IndicatorTextSC variant="h5">
+              {activeItemIndex + 1}/{images.length}
+            </IndicatorTextSC>
+          )}
+          <NextButtonSC>
+            <Button
+              width="120px"
+              height="36px"
+              type="rounded"
+              label="Next"
+              clickHandler={nextButtonHandler}
+            />
+          </NextButtonSC>
+        </SlideShowPaginationSC>
+      )}
     </SlideShowSC>
   );
 };
