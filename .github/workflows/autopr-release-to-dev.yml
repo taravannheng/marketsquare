@@ -1,19 +1,14 @@
-name: autopr-misc into dev
+name: autopr from release into dev
 on:
   push:
     branches:
-      - 'feat/*'
-      - 'fix/*'
-      - 'chore/*'
-      - 'docs/*'
-      - 'refactor/*'
-      - 'test/*'
+      - 'release/*'
 jobs:
   createPullRequest:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Create pull request
+      - name: create pull request
         uses: peter-evans/create-pull-request@v5
         with:
           title: ${{ github.event.head_commit.message }}
