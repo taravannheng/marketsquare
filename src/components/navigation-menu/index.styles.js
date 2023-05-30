@@ -7,6 +7,7 @@ import typography from "../../styles/typography";
 export const NavigationMenuSC = styled(Box)`
   position: relative;
   display: none;
+  justify-content: center;
   align-items: center;
   height: clamp(64px, 64px, 64px);
   padding: 0 24px;

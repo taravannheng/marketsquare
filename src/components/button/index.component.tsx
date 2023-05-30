@@ -2,7 +2,9 @@ import { FC } from "react";
 
 import ButtonInterface from "./index.inteface";
 import { ButtonSC, RoundedButtonSC, IconButtonSC } from "./index.styles";
-import { Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
+import ProgressIndicator from "../progress-indicator/index.component";
+import _ from "lodash";
 
 const Button: FC<ButtonInterface> = ({
   type,
@@ -13,6 +15,7 @@ const Button: FC<ButtonInterface> = ({
   width,
   height,
   icon,
+  isLoading = false,
   clickHandler,
 }) => {
   return (
@@ -30,7 +33,8 @@ const Button: FC<ButtonInterface> = ({
           }}
           onClick={clickHandler}
         >
-          {label}
+          {isLoading && <ProgressIndicator size={24} />}
+          {!isLoading && label}
         </ButtonSC>
       )}
       {type === "rounded" && (

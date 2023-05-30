@@ -1,9 +1,11 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import _ from "lodash";
 import { v4 as uuidv4 } from "uuid";
+import { useNavigate } from "react-router-dom";
 
 import Button from "../button/index.component";
 import SlideShowInterface from "./index.interface";
+import SlideShowItemInterface from "../../interfaces/slideshow-item.interface";
 import colors from "../../styles/colors";
 import { Box } from "@mui/material";
 import {
@@ -21,16 +23,28 @@ import {
   SlideShowSC,
 } from "./index.styles";
 
-const SlideShow: FC<SlideShowInterface> = ({ images, indicatorType }) => {
+const SlideShow: FC<SlideShowInterface> = ({
+  data,
+  indicatorType,
+  autoSlide = false,
+  redirectOnClick = false,
+}) => {
+  const navigate = useNavigate();
   const [activeItemIndex, setActiveItemIndex] = useState(0);
+
+  useEffect(() => {
+    if (autoSlide) {
+      const interval = setInterval(() => {
+        setActiveItemIndex((prevSlide) => (prevSlide + 1) % data.length);
+      }, 5000);
+
+      return () => clearInterval(interval);
+    }
+  }, [data.length, autoSlide]);
 
   const prevButtonHandler = () => {
     if (activeItemIndex !== 0) {
-      setActiveItemIndex((prevIndex) => prevIndex - 1);
-    }
-
-    if (activeItemIndex === 0) {
-      setActiveItemIndex(images.length - 1);
+      setActiveItemIndex((prevIndex) => (prevIndex - 1) % data.length);
     }
   };
 
@@ -39,75 +53,83 @@ const SlideShow: FC<SlideShowInterface> = ({ images, indicatorType }) => {
   };
 
   const nextButtonHandler = () => {
-    if (activeItemIndex !== images.length - 1) {
-      setActiveItemIndex((prevIndex) => prevIndex + 1);
-    }
+    setActiveItemIndex((prevSlide) => (prevSlide + 1) % data.length);
+  };
 
-    if (activeItemIndex === images.length - 1) {
-      setActiveItemIndex(0);
+  const redirectHandler = (productID: string) => {
+    if (!_.isEmpty(productID) && redirectOnClick) {
+      navigate(`/product/${productID}`);
     }
   };
 
   return (
     <SlideShowSC>
       <SlideShowCardSC>
-        {!_.isEmpty(images) &&
-          images.map((image: string, index: number) => {
+        {!_.isEmpty(data) &&
+          data.map((item: SlideShowItemInterface, index: number) => {
             return (
               <SlideShowMediaSC
                 key={index}
-                image={image}
-                sx={{ transform: `translateY(-${activeItemIndex * 100}%)` }}
+                image={item.imgUrl}
+                sx={{
+                  transform: `translateY(-${activeItemIndex * 100}%)`,
+                  "&:hover": {
+                    cursor: `${redirectOnClick ? "pointer" : "auto"}`,
+                  },
+                }}
+                onClick={() => redirectHandler(item?._id ?? "")}
               />
             );
           })}
       </SlideShowCardSC>
-      <SlideShowPaginationSC>
-        <PrevButtonSC>
-          <Button
-            width="120px"
-            height="36px"
-            type="rounded"
-            label="Prev"
-            clickHandler={prevButtonHandler}
-          />
-        </PrevButtonSC>
-        {indicatorType === "dot" && (
-          <SlideShowPaginationIndicatorStackSC direction="row" spacing={1}>
-            {!_.isEmpty(images) &&
-              images.map((image: string, index: number) => {
-                if (index === activeItemIndex) {
+      {data.length > 1 && (
+        <SlideShowPaginationSC>
+          <PrevButtonSC>
+            <Button
+              width="120px"
+              height="36px"
+              type="rounded"
+              label="Prev"
+              clickHandler={prevButtonHandler}
+            />
+          </PrevButtonSC>
+          {indicatorType === "dot" && (
+            <SlideShowPaginationIndicatorStackSC direction="row" spacing={1}>
+              {!_.isEmpty(data) &&
+                data.map((item: SlideShowItemInterface, index: number) => {
+                  if (index === activeItemIndex) {
+                    return (
+                      <SlideShowPaginationActiveIndicatorSC
+                        key={uuidv4()}
+                        onClick={() => paginationIndicatorHandler(index)}
+                      ></SlideShowPaginationActiveIndicatorSC>
+                    );
+                  }
                   return (
-                    <SlideShowPaginationActiveIndicatorSC
+                    <SlideShowPaginationIndicatorSC
                       key={uuidv4()}
                       onClick={() => paginationIndicatorHandler(index)}
-                    ></SlideShowPaginationActiveIndicatorSC>
+                    ></SlideShowPaginationIndicatorSC>
                   );
-                }
-                return (
-                  <SlideShowPaginationIndicatorSC
-                    key={uuidv4()}
-                    onClick={() => paginationIndicatorHandler(index)}
-                  ></SlideShowPaginationIndicatorSC>
-                );
-              })}
-          </SlideShowPaginationIndicatorStackSC>
-        )}
-        {indicatorType === "number" && (
-          <IndicatorTextSC variant="h5">
-            {activeItemIndex + 1}/{images.length}
-          </IndicatorTextSC>
-        )}
-        <NextButtonSC>
-          <Button
-            width="120px"
-            height="36px"
-            type="rounded"
-            label="Next"
-            clickHandler={nextButtonHandler}
-          />
-        </NextButtonSC>
-      </SlideShowPaginationSC>
+                })}
+            </SlideShowPaginationIndicatorStackSC>
+          )}
+          {indicatorType === "number" && (
+            <IndicatorTextSC variant="h5">
+              {activeItemIndex + 1}/{data.length}
+            </IndicatorTextSC>
+          )}
+          <NextButtonSC>
+            <Button
+              width="120px"
+              height="36px"
+              type="rounded"
+              label="Next"
+              clickHandler={nextButtonHandler}
+            />
+          </NextButtonSC>
+        </SlideShowPaginationSC>
+      )}
     </SlideShowSC>
   );
 };
