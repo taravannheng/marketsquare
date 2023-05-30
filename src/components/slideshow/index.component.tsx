@@ -1,9 +1,11 @@
 import { FC, useEffect, useState } from "react";
 import _ from "lodash";
 import { v4 as uuidv4 } from "uuid";
+import { useNavigate } from "react-router-dom";
 
 import Button from "../button/index.component";
 import SlideShowInterface from "./index.interface";
+import SlideShowItemInterface from "../../interfaces/slideshow-item.interface";
 import colors from "../../styles/colors";
 import { Box } from "@mui/material";
 import {
@@ -21,22 +23,28 @@ import {
   SlideShowSC,
 } from "./index.styles";
 
-const SlideShow: FC<SlideShowInterface> = ({ images, indicatorType, autoSlide = false }) => {
+const SlideShow: FC<SlideShowInterface> = ({
+  data,
+  indicatorType,
+  autoSlide = false,
+  redirectOnClick = false,
+}) => {
+  const navigate = useNavigate();
   const [activeItemIndex, setActiveItemIndex] = useState(0);
 
   useEffect(() => {
     if (autoSlide) {
       const interval = setInterval(() => {
-        setActiveItemIndex((prevSlide) => (prevSlide + 1) % images.length);
+        setActiveItemIndex((prevSlide) => (prevSlide + 1) % data.length);
       }, 5000);
 
       return () => clearInterval(interval);
     }
-  }, [images.length, autoSlide]);
+  }, [data.length, autoSlide]);
 
   const prevButtonHandler = () => {
     if (activeItemIndex !== 0) {
-      setActiveItemIndex((prevIndex) => (prevIndex - 1) % images.length);
+      setActiveItemIndex((prevIndex) => (prevIndex - 1) % data.length);
     }
   };
 
@@ -45,24 +53,36 @@ const SlideShow: FC<SlideShowInterface> = ({ images, indicatorType, autoSlide = 
   };
 
   const nextButtonHandler = () => {
-    setActiveItemIndex((prevSlide) => (prevSlide + 1) % images.length);
+    setActiveItemIndex((prevSlide) => (prevSlide + 1) % data.length);
+  };
+
+  const redirectHandler = (productID: string) => {
+    if (!_.isEmpty(productID) && redirectOnClick) {
+      navigate(`/product/${productID}`);
+    }
   };
 
   return (
     <SlideShowSC>
       <SlideShowCardSC>
-        {!_.isEmpty(images) &&
-          images.map((image: string, index: number) => {
+        {!_.isEmpty(data) &&
+          data.map((item: SlideShowItemInterface, index: number) => {
             return (
               <SlideShowMediaSC
                 key={index}
-                image={image}
-                sx={{ transform: `translateY(-${activeItemIndex * 100}%)` }}
+                image={item.imgUrl}
+                sx={{
+                  transform: `translateY(-${activeItemIndex * 100}%)`,
+                  "&:hover": {
+                    cursor: `${redirectOnClick ? "pointer" : "auto"}`,
+                  },
+                }}
+                onClick={() => redirectHandler(item?._id ?? "")}
               />
             );
           })}
       </SlideShowCardSC>
-      {images.length > 1 && (
+      {data.length > 1 && (
         <SlideShowPaginationSC>
           <PrevButtonSC>
             <Button
@@ -75,8 +95,8 @@ const SlideShow: FC<SlideShowInterface> = ({ images, indicatorType, autoSlide = 
           </PrevButtonSC>
           {indicatorType === "dot" && (
             <SlideShowPaginationIndicatorStackSC direction="row" spacing={1}>
-              {!_.isEmpty(images) &&
-                images.map((image: string, index: number) => {
+              {!_.isEmpty(data) &&
+                data.map((item: SlideShowItemInterface, index: number) => {
                   if (index === activeItemIndex) {
                     return (
                       <SlideShowPaginationActiveIndicatorSC
@@ -96,7 +116,7 @@ const SlideShow: FC<SlideShowInterface> = ({ images, indicatorType, autoSlide = 
           )}
           {indicatorType === "number" && (
             <IndicatorTextSC variant="h5">
-              {activeItemIndex + 1}/{images.length}
+              {activeItemIndex + 1}/{data.length}
             </IndicatorTextSC>
           )}
           <NextButtonSC>

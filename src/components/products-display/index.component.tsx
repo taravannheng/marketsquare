@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { Box, Container, Grid, Typography } from "@mui/material";
 import _ from "lodash";
 import { v4 as uuidv4 } from "uuid";
@@ -19,6 +19,9 @@ import slideShowSample from "../../sample/slideshow/slideshow-sample";
 import { Pagination, Stack } from "@mui/material";
 import colors from "../../styles/colors";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { getSlideshow } from "../../apis/slideshows/slideshow.api";
+import SlideShowItemInterface from "../../interfaces/slideshow-item.interface";
+import { SLIDESHOWIDS } from "../../utils/constants";
 
 const theme = createTheme({
   palette: {
@@ -30,6 +33,9 @@ const theme = createTheme({
 
 const ProductsDisplay: FC<ProductsDisplayInterface> = ({ title, products }) => {
   const [currentPage, setCurrentPage] = useState(1);
+  const [slideshow, setSlideshow] = useState<SlideShowItemInterface[]>(
+    [] as SlideShowItemInterface[]
+  );
   const productsPerPage = 8;
   const totalPages = Math.ceil(products.length / productsPerPage);
   const startIndex = (currentPage - 1) * productsPerPage;
@@ -40,10 +46,27 @@ const ProductsDisplay: FC<ProductsDisplayInterface> = ({ title, products }) => {
     setCurrentPage(value);
   };
 
+  useEffect(() => {
+    const fetchSlideshow = async () => {
+      const response = await getSlideshow(SLIDESHOWIDS.LANDING);
+
+      if (!_.isEmpty(response.data)) {
+        setSlideshow(response.data.items);
+      }
+    };
+
+    fetchSlideshow();
+  }, []);
+
   return (
     <ProductsDisplaySC>
       <SlideShowContainerSC>
-        <SlideShow indicatorType="dot" images={slideShowSample} autoSlide />
+        <SlideShow
+          indicatorType="dot"
+          data={!_.isEmpty(slideshow) ? slideshow : []}
+          autoSlide
+          redirectOnClick
+        />
       </SlideShowContainerSC>
       {!_.isEmpty(title) && (
         <ProductsDisplayTitleSC variant="h5">{title}</ProductsDisplayTitleSC>
@@ -75,7 +98,7 @@ const ProductsDisplay: FC<ProductsDisplayInterface> = ({ title, products }) => {
           No products...
         </ProductsDisplayEmptyTextSC>
       )}
-      <ProductCategory title="Shop by Brands" images={slideShowSample} />
+      {/* <ProductCategory title="Shop by Brands" images={[]} /> */}
     </ProductsDisplaySC>
   );
 };
