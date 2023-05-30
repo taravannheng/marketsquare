@@ -1,4 +1,5 @@
 import { FC, useContext, useEffect } from "react";
+import _ from "lodash";
 
 import Header from "../../components/header/index.component";
 import ProductsDisplay from "../../components/products-display/index.component";
@@ -18,12 +19,18 @@ const LandingPage: FC = () => {
 
       const responseData = response.data;
 
-      const convertedResponse = responseData.map((obj: any) => {
-        const price = parseFloat(obj.price);
-        return { ...obj, price };
-      });
-
-      setProducts(convertedResponse);
+      if (!_.isEmpty(responseData)) {
+        const convertedResponse = responseData.map((obj: any) => {
+          const price = parseFloat(obj.price);
+          return { ...obj, price };
+        });
+  
+        setProducts(convertedResponse);
+      }
+      
+      if (_.isEmpty(responseData)) {
+        setProducts(null);
+      }
     };
 
     fetchProducts();
