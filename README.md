@@ -3,7 +3,8 @@
 
 A full stack e-commerce website.
 
-check out the design on [Dribbble]()
+check out the design on [Dribbble](https://dribbble.com/shots/21591624-Marketsquare)
+backend repo [Backend Repo](https://github.com/taravannheng/marketsquare-backend)
 
 
 ## Functionalities
@@ -23,7 +24,7 @@ Technologies used for this project:
 
 #### Frontend
 
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg" height="16" width="16" /> &nbsp; &nbsp; React
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" height="16" width="16" /> &nbsp; &nbsp; ReactJS
 
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" height="16" width="16" /> &nbsp; &nbsp; TypeScript
 

@@ -8,6 +8,7 @@ export const NavigationMenuItemSC = styled(Box)`
   align-items: center;
   width: clamp(100%, 100%, 100%);
   height: clamp(100%, 100%, 100%);
+  overflow: hidden;
 `;
 
 export const MenuSC = styled(Button)`
@@ -38,6 +39,8 @@ export const SubMenuSC = styled(Box)`
   left: 0;
   z-index: 1000;
   display: flex;
+  justify-content: center;
+  width: clamp(100vw, 100vw, 100vw) !important;
   padding: 24px;
   background-color: ${colors.lightest} !important;
   overflow: hidden;
@@ -48,18 +51,24 @@ export const SubMenuMediaSC = styled(CardMedia)`
   width: 25vw;
 `;
 
-export const CategoryContainerSC = styled(Box)`
+export const CategoryContainerSC = styled(Stack)`
   display: flex;
-  margin-right: 56px;
 `;
 
 export const CategorySC = styled(Box)`
-  flex: 1;
-  margin-right: 56px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 200px;
   overflow: hidden;
 `;
 
-export const CategoryItemSC = styled(Box)``;
+export const CategoryItemSC = styled(Box)`
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+`;
 
 export const CategoryItemTitleSC = styled(Typography)`
   color: ${colors.darkest} !important;
