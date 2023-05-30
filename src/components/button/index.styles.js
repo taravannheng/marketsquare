@@ -20,6 +20,10 @@ export const ButtonSC = styled(Button)`
     background-color: ${colors.primary} !important;
   }
 
+  &:hover > * {
+    color: ${colors.lightest} !important;
+  }
+
   &:active {
     background-color: ${colors.darkPrimary} !important;
   }
