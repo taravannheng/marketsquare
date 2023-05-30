@@ -6,6 +6,7 @@ import { v4 as uuidv4 } from "uuid";
 import ProductCard from "../product-card/index.component";
 import SlideShow from "../slideshow/index.component";
 import ProductCategory from "../product-category/index.component";
+import ProgressIndicator from "../progress-indicator/index.component";
 import ProductsDisplayInterface from "./index.interface";
 import ProductInterface from "../../interfaces/product-interface";
 import {
