@@ -19,7 +19,9 @@ import slideShowSample from "../../sample/slideshow/slideshow-sample";
 import { Pagination, Stack } from "@mui/material";
 import colors from "../../styles/colors";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import ProgressIndicator from "../progress-indicator/index.component";
+import { getSlideshow } from "../../apis/slideshows/slideshow.api";
+import SlideShowItemInterface from "../../interfaces/slideshow-item.interface";
+import { SLIDESHOWIDS } from "../../utils/constants";
 
 const theme = createTheme({
   palette: {
@@ -32,6 +34,9 @@ const theme = createTheme({
 const ProductsDisplay: FC<ProductsDisplayInterface> = ({ title, products }) => {
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
+  const [slideshow, setSlideshow] = useState<SlideShowItemInterface[]>(
+    [] as SlideShowItemInterface[]
+  );
   const productsPerPage = 8;
   let totalPages = !_.isEmpty(products) ? Math.ceil(products.length / productsPerPage) : 0;
   const startIndex = (currentPage - 1) * productsPerPage;
@@ -48,10 +53,27 @@ const ProductsDisplay: FC<ProductsDisplayInterface> = ({ title, products }) => {
     setCurrentPage(value);
   };
 
+  useEffect(() => {
+    const fetchSlideshow = async () => {
+      const response = await getSlideshow(SLIDESHOWIDS.LANDING);
+
+      if (!_.isEmpty(response.data)) {
+        setSlideshow(response.data.items);
+      }
+    };
+
+    fetchSlideshow();
+  }, []);
+
   return (
     <ProductsDisplaySC>
       <SlideShowContainerSC>
-        <SlideShow indicatorType="dot" images={slideShowSample} autoSlide />
+        <SlideShow
+          indicatorType="dot"
+          data={!_.isEmpty(slideshow) ? slideshow : []}
+          autoSlide
+          redirectOnClick
+        />
       </SlideShowContainerSC>
       {!_.isEmpty(title) && (
         <ProductsDisplayTitleSC variant="h5">{title}</ProductsDisplayTitleSC>
@@ -89,7 +111,7 @@ const ProductsDisplay: FC<ProductsDisplayInterface> = ({ title, products }) => {
           No products...
         </ProductsDisplayEmptyTextSC>
       )}
-      <ProductCategory title="Shop by Brands" images={slideShowSample} />
+      {/* <ProductCategory title="Shop by Brands" images={[]} /> */}
     </ProductsDisplaySC>
   );
 };
