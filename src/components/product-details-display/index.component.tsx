@@ -1,5 +1,6 @@
 import { FC, useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { useMediaQuery } from "@mui/material";
 import { ArrowBackIosRounded } from "@mui/icons-material";
 import _ from "lodash";
 
@@ -23,9 +24,13 @@ import {
 const ProductDetailsDisplay: FC<ProductDetailsDisplayInterface> = ({
   product,
 }) => {
+  const isSmallScreen = useMediaQuery("(max-width: 1080px)");
   const navigate = useNavigate();
   const { cart, setCart } = useContext(CartContext);
   const [isAddedToCart, setIsAddedToCart] = useState(false);
+  const slideshowData = !_.isEmpty(product)
+    ? product.imgUrls.map((imgUrl: string) => ({ imgUrl }))
+    : [];
 
   const goBack = () => {
     navigate(-1);
@@ -87,7 +92,12 @@ const ProductDetailsDisplay: FC<ProductDetailsDisplayInterface> = ({
           </BackNavSC>
           <BodySC>
             <SlideShowContainerSC>
-              <SlideShow indicatorType="number" images={product.imgUrls} />
+              {isSmallScreen && (
+                <SlideShow indicatorType="dot" data={slideshowData} />
+              )}
+              {!isSmallScreen && (
+                <SlideShow indicatorType="number" data={slideshowData} />
+              )}
             </SlideShowContainerSC>
             <DetailsContainerSC>
               <ProductNameSC>{product.name}</ProductNameSC>

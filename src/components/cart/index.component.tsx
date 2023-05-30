@@ -29,6 +29,7 @@ import { checkout } from "../../apis/payments/payment";
 
 const Cart: FC<CartProps> = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [checkoutButtonIsLoading, setCheckoutButtonIsLoading] = useState(false);
   const { cart, setCart } = useContext(CartContext);
 
   const getCartTotal = (cart: ProductInterface[]) => {
@@ -43,6 +44,7 @@ const Cart: FC<CartProps> = () => {
   };
 
   const checkoutHandler = async () => {
+    setCheckoutButtonIsLoading(true);
     const response = await checkout(cart);
     const url = response.data.url;
     window.location.href = url;
@@ -101,6 +103,7 @@ const Cart: FC<CartProps> = () => {
                 label="Checkout"
                 type="default"
                 clickHandler={checkoutHandler}
+                isLoading={checkoutButtonIsLoading}
               />
             </>
           )}
