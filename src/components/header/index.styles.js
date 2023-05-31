@@ -16,7 +16,11 @@ export const ToolbarSC = styled(Toolbar)`
   width: clamp(100%, 100%, 100%);
   height: clamp(100px, 100px, 100px);
   border-bottom: 1px solid ${colors.light};
-  padding: 0 58px;
+  padding: 0 24px !important;
   background-color: ${colors.lightest};
   box-shadow: none;
+
+  @media only screen and (min-width: 1080px) {
+    padding: 0 48px !important;
+  }
 `;
