@@ -24,7 +24,6 @@ import {
 import CartContext from "../../contexts/cart-context";
 import ProductInterface from "../../interfaces/product-interface";
 import CartProps from "./index.interface";
-import Logo from "../../assets/logos/logo-transparent.png";
 import { checkout } from "../../apis/payments/payment";
 
 const Cart: FC<CartProps> = () => {
@@ -48,7 +47,7 @@ const Cart: FC<CartProps> = () => {
     const response = await checkout(cart);
     const url = response.data.url;
     window.location.href = url;
-  }
+  };
 
   // drawer handler
 
@@ -72,7 +71,12 @@ const Cart: FC<CartProps> = () => {
       <Drawer anchor="right" open={isDrawerOpen} onClose={handleDrawerClose}>
         <CartSC>
           <LogoContainerSC>
-            <img src={Logo} alt="logo" width="64px" height="64px" />
+            <img
+              src="https://firebasestorage.googleapis.com/v0/b/marketsquare-62b8e.appspot.com/o/logos%2Flogo-transparent.svg?alt=media&token=251c1267-68e9-49bf-b04e-c6519ab85019&_gl=1*1rzqx3t*_ga*MTcyMjg1OTQuMTY4NTMxNjU0MA..*_ga_CW55HF8NVT*MTY4NTU2MTAwMC40LjEuMTY4NTU2MTE1OS4wLjAuMA.."
+              alt="logo"
+              width="64px"
+              height="64px"
+            />
           </LogoContainerSC>
           <TitleContainerSC>
             <IconButtonSC onClick={handleDrawerClose}>
