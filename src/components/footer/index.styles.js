@@ -117,7 +117,7 @@ export const UtilityLinkTitleSC = styled(Typography)`
 
   @media only screen and (min-width: 1080px) {
     margin-bottom: 20px !important;
-    color: ${colors.dark} !important;
+    color: ${colors.darkest} !important;
   }
 `;
 
@@ -136,7 +136,7 @@ export const UtilityLinkSC = styled(Link)`
   }
 
   @media only screen and (min-width: 1080px) {
-    color: ${colors.darkGrey} !important;
+    color: ${colors.dark} !important;
 
     &:hover {
       color: ${colors.primary} !important;

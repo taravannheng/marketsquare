@@ -1,12 +1,14 @@
 import { FC } from 'react'
 import { CircularProgress } from '@mui/material'
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+
 import ProgressIndicatorInterface from './index.interface';
+import colors from '../../styles/colors';
 
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#758AE3",
+      main: `${colors.primary}`,
     },
   },
 });
