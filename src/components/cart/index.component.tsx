@@ -20,6 +20,8 @@ import {
   LogoContainerSC,
   TitleContainerSC,
   IconButtonSC,
+  CheckoutContainerSC,
+  DrawerSC,
 } from "./index.styles";
 import CartContext from "../../contexts/cart-context";
 import ProductInterface from "../../interfaces/product-interface";
@@ -69,7 +71,7 @@ const Cart: FC<CartProps> = () => {
         </Icon>
       </CartButtonSC>
 
-      <Drawer anchor="right" open={isDrawerOpen} onClose={handleDrawerClose}>
+      <DrawerSC anchor="right" open={isDrawerOpen} onClose={handleDrawerClose}>
         <CartSC>
           <LogoContainerSC>
             <img src={Logo} alt="logo" width="64px" height="64px" />
@@ -91,7 +93,7 @@ const Cart: FC<CartProps> = () => {
               );
             })}
           {!_.isEmpty(cart) && (
-            <>
+            <CheckoutContainerSC>
               <TotalContainerSC>
                 <TotalLabelSC variant="body1">Total:</TotalLabelSC>
                 <TotalTextSC variant="body1">${getCartTotal(cart)}</TotalTextSC>
@@ -105,13 +107,13 @@ const Cart: FC<CartProps> = () => {
                 clickHandler={checkoutHandler}
                 isLoading={checkoutButtonIsLoading}
               />
-            </>
+            </CheckoutContainerSC>
           )}
           {_.isEmpty(cart) && (
             <EmptyCartTextSC>Cart is empty...</EmptyCartTextSC>
           )}
         </CartSC>
-      </Drawer>
+      </DrawerSC>
     </Box>
   );
 };
