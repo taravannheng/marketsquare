@@ -101,7 +101,7 @@ export const EmptyCartTextSC = styled(Typography)`
 // ---------------------------------------------------
 
 export const CartSC = styled(Box)`
-  padding: 56px 24px 0 24px;
+  padding: 48px 24px;
   width: clamp(360px, 360px, 360px);
   height: auto;
   background-color: ${colors.lightest};
