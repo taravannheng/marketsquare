@@ -22,6 +22,7 @@ import {
   AddToCartIconButtonSC,
   DefaultButtonContainerSC,
 } from "./index.styles";
+import { formatPrice } from "../../utils/helpers";
 
 const ProductCard: FC<ProductCardInterface> = ({
   imgUrls,
@@ -103,7 +104,7 @@ const ProductCard: FC<ProductCardInterface> = ({
               {name}
             </ProductNameSC>
             <ProductPriceBigCardSC variant="body1" color="text.primary">
-              ${price}
+              ${formatPrice(price)}
             </ProductPriceBigCardSC>
           </ProductContentHeaderSC>
           <ProductContentBodySC>
@@ -112,7 +113,7 @@ const ProductCard: FC<ProductCardInterface> = ({
               variant="body1"
               color="text.primary"
             >
-              ${price}
+              ${formatPrice(price)}
             </ProductPriceSmallCardSC>
             <ProductDescriptionSC
               onClick={showDetailsHandler}

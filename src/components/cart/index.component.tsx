@@ -26,6 +26,7 @@ import ProductInterface from "../../interfaces/product-interface";
 import CartProps from "./index.interface";
 import Logo from "../../assets/logos/logo-transparent.png";
 import { checkout } from "../../apis/payments/payment";
+import { formatPrice } from "../../utils/helpers";
 
 const Cart: FC<CartProps> = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -40,7 +41,7 @@ const Cart: FC<CartProps> = () => {
       total += price * quantity;
     }
 
-    return total.toFixed(2);
+    return formatPrice(total);
   };
 
   const checkoutHandler = async () => {
