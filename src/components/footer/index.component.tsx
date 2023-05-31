@@ -28,8 +28,6 @@ import {
   AccordionDetailsSC,
   UtilityLinkAccordionContainerSC,
 } from "./index.styles";
-import Logo from "../../assets/logos/logo-filled.png";
-import LogoWhite from "../../assets/logos/logo-white.png";
 import FacebookLogo from "../../assets/socials/social-facebook.png";
 import InstagramLogo from "../../assets/socials/social-instagram.png";
 import LinkedinLogo from "../../assets/socials/social-linkedin.png";
@@ -43,9 +41,9 @@ const Footer: FC<FooterInterface> = ({ footerItems }) => {
       <SmallFooterSC>
         <Link href={ROUTES.LANDING}>
           <SmallFooterLogoSC
-            image={LogoWhite}
+            image="https://firebasestorage.googleapis.com/v0/b/marketsquare-62b8e.appspot.com/o/logos%2Flogo-vertical-white.svg?alt=media&token=79a0c5c5-a0b1-4d4a-8c66-6cabf2bc4114&_gl=1*et3hay*_ga*MTcyMjg1OTQuMTY4NTMxNjU0MA..*_ga_CW55HF8NVT*MTY4NTU2MTAwMC40LjEuMTY4NTU2MTY0MS4wLjAuMA.."
             title="logo"
-            sx={{ maxHeight: 64 }}
+            sx={{ maxHeight: 80 }}
           />
         </Link>
         <UtilityLinkAccordionContainerSC>
@@ -118,7 +116,7 @@ const Footer: FC<FooterInterface> = ({ footerItems }) => {
       <LargeFooterSC>
         <FooterLeftContainerSC>
           <Link href={ROUTES.LANDING}>
-            <FooterLogoSC image={Logo} title="logo" sx={{ maxHeight: 240 }} />
+            <FooterLogoSC image="https://firebasestorage.googleapis.com/v0/b/marketsquare-62b8e.appspot.com/o/logos%2Flogo-filled.svg?alt=media&token=6be32793-a8ba-4671-a66f-dd528d5cb523&_gl=1*axn6yg*_ga*MTcyMjg1OTQuMTY4NTMxNjU0MA..*_ga_CW55HF8NVT*MTY4NTU2MTAwMC40LjEuMTY4NTU2MTM5MC4wLjAuMA.." title="logo" sx={{ maxHeight: 240 }} />
           </Link>
           <FooterLeftContent>
             <FooterCopyright variant="body1">

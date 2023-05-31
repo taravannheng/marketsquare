@@ -12,7 +12,7 @@ export const SmallFooterSC = styled(Box)`
   flex-direction: column;
   align-items: center;
   padding: 40px 24px 24px 24px;
-  background-color: ${colors.primary};
+  background-color: ${colors.darkPrimary};
 
   @media only screen and (min-width: 1080px) {
     display: none;
@@ -20,8 +20,8 @@ export const SmallFooterSC = styled(Box)`
 `;
 
 export const SmallFooterLogoSC = styled(CardMedia)`
-  width: clamp(175px, 175px, 175px);
-  height: clamp(64px, 64px, 64px);
+  width: clamp(184px, 184px, 184px);
+  height: clamp(80px, 80px, 80px);
   margin-bottom: 40px;
 `;
 
@@ -64,7 +64,7 @@ export const FooterLeftContainerSC = styled(Card)`
   align-items: center;
   width: clamp(330px, 330px, 330px) !important;
   height: clamp(100%, 100%, 100%);
-  background-color: ${colors.primary} !important;
+  background-color: ${colors.darkPrimary} !important;
   box-shadow: none !important;
   border-radius: none;
 `;

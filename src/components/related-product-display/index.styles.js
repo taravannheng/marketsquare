@@ -17,7 +17,7 @@ export const TitleSC = styled(Typography)`
 `
 
 export const StackSC = styled(Stack)`
-
+  max-width: 440px;
 `
 
 export const EmptyTextSC = styled(Typography)`
