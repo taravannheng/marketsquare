@@ -92,9 +92,9 @@ export const ProductDescriptionSC = styled(Typography)`
 
 export const ProductPriceBigCardSC = styled(Typography)`
   display: none;
-  width: clamp(66px, 66px, 66px);
+  width: auto !important;
   height: clamp(24px, 24px, 24px);
-  padding: 0;
+  padding: 0 12px;
   border-radius: 1000px;
   border: 1px solid ${colors.light};
   margin: 0;
@@ -113,7 +113,8 @@ export const ProductPriceSmallCardSC = styled(Typography)`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: clamp(66px, 66px, 66px);
+  width: auto !important;
+  max-width: 80px;
   height: clamp(24px, 24px, 24px);
   padding: 0;
   border-radius: 1000px;
