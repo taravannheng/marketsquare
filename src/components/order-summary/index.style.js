@@ -14,7 +14,7 @@ export const ContentSC = styled(Box)`
 
 export const TitleSC = styled(Typography)`
   margin-bottom: 16px;
-  color: ${colors.dark} !important;
+  color: ${colors.darkest} !important;
   font-size: ${typography.h5.fontSize} !important;
   font-weight: ${typography.h5.fontWeight} !important;
 
@@ -47,7 +47,7 @@ export const TotalAmountSC = styled(Typography)`
 `;
 
 export const EmptyContentSC = styled(Typography)`
-  color: ${colors.darkest} !important;
+  color: ${colors.dark} !important;
   font-size: ${typography.body2.fontSize} !important;
   font-weight: ${typography.body2.fontWeight} !important;
 `;

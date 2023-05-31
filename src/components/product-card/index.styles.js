@@ -98,7 +98,7 @@ export const ProductPriceBigCardSC = styled(Typography)`
   border-radius: 1000px;
   border: 1px solid ${colors.light};
   margin: 0;
-  color: ${colors.mediumGrey} !important;
+  color: ${colors.dark} !important;
   font-size: ${typography.h6.fontSize} !important;
   font-weight: ${typography.h6.fontWeight} !important;
 
@@ -119,7 +119,7 @@ export const ProductPriceSmallCardSC = styled(Typography)`
   border-radius: 1000px;
   border: 1px solid ${colors.light};
   margin: 0;
-  color: ${colors.mediumGrey} !important;
+  color: ${colors.dark} !important;
   font-size: ${typography.h6.fontSize} !important;
   font-weight: ${typography.h6.fontWeight} !important;
 
@@ -149,15 +149,11 @@ transition: background-color 0.3s linear;
   background-color: ${colors.primary} !important;
 }
 
-&:active {
-  background-color: ${colors.darkPrimary} !important;
-}
-
 & > svg {
   width: 24px;
   height: 24px;
   font-size: ${typography.h5.fontSize}
-  color: ${colors.mediumGrey};
+  color: ${colors.grey};
 }
 
 &:hover > svg {
@@ -174,7 +170,7 @@ export const AddToCartButtonSC = styled(Button)`
   display: none !important;
   font-size: ${typography.h6.fontSize} !important;
   font-weight: ${typography.h6.fontWeight} !important;
-  color: ${colors.mediumGrey} !important;
+  color: ${colors.grey} !important;
   background-color: ${colors.light} !important;
   box-shadow: none !important;
   transition: background-color 0.3s linear;
@@ -182,10 +178,6 @@ export const AddToCartButtonSC = styled(Button)`
   &:hover {
     color: ${colors.lightest} !important;
     background-color: ${colors.primary} !important;
-  }
-
-  &:active {
-    background-color: ${colors.darkPrimary} !important;
   }
 
   @media only screen and (min-width: 640px) {
@@ -205,10 +197,6 @@ export const RemoveFromCartButtonSC = styled(Button)`
   &:hover {
     color: ${colors.lightest} !important;
     background-color: ${colors.primary} !important;
-  }
-
-  &:active {
-    background-color: ${colors.darkPrimary} !important;
   }
 
   @media only screen and (min-width: 640px) {

@@ -27,7 +27,7 @@ export const ContentSC = styled(CardContent)`
 `;
 
 export const ReviewerSC = styled(Typography)`
-  color: ${colors.dark} !important;
+  color: ${colors.darkest} !important;
   font-size: ${typography.h5.fontSize} !important;
   font-weight: ${typography.h5.fontWeight} !important;
 `;
@@ -37,7 +37,7 @@ export const CommentSC = styled(Typography)`
   max-height: 96px !important;
   overflow-x: hidden;
   overflow-y: scroll;
-  color: ${colors.darkGrey};
+  color: ${colors.dark};
   font-size: ${typography.body2.fontSize} !important;
   font-weight: ${typography.body2.fontWeight} !important;
 `;

@@ -27,7 +27,7 @@ import { SLIDESHOWIDS } from "../../utils/constants";
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#758AE3",
+      main: `${colors.primary}`,
     },
   },
 });

@@ -42,7 +42,7 @@ export const ItemSubTotalSC = styled(Typography)`
   margin-bottom: 10px !important;
   font-size: ${typography.h6.fontSize} !important;
   font-weight: ${typography.h6.fontWeight} !important;
-  color: ${colors.darkGrey};
+  color: ${colors.dark};
 `;
 
 export const ControlContainerSC = styled(Box)`
@@ -82,7 +82,7 @@ transition: background-color 0.3s linear;
   width: 16px;
   height: 16px;
   font-size: ${typography.h5.fontSize}
-  color: ${colors.mediumGrey};
+  color: ${colors.grey};
 }
 
 &:hover > svg {
@@ -91,7 +91,7 @@ transition: background-color 0.3s linear;
 `;
 
 export const QuantityTextSC = styled(Typography)`
-  color: ${colors.darkest} !important;
+  color: ${colors.dark} !important;
   font-size: ${typography.body1.fontSize};
   font-weight: ${typography.body1.fontWeight};
 `;
@@ -114,7 +114,7 @@ transition: background-color 0.3s linear;
   width: 16px;
   height: 16px;
   font-size: ${typography.h5.fontSize}
-  color: ${colors.mediumGrey};
+  color: ${colors.grey};
 }
 
 &:hover > svg {
@@ -140,7 +140,7 @@ transition: background-color 0.3s linear;
   width: 16px;
   height: 16px;
   font-size: ${typography.h5.fontSize}
-  color: ${colors.mediumGrey};
+  color: ${colors.grey};
 }
 
 &:hover > svg {
