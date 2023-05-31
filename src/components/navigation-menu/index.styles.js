@@ -11,7 +11,7 @@ export const NavigationMenuSC = styled(Box)`
   align-items: center;
   height: clamp(64px, 64px, 64px);
   padding: 0 24px;
-  border: 1px solid ${colors.light};
+  border-bottom: 1px solid ${colors.light};
   background-color: ${colors.lightest};
   color: ${colors.darkest};
 
