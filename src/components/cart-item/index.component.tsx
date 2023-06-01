@@ -17,6 +17,7 @@ import {
 import CartContext from "../../contexts/cart-context";
 import ProductInterface from "../../interfaces/product-interface";
 import CartItemProps from "./index.interface";
+import { formatPrice } from "../../utils/helpers";
 
 const CartItem: FC<CartItemProps> = ({ item, closeCartHandler }) => {
   const { cart, setCart } = useContext(CartContext);
@@ -69,7 +70,7 @@ const CartItem: FC<CartItemProps> = ({ item, closeCartHandler }) => {
       <CartItemContentSC>
         <ItemNameSC variant="h6">{item.name}</ItemNameSC>
         <ItemSubTotalSC variant="subtitle1">
-          ${(item.price * item.quantity).toFixed(2)}
+          ${formatPrice((item.price * item.quantity))}
         </ItemSubTotalSC>
         <ControlContainerSC>
           <QuantityContainerSC>
