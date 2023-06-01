@@ -69,7 +69,7 @@ const ProductDetailsPage: FC = () => {
     const fetchRelatedProductIDs = async () => {
       const response = await getRelatedProducts(productID);
 
-      const relatedProductIDs = response.data[0].products;
+      const relatedProductIDs = response?.data[0]?.products ?? null;
 
       return relatedProductIDs;
     };
@@ -86,10 +86,15 @@ const ProductDetailsPage: FC = () => {
             return { ...obj, price };
           });
 
-          setRelatedProducts(convertedResponse);
+          //  remove if related product has the same id
+          const relatedProductsData = convertedResponse.filter((item: any) => item._id === product._id)
+          
+          setRelatedProducts(relatedProductsData);
         };
 
-        fetchMultipleProducts();
+        if (!_.isEmpty(result)) {
+          fetchMultipleProducts();
+        }
       })
       .catch((error) => console.error(error));
   }, [productID]);
