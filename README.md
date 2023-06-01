@@ -1,9 +1,14 @@
+<div align="center">
+  <img src="https://firebasestorage.googleapis.com/v0/b/marketsquare-62b8e.appspot.com/o/logos%2Flogo-horizontal.png?alt=media&token=ee9b57d6-ec00-4dff-a683-d015f3db9ea3&_gl=1*1jyrwog*_ga*MTcyMjg1OTQuMTY4NTMxNjU0MA..*_ga_CW55HF8NVT*MTY4NTUyMDM2NS4yLjEuMTY4NTUyMDQ4My4wLjAuMA..">
+</div>
+
 
 # Marketsquare
 
 A full stack e-commerce website.
 
 check out the design on [Dribbble](https://dribbble.com/shots/21591624-Marketsquare)
+
 backend repo [Backend Repo](https://github.com/taravannheng/marketsquare-backend)
 
 
