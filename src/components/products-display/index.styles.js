@@ -7,29 +7,29 @@ import typography from "../../styles/typography";
 export const ProductsDisplaySC = styled(Box)`
   width: clamp(100%, 100%, 100%);
   flex: 1;
-  padding: 64px 24px !important;
+  padding: 48px 24px 80px 24px !important;
   margin: 0 !important;
 
-  @media only screen and (min-width: 640px) {
-    padding: 0 58px;
+  @media only screen and (min-width: 1080px) {
+    padding: 80px 48px !important;
   }
 `
 
 export const SlideShowContainerSC = styled(Box)`
   width: clamp(100%, 100%, 100%);
   height: clamp(240px, 240px, 240px);
-  margin-bottom: 40px !important;
+  margin-bottom: 24px !important;
 
   @media only screen and (min-width: 624px) {
     width: clamp(100%, 100%, 100%);
     height: clamp(400px, 400px, 400px);
-    margin-bottom: 80px !important;
+    margin-bottom: 48px !important;
   }
 
   @media only screen and (min-width: 1080px) {
     width: clamp(100%, 100%, 100%);
     height: clamp(640px, 640px, 640px);
-    margin-bottom: 120px !important;
+    margin-bottom: 80px !important;
   }
 `
 
