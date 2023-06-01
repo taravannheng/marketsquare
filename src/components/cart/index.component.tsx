@@ -26,8 +26,8 @@ import {
 import CartContext from "../../contexts/cart-context";
 import ProductInterface from "../../interfaces/product-interface";
 import CartProps from "./index.interface";
-import { checkout } from "../../apis/payments/payment";
 import { formatPrice } from "../../utils/helpers";
+import { createCart } from "../../apis/carts/cart.api";
 
 const Cart: FC<CartProps> = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -47,7 +47,7 @@ const Cart: FC<CartProps> = () => {
 
   const checkoutHandler = async () => {
     setCheckoutButtonIsLoading(true);
-    const response = await checkout(cart);
+    const response = await createCart(cart);
     const url = response.data.url;
     window.location.href = url;
   };
