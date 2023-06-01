@@ -75,7 +75,7 @@ export const EmptyBodySC = styled(Box)`
 `
 
 export const EmptyTextSC = styled(Typography)`
-  color: ${colors.darkest} !important;
-  font-size: ${typography.body1.fontSize} !important;
-  font-weight: ${typography.body1.fontWeight} !important;
+  color: ${colors.dark} !important;
+  font-size: ${typography.body.fontSize} !important;
+  font-weight: ${typography.body.fontWeight} !important;
 `
