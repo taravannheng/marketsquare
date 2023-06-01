@@ -43,7 +43,6 @@ export const CartCounterSC = styled(Box)`
   border-radius: 1000px;
   color: ${colors.primary};
   background-color: ${colors.lightest};
-  font-family: ${typography.h5.fontFamily};
   font-weight: ${typography.h5.fontWeight};
   font-size: ${typography.h5.fontSize};
 `;
@@ -93,9 +92,8 @@ export const EmptyCartTextSC = styled(Typography)`
   font-weight: 400px;
   color: inherit;
   text-align: center;
-  font-size: ${typography.body1.fontSize} !important;
-  font-weight: ${typography.body1.fontWeight} !important;
-  font-family: ${typography.body1.fontFamily} !important;
+  font-size: ${typography.body.fontSize} !important;
+  font-weight: ${typography.body.fontWeight} !important;
 `;
 
 // ---------------------------------------------------
@@ -158,5 +156,4 @@ export const IconButtonSC = styled(IconButton)`
 export const CartTitleSC = styled(Typography)`
   font-size: ${typography.h2.fontSize} !important;
   font-weight: ${typography.h2.fontWeight} !important;
-  font-family: ${typography.h2.fontFamily} !important;
 `;

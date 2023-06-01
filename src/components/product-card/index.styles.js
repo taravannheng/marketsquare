@@ -70,8 +70,8 @@ export const ProductNameSC = styled(Typography)`
   text-overflow: ellipsis;
 
   @media only screen and (min-width: 1080px) {
-    font-size: ${typography.h4.fontSize} !important;
-    font-weight: ${typography.h4.fontWeight} !important;
+    font-size: ${typography.h5.fontSize} !important;
+    font-weight: ${typography.h5.fontWeight} !important;
   }
 `;
 
@@ -99,8 +99,8 @@ export const ProductPriceBigCardSC = styled(Typography)`
   border: 1px solid ${colors.light};
   margin: 0;
   color: ${colors.mediumGrey} !important;
-  font-size: ${typography.h6.fontSize} !important;
-  font-weight: ${typography.h6.fontWeight} !important;
+  font-size: ${typography.body.fontSize} !important;
+  font-weight: ${typography.body.fontWeight} !important;
 
   @media only screen and (min-width: 640px) {
     display: flex;
@@ -120,8 +120,8 @@ export const ProductPriceSmallCardSC = styled(Typography)`
   border: 1px solid ${colors.light};
   margin: 0;
   color: ${colors.mediumGrey} !important;
-  font-size: ${typography.h6.fontSize} !important;
-  font-weight: ${typography.h6.fontWeight} !important;
+  font-size: ${typography.body.fontSize} !important;
+  font-weight: ${typography.body.fontWeight} !important;
 
   @media only screen and (min-width: 640px) {
     display: none;
@@ -172,8 +172,8 @@ transition: background-color 0.3s linear;
 
 export const AddToCartButtonSC = styled(Button)`
   display: none !important;
-  font-size: ${typography.h6.fontSize} !important;
-  font-weight: ${typography.h6.fontWeight} !important;
+  font-size: ${typography.h5.fontSize} !important;
+  font-weight: ${typography.h5.fontWeight} !important;
   color: ${colors.mediumGrey} !important;
   background-color: ${colors.light} !important;
   box-shadow: none !important;
@@ -195,8 +195,8 @@ export const AddToCartButtonSC = styled(Button)`
 
 export const RemoveFromCartButtonSC = styled(Button)`
   display: none !important;
-  font-size: ${typography.h6.fontSize} !important;
-  font-weight: ${typography.h6.fontWeight} !important;
+  font-size: ${typography.h5.fontSize} !important;
+  font-weight: ${typography.h5.fontWeight} !important;
   color: ${colors.lightest} !important;
   background-color: ${colors.primary} !important;
   box-shadow: none !important;

@@ -29,8 +29,8 @@ export const MenuSC = styled(Button)`
 
 export const MenuTextSC = styled(Typography)`
   transition: all 0.3s ease;
-  font-size: ${typography.body1.fontSize} !important;
-  font-weight: ${typography.body1.fontWeight} !important;
+  font-size: ${typography.body.fontSize} !important;
+  font-weight: ${typography.body.fontWeight} !important;
 `;
 
 export const SubMenuSC = styled(Box)`
@@ -80,8 +80,8 @@ export const CategoryItemTitleSC = styled(Typography)`
 export const CategoryItemStackSC = styled(Stack)``;
 
 export const LinkSC = styled(Link)`
-  font-size: ${typography.body1.fontSize} !important;
-  font-weight: ${typography.body1.fontWeight} !important;
+  font-size: ${typography.body.fontSize} !important;
+  font-weight: ${typography.body.fontWeight} !important;
   text-decoration: none !important;
   color: ${colors.darkest} !important;
 
