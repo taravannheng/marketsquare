@@ -100,9 +100,10 @@ const Cart: FC<CartProps> = () => {
                 <TotalTextSC variant="body1">${getCartTotal(cart)}</TotalTextSC>
               </TotalContainerSC>
               <Button
+                boldLabel
                 uppercaseLabel
-                labelColor="#414554"
-                backgroundColor="#E7E8EA"
+                labelColor="#12162A"
+                backgroundColor="#F2F2F2"
                 label="Checkout"
                 type="default"
                 clickHandler={checkoutHandler}

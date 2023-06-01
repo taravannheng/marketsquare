@@ -26,12 +26,10 @@ export const TitleSC = styled(Typography)`
   color: ${colors.darkest} !important;
   font-size: ${typography.h2.fontSize} !important;
   font-weight: ${typography.h2.fontWeight} !important;
-  font-family: ${typography.h2.fontFamily} !important;
 
   @media only screen and (min-width: 640px) {
     font-size: ${typography.h1.fontSize} !important;
     font-weight: ${typography.h1.fontWeight} !important;
-    font-family: ${typography.h1.fontFamily} !important;
   }
 `
 
