@@ -12,6 +12,7 @@ import {
 
 import colors from "../../styles/colors";
 import typography from "../../styles/typography";
+import Rating from "../rating/index.component";
 
 export const ProductCardSC = styled(Card)`
   display: flex;
@@ -75,20 +76,8 @@ export const ProductNameSC = styled(Typography)`
   }
 `;
 
-export const ProductDescriptionSC = styled(Typography)`
-  display: none;
-  min-width: 150px;
-  width: 100%;
-  max-height: 96px;
-  line-height: 24px !important;
-  text-align: justify;
-  overflow-x: hidden;
-
-  @media only screen and (min-width: 640px) {
-    display: block !important;
-    margin-top: 16px !important;
-  }
-`;
+export const RatingSC = styled(Rating)`
+`
 
 export const ProductPriceBigCardSC = styled(Typography)`
   display: none;

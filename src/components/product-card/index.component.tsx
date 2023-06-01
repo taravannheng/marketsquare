@@ -1,7 +1,7 @@
 import { FC, useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import _ from "lodash";
-import { Box } from "@mui/material";
+import { Box, useMediaQuery } from "@mui/material";
 import { AddShoppingCart, RemoveShoppingCart } from "@mui/icons-material";
 import CartContext from "../../contexts/cart-context";
 
@@ -15,12 +15,12 @@ import {
   ProductContentHeaderSC,
   ProductContentBodySC,
   ProductNameSC,
-  ProductDescriptionSC,
   ProductPriceBigCardSC,
   ProductPriceSmallCardSC,
   AddToCartButtonContainerSC,
   AddToCartIconButtonSC,
   DefaultButtonContainerSC,
+  RatingSC,
 } from "./index.styles";
 import { formatPrice } from "../../utils/helpers";
 
@@ -35,6 +35,7 @@ const ProductCard: FC<ProductCardInterface> = ({
   stripeID,
   _id,
 }) => {
+  const isSmallScreen = useMediaQuery("(max-width: 640px)");
   const { cart, setCart } = useContext(CartContext);
   const [isAddedToCart, setIsAddedToCart] = useState(false);
   const navigate = useNavigate();
@@ -115,13 +116,7 @@ const ProductCard: FC<ProductCardInterface> = ({
             >
               ${formatPrice(price)}
             </ProductPriceSmallCardSC>
-            <ProductDescriptionSC
-              onClick={showDetailsHandler}
-              variant="body2"
-              color="text.secondary"
-            >
-              {description}
-            </ProductDescriptionSC>
+            {!isSmallScreen && <RatingSC rating={rating} showLabel={false} />}
             <AddToCartButtonContainerSC>
               <AddToCartIconButtonSC onClick={addToCartHandler}>
                 {isAddedToCart ? <RemoveShoppingCart /> : <AddShoppingCart />}
