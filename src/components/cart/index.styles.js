@@ -4,6 +4,7 @@ import {
   Button,
   Box,
   IconButton,
+  Drawer,
 } from "@mui/material";
 import { ShoppingCart, ArrowBackIos } from "@mui/icons-material";
 
@@ -53,8 +54,7 @@ export const TotalContainerSC = styled(Box)`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 24px !important;  
-  margin-bottom: 36px !important;  
+  margin-bottom: 16px !important;  
 `;
 
 export const TotalLabelSC = styled(Typography)`
@@ -100,8 +100,12 @@ export const EmptyCartTextSC = styled(Typography)`
 
 // ---------------------------------------------------
 
+export const DrawerSC = styled(Drawer)`
+  position: relative;
+`;
+
 export const CartSC = styled(Box)`
-  padding: 56px 24px 0 24px;
+  padding: 56px 24px 180px 24px;
   width: clamp(360px, 360px, 360px);
   height: auto;
   background-color: ${colors.lightest};
@@ -159,4 +163,14 @@ export const CartTitleSC = styled(Typography)`
   font-size: ${typography.h2.fontSize} !important;
   font-weight: ${typography.h2.fontWeight} !important;
   font-family: ${typography.h2.fontFamily} !important;
+`;
+
+export const CheckoutContainerSC = styled(Box)`
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: clamp(360px, 360px, 360px);
+  padding: 12px 24px 48px 24px;
+  box-shadow: 0 -4px 4px 0 rgba(0, 0, 0, 0.05);
+  background-color: ${colors.lightest};
 `;
