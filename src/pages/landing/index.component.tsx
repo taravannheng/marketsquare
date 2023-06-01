@@ -1,4 +1,4 @@
-import { FC, useContext, useEffect } from "react";
+import { FC, useContext, useEffect, useState } from "react";
 import _ from "lodash";
 
 import Header from "../../components/header/index.component";
@@ -9,8 +9,10 @@ import footerItemsSample from "../../sample/footer/utility-links-sample";
 import { getProducts } from "../../apis/products/products";
 import ProductsContext from "../../contexts/product-context";
 import { LandingPageSC } from "./index.styles";
+import LoadingScreen from "../../components/loading-screen/index.component";
 
 const LandingPage: FC = () => {
+  const [loading, setLoading] = useState(true);
   const { products, setProducts } = useContext(ProductsContext);
 
   useEffect(() => {
@@ -24,10 +26,10 @@ const LandingPage: FC = () => {
           const price = parseFloat(obj.price);
           return { ...obj, price };
         });
-  
+
         setProducts(convertedResponse);
       }
-      
+
       if (_.isEmpty(responseData)) {
         setProducts(null);
       }
@@ -36,11 +38,22 @@ const LandingPage: FC = () => {
     fetchProducts();
   }, []);
 
+  useEffect(() => {
+    if (!_.isEmpty(products) || products === null) {
+      setLoading(false);
+    }
+  }, [products]);
+
   return (
     <LandingPageSC>
-      <Header />
-      <ProductsDisplay title="Trending Products" products={products} />
-      <Footer footerItems={footerItemsSample} />
+      {loading && <LoadingScreen />}
+      {!loading && (
+        <>
+          <Header />
+          <ProductsDisplay title="Trending Products" products={products} />
+          <Footer footerItems={footerItemsSample} />
+        </>
+      )}
     </LandingPageSC>
   );
 };
