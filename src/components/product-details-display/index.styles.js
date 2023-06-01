@@ -58,8 +58,8 @@ export const ProductNameSC = styled(Typography)`
 export const ProductPriceSC = styled(Typography)`
   margin-bottom: 24px !important;
   color: ${colors.darkest} !important;
-  font-size: ${typography.h3.fontSize} !important;
-  font-weight: ${typography.h3.fontWeight} !important;
+  font-size: ${typography.h1.fontSize} !important;
+  font-weight: ${typography.h1.fontWeight} !important;
 `
 
 export const ProductDescriptionSC = styled(Typography)`
@@ -72,6 +72,7 @@ export const ProductDescriptionSC = styled(Typography)`
   overflow-x: hidden;
   overflow-y: scroll;
   color: ${colors.dark};
-  font-size: ${typography.body2.fontSize} !important;
-  font-weight: ${typography.body2.fontWeight} !important;
+  font-size: ${typography.body.fontSize} !important;
+  font-weight: ${typography.body.fontWeight} !important;
+  line-height: ${typography.body.lineHeight} !important;
 `

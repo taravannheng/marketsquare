@@ -23,12 +23,12 @@ export const OrderIDSC = styled(Typography)`
 export const ConfirmationEmailSC = styled(Typography)`
   margin-bottom: 32px;
   color: ${colors.dark} !important;
-  font-size: ${typography.body1.fontSize} !important;
-  font-weight: ${typography.body1.fontWeight} !important;
+  font-size: ${typography.body.fontSize} !important;
+  font-weight: ${typography.body.fontWeight} !important;
 
   @media only screen and (min-width: 1080px) {
-    font-size: ${typography.body2.fontSize} !important;
-    font-weight: ${typography.body2.fontWeight} !important;
+    font-size: ${typography.body.fontSize} !important;
+    font-weight: ${typography.body.fontWeight} !important;
   }
 `;
 
@@ -57,12 +57,12 @@ export const PaymentMethodTextSC = styled(Typography)`
   align-items: center;
   width: clamp(100%, 100%, 100%);
   color: ${colors.dark} !important;
-  font-size: ${typography.body1.fontSize} !important;
-  font-weight: ${typography.body1.fontWeight} !important;
+  font-size: ${typography.body.fontSize} !important;
+  font-weight: ${typography.body.fontWeight} !important;
 
   @media only screen and (min-width: 1080px) {
-    font-size: ${typography.body2.fontSize} !important;
-    font-weight: ${typography.body2.fontWeight} !important;
+    font-size: ${typography.body.fontSize} !important;
+    font-weight: ${typography.body.fontWeight} !important;
   }
 `;
 
@@ -100,24 +100,24 @@ export const ShippingAddressSC = styled(Typography)`
   width: clamp(100%, 100%, 100%);
   margin-bottom: 12px;
   color: ${colors.dark} !important;
-  font-size: ${typography.body1.fontSize} !important;
-  font-weight: ${typography.body1.fontWeight} !important;
+  font-size: ${typography.body.fontSize} !important;
+  font-weight: ${typography.body.fontWeight} !important;
 
   @media only screen and (min-width: 1080px) {
-    font-size: ${typography.body2.fontSize} !important;
-    font-weight: ${typography.body2.fontWeight} !important;
+    font-size: ${typography.body.fontSize} !important;
+    font-weight: ${typography.body.fontWeight} !important;
   }
 `;
 
 export const ShippingAddressDetailsSC = styled(Typography)`
   margin-left: 12px;
   color: ${colors.dark} !important;
-  font-size: ${typography.body1.fontSize} !important;
-  font-weight: ${typography.body1.fontWeight} !important;
+  font-size: ${typography.body.fontSize} !important;
+  font-weight: ${typography.body.fontWeight} !important;
 
   @media only screen and (min-width: 1080px) {
-    font-size: ${typography.body2.fontSize} !important;
-    font-weight: ${typography.body2.fontWeight} !important;
+    font-size: ${typography.body.fontSize} !important;
+    font-weight: ${typography.body.fontWeight} !important;
   }
 `;
 
@@ -126,12 +126,12 @@ export const ShippingMethodSC = styled(Typography)`
   max-width: 100%;
   margin-bottom: 24px;
   color: ${colors.dark} !important;
-  font-size: ${typography.body1.fontSize} !important;
-  font-weight: ${typography.body1.fontWeight} !important;
+  font-size: ${typography.body.fontSize} !important;
+  font-weight: ${typography.body.fontWeight} !important;
 
   @media only screen and (min-width: 1080px) {
-    font-size: ${typography.body2.fontSize} !important;
-    font-weight: ${typography.body2.fontWeight} !important;
+    font-size: ${typography.body.fontSize} !important;
+    font-weight: ${typography.body.fontWeight} !important;
   }
 `;
 

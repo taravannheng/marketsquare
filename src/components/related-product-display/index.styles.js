@@ -11,8 +11,8 @@ export const RelatedProductDisplaySC = styled(Box)`
 
 export const TitleSC = styled(Typography)`
   color: ${colors.darkest} !important;
-  font-size: ${typography.h4.fontSize} !important;
-  font-weight: ${typography.h4.fontWeight} !important;
+  font-size: ${typography.h3.fontSize} !important;
+  font-weight: ${typography.h3.fontWeight} !important;
   margin-bottom: 40px !important;
 `
 
@@ -22,6 +22,6 @@ export const StackSC = styled(Stack)`
 
 export const EmptyTextSC = styled(Typography)`
   color: ${colors.dark} !important;
-  font-size: ${typography.body2.fontSize} !important;
-  font-weight: ${typography.body2.fontWeight} !important;
+  font-size: ${typography.body.fontSize} !important;
+  font-weight: ${typography.body.fontWeight} !important;
 `

@@ -80,8 +80,8 @@ export const FooterLeftContent = styled(CardContent)`
 
 export const FooterCopyright = styled(Typography)`
   color: ${colors.lightest} !important;
-  font-size: ${typography.caption.fontSize} !important;
-  font-weight: ${typography.caption.fontWeight} !important;
+  font-size: ${typography.small.fontSize} !important;
+  font-weight: ${typography.small.fontWeight} !important;
   margin-top: 64px !important;
 
   @media only screen and (min-width: 1080px) {
@@ -128,11 +128,11 @@ export const UtilityLinkStackSC = styled(Stack)`
 export const UtilityLinkSC = styled(Link)`
   text-decoration: none !important;
   color: ${colors.lightest} !important;
+  font-size: ${typography.body.fontSize} !important;
+  font-weight: ${typography.body.fontWeight} !important;
 
   &:hover {
     text-decoration: underline !important;
-    font-size: ${typography.h5.fontSize} !important;
-    font-weight: ${typography.h5.fontWeight} !important;
   }
 
   @media only screen and (min-width: 1080px) {
