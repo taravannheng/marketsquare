@@ -40,7 +40,6 @@ const ProductsDisplay: FC<ProductsDisplayInterface> = ({ title, products }) => {
   );
   const productsPerPage = 8;
   let totalPages = !_.isEmpty(products) ? Math.ceil(products.length / productsPerPage) : 0;
-  totalPages = 1;
   const startIndex = (currentPage - 1) * productsPerPage;
   const endIndex = startIndex + productsPerPage;
   let displayedProducts = !_.isEmpty(products) ? products.slice(startIndex, endIndex) : [];
@@ -95,7 +94,7 @@ const ProductsDisplay: FC<ProductsDisplayInterface> = ({ title, products }) => {
                 }
               )}
           </Grid>
-          {!_.isEmpty(products) || (totalPages === 1) && (
+          {!_.isEmpty(products) && (totalPages > 1) && (
             <PaginationStackSC>
               <Pagination
                 count={totalPages}
