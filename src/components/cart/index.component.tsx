@@ -26,7 +26,6 @@ import {
 import CartContext from "../../contexts/cart-context";
 import ProductInterface from "../../interfaces/product-interface";
 import CartProps from "./index.interface";
-import Logo from "../../assets/logos/logo-transparent.png";
 import { createCart } from "../../apis/carts/cart.api";
 import { formatPrice } from "../../utils/helpers";
 
@@ -75,7 +74,7 @@ const Cart: FC<CartProps> = () => {
       <DrawerSC anchor="right" open={isDrawerOpen} onClose={handleDrawerClose}>
         <CartSC>
           <LogoContainerSC>
-            <img src={Logo} alt="logo" width="64px" height="64px" />
+            <img src="https://firebasestorage.googleapis.com/v0/b/marketsquare-62b8e.appspot.com/o/logos%2Flogo-transparent.svg?alt=media&token=251c1267-68e9-49bf-b04e-c6519ab85019&_gl=1*mparyn*_ga*NzA5MzcyODc5LjE2ODU2MzYyOTA.*_ga_CW55HF8NVT*MTY4NTYzNjI5MC4xLjEuMTY4NTYzNjQ0MC4wLjAuMA.." alt="logo" width="64px" height="64px" />
           </LogoContainerSC>
           <TitleContainerSC>
             <IconButtonSC onClick={handleDrawerClose}>

@@ -20,8 +20,8 @@ export const SmallFooterSC = styled(Box)`
 `;
 
 export const SmallFooterLogoSC = styled(CardMedia)`
-  width: clamp(175px, 175px, 175px);
-  height: clamp(64px, 64px, 64px);
+  width: clamp(184px, 184px, 184px) !important;
+  height: clamp(80px, 80px, 80px) !important;
   margin-bottom: 40px;
 `;
 
