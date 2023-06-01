@@ -50,7 +50,7 @@ export const DetailsContainerSC = styled(Box)`
 
 export const ProductNameSC = styled(Typography)`
   margin-bottom: 8px !important;
-  color: ${colors.darkGrey} !important;
+  color: ${colors.dark} !important;
   font-size: ${typography.h5.fontSize} !important;
   font-weight: ${typography.h5.fontWeight} !important;
 `
@@ -71,7 +71,7 @@ export const ProductDescriptionSC = styled(Typography)`
   max-height: 96px !important;
   overflow-x: hidden;
   overflow-y: scroll;
-  color: ${colors.darkGrey};
+  color: ${colors.dark};
   font-size: ${typography.body2.fontSize} !important;
   font-weight: ${typography.body2.fontWeight} !important;
 `

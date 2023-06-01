@@ -8,7 +8,7 @@ export const ButtonSC = styled(Button)`
   width: clamp(100%, 100%, 100%);
   font-size: ${typography.h6.fontSize} !important;
   font-weight: ${typography.h6.fontWeight} !important;
-  color: ${colors.mediumGrey} !important;
+  color: ${colors.darkest} !important;
   background-color: ${colors.light} !important;
   box-shadow: none !important;
   text-transform: none !important;
@@ -23,10 +23,6 @@ export const ButtonSC = styled(Button)`
   &:hover > * {
     color: ${colors.lightest} !important;
   }
-
-  &:active {
-    background-color: ${colors.darkPrimary} !important;
-  }
 `;
 
 export const RoundedButtonSC = styled(Button)`
@@ -34,7 +30,7 @@ export const RoundedButtonSC = styled(Button)`
   border: 0 !important;
   border-radius: 1000px !important;
   background-color: ${colors.light} !important;
-  color: ${colors.mediumGrey} !important;
+  color: ${colors.darkest} !important;
   font-size: ${typography.body2.fontSize} !important;
   font-weight: ${typography.body2.fontWeight} !important;
   text-transform: none !important;
@@ -42,10 +38,6 @@ export const RoundedButtonSC = styled(Button)`
   &:hover {
     background-color: ${colors.primary} !important;
     color: ${colors.lightest} !important;
-  }
-
-  &:active {
-    background-color: ${colors.darkPrimary} !important;
   }
 `;
 
@@ -58,7 +50,7 @@ export const IconButtonSC = styled(IconButton)`
   border: 0 !important;
   border-radius: 1000px !important;
   background-color: ${colors.light} !important;
-  color: ${colors.mediumGrey} !important;
+  color: ${colors.darkest} !important;
   font-size: ${typography.body2.fontSize} !important;
   font-weight: ${typography.body2.fontWeight} !important;
   text-transform: none !important;
@@ -70,9 +62,5 @@ export const IconButtonSC = styled(IconButton)`
   &:hover {
     background-color: ${colors.primary} !important;
     color: ${colors.lightest} !important;
-  }
-
-  &:active {
-    background-color: ${colors.darkPrimary} !important;
   }
 `;

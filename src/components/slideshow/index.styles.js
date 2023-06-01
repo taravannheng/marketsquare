@@ -52,7 +52,7 @@ export const SlideShowPaginationPrevButtonSC = styled(Button)`
   border-radius: 1000px !important;
   margin-right: 36px !important;
   background-color: ${colors.light} !important;
-  color: ${colors.mediumGrey} !important;
+  color: ${colors.darkest} !important;
   font-size: ${typography.body2.fontSize} !important;
   font-weight: ${typography.body2.fontWeight} !important;
   text-transform: none !important;
@@ -60,10 +60,6 @@ export const SlideShowPaginationPrevButtonSC = styled(Button)`
   &:hover {
     background-color: ${colors.primary} !important;
     color: ${colors.lightest} !important;
-  }
-
-  &:active {
-    background-color: ${colors.darkPrimary} !important;
   }
 
   @media only screen and (min-width: 1080px) {
@@ -79,7 +75,7 @@ export const SlideShowPaginationNextButtonSC = styled(Button)`
   border-radius: 1000px !important;
   margin-left: 36px !important;
   background-color: ${colors.light} !important;
-  color: ${colors.mediumGrey} !important;
+  color: ${colors.darkest} !important;
   font-size: ${typography.body2.fontSize} !important;
   font-weight: ${typography.body2.fontWeight} !important;
   text-transform: none !important;
@@ -87,10 +83,6 @@ export const SlideShowPaginationNextButtonSC = styled(Button)`
   &:hover {
     background-color: ${colors.primary} !important;
     color: ${colors.lightest} !important;
-  }
-
-  &:active {
-    background-color: ${colors.darkPrimary} !important;
   }
 
   @media only screen and (min-width: 1080px) {
@@ -106,7 +98,7 @@ export const SlideShowPaginationIndicatorSC = styled(Box)`
   width: clamp(14px, 14px, 14px) !important;
   height: clamp(14px, 14px, 14px) !important;
   border-radius: 100%;
-  border: 1px solid ${colors.lightGrey};
+  border: 1px solid ${colors.grey};
   cursor: pointer;
   transition: all 0.3s ease;
 
