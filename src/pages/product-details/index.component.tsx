@@ -20,13 +20,13 @@ import {
 } from "./index.style";
 import ProductInterface from "../../interfaces/product-interface";
 import _ from "lodash";
-import { getRelatedProducts } from "../../apis/products/related-products";
+import { getRelatedProducts } from "../../apis/products/related-products.api";
 import RelatedProductInterface from "../../interfaces/related-product-interface";
 import {
   getProducts,
   getMultipleProducts,
   getProduct,
-} from "../../apis/products/products";
+} from "../../apis/products/products.api";
 import { RelatedProductDisplaySC } from "../../components/related-product-display/index.styles";
 import Button from "../../components/button/index.component";
 import { ArrowBackIosRounded } from "@mui/icons-material";

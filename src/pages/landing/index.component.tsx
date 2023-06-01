@@ -7,7 +7,7 @@ import ProductsDisplay from "../../components/products-display/index.component";
 import Footer from "../../components/footer/index.component";
 import generateProductsSample from "../../sample/products/product-sample";
 import footerItemsSample from "../../sample/footer/utility-links-sample";
-import { getMultipleProducts, getProducts } from "../../apis/products/products";
+import { getMultipleProducts, getProducts } from "../../apis/products/products.api";
 import ProductsContext from "../../contexts/product-context";
 import CartContext from "../../contexts/cart-context";
 import { LandingPageSC } from "./index.styles";
