@@ -11,6 +11,7 @@ export const AppBarSC = styled(AppBar)`
 export const ToolbarPlaceholderSC = styled(Box)`
   width: 100%;
   height: 100px;
+  background-color: ${colors.lightest} !important;
 `
 
 export const ToolbarSC = styled(Toolbar)`
