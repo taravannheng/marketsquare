@@ -7,10 +7,9 @@
 
 A full stack e-commerce website.
 
-check out the design on [Dribbble](https://dribbble.com/shots/21591624-Marketsquare)
+## Design
 
-backend repo [Backend Repo](https://github.com/taravannheng/marketsquare-backend)
-
+Check out the design on [Dribbble](https://dribbble.com/shots/21591624-Marketsquare)
 
 ## Functionalities
 
@@ -22,6 +21,10 @@ Functionalities include:
 4. Checkout
 5. Stripe Payments
 6. Purchase Summary
+
+## Backend Repo
+
+Backend repo [Backend Repo](https://github.com/taravannheng/marketsquare-backend)
 
 ## Technologies
 
@@ -55,7 +58,13 @@ Technologies used for this project:
 
 <img src="https://www.vectorlogo.zone/logos/stripe/stripe-icon.svg" height="16" width="16" /> &nbsp; &nbsp; Stripe
 
+#### AWS Services
 
+<img src="https://d202huc2cacnce.cloudfront.net/icon/8f57ebd825a828e205b2dde223ba17e4-6af63a22dc297f8041286760ee8cd2c9.svg" height="16" width="16" /> &nbsp; &nbsp; Cloudwatch
+
+<img src="https://d202huc2cacnce.cloudfront.net/icon/16908b0605f2645dfcb4c3a8d248cef3-8fdd092f1116685eeb75b950acb85987.svg" height="16" width="16" /> &nbsp; &nbsp; EventBridge
+
+<img src="https://d202huc2cacnce.cloudfront.net/icon/945f3fc449518a73b9f5f32868db466c-926961f91b072604c42b7f39ce2eaf1c.svg" height="16" width="16" /> &nbsp; &nbsp; Lambda
 
 #### Formatting and Linting
 
