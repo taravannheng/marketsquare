@@ -54,6 +54,8 @@ Technologies used for this project:
 
 <img src="https://www.svgrepo.com/show/373924/nginx.svg" height="16" width="16" /> &nbsp; &nbsp; Nginx
 
+<img src="https://www.gstatic.com/mobilesdk/160503_mobilesdk/logo/2x/firebase_28dp.png" height="16" width="16" /> &nbsp; &nbsp; Firebase Storage
+
 #### Payment
 
 <img src="https://www.vectorlogo.zone/logos/stripe/stripe-icon.svg" height="16" width="16" /> &nbsp; &nbsp; Stripe
