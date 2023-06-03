@@ -4,6 +4,7 @@ import {
   Button,
   Box,
   IconButton,
+  Drawer,
 } from "@mui/material";
 import { ShoppingCart, ArrowBackIos } from "@mui/icons-material";
 
@@ -22,10 +23,6 @@ export const CartButtonSC = styled(Box)`
   background-color: ${colors.primary};
   cursor: pointer;
   transition: background-color 0.3s linear;
-
-  &:hover {
-    background-color: ${colors.darkPrimary};
-  }
 `;
 
 export const ShoppingCartSC = styled(ShoppingCart)`
@@ -43,7 +40,6 @@ export const CartCounterSC = styled(Box)`
   border-radius: 1000px;
   color: ${colors.primary};
   background-color: ${colors.lightest};
-  font-family: ${typography.h5.fontFamily};
   font-weight: ${typography.h5.fontWeight};
   font-size: ${typography.h5.fontSize};
 `;
@@ -53,12 +49,11 @@ export const TotalContainerSC = styled(Box)`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 24px !important;  
-  margin-bottom: 36px !important;  
+  margin-bottom: 16px !important;  
 `;
 
 export const TotalLabelSC = styled(Typography)`
-  color: ${colors.dark};
+  color: ${colors.darkest};
   font-size: ${typography.h4.fontSize} !important;
   font-weight: ${typography.h4.fontWeight} !important;
 `;
@@ -75,7 +70,7 @@ export const CheckoutButtonSC = styled(Button)`
   align-items: center;
   width: clamp(100%, 100%, 100%);
   background-color: ${colors.light} !important;
-  color: ${colors.dark} !important;
+  color: ${colors.darkest} !important;
   font-size: ${typography.h5.fontSize} !important;
   font-weight: ${typography.h5.fontWeight} !important;
   border-radius: 8px;
@@ -91,17 +86,20 @@ export const EmptyCartTextSC = styled(Typography)`
   margin-left: 24px;
   font-size: 16px;
   font-weight: 400px;
-  color: inherit;
+  color: ${colors.dark} !important;
   text-align: center;
-  font-size: ${typography.body1.fontSize} !important;
-  font-weight: ${typography.body1.fontWeight} !important;
-  font-family: ${typography.body1.fontFamily} !important;
+  font-size: ${typography.body.fontSize} !important;
+  font-weight: ${typography.body.fontWeight} !important;
 `;
 
 // ---------------------------------------------------
 
+export const DrawerSC = styled(Drawer)`
+  position: relative;
+`;
+
 export const CartSC = styled(Box)`
-  padding: 56px 24px 0 24px;
+  padding: 56px 24px 180px 24px;
   width: clamp(360px, 360px, 360px);
   height: auto;
   background-color: ${colors.lightest};
@@ -147,7 +145,7 @@ export const IconButtonSC = styled(IconButton)`
     height: 16px;
     margin-right: -6px;
     font-size: ${typography.h5.fontSize}
-    color: ${colors.mediumGrey};
+    color: ${colors.grey};
   }
 
   &:hover > svg {
@@ -158,5 +156,14 @@ export const IconButtonSC = styled(IconButton)`
 export const CartTitleSC = styled(Typography)`
   font-size: ${typography.h2.fontSize} !important;
   font-weight: ${typography.h2.fontWeight} !important;
-  font-family: ${typography.h2.fontFamily} !important;
+`;
+
+export const CheckoutContainerSC = styled(Box)`
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: clamp(360px, 360px, 360px);
+  padding: 12px 24px 48px 24px;
+  box-shadow: 0 -4px 4px 0 rgba(0, 0, 0, 0.05);
+  background-color: ${colors.lightest};
 `;

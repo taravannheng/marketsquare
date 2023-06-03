@@ -1,11 +1,19 @@
+<div align="center">
+  <img src="https://firebasestorage.googleapis.com/v0/b/marketsquare-62b8e.appspot.com/o/logos%2Flogo-horizontal.png?alt=media&token=ee9b57d6-ec00-4dff-a683-d015f3db9ea3&_gl=1*1jyrwog*_ga*MTcyMjg1OTQuMTY4NTMxNjU0MA..*_ga_CW55HF8NVT*MTY4NTUyMDM2NS4yLjEuMTY4NTUyMDQ4My4wLjAuMA..">
+</div>
+
 
 # Marketsquare
 
 A full stack e-commerce website.
 
-check out the design on [Dribbble](https://dribbble.com/shots/21591624-Marketsquare)
-backend repo [Backend Repo](https://github.com/taravannheng/marketsquare-backend)
+## Design
 
+Check out the design on [Dribbble](https://dribbble.com/shots/21591624-Marketsquare)
+
+## Backend Repo
+
+Backend repo [Backend Repo](https://github.com/taravannheng/marketsquare-backend)
 
 ## Functionalities
 
@@ -17,6 +25,13 @@ Functionalities include:
 4. Checkout
 5. Stripe Payments
 6. Purchase Summary
+
+## Payment Flow
+
+<div align="center">
+    <img src="https://firebasestorage.googleapis.com/v0/b/marketsquare-62b8e.appspot.com/o/payment%20flows%2Fpayment-flow.png?alt=media&token=2d5572b6-3672-4245-ae46-c1861814e9c2&_gl=1*1vow5st*_ga*MTkzMDIyNzI4NC4xNjg1Nzg4MDQ2*_ga_CW55HF8NVT*MTY4NTc4ODA0Ni4xLjEuMTY4NTc4ODU3My4wLjAuMA..">
+</div>
+
 
 ## Technologies
 
@@ -46,11 +61,19 @@ Technologies used for this project:
 
 <img src="https://www.svgrepo.com/show/373924/nginx.svg" height="16" width="16" /> &nbsp; &nbsp; Nginx
 
+<img src="https://www.gstatic.com/mobilesdk/160503_mobilesdk/logo/2x/firebase_28dp.png" height="16" width="16" /> &nbsp; &nbsp; Firebase Storage
+
 #### Payment
 
 <img src="https://www.vectorlogo.zone/logos/stripe/stripe-icon.svg" height="16" width="16" /> &nbsp; &nbsp; Stripe
 
+#### AWS Services
 
+<img src="https://d202huc2cacnce.cloudfront.net/icon/8f57ebd825a828e205b2dde223ba17e4-6af63a22dc297f8041286760ee8cd2c9.svg" height="16" width="16" /> &nbsp; &nbsp; Cloudwatch
+
+<img src="https://d202huc2cacnce.cloudfront.net/icon/16908b0605f2645dfcb4c3a8d248cef3-8fdd092f1116685eeb75b950acb85987.svg" height="16" width="16" /> &nbsp; &nbsp; EventBridge
+
+<img src="https://d202huc2cacnce.cloudfront.net/icon/945f3fc449518a73b9f5f32868db466c-926961f91b072604c42b7f39ce2eaf1c.svg" height="16" width="16" /> &nbsp; &nbsp; Lambda
 
 #### Formatting and Linting
 

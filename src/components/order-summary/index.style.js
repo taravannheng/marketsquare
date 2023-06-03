@@ -14,7 +14,7 @@ export const ContentSC = styled(Box)`
 
 export const TitleSC = styled(Typography)`
   margin-bottom: 16px;
-  color: ${colors.dark} !important;
+  color: ${colors.darkest} !important;
   font-size: ${typography.h5.fontSize} !important;
   font-weight: ${typography.h5.fontWeight} !important;
 
@@ -31,15 +31,15 @@ export const TotalTextSC = styled(Typography)`
   display: flex;
   align-items: center;
   color: ${colors.dark} !important;
-  font-size: ${typography.h4.fontSize} !important;
-  font-weight: ${typography.h4.fontWeight} !important;
+  font-size: ${typography.h3.fontSize} !important;
+  font-weight: ${typography.h3.fontWeight} !important;
 `;
 
 export const TotalAmountSC = styled(Typography)`
   margin-left: 24px;
   color: ${colors.primary} !important;
-  font-size: ${typography.h3.fontSize} !important;
-  font-weight: ${typography.h3.fontWeight} !important;
+  font-size: ${typography.h2.fontSize} !important;
+  font-weight: ${typography.h2.fontWeight} !important;
 
   @media only screen and (min-width: 1080px) {
     margin-left: 36px;
@@ -47,7 +47,7 @@ export const TotalAmountSC = styled(Typography)`
 `;
 
 export const EmptyContentSC = styled(Typography)`
-  color: ${colors.darkest} !important;
-  font-size: ${typography.body2.fontSize} !important;
-  font-weight: ${typography.body2.fontWeight} !important;
+  color: ${colors.dark} !important;
+  font-size: ${typography.body.fontSize} !important;
+  font-weight: ${typography.body.fontWeight} !important;
 `;

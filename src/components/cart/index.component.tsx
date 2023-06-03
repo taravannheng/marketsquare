@@ -20,12 +20,14 @@ import {
   LogoContainerSC,
   TitleContainerSC,
   IconButtonSC,
+  CheckoutContainerSC,
+  DrawerSC,
 } from "./index.styles";
 import CartContext from "../../contexts/cart-context";
 import ProductInterface from "../../interfaces/product-interface";
 import CartProps from "./index.interface";
-import Logo from "../../assets/logos/logo-transparent.png";
-import { checkout } from "../../apis/payments/payment";
+import { createCart } from "../../apis/carts/cart.api";
+import { formatPrice } from "../../utils/helpers";
 
 const Cart: FC<CartProps> = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -40,12 +42,12 @@ const Cart: FC<CartProps> = () => {
       total += price * quantity;
     }
 
-    return total.toFixed(2);
+    return formatPrice(total);
   };
 
   const checkoutHandler = async () => {
     setCheckoutButtonIsLoading(true);
-    const response = await checkout(cart);
+    const response = await createCart(cart);
     const url = response.data.url;
     window.location.href = url;
   }
@@ -69,10 +71,10 @@ const Cart: FC<CartProps> = () => {
         </Icon>
       </CartButtonSC>
 
-      <Drawer anchor="right" open={isDrawerOpen} onClose={handleDrawerClose}>
+      <DrawerSC anchor="right" open={isDrawerOpen} onClose={handleDrawerClose}>
         <CartSC>
           <LogoContainerSC>
-            <img src={Logo} alt="logo" width="64px" height="64px" />
+            <img src="https://firebasestorage.googleapis.com/v0/b/marketsquare-62b8e.appspot.com/o/logos%2Flogo-transparent.svg?alt=media&token=251c1267-68e9-49bf-b04e-c6519ab85019&_gl=1*mparyn*_ga*NzA5MzcyODc5LjE2ODU2MzYyOTA.*_ga_CW55HF8NVT*MTY4NTYzNjI5MC4xLjEuMTY4NTYzNjQ0MC4wLjAuMA.." alt="logo" width="64px" height="64px" />
           </LogoContainerSC>
           <TitleContainerSC>
             <IconButtonSC onClick={handleDrawerClose}>
@@ -91,27 +93,28 @@ const Cart: FC<CartProps> = () => {
               );
             })}
           {!_.isEmpty(cart) && (
-            <>
+            <CheckoutContainerSC>
               <TotalContainerSC>
                 <TotalLabelSC variant="body1">Total:</TotalLabelSC>
                 <TotalTextSC variant="body1">${getCartTotal(cart)}</TotalTextSC>
               </TotalContainerSC>
               <Button
+                boldLabel
                 uppercaseLabel
-                labelColor="#414554"
-                backgroundColor="#E7E8EA"
+                labelColor="#12162A"
+                backgroundColor="#F2F2F2"
                 label="Checkout"
                 type="default"
                 clickHandler={checkoutHandler}
                 isLoading={checkoutButtonIsLoading}
               />
-            </>
+            </CheckoutContainerSC>
           )}
           {_.isEmpty(cart) && (
             <EmptyCartTextSC>Cart is empty...</EmptyCartTextSC>
           )}
         </CartSC>
-      </Drawer>
+      </DrawerSC>
     </Box>
   );
 };

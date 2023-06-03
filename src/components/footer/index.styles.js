@@ -20,8 +20,8 @@ export const SmallFooterSC = styled(Box)`
 `;
 
 export const SmallFooterLogoSC = styled(CardMedia)`
-  width: clamp(175px, 175px, 175px);
-  height: clamp(64px, 64px, 64px);
+  width: clamp(184px, 184px, 184px) !important;
+  height: clamp(80px, 80px, 80px) !important;
   margin-bottom: 40px;
 `;
 
@@ -80,8 +80,8 @@ export const FooterLeftContent = styled(CardContent)`
 
 export const FooterCopyright = styled(Typography)`
   color: ${colors.lightest} !important;
-  font-size: ${typography.caption.fontSize} !important;
-  font-weight: ${typography.caption.fontWeight} !important;
+  font-size: ${typography.small.fontSize} !important;
+  font-weight: ${typography.small.fontWeight} !important;
   margin-top: 64px !important;
 
   @media only screen and (min-width: 1080px) {
@@ -117,7 +117,7 @@ export const UtilityLinkTitleSC = styled(Typography)`
 
   @media only screen and (min-width: 1080px) {
     margin-bottom: 20px !important;
-    color: ${colors.dark} !important;
+    color: ${colors.darkest} !important;
   }
 `;
 
@@ -128,15 +128,15 @@ export const UtilityLinkStackSC = styled(Stack)`
 export const UtilityLinkSC = styled(Link)`
   text-decoration: none !important;
   color: ${colors.lightest} !important;
+  font-size: ${typography.body.fontSize} !important;
+  font-weight: ${typography.body.fontWeight} !important;
 
   &:hover {
     text-decoration: underline !important;
-    font-size: ${typography.h5.fontSize} !important;
-    font-weight: ${typography.h5.fontWeight} !important;
   }
 
   @media only screen and (min-width: 1080px) {
-    color: ${colors.darkGrey} !important;
+    color: ${colors.dark} !important;
 
     &:hover {
       color: ${colors.primary} !important;
