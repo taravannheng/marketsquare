@@ -11,6 +11,10 @@ A full stack e-commerce website.
 
 Check out the design on [Dribbble](https://dribbble.com/shots/21591624-Marketsquare)
 
+## Backend Repo
+
+Backend repo [Backend Repo](https://github.com/taravannheng/marketsquare-backend)
+
 ## Functionalities
 
 Functionalities include:
@@ -22,9 +26,12 @@ Functionalities include:
 5. Stripe Payments
 6. Purchase Summary
 
-## Backend Repo
+## Payment Flow
 
-Backend repo [Backend Repo](https://github.com/taravannheng/marketsquare-backend)
+<div align="center">
+    <img src="https://firebasestorage.googleapis.com/v0/b/marketsquare-62b8e.appspot.com/o/payment%20flows%2Fpayment-flow.png?alt=media&token=2d5572b6-3672-4245-ae46-c1861814e9c2&_gl=1*1vow5st*_ga*MTkzMDIyNzI4NC4xNjg1Nzg4MDQ2*_ga_CW55HF8NVT*MTY4NTc4ODA0Ni4xLjEuMTY4NTc4ODU3My4wLjAuMA..">
+</div>
+
 
 ## Technologies
 
