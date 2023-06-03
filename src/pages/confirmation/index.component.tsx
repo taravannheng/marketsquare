@@ -40,7 +40,6 @@ const ConfirmationPage = () => {
         const response = await createOrder(cartID);
         if (!_.isEmpty(response.data)) {
           setOrder(response.data.order);
-          console.log(response.data.order);
           cartID && sessionStorage.setItem(cartID, JSON.stringify(response.data.order));
         }
       };

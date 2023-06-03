@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import colors from "../../styles/colors";
 import typography from "../../styles/typography";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 export const ProductDetailsPageSC = styled(Box)`
   display: flex;
@@ -47,3 +47,35 @@ export const ReviewDisplayContainerSC = styled(Box)`
 export const RelatedProductDisplayContainerSC = styled(Box)`
   flex: 1;
 `;
+
+export const EmptyContentSC = styled(Box)`
+  display: flex;
+  flex-direction: column;
+  padding: 48px 24px !important;
+  margin-bottom: 64px;
+  width: clamp(100%, 100%, 100%);
+  height: 50vh;
+
+  @media only screen and (min-width: 1080px) {
+    flex-direction: row;
+    padding: 48px !important;
+  }
+`
+
+export const BackNavSC = styled(Box)`
+  margin-bottom: 32px !important;
+`
+
+export const EmptyBodySC = styled(Box)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+`
+
+export const EmptyTextSC = styled(Typography)`
+  color: ${colors.dark} !important;
+  font-size: ${typography.body.fontSize} !important;
+  font-weight: ${typography.body.fontWeight} !important;
+`

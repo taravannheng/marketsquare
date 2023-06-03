@@ -27,7 +27,7 @@ import { SLIDESHOWIDS } from "../../utils/constants";
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#758AE3",
+      main: `${colors.primary}`,
     },
   },
 });
@@ -94,7 +94,7 @@ const ProductsDisplay: FC<ProductsDisplayInterface> = ({ title, products }) => {
                 }
               )}
           </Grid>
-          {!_.isEmpty(products) && (
+          {!_.isEmpty(products) && (totalPages > 1) && (
             <PaginationStackSC>
               <Pagination
                 count={totalPages}

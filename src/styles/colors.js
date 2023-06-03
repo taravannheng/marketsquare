@@ -1,12 +1,10 @@
 const colors = {
-  primary: '#758AE3',
-  darkPrimary: '#536EDD',
+  lightPrimary: '#758AE3',
+  primary: '#536EDD',
   lightest: '#FFF',
-  light: '#E7E8EA',
-  lightGrey: '#D0D1D4',
-  mediumGrey: '#888B94',
-  darkGrey: '#71747F',
-  dark: '#414554',
+  light: '#F2F2F2',
+  grey: '#888B94',
+  dark: '#575C70',
   darkest: '#12162A',
   red: '#FD3F62',
 }
