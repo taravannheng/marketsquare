@@ -87,9 +87,13 @@ const ProductDetailsPage: FC = () => {
           });
 
           //  remove if related product has the same id
-          const relatedProductsData = convertedResponse.filter((item: any) => item._id === product._id)
+          const relatedProducts = convertedResponse.map((item: ProductInterface) => {
+            if (item._id !== productID) {
+              return item;
+            }
+          });
           
-          setRelatedProducts(relatedProductsData);
+          setRelatedProducts(relatedProducts);
         };
 
         if (!_.isEmpty(result)) {
