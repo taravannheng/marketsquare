@@ -68,7 +68,6 @@ const ProductDetailsDisplay: FC<ProductDetailsDisplayInterface> = ({
         const matchedProduct = cart.find(
           (productInCart: ProductInterface) => product._id === productInCart._id
         );
-        console.log(matchedProduct);
         return matchedProduct !== undefined;
       };
 

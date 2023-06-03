@@ -11,8 +11,8 @@ export const RatingSC = styled(Box)`
 
 export const LabelSC = styled(Typography)`
   color: ${colors.dark} !important;
-  font-size: ${typography.body2.fontSize} !important;
-  font-weight: ${typography.body2.fontWeight} !important;
+  font-size: ${typography.body.fontSize} !important;
+  font-weight: ${typography.body.fontWeight} !important;
   margin-bottom: 8px !important;
 `;
 

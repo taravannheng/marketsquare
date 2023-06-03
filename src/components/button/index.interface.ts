@@ -11,5 +11,6 @@ export default interface ButtonInterface {
   backgroundColor?: string;
   uppercaseLabel?: boolean;
   isLoading?: boolean;
+  boldLabel?: boolean;
   clickHandler: () => void;
 }

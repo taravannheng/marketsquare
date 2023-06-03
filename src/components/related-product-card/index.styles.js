@@ -29,13 +29,13 @@ export const CardContentSC = styled(CardContent)`
 `
 
 export const ProductNameSC = styled(Typography)`
-  color: ${colors.darkGrey} !important;
+  color: ${colors.dark} !important;
   font-size: ${typography.h5.fontSize} !important;
   font-weight: ${typography.h5.fontWeight} !important;
 `
 
 export const ProductPriceSC = styled(Typography)`
-  color: ${colors.dark} !important;
+  color: ${colors.darkest} !important;
   font-size: ${typography.h3.fontSize} !important;
   font-weight: ${typography.h3.fontWeight} !important;
 `
