@@ -27,10 +27,9 @@ export const BackNavSC = styled(Box)`
 
 export const TitleSC = styled(Typography)`
   margin-bottom: 36px;
-  color: ${colors.dark} !important;
-  font-size: ${typography.h2.fontSize} !important;
-  font-weight: ${typography.h2.fontWeight} !important;
-  font-family: ${typography.h2.fontFamily} !important;
+  color: ${colors.darkest} !important;
+  font-size: ${typography.h1.fontSize} !important;
+  font-weight: ${typography.h1.fontWeight} !important;
 `;
 
 export const ContentSC = styled(Box)`

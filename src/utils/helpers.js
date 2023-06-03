@@ -41,3 +41,12 @@ export const getCardLogo = (cardBrand) => {
 
   return cardLogo;
 }
+
+export const formatPrice = (price) => {
+  const decimalPart = price % 1;
+  if (decimalPart === 0) {
+    return price.toFixed(0); 
+  }
+  
+  return price.toFixed(2);
+}

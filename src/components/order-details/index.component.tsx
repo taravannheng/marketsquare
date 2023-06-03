@@ -71,9 +71,9 @@ const OrderDetails: FC<OrderInterface> = ({
             <ShippingAddressSC variant="h2">
               Address:{" "}
               <ShippingAddressDetailsSC variant="body1">
-                {shipping.address.line1}
-                {!_.isEmpty(shipping.address.line2) &&
-                  shipping.address.line2}{" "}
+                {shipping.address.line1}{" "}<br />
+                 {!_.isEmpty(shipping.address.line2) && <>{shipping.address.line2}<br /></>
+                  }{" "}
                 {shipping.address.city} {shipping.address.state}{" "}
                 {shipping.address.postalCode} {shipping.address.country}
               </ShippingAddressDetailsSC>

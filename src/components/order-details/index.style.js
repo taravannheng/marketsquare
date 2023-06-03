@@ -15,20 +15,20 @@ export const ContentSC = styled(Box)`
 
 export const OrderIDSC = styled(Typography)`
   margin-bottom: 16px;
-  color: ${colors.dark} !important;
+  color: ${colors.darkest} !important;
   font-size: ${typography.h4.fontSize} !important;
   font-weight: ${typography.h4.fontWeight} !important;
 `;
 
 export const ConfirmationEmailSC = styled(Typography)`
   margin-bottom: 32px;
-  color: ${colors.darkGrey} !important;
-  font-size: ${typography.body1.fontSize} !important;
-  font-weight: ${typography.body1.fontWeight} !important;
+  color: ${colors.dark} !important;
+  font-size: ${typography.body.fontSize} !important;
+  font-weight: ${typography.body.fontWeight} !important;
 
   @media only screen and (min-width: 1080px) {
-    font-size: ${typography.body2.fontSize} !important;
-    font-weight: ${typography.body2.fontWeight} !important;
+    font-size: ${typography.body.fontSize} !important;
+    font-weight: ${typography.body.fontWeight} !important;
   }
 `;
 
@@ -38,7 +38,7 @@ export const PaymentSC = styled(Box)`
 
 export const PaymentTitleSC = styled(Typography)`
   margin-bottom: 16px;
-  color: ${colors.dark} !important;
+  color: ${colors.darkest} !important;
   font-size: ${typography.h5.fontSize} !important;
   font-weight: ${typography.h5.fontWeight} !important;
 `;
@@ -56,13 +56,13 @@ export const PaymentMethodTextSC = styled(Typography)`
   flex-direction: row;
   align-items: center;
   width: clamp(100%, 100%, 100%);
-  color: ${colors.darkGrey} !important;
-  font-size: ${typography.body1.fontSize} !important;
-  font-weight: ${typography.body1.fontWeight} !important;
+  color: ${colors.dark} !important;
+  font-size: ${typography.body.fontSize} !important;
+  font-weight: ${typography.body.fontWeight} !important;
 
   @media only screen and (min-width: 1080px) {
-    font-size: ${typography.body2.fontSize} !important;
-    font-weight: ${typography.body2.fontWeight} !important;
+    font-size: ${typography.body.fontSize} !important;
+    font-weight: ${typography.body.fontWeight} !important;
   }
 `;
 
@@ -89,7 +89,7 @@ export const ShippingSC = styled(Box)`
 
 export const ShippingTitleSC = styled(Typography)`
   margin-bottom: 16px;
-  color: ${colors.dark} !important;
+  color: ${colors.darkest} !important;
   font-size: ${typography.h5.fontSize} !important;
   font-weight: ${typography.h5.fontWeight} !important;
 `;
@@ -97,28 +97,27 @@ export const ShippingTitleSC = styled(Typography)`
 export const ShippingAddressSC = styled(Typography)`
   display: flex;
   flex-direction: row;
-  align-items: center;
   width: clamp(100%, 100%, 100%);
   margin-bottom: 12px;
-  color: ${colors.darkGrey} !important;
-  font-size: ${typography.body1.fontSize} !important;
-  font-weight: ${typography.body1.fontWeight} !important;
+  color: ${colors.dark} !important;
+  font-size: ${typography.body.fontSize} !important;
+  font-weight: ${typography.body.fontWeight} !important;
 
   @media only screen and (min-width: 1080px) {
-    font-size: ${typography.body2.fontSize} !important;
-    font-weight: ${typography.body2.fontWeight} !important;
+    font-size: ${typography.body.fontSize} !important;
+    font-weight: ${typography.body.fontWeight} !important;
   }
 `;
 
 export const ShippingAddressDetailsSC = styled(Typography)`
   margin-left: 12px;
-  color: ${colors.darkGrey} !important;
-  font-size: ${typography.body1.fontSize} !important;
-  font-weight: ${typography.body1.fontWeight} !important;
+  color: ${colors.dark} !important;
+  font-size: ${typography.body.fontSize} !important;
+  font-weight: ${typography.body.fontWeight} !important;
 
   @media only screen and (min-width: 1080px) {
-    font-size: ${typography.body2.fontSize} !important;
-    font-weight: ${typography.body2.fontWeight} !important;
+    font-size: ${typography.body.fontSize} !important;
+    font-weight: ${typography.body.fontWeight} !important;
   }
 `;
 
@@ -126,13 +125,13 @@ export const ShippingMethodSC = styled(Typography)`
   width: 48ch;
   max-width: 100%;
   margin-bottom: 24px;
-  color: ${colors.darkGrey} !important;
-  font-size: ${typography.body1.fontSize} !important;
-  font-weight: ${typography.body1.fontWeight} !important;
+  color: ${colors.dark} !important;
+  font-size: ${typography.body.fontSize} !important;
+  font-weight: ${typography.body.fontWeight} !important;
 
   @media only screen and (min-width: 1080px) {
-    font-size: ${typography.body2.fontSize} !important;
-    font-weight: ${typography.body2.fontWeight} !important;
+    font-size: ${typography.body.fontSize} !important;
+    font-weight: ${typography.body.fontWeight} !important;
   }
 `;
 

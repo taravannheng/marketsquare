@@ -1,30 +1,40 @@
-import { FC, useEffect, useContext, useState } from "react";
-import { useParams } from "react-router-dom";
+import { FC, useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 
 import Header from "../../components/header/index.component";
 import ProductDetailsDisplay from "../../components/product-details-display/index.component";
 import Divider from "../../components/divider/index.component";
 import ReviewDisplay from "../../components/review-display/index.component";
 import RelatedProductDisplay from "../../components/related-product-display/index.component";
-import ProductsContext from "../../contexts/product-context";
 import Footer from "../../components/footer/index.component";
 import footerUtilityLinksSample from "../../sample/footer/utility-links-sample";
 import {
+  BackNavSC,
   BottomContentContainerSC,
   DividerContainerSC,
+  EmptyBodySC,
+  EmptyContentSC,
+  EmptyTextSC,
   ProductDetailsPageSC,
   ReviewDisplayContainerSC,
 } from "./index.style";
 import ProductInterface from "../../interfaces/product-interface";
 import _ from "lodash";
-import { getRelatedProducts } from "../../apis/products/related-products";
+import { getRelatedProducts } from "../../apis/products/related-products.api";
 import RelatedProductInterface from "../../interfaces/related-product-interface";
-import { getProducts, getMultipleProducts } from "../../apis/products/products";
+import {
+  getProducts,
+  getMultipleProducts,
+  getProduct,
+} from "../../apis/products/products.api";
 import { RelatedProductDisplaySC } from "../../components/related-product-display/index.styles";
+import Button from "../../components/button/index.component";
+import { ArrowBackIosRounded } from "@mui/icons-material";
+import { ROUTES } from "../../utils/constants";
 
 const ProductDetailsPage: FC = () => {
+  const navigate = useNavigate();
   const { productID } = useParams();
-  const { products, setProducts } = useContext(ProductsContext);
   const [product, setProduct] = useState<ProductInterface>(
     {} as ProductInterface
   );
@@ -32,25 +42,34 @@ const ProductDetailsPage: FC = () => {
     [] as ProductInterface[]
   );
 
+  const redirectToHomepage = () => {
+    navigate(ROUTES.LANDING);
+  };
+
   useEffect(() => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: "smooth",
     });
 
-    if (!_.isEmpty(products)) {
-      products.map((product: ProductInterface) => {
-        if (productID === product._id) {
-          setProduct(product);
-        }
-      });
-    }
+    // get product data
+    const fetchProduct = async () => {
+      const response = await getProduct(productID);
+
+      return response?.data[0] ?? null;
+    };
+
+    fetchProduct()
+      .then((result) => {
+        setProduct(result);
+      })
+      .catch((error) => console.error(error));
 
     // get related products
     const fetchRelatedProductIDs = async () => {
       const response = await getRelatedProducts(productID);
 
-      const relatedProductIDs = response.data[0].products;
+      const relatedProductIDs = response?.data[0]?.products ?? null;
 
       return relatedProductIDs;
     };
@@ -67,10 +86,19 @@ const ProductDetailsPage: FC = () => {
             return { ...obj, price };
           });
 
-          setRelatedProducts(convertedResponse);
+          //  remove if related product has the same id
+          const relatedProducts = convertedResponse.map((item: ProductInterface) => {
+            if (item._id !== productID) {
+              return item;
+            }
+          });
+          
+          setRelatedProducts(relatedProducts);
         };
 
-        fetchMultipleProducts();
+        if (!_.isEmpty(result)) {
+          fetchMultipleProducts();
+        }
       })
       .catch((error) => console.error(error));
   }, [productID]);
@@ -78,18 +106,39 @@ const ProductDetailsPage: FC = () => {
   return (
     <ProductDetailsPageSC>
       <Header />
-      <ProductDetailsDisplay product={product} />
-      <DividerContainerSC>
-        <Divider />
-      </DividerContainerSC>
-      <BottomContentContainerSC>
-        <ReviewDisplayContainerSC>
-          <ReviewDisplay reviews={product.reviews} />
-        </ReviewDisplayContainerSC>
-        <RelatedProductDisplaySC>
-          <RelatedProductDisplay products={relatedProducts} />
-        </RelatedProductDisplaySC>
-      </BottomContentContainerSC>
+      {!_.isEmpty(product) && (
+        <>
+          <ProductDetailsDisplay product={product} />
+          <DividerContainerSC>
+            <Divider />
+          </DividerContainerSC>
+          <BottomContentContainerSC>
+            <ReviewDisplayContainerSC>
+              <ReviewDisplay reviews={product.reviews} />
+            </ReviewDisplayContainerSC>
+            <RelatedProductDisplaySC>
+              <RelatedProductDisplay products={relatedProducts} />
+            </RelatedProductDisplaySC>
+          </BottomContentContainerSC>
+        </>
+      )}
+      {_.isEmpty(product) && (
+        <EmptyContentSC>
+          <BackNavSC>
+            <Button
+              width="102px"
+              height="40px"
+              type="icon"
+              icon={<ArrowBackIosRounded />}
+              label="Back"
+              clickHandler={redirectToHomepage}
+            />
+          </BackNavSC>
+          <EmptyBodySC>
+            <EmptyTextSC variant="">No data...</EmptyTextSC>
+          </EmptyBodySC>
+        </EmptyContentSC>
+      )}
       <Footer footerItems={footerUtilityLinksSample} />
     </ProductDetailsPageSC>
   );

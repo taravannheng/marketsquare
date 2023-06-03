@@ -12,6 +12,7 @@ import {
 
 import colors from "../../styles/colors";
 import typography from "../../styles/typography";
+import Rating from "../rating/index.component";
 
 export const ProductCardSC = styled(Card)`
   display: flex;
@@ -70,37 +71,25 @@ export const ProductNameSC = styled(Typography)`
   text-overflow: ellipsis;
 
   @media only screen and (min-width: 1080px) {
-    font-size: ${typography.h4.fontSize} !important;
-    font-weight: ${typography.h4.fontWeight} !important;
+    font-size: ${typography.h5.fontSize} !important;
+    font-weight: ${typography.h5.fontWeight} !important;
   }
 `;
 
-export const ProductDescriptionSC = styled(Typography)`
-  display: none;
-  min-width: 150px;
-  width: 100%;
-  max-height: 96px;
-  line-height: 24px !important;
-  text-align: justify;
-  overflow-x: hidden;
-
-  @media only screen and (min-width: 640px) {
-    display: block !important;
-    margin-top: 16px !important;
-  }
-`;
+export const RatingSC = styled(Rating)`
+`
 
 export const ProductPriceBigCardSC = styled(Typography)`
   display: none;
-  width: clamp(66px, 66px, 66px);
+  width: auto !important;
   height: clamp(24px, 24px, 24px);
-  padding: 0;
+  padding: 0 12px;
   border-radius: 1000px;
   border: 1px solid ${colors.light};
   margin: 0;
-  color: ${colors.mediumGrey} !important;
-  font-size: ${typography.h6.fontSize} !important;
-  font-weight: ${typography.h6.fontWeight} !important;
+  color: ${colors.dark} !important;
+  font-size: ${typography.body.fontSize} !important;
+  font-weight: ${typography.body.fontWeight} !important;
 
   @media only screen and (min-width: 640px) {
     display: flex;
@@ -113,15 +102,16 @@ export const ProductPriceSmallCardSC = styled(Typography)`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: clamp(66px, 66px, 66px);
+  width: auto !important;
+  max-width: 80px;
   height: clamp(24px, 24px, 24px);
   padding: 0;
   border-radius: 1000px;
   border: 1px solid ${colors.light};
   margin: 0;
-  color: ${colors.mediumGrey} !important;
-  font-size: ${typography.h6.fontSize} !important;
-  font-weight: ${typography.h6.fontWeight} !important;
+  color: ${colors.dark} !important;
+  font-size: ${typography.body.fontSize} !important;
+  font-weight: ${typography.body.fontWeight} !important;
 
   @media only screen and (min-width: 640px) {
     display: none;
@@ -149,15 +139,11 @@ transition: background-color 0.3s linear;
   background-color: ${colors.primary} !important;
 }
 
-&:active {
-  background-color: ${colors.darkPrimary} !important;
-}
-
 & > svg {
   width: 24px;
   height: 24px;
   font-size: ${typography.h5.fontSize}
-  color: ${colors.mediumGrey};
+  color: ${colors.grey};
 }
 
 &:hover > svg {
@@ -172,9 +158,9 @@ transition: background-color 0.3s linear;
 
 export const AddToCartButtonSC = styled(Button)`
   display: none !important;
-  font-size: ${typography.h6.fontSize} !important;
-  font-weight: ${typography.h6.fontWeight} !important;
-  color: ${colors.mediumGrey} !important;
+  color: ${colors.grey} !important;
+  font-size: ${typography.h5.fontSize} !important;
+  font-weight: ${typography.h5.fontWeight} !important;
   background-color: ${colors.light} !important;
   box-shadow: none !important;
   transition: background-color 0.3s linear;
@@ -184,10 +170,6 @@ export const AddToCartButtonSC = styled(Button)`
     background-color: ${colors.primary} !important;
   }
 
-  &:active {
-    background-color: ${colors.darkPrimary} !important;
-  }
-
   @media only screen and (min-width: 640px) {
     display: block !important;
   }
@@ -195,8 +177,8 @@ export const AddToCartButtonSC = styled(Button)`
 
 export const RemoveFromCartButtonSC = styled(Button)`
   display: none !important;
-  font-size: ${typography.h6.fontSize} !important;
-  font-weight: ${typography.h6.fontWeight} !important;
+  font-size: ${typography.h5.fontSize} !important;
+  font-weight: ${typography.h5.fontWeight} !important;
   color: ${colors.lightest} !important;
   background-color: ${colors.primary} !important;
   box-shadow: none !important;
@@ -205,10 +187,6 @@ export const RemoveFromCartButtonSC = styled(Button)`
   &:hover {
     color: ${colors.lightest} !important;
     background-color: ${colors.primary} !important;
-  }
-
-  &:active {
-    background-color: ${colors.darkPrimary} !important;
   }
 
   @media only screen and (min-width: 640px) {
