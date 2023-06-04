@@ -13,13 +13,15 @@ import {
 import Review from "../review/index.component";
 
 const ReviewDisplay: FC<ReviewDisplayInterface> = ({ reviews }) => {
+  console.log(reviews)
+
   return (
     <ReviewDisplaySC>
       <TitleSC>Reviews</TitleSC>
       <ReviewStackSC direction="column" spacing={4}>
         {!_.isEmpty(reviews) &&
           reviews.map((review: ReviewInterface) => {
-            return <Review key={uuidv4()} {...review} />;
+            return <Review key={`review-${review?._id ?? ''}`} {...review} />;
           })}
       </ReviewStackSC>
       {_.isEmpty(reviews) && <EmptyTextSC>No Reviews...</EmptyTextSC>}

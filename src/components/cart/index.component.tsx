@@ -87,7 +87,7 @@ const Cart: FC<CartProps> = () => {
               return (
                 <CartItem
                   item={item}
-                  key={uuidv4()}
+                  key={`cart-item-${item._id}`}
                   closeCartHandler={handleDrawerClose}
                 />
               );
