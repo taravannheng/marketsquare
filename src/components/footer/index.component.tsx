@@ -49,7 +49,7 @@ const Footer: FC<FooterInterface> = ({ footerItems }) => {
         <UtilityLinkAccordionContainerSC>
           {footerItems.map((utilityLink: any) => {
             return (
-              <AccordionSC disableGutters key={uuidv4()}>
+              <AccordionSC disableGutters key={`accordion-${utilityLink.id}`}>
                 <AccordionSummarySC expandIcon={<ExpandCircleDown />}>
                   <UtilityLinkTitleSC>{utilityLink.title}</UtilityLinkTitleSC>
                 </AccordionSummarySC>
@@ -58,7 +58,7 @@ const Footer: FC<FooterInterface> = ({ footerItems }) => {
                     <UtilityLinkStackSC direction="column" spacing={1}>
                       {utilityLink.links.map((link: any) => {
                         return (
-                          <UtilityLinkSC href={link.route} key={uuidv4()}>
+                          <UtilityLinkSC href={link.route} key={`accordion-${link.id}`}>
                             {link.text}
                           </UtilityLinkSC>
                         );
@@ -130,7 +130,7 @@ const Footer: FC<FooterInterface> = ({ footerItems }) => {
             {!_.isEmpty(footerItems) &&
               footerItems.map((utilityLink: any) => {
                 return (
-                  <Grid item xs={3} key={uuidv4()}>
+                  <Grid item xs={3} key={`grid-${utilityLink.id}`}>
                     <UtilityLinkContainerSC>
                       <UtilityLinkTitleSC>
                         {utilityLink.title}
@@ -138,7 +138,7 @@ const Footer: FC<FooterInterface> = ({ footerItems }) => {
                       <UtilityLinkStackSC direction="column" spacing={1}>
                         {utilityLink.links.map((link: any) => {
                           return (
-                            <UtilityLinkSC href={link.route} key={uuidv4()}>
+                            <UtilityLinkSC href={link.route} key={`grid-${link.id}`}>
                               {link.text}
                             </UtilityLinkSC>
                           );

@@ -87,7 +87,7 @@ const ProductsDisplay: FC<ProductsDisplayInterface> = ({ title, products }) => {
               displayedProducts.map(
                 (product: ProductInterface, index: number) => {
                   return (
-                    <Grid item xs={6} lg={4} xl={3} key={uuidv4()}>
+                    <Grid item xs={6} lg={4} xl={3} key={`product-${product._id}`}>
                       <ProductCard {...product} />
                     </Grid>
                   );
