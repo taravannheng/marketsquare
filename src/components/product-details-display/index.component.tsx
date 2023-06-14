@@ -101,7 +101,7 @@ const ProductDetailsDisplay: FC<ProductDetailsDisplayInterface> = ({
             <DetailsContainerSC>
               <ProductNameSC>{product.name}</ProductNameSC>
               <ProductPriceSC>${product.price}</ProductPriceSC>
-              <Rating showLabel rating={product.rating} />
+              <Rating type="long" showLabel rating={product.rating} />
               <ProductDescriptionSC>{product.description}</ProductDescriptionSC>
               <Button
                 width="180px"
