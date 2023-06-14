@@ -21,6 +21,7 @@ import {
   AddToCartIconButtonSC,
   DefaultButtonContainerSC,
   RatingSC,
+  ProductInfoSC,
 } from "./index.styles";
 import { formatPrice } from "../../utils/helpers";
 
@@ -109,14 +110,17 @@ const ProductCard: FC<ProductCardInterface> = ({
             </ProductPriceBigCardSC>
           </ProductContentHeaderSC>
           <ProductContentBodySC>
-            <ProductPriceSmallCardSC
-              onClick={showDetailsHandler}
-              variant="body1"
-              color="text.primary"
-            >
-              ${formatPrice(price)}
-            </ProductPriceSmallCardSC>
-            {!isSmallScreen && <RatingSC rating={rating} showLabel={false} />}
+            <ProductInfoSC>
+              <ProductPriceSmallCardSC
+                onClick={showDetailsHandler}
+                variant="body1"
+                color="text.primary"
+              >
+                ${formatPrice(price)}
+              </ProductPriceSmallCardSC>
+              {isSmallScreen && <RatingSC type="short" showLabel={false} rating={rating} />}
+            </ProductInfoSC>
+            {!isSmallScreen && <RatingSC type="long" rating={rating} showLabel={false} />}
             <AddToCartButtonContainerSC>
               <AddToCartIconButtonSC onClick={addToCartHandler}>
                 {isAddedToCart ? <RemoveShoppingCart /> : <AddShoppingCart />}
