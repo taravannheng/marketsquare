@@ -17,7 +17,7 @@ export const ProductsDisplaySC = styled(Box)`
 
 export const SlideShowContainerSC = styled(Box)`
   width: clamp(100%, 100%, 100%);
-  height: clamp(240px, 240px, 240px);
+  height: clamp(280px, 280px, 280px);
   margin-bottom: 24px !important;
 
   @media only screen and (min-width: 624px) {
