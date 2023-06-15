@@ -36,10 +36,15 @@ export const SlideShowContainerSC = styled(Box)`
 export const ProductsDisplayTitleSC = styled(Typography)`
   margin-bottom: 32px !important;
   color: ${colors.darkest} !important;
-  font-size: ${typography.h2.fontSize} !important;
-  font-weight: ${typography.h2.fontWeight} !important;
+  font-size: ${typography.h3.fontSize} !important;
+  font-weight: ${typography.h3.fontWeight} !important;
 
   @media only screen and (min-width: 640px) {
+    font-size: ${typography.h2.fontSize} !important;
+    font-weight: ${typography.h2.fontWeight} !important;
+  }
+
+  @media only screen and (min-width: 960px) {
     font-size: ${typography.h1.fontSize} !important;
     font-weight: ${typography.h1.fontWeight} !important;
   }
