@@ -31,6 +31,7 @@ import { RelatedProductDisplaySC } from "../../components/related-product-displa
 import Button from "../../components/button/index.component";
 import { ArrowBackIosRounded } from "@mui/icons-material";
 import { ROUTES } from "../../utils/constants";
+import ProgressIndicator from "../../components/progress-indicator/index.component";
 
 const ProductDetailsPage: FC = () => {
   const navigate = useNavigate();
@@ -135,7 +136,7 @@ const ProductDetailsPage: FC = () => {
             />
           </BackNavSC>
           <EmptyBodySC>
-            <EmptyTextSC variant="">No data...</EmptyTextSC>
+            <ProgressIndicator />
           </EmptyBodySC>
         </EmptyContentSC>
       )}
