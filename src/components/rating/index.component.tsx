@@ -18,7 +18,7 @@ const Rating: FC<RatingInterface> = ({
       {type === "short" && (
         <ShortRatingSC>
           {showLabel && <ShortRatingLabelSC variant="body1">Rating:</ShortRatingLabelSC>}
-          <ShortRatingNumberSC>{rating}</ShortRatingNumberSC>
+          <ShortRatingNumberSC>{rating.toFixed(1)}</ShortRatingNumberSC>
           <ShortRatingIconSC fontSize="small">
             <StarRounded fontSize="small" />
           </ShortRatingIconSC>

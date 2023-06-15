@@ -111,6 +111,7 @@ const ProductCard: FC<ProductCardInterface> = ({
           </ProductContentHeaderSC>
           <ProductContentBodySC>
             <ProductInfoSC>
+              {isSmallScreen && <RatingSC type="short" showLabel={false} rating={rating} />}
               <ProductPriceSmallCardSC
                 onClick={showDetailsHandler}
                 variant="body1"
@@ -118,7 +119,6 @@ const ProductCard: FC<ProductCardInterface> = ({
               >
                 ${formatPrice(price)}
               </ProductPriceSmallCardSC>
-              {isSmallScreen && <RatingSC type="short" showLabel={false} rating={rating} />}
             </ProductInfoSC>
             {!isSmallScreen && <RatingSC type="long" rating={rating} showLabel={false} />}
             <AddToCartButtonContainerSC>

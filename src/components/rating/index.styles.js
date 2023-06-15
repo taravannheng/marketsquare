@@ -25,8 +25,8 @@ export const ShortRatingLabelSC = styled(Typography)`
 
 export const ShortRatingNumberSC = styled(Typography)`
   color: ${colors.primary} !important;
-  font-size: ${typography.h5.fontSize} !important;
-  font-weight: ${typography.h5.fontWeight} !important;
+  font-size: ${typography.body.fontSize} !important;
+  font-weight: ${typography.body.fontWeight} !important;
   margin: 0 !important;
 `;
 
