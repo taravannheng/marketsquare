@@ -13,8 +13,6 @@ import {
 import Review from "../review/index.component";
 
 const ReviewDisplay: FC<ReviewDisplayInterface> = ({ reviews }) => {
-  console.log(reviews)
-
   return (
     <ReviewDisplaySC>
       <TitleSC>Reviews</TitleSC>
