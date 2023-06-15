@@ -20,6 +20,7 @@ import {
   ProductNameSC,
   SlideShowContainerSC,
 } from "./index.styles";
+import { formatPrice } from "../../utils/helpers";
 
 const ProductDetailsDisplay: FC<ProductDetailsDisplayInterface> = ({
   product,
@@ -101,7 +102,7 @@ const ProductDetailsDisplay: FC<ProductDetailsDisplayInterface> = ({
               </SlideShowContainerSC>
               <DetailsContainerSC>
                 <ProductNameSC>{product.name}</ProductNameSC>
-                <ProductPriceSC>${product.price}</ProductPriceSC>
+                <ProductPriceSC>${formatPrice(product.price)}</ProductPriceSC>
                 <Rating type="long" showLabel rating={product.rating} />
                 <ProductDescriptionSC>
                   {product.description}
