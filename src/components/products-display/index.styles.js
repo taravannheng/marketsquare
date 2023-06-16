@@ -33,18 +33,32 @@ export const SlideShowContainerSC = styled(Box)`
   }
 `
 
-export const ProductsDisplayTitleSC = styled(Typography)`
+export const TitleContainerSC = styled(Box)`
+  display: flex;
+  flex-direction: column;
   margin-bottom: 32px !important;
+
+  @media only screen and (min-width: 640px) {
+    flex-direction: row; 
+    justify-content: space-between; 
+    align-items: center;
+  }
+`;
+
+export const ProductsDisplayTitleSC = styled(Typography)`
+  margin-bottom: 16px !important;
   color: ${colors.darkest} !important;
   font-size: ${typography.h3.fontSize} !important;
   font-weight: ${typography.h3.fontWeight} !important;
 
   @media only screen and (min-width: 640px) {
+    margin-bottom: 0px !important;
     font-size: ${typography.h2.fontSize} !important;
     font-weight: ${typography.h2.fontWeight} !important;
   }
 
   @media only screen and (min-width: 960px) {
+    margin-bottom: 0px !important;
     font-size: ${typography.h1.fontSize} !important;
     font-weight: ${typography.h1.fontWeight} !important;
   }
