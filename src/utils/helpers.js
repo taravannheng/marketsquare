@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 import AmexLogo from '../assets/cards/amex.png';
 import UnionPayLogo from '../assets/cards/unionpay.png';
 import JCBLogo from '../assets/cards/jcb.png';
@@ -49,4 +51,14 @@ export const formatPrice = (price) => {
   }
   
   return price.toFixed(2);
+}
+
+export const getProductsPerPage = (currentPage, productsPerPage, products) => {
+  const startIndex = (currentPage - 1) * productsPerPage;
+  const endIndex = startIndex + productsPerPage;
+  let slicedProducts = !_.isEmpty(products)
+    ? products.slice(startIndex, endIndex)
+    : [];
+
+  return slicedProducts;
 }
