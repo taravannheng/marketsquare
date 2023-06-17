@@ -31,6 +31,7 @@ import { RelatedProductDisplaySC } from "../../components/related-product-displa
 import Button from "../../components/button/index.component";
 import { ArrowBackIosRounded } from "@mui/icons-material";
 import { ROUTES } from "../../utils/constants";
+import ProgressIndicator from "../../components/progress-indicator/index.component";
 
 const ProductDetailsPage: FC = () => {
   const navigate = useNavigate();
@@ -86,13 +87,13 @@ const ProductDetailsPage: FC = () => {
             return { ...obj, price };
           });
 
+          console.log("converted response: ", convertedResponse);
+
           //  remove if related product has the same id
-          const relatedProducts = convertedResponse.map((item: ProductInterface) => {
-            if (item._id !== productID) {
-              return item;
-            }
-          });
-          
+          const relatedProducts = convertedResponse.filter(
+            (item: ProductInterface) => item._id !== productID
+          );
+
           setRelatedProducts(relatedProducts);
         };
 
@@ -135,7 +136,7 @@ const ProductDetailsPage: FC = () => {
             />
           </BackNavSC>
           <EmptyBodySC>
-            <EmptyTextSC variant="">No data...</EmptyTextSC>
+            <ProgressIndicator />
           </EmptyBodySC>
         </EmptyContentSC>
       )}

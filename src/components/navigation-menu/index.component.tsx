@@ -12,7 +12,7 @@ const NavigationMenu: FC<NavigationMenuInterface> = ({ menuList }) => {
     <NavigationMenuSC>
       <NavigationMenuStackSC direction="row"> 
         {!_.isEmpty(menuList) && menuList.map((menu: MenuInterface) => {
-          return <NavigationMenuItem {...menu} key={uuidv4()} />
+          return <NavigationMenuItem {...menu} key={menu.id} />
         })}
       </NavigationMenuStackSC>
     </NavigationMenuSC>
