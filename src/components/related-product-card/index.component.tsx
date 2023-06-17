@@ -39,7 +39,7 @@ const RelatedProductCard: FC<RelatedProductCardInterface> = ({
           <CardContentSC>
             <ProductNameSC>{product.name}</ProductNameSC>
             <ProductPriceSC>${product.price}</ProductPriceSC>
-            <Rating showLabel={false} rating={product.rating} />
+            <Rating type="long" showLabel={false} rating={product.rating} />
           </CardContentSC>
         </>
       )}

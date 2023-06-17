@@ -38,7 +38,7 @@ export const CardMediaSC = styled(CardMedia)`
   width: clamp(100%, 100%, 100%);
   min-height: 124px;
   height: 124px;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 
   @media only screen and (min-width: 640px) {
     min-height: 200px;
@@ -55,10 +55,13 @@ export const ProductContentHeaderSC = styled(Box)`
   justify-content: space-between;
   align-items: center !important;
   width: 100%;
-  margin: 0 0 8px 0 !important;
+  padding: 0 8px 8px 0 !important;
+  padding: 8px !important;
 `;
 
-export const ProductContentBodySC = styled(Box)``;
+export const ProductContentBodySC = styled(Box)`
+  padding: 0 8px 8px 8px !important;
+`;
 
 export const ProductNameSC = styled(Typography)`
   margin: 0 !important;
@@ -98,6 +101,14 @@ export const ProductPriceBigCardSC = styled(Typography)`
   }
 `;
 
+export const ProductInfoSC = styled(Box)`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+`;
+
 export const ProductPriceSmallCardSC = styled(Typography)`
   display: flex;
   justify-content: center;
@@ -105,7 +116,7 @@ export const ProductPriceSmallCardSC = styled(Typography)`
   width: auto !important;
   max-width: 80px;
   height: clamp(24px, 24px, 24px);
-  padding: 0;
+  padding: 0 12px;
   border-radius: 1000px;
   border: 1px solid ${colors.light};
   margin: 0;
@@ -123,13 +134,15 @@ export const AddToCartButtonContainerSC = styled(CardActions)`
   justify-content: end;
   width: clamp(100%, 100%, 100%);
   margin-top: 16px;
+  padding: 0 !important;
 `;
 
 export const AddToCartIconButtonSC = styled(IconButton)`
 display: flex;
 justify-content: center;
 align-items: center;
-width: clamp(80px, 80px, 80px) !important;
+// width: clamp(80px, 80px, 80px) !important;
+width: clamp(100%, 100%, 100%);
 height: clamp(32px, 32px, 32px);
 border-radius: 1000px !important;
 background-color: ${colors.light} !important;

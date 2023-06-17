@@ -8,3 +8,5 @@ export const getProduct = (productID) => api.get(`/api/products/${productID}`);
 export const getMultipleProducts = (productIDs) =>
   api.get(`/api/products/batch`, { params: { ids: productIDs.join(",") } });
 export const getProducts = () => api.get(`/api/products`);
+export const searchProducts = (searchTerm) =>
+  api.get(`/api/products/search`, { params: { searchTerm } });
