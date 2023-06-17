@@ -2,8 +2,11 @@ import { FC, useEffect, useState } from "react";
 import { Box, Container, Grid, Typography } from "@mui/material";
 import _ from "lodash";
 import { v4 as uuidv4 } from "uuid";
+import { useMediaQuery } from "@mui/material";
 
+import Sort from "../sort/sort.component";
 import ProductCard from "../product-card/index.component";
+import Search from "../search/search.component";
 import SlideShow from "../slideshow/index.component";
 import ProductCategory from "../product-category/index.component";
 import ProgressIndicator from "../progress-indicator/index.component";
@@ -15,6 +18,7 @@ import {
   ProductsDisplayEmptyTextSC,
   PaginationStackSC,
   SlideShowContainerSC,
+  TitleContainerSC,
 } from "./index.styles";
 import slideShowSample from "../../sample/slideshow/slideshow-sample";
 import { Pagination, Stack } from "@mui/material";
@@ -23,6 +27,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { getSlideshow } from "../../apis/slideshows/slideshow.api";
 import SlideShowItemInterface from "../../interfaces/slideshow-item.interface";
 import { SLIDESHOWIDS } from "../../utils/constants";
+import { getProductsPerPage } from "../../utils/helpers";
 
 const theme = createTheme({
   palette: {
@@ -34,15 +39,19 @@ const theme = createTheme({
 
 const ProductsDisplay: FC<ProductsDisplayInterface> = ({ title, products }) => {
   const [loading, setLoading] = useState(true);
+  const [sortMenuItem, setSortMenuItem] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const [slideshow, setSlideshow] = useState<SlideShowItemInterface[]>(
     [] as SlideShowItemInterface[]
   );
   const productsPerPage = 8;
-  let totalPages = !_.isEmpty(products) ? Math.ceil(products.length / productsPerPage) : 0;
-  const startIndex = (currentPage - 1) * productsPerPage;
-  const endIndex = startIndex + productsPerPage;
-  let displayedProducts = !_.isEmpty(products) ? products.slice(startIndex, endIndex) : [];
+  let totalPages = !_.isEmpty(products)
+    ? Math.ceil(products.length / productsPerPage)
+    : 0;
+  const [displayedProducts, setDisplayedProducts] = useState<
+    ProductInterface[]
+  >([]);
+  const isSmallScreen = useMediaQuery("(max-width: 639px)");
 
   useEffect(() => {
     if (!_.isEmpty(products) || products === null) {
@@ -66,8 +75,40 @@ const ProductsDisplay: FC<ProductsDisplayInterface> = ({ title, products }) => {
     fetchSlideshow();
   }, []);
 
+  useEffect(() => {
+    if (sortMenuItem === 0) {
+      const slicedProducts = getProductsPerPage(
+        currentPage,
+        productsPerPage,
+        products
+      );
+      setDisplayedProducts(slicedProducts);
+    }
+
+    if (sortMenuItem === 1) {
+      const sortedProducts = [...products].sort((a, b) => a.price - b.price);
+      const slicedProducts = getProductsPerPage(
+        currentPage,
+        productsPerPage,
+        sortedProducts
+      );
+      setDisplayedProducts(slicedProducts);
+    }
+
+    if (sortMenuItem === 2) {
+      const sortedProducts = [...products].sort((a, b) => b.price - a.price);
+      const slicedProducts = getProductsPerPage(
+        currentPage,
+        productsPerPage,
+        sortedProducts
+      );
+      setDisplayedProducts(slicedProducts);
+    }
+  }, [sortMenuItem, products, currentPage]);
+
   return (
     <ProductsDisplaySC>
+      {isSmallScreen && <Search />}
       <SlideShowContainerSC>
         <SlideShow
           indicatorType="dot"
@@ -76,9 +117,12 @@ const ProductsDisplay: FC<ProductsDisplayInterface> = ({ title, products }) => {
           redirectOnClick
         />
       </SlideShowContainerSC>
-      {!_.isEmpty(title) && (
-        <ProductsDisplayTitleSC variant="h5">{title}</ProductsDisplayTitleSC>
-      )}
+      <TitleContainerSC>
+        {!_.isEmpty(title) && (
+          <ProductsDisplayTitleSC variant="h5">{title}</ProductsDisplayTitleSC>
+        )}
+        <Sort sortMenuItem={sortMenuItem} setSortMenuItem={setSortMenuItem} />
+      </TitleContainerSC>
       {loading && <ProgressIndicator />}
       {!loading && (
         <ThemeProvider theme={theme}>
@@ -87,14 +131,20 @@ const ProductsDisplay: FC<ProductsDisplayInterface> = ({ title, products }) => {
               displayedProducts.map(
                 (product: ProductInterface, index: number) => {
                   return (
-                    <Grid item xs={6} lg={4} xl={3} key={uuidv4()}>
+                    <Grid
+                      item
+                      xs={6}
+                      lg={4}
+                      xl={3}
+                      key={`product-${product._id}`}
+                    >
                       <ProductCard {...product} />
                     </Grid>
                   );
                 }
               )}
           </Grid>
-          {!_.isEmpty(products) && (totalPages > 1) && (
+          {!_.isEmpty(products) && totalPages > 1 && (
             <PaginationStackSC>
               <Pagination
                 count={totalPages}
