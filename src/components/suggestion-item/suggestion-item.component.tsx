@@ -17,6 +17,7 @@ const SuggestionItem: FC<SuggestionItemInterface> = ({ suggestion }) => {
         <MediaAvatarSC src={suggestion.imgUrls[0]} alt={suggestion.name} />
       </MediaSC>
       <ListItemButton
+        disableRipple
         component="a"
         href={`/product/${suggestion._id}`}
         sx={{
