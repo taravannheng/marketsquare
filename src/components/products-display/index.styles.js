@@ -7,7 +7,7 @@ import typography from "../../styles/typography";
 export const ProductsDisplaySC = styled(Box)`
   width: clamp(100%, 100%, 100%);
   flex: 1;
-  padding: 48px 24px 80px 24px !important;
+  padding: 24px 24px 80px 24px !important;
   margin: 0 !important;
 
   @media only screen and (min-width: 1080px) {
@@ -18,7 +18,12 @@ export const ProductsDisplaySC = styled(Box)`
 export const SlideShowContainerSC = styled(Box)`
   width: clamp(100%, 100%, 100%);
   height: clamp(240px, 240px, 240px);
+  margin-top: 24px !important;
   margin-bottom: 24px !important;
+
+  @media only screen and (min-width: 640px) {
+    margin-top: 0px !important;
+  }
 
   @media only screen and (min-width: 624px) {
     width: clamp(100%, 100%, 100%);

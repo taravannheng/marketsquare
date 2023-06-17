@@ -2,8 +2,10 @@ import { FC, useEffect, useState } from "react";
 import { Box, Container, Grid, Typography } from "@mui/material";
 import _ from "lodash";
 import { v4 as uuidv4 } from "uuid";
+import { useMediaQuery } from "@mui/material";
 
 import ProductCard from "../product-card/index.component";
+import Search from "../search/search.component";
 import SlideShow from "../slideshow/index.component";
 import ProductCategory from "../product-category/index.component";
 import ProgressIndicator from "../progress-indicator/index.component";
@@ -43,6 +45,7 @@ const ProductsDisplay: FC<ProductsDisplayInterface> = ({ title, products }) => {
   const startIndex = (currentPage - 1) * productsPerPage;
   const endIndex = startIndex + productsPerPage;
   let displayedProducts = !_.isEmpty(products) ? products.slice(startIndex, endIndex) : [];
+  const isSmallScreen = useMediaQuery("(max-width: 639px)");
 
   useEffect(() => {
     if (!_.isEmpty(products) || products === null) {
@@ -68,6 +71,7 @@ const ProductsDisplay: FC<ProductsDisplayInterface> = ({ title, products }) => {
 
   return (
     <ProductsDisplaySC>
+      {isSmallScreen && <Search />}
       <SlideShowContainerSC>
         <SlideShow
           indicatorType="dot"
