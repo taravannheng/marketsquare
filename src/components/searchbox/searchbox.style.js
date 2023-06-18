@@ -25,7 +25,7 @@ export const SearchBoxSC = styled(Box)`
   }
 `;
 
-export const IconSC = styled(Icon)`
+export const SearchIconSC = styled(Icon)`
   transform: scaleX(-1);
   color: ${colors.grey};
   transition: color 0.3s ease-in-out;
@@ -62,5 +62,16 @@ export const TextFieldSC = styled(TextField)`
 
   .MuiInputBase-root::before {
     display: none;
+  }
+`;
+
+
+export const ClearIconSC = styled(Icon)`
+  color: ${colors.grey};
+  transition: color 0.3s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    color: ${colors.primary};
   }
 `;
