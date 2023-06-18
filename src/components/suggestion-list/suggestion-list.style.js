@@ -20,6 +20,22 @@ export const SuggestionListSC = styled(List)`
   }
 `;
 
+export const ValidationTextSC = styled(Typography)`
+  margin-bottom: 8px !important;
+  font-size: ${typography.body.fontSize} !important;
+  font-weight: ${typography.body.fontWeight} !important;
+  font-style: italic;
+  color: ${colors.dark};
+`;
+
+export const ValidationTextHighlightSC = styled(Typography)`
+  font-size: ${typography.body.fontSize} !important;
+  font-weight: ${typography.body.fontWeight} !important;
+  font-style: italic;
+  color: ${colors.primary};
+  cursor: pointer;
+`;
+
 export const EmptyTextSC = styled(Typography)`
   font-size: ${typography.body.fontSize} !important;
   font-weight: ${typography.body.fontWeight} !important;
