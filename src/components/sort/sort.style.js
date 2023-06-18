@@ -9,7 +9,7 @@ export const SortSC = styled(Box)`
   flex-direction: row;
   align-items: center;
   width: clamp(100%, 100%, 300px) !important;
-  padding: 8px 0 8px 12px;
+  padding: 0 0 0 12px;
   background-color: ${colors.light};
   border-radius: 8px;
 
@@ -28,11 +28,18 @@ export const LabelContainerSC = styled(Box)`
 `;
 
 export const LabelIconSC = styled(Icon)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px !important;
+  margin-top: -4px;
   margin-right: 4px;
 `;
 
 export const LabelSC = styled(Typography)`
-  
+  color: ${colors.darkest} !important;
+  font-size: ${typography.body.fontSize} !important;
+  font-weight: ${typography.body.fontWeight} !important;
 `;
 
 export const SelectContainerSC = styled(Box)`
@@ -42,12 +49,17 @@ export const SelectContainerSC = styled(Box)`
 export const SelectSC = styled(Select)`
   width: clamp(100%, 100%, 100%) !important;
   outline: 0 !important;
+  color: ${colors.darkest} !important;
+  font-size: ${typography.body.fontSize} !important;
+  font-weight: ${typography.body.fontWeight} !important;
 `;
 
 export const MenuItemSC = styled(MenuItem)`
   width: clamp(100%, 100%, 100%) !important;
   background-color: ${colors.lightest} !important;
   color: ${colors.darkest} !important;
+  font-size: ${typography.body.fontSize} !important;
+  font-weight: ${typography.body.fontWeight} !important;
 
   &:hover {
     color: ${colors.lightest} !important;
