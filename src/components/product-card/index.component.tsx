@@ -1,9 +1,9 @@
-import { FC, useContext, useState, useEffect } from "react";
+import { FC, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import _ from "lodash";
 import { Box, useMediaQuery } from "@mui/material";
 import { AddShoppingCart, RemoveShoppingCart } from "@mui/icons-material";
-import CartContext from "../../contexts/cart-context";
+import { useSelector, useDispatch } from "react-redux";
 
 import Button from "../button/index.component";
 import ProductInterface from "../../interfaces/product-interface";
@@ -24,6 +24,7 @@ import {
   ProductInfoSC,
 } from "./index.styles";
 import { formatPrice } from "../../utils/helpers";
+import { selectCart } from "../../store/cart/cart.selector";
 
 const ProductCard: FC<ProductCardInterface> = ({
   imgUrls,
@@ -37,17 +38,18 @@ const ProductCard: FC<ProductCardInterface> = ({
   _id,
 }) => {
   const isSmallScreen = useMediaQuery("(max-width: 640px)");
-  const { cart, setCart } = useContext(CartContext);
   const [isAddedToCart, setIsAddedToCart] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const cart = useSelector(selectCart);
 
   const addToCartHandler = () => {
     setIsAddedToCart((prevState) => !prevState);
 
     if (!isAddedToCart) {
-      setCart((prevProducts: ProductInterface[]) => [
-        ...prevProducts,
-        {
+      dispatch({
+        type: "ADD_TO_CART",
+        payload: {
           imgUrls,
           name,
           description,
@@ -58,15 +60,15 @@ const ProductCard: FC<ProductCardInterface> = ({
           rating,
           _id,
         },
-      ]);
+      });
     }
 
     if (isAddedToCart) {
-      setCart((prevProducts: ProductInterface[]) => {
-        const updatedProducts = prevProducts.filter(
-          (productInCart) => productInCart._id !== _id
-        );
-        return updatedProducts;
+      dispatch({
+        type: "REMOVE_FROM_CART",
+        payload: {
+          _id,
+        },
       });
     }
   };
@@ -87,7 +89,6 @@ const ProductCard: FC<ProductCardInterface> = ({
         );
         return matchedProduct !== undefined;
       };
-
       setIsAddedToCart(isProductInCart());
     }
   }, [cart, _id]);
