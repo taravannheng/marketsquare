@@ -1,6 +1,7 @@
-import { FC, useContext, useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import _ from "lodash";
+import { useDispatch, useSelector } from "react-redux";
 
 import Header from "../../components/header/index.component";
 import ProductsDisplay from "../../components/products-display/index.component";
@@ -8,16 +9,18 @@ import Footer from "../../components/footer/index.component";
 import generateProductsSample from "../../sample/products/product-sample";
 import footerItemsSample from "../../sample/footer/utility-links-sample";
 import { getMultipleProducts, getProducts } from "../../apis/products/products.api";
-import ProductsContext from "../../contexts/product-context";
-import CartContext from "../../contexts/cart-context";
 import { LandingPageSC } from "./index.styles";
 import LoadingScreen from "../../components/loading-screen/index.component";
 import { getCart } from "../../apis/carts/cart.api";
+import StoreStateInterface from "../../interfaces/store.interface";
+import { selectProducts } from "../../store/product/product.selector";
+import { selectCart } from "../../store/cart/cart.selector";
 
 const LandingPage: FC = () => {
   const [loading, setLoading] = useState(true);
-  const { products, setProducts } = useContext(ProductsContext);
-  const { setCart } = useContext(CartContext);
+  const products = useSelector(selectProducts);
+  const cart = useSelector(selectCart);
+  const dispatch = useDispatch();
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   const orderCanceled = params.get("canceled");
@@ -35,11 +38,11 @@ const LandingPage: FC = () => {
           return { ...obj, price };
         });
 
-        setProducts(convertedResponse);
+        dispatch({ type: "SET_PRODUCTS", payload: convertedResponse });
       }
 
       if (_.isEmpty(responseData)) {
-        setProducts(null);
+        dispatch({ type: "SET_PRODUCTS", payload: null });
       }
     };
 
@@ -74,7 +77,7 @@ const LandingPage: FC = () => {
           return product;
         });
 
-        setCart(cart);
+        dispatch({ type: "SET_CART", payload: cart });
       }
     };
 
