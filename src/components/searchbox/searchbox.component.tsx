@@ -16,12 +16,12 @@ const SearchBox: FC<SearchBoxInterface> = ({ searchTerm, setSearchTerm }) => {
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     setSearchTerm(event.target.value);
-    console.log(event.target.value);
   };
 
   const clearSearchTermHandler = () => {
     setSearchTerm("");
   };
+}
 
   return (
     <SearchBoxSC>
