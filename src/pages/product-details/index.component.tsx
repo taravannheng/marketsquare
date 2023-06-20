@@ -87,8 +87,6 @@ const ProductDetailsPage: FC = () => {
             return { ...obj, price };
           });
 
-          console.log("converted response: ", convertedResponse);
-
           //  remove if related product has the same id
           const relatedProducts = convertedResponse.filter(
             (item: ProductInterface) => item._id !== productID
