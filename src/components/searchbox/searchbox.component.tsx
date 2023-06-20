@@ -21,7 +21,6 @@ const SearchBox: FC<SearchBoxInterface> = ({ searchTerm, setSearchTerm }) => {
   const clearSearchTermHandler = () => {
     setSearchTerm("");
   };
-}
 
   return (
     <SearchBoxSC>
