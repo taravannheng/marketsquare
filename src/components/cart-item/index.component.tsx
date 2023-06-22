@@ -1,5 +1,9 @@
-import { FC, useContext } from "react";
+import { FC } from "react";
 import { Add, Remove, Delete } from "@mui/icons-material";
+import { useSelector, useDispatch } from "react-redux";
+
+import CartItemProps from "./index.interface";
+import { formatPrice } from "../../utils/helpers";
 import {
   CartItemRootSC,
   CartItemImageSC,
@@ -13,54 +17,36 @@ import {
   RemoveButtonSC,
   ControlContainerSC,
 } from "./index.styles";
-
-import CartContext from "../../contexts/cart-context";
-import ProductInterface from "../../interfaces/product-interface";
-import CartItemProps from "./index.interface";
-import { formatPrice } from "../../utils/helpers";
+import { selectCart } from "../../store/cart/cart.selector";
 
 const CartItem: FC<CartItemProps> = ({ item, closeCartHandler }) => {
-  const { cart, setCart } = useContext(CartContext);
+  const cart = useSelector(selectCart);
+  const dispatch = useDispatch();
 
   const increaseQuantity = () => {
-    setCart((prevProducts: ProductInterface[]) => {
-      const updatedProducts = prevProducts.map((product: any) => {
-        if (product._id === item._id) {
-          return { ...product, quantity: product.quantity + 1 };
-        }
-        return product;
-      });
-
-      return updatedProducts;
+    dispatch({
+      type: "INCREASE_QUANTITY",
+      payload: item,
     });
   };
 
   const decreaseQuantity = () => {
-    setCart((prevProducts: ProductInterface[]) => {
-      const updatedProducts = prevProducts.map((product: any) => {
-        if (product._id === item._id) {
-          return { ...product, quantity: product.quantity - 1 };
-        }
-        return product;
-      });
-
-      return updatedProducts;
+    dispatch({
+      type: "DECREASE_QUANTITY",
+      payload: item,
     });
   };
 
   const removeItem = () => {
     if (cart.length === 1) {
-      // set time out is for delaying the closing to let the user see that the cart is empty before closing
       setTimeout(() => {
         closeCartHandler();
       }, 300);
     }
 
-    setCart((prevProducts: ProductInterface[]) => {
-      const updatedProducts = prevProducts.filter(
-        (product) => product._id !== item._id
-      );
-      return updatedProducts;
+    dispatch({
+      type: "REMOVE_FROM_CART",
+      payload: item,
     });
   };
 
