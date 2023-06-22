@@ -1,18 +1,49 @@
-import { FC, ReactNode } from "react";
-import { AppBar, Box, Toolbar, Typography } from "@mui/material";
-import { Link } from "react-router-dom";
-import { useMediaQuery } from "@mui/material";
+import { FC, ReactNode, useState } from "react";
+import { AppBar, Box, Toolbar, Typography, Icon, useMediaQuery } from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import { AccountCircle, Login } from '@mui/icons-material';
+import { Link, useNavigate } from "react-router-dom";
 
 import Cart from "../cart/index.component";
 import NavigationMenu from "../navigation-menu/index.component";
 import Search from "../search/search.component";
 import HeaderProps from "./index.interface";
-import { ToolbarPlaceholderSC, ToolbarSC } from "./index.styles";
-import menuList from "../../sample/navigation-menu/navigationMenuSample";
+import { ToolbarPlaceholderSC, ToolbarSC, MenuIconSC } from "./index.styles";
+import navMenuList from "../../sample/navigation-menu/navigationMenuSample";
 import { ROUTES } from "../../utils/constants";
+import Menu from "../../components/menu/menu.component";
+import menuListSample from "../../sample/menu/menu";
 
 const Header: FC<HeaderProps> = () => {
   const isBigScreen = useMediaQuery("(min-width: 640px)");
+  const navigate = useNavigate();
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const menuList = [
+    {
+      id: "a7B3nR9k",
+      text: "Sign Up",
+      icon: <AccountCircle />,
+      clickHandler: () => {
+        navigate(ROUTES.SIGN_UP);
+      }
+    },
+    {
+      id: "a7B3nR9j",
+      text: "Sign In",
+      icon: <Login />,
+      clickHandler: () => {
+        navigate(ROUTES.SIGN_IN);
+      }
+    },
+  ];
 
   return (
     <AppBar position="static" sx={{ boxShadow: "none" }}>
@@ -23,8 +54,10 @@ const Header: FC<HeaderProps> = () => {
         </Link>
         {isBigScreen && (<Search />)}
         <Cart />
+        {isBigScreen && <MenuIconSC onClick={handleClick}><MenuIcon /></MenuIconSC>}
       </ToolbarSC>
-      <NavigationMenu menuList={menuList} />
+      <NavigationMenu menuList={navMenuList} />
+      <Menu menuList={menuList} anchorEl={anchorEl} handleClose={handleClose}  />
     </AppBar>
   );
 };
