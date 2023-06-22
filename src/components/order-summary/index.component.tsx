@@ -26,7 +26,7 @@ const OrderSummary: FC<OrderSummaryInterface> = ({ products, totalAmount }) => {
           <TitleSC variant="h5">Products</TitleSC>
           <ProductStackSC direction='column' spacing={1}>
             {products.map((product: ProductInterface) => {
-              return <RelatedProductCard key={uuidv4()} product={product} />;
+              return <RelatedProductCard key={`order-related-product-card-${product?._id ?? ''}`} product={product} />;
             })}
           </ProductStackSC>
           <TotalTextSC variant="body1">

@@ -20,6 +20,7 @@ import {
   ProductNameSC,
   SlideShowContainerSC,
 } from "./index.styles";
+import { formatPrice } from "../../utils/helpers";
 
 const ProductDetailsDisplay: FC<ProductDetailsDisplayInterface> = ({
   product,
@@ -77,7 +78,7 @@ const ProductDetailsDisplay: FC<ProductDetailsDisplayInterface> = ({
 
   return (
     <>
-      {!_.isEmpty(product) && (
+      {
         <ProductDetailsDisplaySC>
           <BackNavSC>
             <Button
@@ -89,30 +90,34 @@ const ProductDetailsDisplay: FC<ProductDetailsDisplayInterface> = ({
               clickHandler={goBack}
             />
           </BackNavSC>
-          <BodySC>
-            <SlideShowContainerSC>
-              {isSmallScreen && (
-                <SlideShow indicatorType="dot" data={slideshowData} />
-              )}
-              {!isSmallScreen && (
-                <SlideShow indicatorType="number" data={slideshowData} />
-              )}
-            </SlideShowContainerSC>
-            <DetailsContainerSC>
-              <ProductNameSC>{product.name}</ProductNameSC>
-              <ProductPriceSC>${product.price}</ProductPriceSC>
-              <Rating showLabel rating={product.rating} />
-              <ProductDescriptionSC>{product.description}</ProductDescriptionSC>
-              <Button
-                width="180px"
-                type="default"
-                label={isAddedToCart ? "Remove from Cart" : "Add to Cart"}
-                clickHandler={addToCartHandler}
-              />
-            </DetailsContainerSC>
-          </BodySC>
+          {!_.isEmpty(product) && (
+            <BodySC>
+              <SlideShowContainerSC>
+                {isSmallScreen && (
+                  <SlideShow indicatorType="dot" data={slideshowData} />
+                )}
+                {!isSmallScreen && (
+                  <SlideShow indicatorType="number" data={slideshowData} />
+                )}
+              </SlideShowContainerSC>
+              <DetailsContainerSC>
+                <ProductNameSC>{product.name}</ProductNameSC>
+                <ProductPriceSC>${formatPrice(product.price)}</ProductPriceSC>
+                <Rating type="long" showLabel rating={product.rating} />
+                <ProductDescriptionSC>
+                  {product.description}
+                </ProductDescriptionSC>
+                <Button
+                  width="180px"
+                  type="default"
+                  label={isAddedToCart ? "Remove from Cart" : "Add to Cart"}
+                  clickHandler={addToCartHandler}
+                />
+              </DetailsContainerSC>
+            </BodySC>
+          )}
         </ProductDetailsDisplaySC>
-      )}
+      }
     </>
   );
 };

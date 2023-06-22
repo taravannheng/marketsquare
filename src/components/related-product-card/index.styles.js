@@ -29,6 +29,9 @@ export const CardContentSC = styled(CardContent)`
 `
 
 export const ProductNameSC = styled(Typography)`
+  white-space: nowrap;
+  overflow-x: scroll;
+  overflow-y: hidden;
   color: ${colors.dark} !important;
   font-size: ${typography.h5.fontSize} !important;
   font-weight: ${typography.h5.fontWeight} !important;

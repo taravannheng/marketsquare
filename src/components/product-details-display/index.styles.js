@@ -18,9 +18,13 @@ export const BackNavSC = styled(Box)`
 
 export const SlideShowContainerSC = styled(Box)`  
   width: clamp(100%, 100%, 100%);
-  height: clamp(360px, 360px, 360px);
+  height: clamp(320px, 320px, 320px);
   margin-bottom: 32px;
   overflow: hidden;
+
+  @media only screen and (min-width: 520px) {
+    height: clamp(360px, 360px, 360px);
+  }
 
   
   @media only screen and (min-width: 1080px) {

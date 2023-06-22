@@ -28,7 +28,7 @@ const Review: FC<ReviewInterface> = ({
       <MediaSC image={avatarUrl} />
       <ContentSC>
         <ReviewerSC>{reviewer}</ReviewerSC>
-        <Rating rating={rating} showLabel={false} />
+        <Rating type="long" rating={rating} showLabel={false} />
         <CommentSC>{comment}</CommentSC>
       </ContentSC>
     </ReviewSC>

@@ -69,7 +69,7 @@ const SlideShow: FC<SlideShowInterface> = ({
           data.map((item: SlideShowItemInterface, index: number) => {
             return (
               <SlideShowMediaSC
-                key={index}
+                key={`slide-media-${item._id}`}
                 image={item.imgUrl}
                 sx={{
                   transform: `translateY(-${activeItemIndex * 100}%)`,
@@ -100,14 +100,14 @@ const SlideShow: FC<SlideShowInterface> = ({
                   if (index === activeItemIndex) {
                     return (
                       <SlideShowPaginationActiveIndicatorSC
-                        key={uuidv4()}
+                        key={`slide-pagination-active-indicator-${item._id}`}
                         onClick={() => paginationIndicatorHandler(index)}
                       ></SlideShowPaginationActiveIndicatorSC>
                     );
                   }
                   return (
                     <SlideShowPaginationIndicatorSC
-                      key={uuidv4()}
+                      key={`slide-pagination-active-indicator-${item._id}`}
                       onClick={() => paginationIndicatorHandler(index)}
                     ></SlideShowPaginationIndicatorSC>
                   );

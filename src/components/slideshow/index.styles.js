@@ -98,7 +98,7 @@ export const SlideShowPaginationIndicatorSC = styled(Box)`
   width: clamp(14px, 14px, 14px) !important;
   height: clamp(14px, 14px, 14px) !important;
   border-radius: 100%;
-  border: 1px solid ${colors.grey};
+  background-color: ${colors.light};
   cursor: pointer;
   transition: all 0.3s ease;
 
