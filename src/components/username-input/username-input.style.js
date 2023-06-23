@@ -56,9 +56,14 @@ export const InputSC = styled(TextField)`
   & input {
     padding: ${spacing.xs} ${spacing.m} !important;
     border: 0px !important;
-    border-radius: ${borderRadius.m} !important;
+    border-radius: ${borderRadius.s} !important;
     color: ${colors.darkest} !important;
     background-color: ${colors.light} !important;
+    transition: border 0.1s ease-in-out;
+
+    &:focus {
+      border: 1px solid ${colors.primary} !important;
+    }
   }
 
   & fieldset {
@@ -94,7 +99,7 @@ export const TooltipListSC = styled(List)`
 `;
 
 export const TooltipItemSC = styled(ListItem)`
-  margin: 0 !important;
+  margin: 0 0 ${spacing.xxs} 0 !important;
   padding: 0 !important;
 `;
 
@@ -141,5 +146,6 @@ export const StatusTextSC = styled(Typography)`
   color: ${colors.red} !important;
   font-size: ${typography.small.fontSize} !important;
   font-weight: ${typography.small.fontWeight} !important;
+  font-style: italic !important;
 `;
 
