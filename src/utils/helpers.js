@@ -62,3 +62,38 @@ export const getProductsPerPage = (currentPage, productsPerPage, products) => {
 
   return slicedProducts;
 }
+
+export const checkUsernameLength = (username) => {
+  return username.length >= 4 && username.length <= 20;
+}
+
+export const checkUsernameCharacters = (username) => {
+  const regex = /^[a-zA-Z0-9_]+$/;
+  return regex.test(username);
+}
+
+export const checkUsernameSpaces = (username) => {
+  const regex = /\s/;
+
+  return !regex.test(username) && username.length > 0 ;
+}
+
+export const checkUsername = (username) => {
+  const isValidLength = checkUsernameLength(username);
+  const isValidCharacters = checkUsernameCharacters(username);
+  const hasNoSpaces = checkUsernameSpaces(username);
+
+  const usernameStatus = {
+    isValid: isValidLength && isValidCharacters && hasNoSpaces,
+    validityDetails: {
+      isValidLength,
+      isValidCharacters,
+      hasNoSpaces
+    }
+  };
+
+  return usernameStatus;
+}
+
+
+
