@@ -13,6 +13,7 @@ const Search: FC<SearchInterface> = () => {
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [suggestions, setSuggestions] = useState<ProductInterface[]>([]);
   const [correctedSearchTerm, setCorrectedSearchTerm] = useState<string>("");
+  const [isFocused, setIsFocused] = useState<boolean>(false);
 
   useEffect(() => {
     const getSuggestions = async () => {
@@ -38,8 +39,8 @@ const Search: FC<SearchInterface> = () => {
 
   return (
     <SearchSC>
-      <SearchBox searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-      {searchTerm.length > 2 && (
+      <SearchBox searchTerm={searchTerm} setSearchTerm={setSearchTerm} setIsFocused={setIsFocused} />
+      {searchTerm.length > 2 && isFocused && (
         <SuggestionList
           setSearchTerm={setSearchTerm}
           suggestions={suggestions}
