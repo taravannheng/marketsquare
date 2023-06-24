@@ -95,5 +95,31 @@ export const checkUsername = (username) => {
   return usernameStatus;
 }
 
+export const checkEmail = (email) => {
+  // extract different portions of email
+  const username = email?.split('@')[0] ?? null;
+  const domain = email?.split('@')[1] ?? null;
 
+  // regex
+  const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+  const usernameRegex = /^[a-zA-Z0-9._-]+$/;
+  const domainRegex = /^[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+  const atRegex = /@/;
 
+  // check email validity
+  const isValidEmail = emailRegex.test(email);
+  const isValidUsername = usernameRegex.test(username);
+  const isValidDomain = domainRegex.test(domain);
+  const hasAt = atRegex.test(email);
+
+  const emailStatus = {
+    isValid: isValidEmail,
+    validityDetails: {
+      isValidUsername,
+      isValidDomain,
+      hasAt,
+    }
+  };
+
+  return emailStatus;
+}
