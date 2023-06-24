@@ -1,8 +1,8 @@
-import { FC, useState, useContext } from "react";
-import { v4 as uuidv4 } from "uuid";
+import { FC, useState } from "react";
 import _ from "lodash";
 import { Box, Icon, IconButton, Drawer, List } from "@mui/material";
 import { ArrowBackIos } from "@mui/icons-material";
+import { useSelector } from "react-redux";
 
 import CartItem from "../cart-item/index.component";
 import Button from "../button/index.component";
@@ -23,27 +23,17 @@ import {
   CheckoutContainerSC,
   DrawerSC,
 } from "./index.styles";
-import CartContext from "../../contexts/cart-context";
-import ProductInterface from "../../interfaces/product-interface";
 import CartProps from "./index.interface";
 import { createCart } from "../../apis/carts/cart.api";
+import { selectCart, selectCartTotal, selectCartLength } from "../../store/cart/cart.selector";
 import { formatPrice } from "../../utils/helpers";
 
 const Cart: FC<CartProps> = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [checkoutButtonIsLoading, setCheckoutButtonIsLoading] = useState(false);
-  const { cart, setCart } = useContext(CartContext);
-
-  const getCartTotal = (cart: ProductInterface[]) => {
-    let total = 0;
-
-    for (const item of cart) {
-      const { price, quantity } = item;
-      total += price * quantity;
-    }
-
-    return formatPrice(total);
-  };
+  const cart = useSelector(selectCart);
+  const cartTotal = useSelector(selectCartTotal);
+  const cartLength = useSelector(selectCartLength);
 
   const checkoutHandler = async () => {
     setCheckoutButtonIsLoading(true);
@@ -51,8 +41,6 @@ const Cart: FC<CartProps> = () => {
     const url = response.data.url;
     window.location.href = url;
   }
-
-  // drawer handler
 
   const handleDrawerOpen = () => {
     setIsDrawerOpen(true);
@@ -67,7 +55,7 @@ const Cart: FC<CartProps> = () => {
       <CartButtonSC onClick={handleDrawerOpen}>
         <ShoppingCartSC />
         <Icon>
-          <CartCounterSC>{cart.length}</CartCounterSC>
+          <CartCounterSC>{cartLength}</CartCounterSC>
         </Icon>
       </CartButtonSC>
 
@@ -96,7 +84,7 @@ const Cart: FC<CartProps> = () => {
             <CheckoutContainerSC>
               <TotalContainerSC>
                 <TotalLabelSC variant="body1">Total:</TotalLabelSC>
-                <TotalTextSC variant="body1">${getCartTotal(cart)}</TotalTextSC>
+                <TotalTextSC variant="body1">${formatPrice(cartTotal)}</TotalTextSC>
               </TotalContainerSC>
               <Button
                 boldLabel
