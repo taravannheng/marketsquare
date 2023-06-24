@@ -69,6 +69,7 @@ const EmailInput: FC<EmailInputInterface> = ({
         onBlur={blurHandler}
         placeholder={placeholder}
         value={value}
+        type="email"
       />
       {isFocus && (
         <TooltipSC>

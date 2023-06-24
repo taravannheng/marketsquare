@@ -67,6 +67,7 @@ const UsernameInput: FC<UsernameInputInterface> = ({
         onBlur={blurHandler}
         placeholder={placeholder}
         value={value}
+        type="text"
       />
       {isFocus && (
         <TooltipSC>
