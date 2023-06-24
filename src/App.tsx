@@ -5,8 +5,6 @@ import LandingPage from "./pages/landing/index.component";
 import ProductDetailsPage from "./pages/product-details/index.component";
 import { ROUTES } from "./utils/constants";
 import GlobalStyle from "./styles/globalstyles";
-import { CartContextProvider } from "./contexts/cart-context";
-import { ProductsContextProvider } from "./contexts/product-context";
 import PrivateConfirmationRoute from "./pages/confirmation/index.private";
 
 const ConfirmationPage = React.lazy(() => import("./pages/confirmation/index.component"));
@@ -15,8 +13,6 @@ const App: FC = () => {
   return (
     <div className="App">
       <GlobalStyle />
-      <CartContextProvider>
-        <ProductsContextProvider>
           <Router>
             <Routes>
               <Route path={ROUTES.LANDING} element={<LandingPage />} />
@@ -33,8 +29,6 @@ const App: FC = () => {
               </Route>
             </Routes>
           </Router>
-        </ProductsContextProvider>
-      </CartContextProvider>
     </div>
   );
 };

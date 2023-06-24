@@ -1,6 +1,7 @@
-import { FC, useState, useEffect, useContext } from "react";
+import { FC, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useMediaQuery } from "@mui/material";
+import { useSelector, useDispatch } from "react-redux";
 import { ArrowBackIosRounded } from "@mui/icons-material";
 import _ from "lodash";
 
@@ -9,7 +10,6 @@ import Rating from "../rating/index.component";
 import Button from "../button/index.component";
 import ProductDetailsDisplayInterface from "./index.interface";
 import ProductInterface from "../../interfaces/product-interface";
-import CartContext from "../../contexts/cart-context";
 import {
   BackNavSC,
   BodySC,
@@ -21,13 +21,15 @@ import {
   SlideShowContainerSC,
 } from "./index.styles";
 import { formatPrice } from "../../utils/helpers";
+import { selectCart } from "../../store/cart/cart.selector";
 
 const ProductDetailsDisplay: FC<ProductDetailsDisplayInterface> = ({
   product,
 }) => {
   const isSmallScreen = useMediaQuery("(max-width: 1080px)");
   const navigate = useNavigate();
-  const { cart, setCart } = useContext(CartContext);
+  const cart = useSelector(selectCart);
+  const dispatch = useDispatch();
   const [isAddedToCart, setIsAddedToCart] = useState(false);
   const slideshowData = !_.isEmpty(product)
     ? product.imgUrls.map((imgUrl: string) => ({ imgUrl }))
@@ -41,20 +43,20 @@ const ProductDetailsDisplay: FC<ProductDetailsDisplayInterface> = ({
     setIsAddedToCart((prevState) => !prevState);
 
     if (!isAddedToCart) {
-      setCart((prevProducts: ProductInterface[]) => [
-        ...prevProducts,
-        {
+      dispatch({
+        type: "ADD_TO_CART",
+        payload: {
           ...product,
         },
-      ]);
+      });
     }
 
     if (isAddedToCart) {
-      setCart((prevProducts: ProductInterface[]) => {
-        const updatedProducts = prevProducts.filter(
-          (productInCart) => productInCart._id !== product._id
-        );
-        return updatedProducts;
+      dispatch({
+        type: "REMOVE_FROM_CART",
+        payload: {
+          _id: product._id,
+        },
       });
     }
   };
