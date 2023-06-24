@@ -38,13 +38,13 @@ export const StatusIconSC = styled(Icon)`
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  width: 20px !important;
-  height: 20px !important;
+  width: 18px !important;
+  height: 18px !important;
   transition: opacity 0.3s ease-in-out;
 
   & > svg {
     margin: 0 !important;
-    font-size: 20px !important;
+    font-size: 18px !important;
   }
 `;
 
@@ -108,10 +108,10 @@ export const TooltipItemIconSC = styled(ListItemIcon)`
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  min-width: 20px !important;
-  width: 20px !important;
-  max-width: 20px !important;
-  height: 20px !important;
+  min-width: 18px !important;
+  width: 18px !important;
+  max-width: 18px !important;
+  height: 18px !important;
   margin-right: ${spacing.xs} !important;
   color: ${colors.grey} !important;
   transition: all 0.3s ease-in-out;
@@ -121,7 +121,7 @@ export const TooltipItemIconSC = styled(ListItemIcon)`
     top: 0 !important;
     left: 0 !important;
     margin: 0 !important;
-    font-size: 20px !important;
+    font-size: 18px !important;
     transition: all 0.3s ease-in-out;
   }
 `;
