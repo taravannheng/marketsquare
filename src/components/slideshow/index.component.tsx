@@ -69,7 +69,7 @@ const SlideShow: FC<SlideShowInterface> = ({
           data.map((item: SlideShowItemInterface, index: number) => {
             return (
               <SlideShowMediaSC
-                key={`slide-media-${item._id}`}
+                key={`slide-media-${item?._id ?? index}`}
                 image={item.imgUrl}
                 sx={{
                   transform: `translateY(-${activeItemIndex * 100}%)`,

@@ -2,6 +2,8 @@ export const ROUTES = {
   LANDING: '/',
   PRODUCT_DETAILS: '/product/:productID',
   CONFIRMATION: '/confirmation',
+  SIGN_IN: '/sign-in',
+  SIGN_UP: '/sign-up',
 }
 
 export const SLIDESHOWIDS = {

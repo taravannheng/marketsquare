@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { AppBar, Box, Toolbar, Typography } from "@mui/material";
+import { AppBar, Box, Icon, Toolbar } from "@mui/material";
 
 import colors from "../../styles/colors";
 import typography from "../../styles/typography";
@@ -32,5 +32,15 @@ export const ToolbarSC = styled(Toolbar)`
 
   @media only screen and (min-width: 1080px) {
     padding: 0 48px !important;
+  }
+`;
+
+export const MenuIconSC = styled(Icon)`
+  color: ${colors.dark};
+  margin-left: 24px;
+  cursor: pointer;
+
+  &:hover {
+    color: ${colors.primary};
   }
 `;
