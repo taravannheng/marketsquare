@@ -123,3 +123,27 @@ export const checkEmail = (email) => {
 
   return emailStatus;
 }
+
+export const checkPassword = (password) => {
+  const isValid = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]).{8,16}$/.test(password);
+  const isValidLength = password.length >= 8 && password.length <= 16;
+  const hasUppercaseLetter = /[A-Z]/.test(password);
+  const hasLowercaseLetter = /[a-z]/.test(password);
+  const hasNumber = /\d/.test(password);
+  const hasSpecialCharacter = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/.test(password);
+  const hasNoSpaces = !/\s/.test(password);
+
+  const passwordStatus = {
+    isValid,
+    validityDetails: {
+      isValidLength,
+      hasUppercaseLetter,
+      hasLowercaseLetter,
+      hasNumber,
+      hasSpecialCharacter,
+      hasNoSpaces
+    }
+  };
+
+  return passwordStatus;
+}
