@@ -1,4 +1,5 @@
 import ProductInterface from "./product-interface";
+import OrderInterface from "./order.interface";
 
 interface StoreStateInterface {
   product: {
@@ -6,6 +7,9 @@ interface StoreStateInterface {
   };
   cart: {
     cart: ProductInterface[];
+  };
+  order: {
+    order: OrderInterface;
   };
 }
 
