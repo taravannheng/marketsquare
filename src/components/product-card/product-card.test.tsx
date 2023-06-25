@@ -5,12 +5,13 @@ import {
   screen,
 } from "@testing-library/react";
 import '@testing-library/jest-dom'
-import { MemoryRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 
 import ProductCard from "./product-card.component";
+import Cart from "../cart/index.component";
 import ProductCardInterface from "./product-card.interface";
 import store from "../../store/store";
+import { renderWithProvider } from "../../utils/test/test.util";
 
 let product: ProductCardInterface;
 
@@ -40,13 +41,7 @@ describe("ProductCard", () => {
 
   test('Add to Cart button text: Add to Cart -> Remove from Cart', () => {
     // Render the product card with the mock data
-    render(
-      <MemoryRouter>
-        <Provider store={store}>
-          <ProductCard {...product} />
-        </Provider>
-      </MemoryRouter>
-    );
+    renderWithProvider(<ProductCard {...product} />);
 
     // Find the "Remove from Cart" button and click it
     const addToCartButton = screen.getByText("Add to Cart");
@@ -58,15 +53,11 @@ describe("ProductCard", () => {
 
   test('Add to Cart button text: Remove from Cart -> Add to Cart', () => {
     // Render the product card with the mock data
-    render(
-      <MemoryRouter>
-        <Provider store={store}>
-          <ProductCard {...product} />
-        </Provider>
-      </MemoryRouter>
-    );
+    renderWithProvider(<ProductCard {...product} />);
 
     // Find the "Remove from Cart" button and click it
+    const addToCartButton = screen.getByText("Add to Cart");
+    fireEvent.click(addToCartButton);
     const removeFromCartButton = screen.getByText("Remove from Cart");
     fireEvent.click(removeFromCartButton);
 
