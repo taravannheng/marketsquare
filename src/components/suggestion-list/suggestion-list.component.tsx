@@ -4,19 +4,25 @@ import _ from "lodash";
 import SuggestionListInterface from "./suggestion-list.interface";
 import {
   EmptyTextSC,
+  ProgressIndicatorContainerSC,
   SuggestionListSC,
   ValidationTextHighlightSC,
   ValidationTextSC,
 } from "./suggestion-list.style";
 import SuggestionItem from "../suggestion-item/suggestion-item.component";
+import ProgressIndicator from "../progress-indicator/index.component";
 
 const SuggestionList: FC<SuggestionListInterface> = ({
   suggestions,
   correctedSearchTerm,
   setSearchTerm,
+  isLoading,
 }) => {
   return (
     <SuggestionListSC>
+      <ProgressIndicatorContainerSC>
+        {isLoading && <ProgressIndicator size={20} />}
+      </ProgressIndicatorContainerSC>
       {!_.isEmpty(correctedSearchTerm) && (
         <ValidationTextSC variant="body1">
           Did you mean:{" "}
@@ -35,7 +41,7 @@ const SuggestionList: FC<SuggestionListInterface> = ({
             suggestion={suggestion}
           />
         ))}
-      {_.isEmpty(suggestions) && (
+      {_.isEmpty(suggestions) && !isLoading && (
         <EmptyTextSC>No products found...</EmptyTextSC>
       )}
     </SuggestionListSC>
