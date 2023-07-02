@@ -10,6 +10,7 @@ export default interface UsernameInputInterface {
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;
   username: UsernameInterface;
+  isRequired?: boolean;
 }
 
 export interface UsernameInterface {

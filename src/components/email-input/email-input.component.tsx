@@ -28,6 +28,7 @@ const EmailInput: FC<EmailInputInterface> = ({
   placeholder = "example@gmail.com",
   email,
   id,
+  isRequired = true,
 }) => {
   const { value, isValid, validityDetails } = email;
   const [isInitialFocus, setIsInitialFocus] = useState(false);
@@ -70,6 +71,7 @@ const EmailInput: FC<EmailInputInterface> = ({
         placeholder={placeholder}
         value={value}
         type="email"
+        required={isRequired}
       />
       {isFocus && (
         <TooltipSC>

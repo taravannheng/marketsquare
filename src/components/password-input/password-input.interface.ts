@@ -10,6 +10,7 @@ export interface PasswordInputInterface {
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;
   password: PasswordInterface;
+  isRequired?: boolean;
 }
 
 export interface PasswordInterface {
