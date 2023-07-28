@@ -5,7 +5,7 @@ import {
 import '@testing-library/jest-dom'
 
 import PasswordInput from "./password-input.component";
-import { PasswordInterface } from "./password-input.interface";
+import PasswordInterface from "../../interfaces/password.interface";
 import { renderWithProvider } from "../../utils/test/test.util";
 import colors from "../../styles/colors";
 

@@ -5,7 +5,7 @@ import {
 import '@testing-library/jest-dom'
 
 import EmailInput from "./email-input.component";
-import { EmailInterface } from "./email-input.interface";
+import EmailInterface from "../../interfaces/email.interface";
 import { renderWithProvider } from "../../utils/test/test.util";
 import colors from "../../styles/colors";
 
