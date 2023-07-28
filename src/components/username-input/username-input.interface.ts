@@ -1,5 +1,7 @@
 import { ReactNode } from "react";
 
+import UsernameInterface from "../../interfaces/username.interface";
+
 export default interface UsernameInputInterface {
   children?: ReactNode;
   className?: string;
@@ -11,14 +13,4 @@ export default interface UsernameInputInterface {
   placeholder?: string;
   username: UsernameInterface;
   isRequired?: boolean;
-}
-
-export interface UsernameInterface {
-  value: string;
-  isValid: boolean;
-  validityDetails: {
-    isValidLength: boolean;
-    isValidCharacters: boolean;
-    hasNoSpaces: boolean;
-  };
 }
