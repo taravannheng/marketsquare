@@ -1,5 +1,7 @@
 import { ReactNode } from "react";
 
+import PasswordInterface from "../../interfaces/password.interface";
+
 export interface PasswordInputInterface {
   children?: ReactNode;
   className?: string;
@@ -11,17 +13,4 @@ export interface PasswordInputInterface {
   placeholder?: string;
   password: PasswordInterface;
   isRequired?: boolean;
-}
-
-export interface PasswordInterface {
-  value: string;
-  isValid: boolean;
-  validityDetails: {
-    isValidLength: boolean;
-    hasUppercaseLetter: boolean;
-    hasLowercaseLetter: boolean;
-    hasNumber: boolean;
-    hasSpecialCharacter: boolean;
-    hasNoSpaces: boolean;
-  };
 }
