@@ -11,6 +11,8 @@ export default interface EmailInputInterface {
   placeholder?: string;
   email: EmailInterface;
   isRequired?: boolean;
+  isUnique?: boolean;
+  checkUniqueness?: boolean;
 }
 
 export interface EmailInterface {

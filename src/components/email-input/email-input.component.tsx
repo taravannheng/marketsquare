@@ -29,6 +29,8 @@ const EmailInput: FC<EmailInputInterface> = ({
   email,
   id,
   isRequired = true,
+  isUnique = undefined,
+  checkUniqueness = false,
 }) => {
   const { value, isValid, validityDetails } = email;
   const [isInitialFocus, setIsInitialFocus] = useState(false);
@@ -50,9 +52,18 @@ const EmailInput: FC<EmailInputInterface> = ({
     <EmailInputSC>
       <LabelContainerSC>
         <LabelSC>{label}</LabelSC>
-        {isInitialFocus && (
+        {isInitialFocus && !checkUniqueness && (
           <StatusIconSC sx={{ opacity: `${!isFocus ? "1" : "0"}` }}>
             {!isValid ? (
+              <Cancel sx={{ color: `${colors.red}` }} />
+            ) : (
+              <CheckCircle sx={{ color: `${colors.green}` }} />
+            )}
+          </StatusIconSC>
+        )}
+        {isInitialFocus && checkUniqueness && (
+          <StatusIconSC sx={{ opacity: `${!isFocus ? "1" : "0"}` }}>
+            {!isValid || !isUnique ? (
               <Cancel sx={{ color: `${colors.red}` }} />
             ) : (
               <CheckCircle sx={{ color: `${colors.green}` }} />
@@ -248,6 +259,9 @@ const EmailInput: FC<EmailInputInterface> = ({
       )}
       {!isValid && isInitialFocus && !isFocus && (
         <StatusTextSC>Please enter a valid email!</StatusTextSC>
+      )}
+      {checkUniqueness && !isUnique && isInitialFocus && !isFocus && (
+        <StatusTextSC>Email is already taken!</StatusTextSC>
       )}
     </EmailInputSC>
   );
