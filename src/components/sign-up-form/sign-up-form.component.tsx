@@ -23,7 +23,7 @@ import { checkEmail, checkPassword, checkUsername } from "../../utils/helpers";
 import { ROUTES } from "../../utils/constants";
 import GoogleLogo from "../../assets/socials/social-google.png";
 import FacebookLogo from "../../assets/socials/social-facebook.png";
-import { createUser, getUser } from "../../apis/users/users.api";
+import { createUser, getUserByEmail } from "../../apis/users/users.api";
 import UsernameInterface from "../../interfaces/username.interface";
 import EmailInterface from "../../interfaces/email.interface";
 import PasswordInterface from "../../interfaces/password.interface";
@@ -178,7 +178,7 @@ const SignUpForm: FC<SignUpFormInterface> = () => {
 
   useEffect(() => {
     const checkEmailUniqueness = async () => {
-      const response = await getUser(email.value);
+      const response = await getUserByEmail(email.value);
       const user = (await response?.data[0]) ?? null;
 
       if (_.isEmpty(user)) {
@@ -218,11 +218,11 @@ const SignUpForm: FC<SignUpFormInterface> = () => {
         Forgotten password?
       </ForgottenPasswordLinkSC>
       <Divider />
-      <SignUpWithGoogleButtonSC href={`${ROUTES.SIGN_UP_GOOGLE}`}>
+      <SignUpWithGoogleButtonSC href={`${ROUTES.AUTH_GOOGLE}`}>
         <SocialLogoSC src={GoogleLogo} alt="social logo" />
         Sign Up with Google
       </SignUpWithGoogleButtonSC>
-      <SignUpWithFacebookButtonSC href={`${ROUTES.SIGN_UP_FACEBOOK}`}>
+      <SignUpWithFacebookButtonSC href={`${ROUTES.AUTH_FACEBOOK}`}>
         <SocialLogoSC src={FacebookLogo} alt="social logo" />
         Sign Up with Facebook
       </SignUpWithFacebookButtonSC>
