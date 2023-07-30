@@ -21,6 +21,7 @@ const LandingPage: FC = () => {
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   const isSignedIn = params.get("signedIn");
+  const jwtToken = params.get("token");
   const isSignedOut = params.get("signedOut");
 
   const [loading, setLoading] = useState(true);
@@ -80,6 +81,9 @@ const LandingPage: FC = () => {
           type: "success",
         });
 
+        // set cookie to expire in 1hr
+        Cookies.set("jwt", jwtToken!, { expires: 1 / 24 });
+
         // get user details
         fetchUser();
       }
@@ -92,7 +96,7 @@ const LandingPage: FC = () => {
         });
       }
     }
-  }, [products, isSignedIn, isSignedOut]);
+  }, [products, isSignedIn, isSignedOut, jwtToken]);
 
   const snackbarCloseHandler = () => {
     setSnackbar({
