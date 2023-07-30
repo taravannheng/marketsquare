@@ -26,6 +26,7 @@ const UsernameInput: FC<UsernameInputInterface> = ({
   onChange,
   placeholder = "Enter your username",
   username,
+  isRequired = true,
 }) => {
   const { value, isValid, validityDetails } = username;
   const [isInitialFocus, setIsInitialFocus] = useState(false);
@@ -68,6 +69,7 @@ const UsernameInput: FC<UsernameInputInterface> = ({
         placeholder={placeholder}
         value={value}
         type="text"
+        required={isRequired}
       />
       {isFocus && (
         <TooltipSC>

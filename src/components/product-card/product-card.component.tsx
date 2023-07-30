@@ -7,7 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import Button from "../button/index.component";
 import ProductInterface from "../../interfaces/product-interface";
-import ProductCardInterface from "./index.interface";
+import ProductCardInterface from "./product-card.interface";
 import {
   ProductCardSC,
   CardContentSC,
@@ -22,7 +22,7 @@ import {
   DefaultButtonContainerSC,
   RatingSC,
   ProductInfoSC,
-} from "./index.styles";
+} from "./product-card.styles";
 import { formatPrice } from "../../utils/helpers";
 import { selectCart } from "../../store/cart/cart.selector";
 

@@ -4,6 +4,7 @@ import {
   increaseQuantity,
   decreaseQuantity,
   removeFromCart,
+  clearCart,
 } from "./cart.action";
 import ProductInterface from "../../interfaces/product-interface";
 
@@ -39,6 +40,11 @@ export const cartReducer = (
       return {
         ...state,
         cart: removeFromCart(state.cart, payload),
+      };
+    case CART_ACTION_TYPES.CLEAR_CART:
+      return {
+        ...state,
+        cart: clearCart(),
       };
     default:
       return state;

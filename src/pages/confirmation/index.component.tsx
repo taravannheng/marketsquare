@@ -1,5 +1,7 @@
 import { FC, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import _ from "lodash";
 
 import { createOrder } from "../../apis/orders/order.api";
 import orderSample from "../../sample/order/order.sample";
@@ -9,47 +11,29 @@ import footerUtilityLinksSample from "../../sample/footer/utility-links-sample";
 import Footer from "../../components/footer/index.component";
 import { ConfirmationPageSC } from "./index.styles";
 import OrderInterface from "../../interfaces/order.interface";
-import _ from "lodash";
+import { selectOrder } from "../../store/order/order.selector";
 
 const ConfirmationPage = () => {
-  const [order, setOrder] = useState<OrderInterface>({} as OrderInterface);
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   const success = params.get("success");
   const cartID = params.get("cartID");
+  const order = useSelector(selectOrder);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const stringCartIDs = sessionStorage.getItem('cartIDs');
-    let stringOrder: string | null = '';
-    let orderSS = null;
-    let cartIDs = [];
+    // clear cart
+    dispatch({ type: "CLEAR_CART" });
 
-    if (!_.isEmpty(cartID)) {
-      stringOrder = sessionStorage.getItem(cartID!);
-      orderSS = JSON.parse(stringOrder!)
-      setOrder(orderSS);
-    }
-    
-    if (!_.isEmpty(stringCartIDs)) {
-      cartIDs = JSON.parse(stringCartIDs!);
-    }
+    // send order to server
+    const sendOrder = async () => {
+      const response = await createOrder(cartID);
+      if (!_.isEmpty(response.data)) {
+        dispatch({ type: "SET_ORDER", payload: response.data.order });
+      }
+    };
 
-    if (_.isEmpty(cartIDs) || !cartIDs.includes(cartID)) {
-      //send data to db
-      const sendOrder = async () => {
-        const response = await createOrder(cartID);
-        if (!_.isEmpty(response.data)) {
-          setOrder(response.data.order);
-          cartID && sessionStorage.setItem(cartID, JSON.stringify(response.data.order));
-        }
-      };
-
-      sendOrder();
-
-      const newCartIDs = [...cartIDs, cartID]
-
-      sessionStorage.setItem('cartIDs', JSON.stringify(newCartIDs));
-    }
+    sendOrder();
   }, []);
 
   return (

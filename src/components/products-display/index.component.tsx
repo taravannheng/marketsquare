@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 import { useMediaQuery } from "@mui/material";
 
 import Sort from "../sort/sort.component";
-import ProductCard from "../product-card/index.component";
+import ProductCard from "../product-card/product-card.component";
 import Search from "../search/search.component";
 import SlideShow from "../slideshow/index.component";
 import ProductCategory from "../product-category/index.component";

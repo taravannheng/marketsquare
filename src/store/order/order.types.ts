@@ -1,0 +1,5 @@
+const ORDER_ACTION_TYPES = {
+  SET_ORDER: "SET_ORDER",
+};
+
+export default ORDER_ACTION_TYPES;

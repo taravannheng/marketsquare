@@ -23,3 +23,7 @@ export const decreaseQuantity = (cart: ProductInterface[], payload: ProductInter
 export const removeFromCart = (cart: ProductInterface[], payload: ProductInterface) => {
     return cart.filter((product) => product._id !== payload._id);
 }
+
+export const clearCart = () => {
+    return [];
+}
