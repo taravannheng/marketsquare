@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { List, Typography } from "@mui/material";
+import { Box, List, Typography } from "@mui/material";
 
 import colors from "../../styles/colors";
 import typography from "../../styles/typography";
@@ -18,6 +18,30 @@ export const SuggestionListSC = styled(List)`
   @media only screen and (min-width: 640px) {
     max-width: 520px !important;
   }
+`;
+
+export const ProgressIndicatorContainerSC = styled(Box)`
+  width: 100% !important;
+  height: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+`;
+
+export const ValidationTextSC = styled(Typography)`
+  margin-bottom: 8px !important;
+  font-size: ${typography.body.fontSize} !important;
+  font-weight: ${typography.body.fontWeight} !important;
+  font-style: italic;
+  color: ${colors.dark};
+`;
+
+export const ValidationTextHighlightSC = styled(Typography)`
+  font-size: ${typography.body.fontSize} !important;
+  font-weight: ${typography.body.fontWeight} !important;
+  font-style: italic;
+  color: ${colors.primary};
+  cursor: pointer;
 `;
 
 export const EmptyTextSC = styled(Typography)`

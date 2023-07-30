@@ -1,5 +1,6 @@
 import { FC, useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import Header from "../../components/header/index.component";
 import ProductDetailsDisplay from "../../components/product-details-display/index.component";
@@ -32,6 +33,7 @@ import Button from "../../components/button/index.component";
 import { ArrowBackIosRounded } from "@mui/icons-material";
 import { ROUTES } from "../../utils/constants";
 import ProgressIndicator from "../../components/progress-indicator/index.component";
+import { selectProducts } from "../../store/product/product.selector";
 
 const ProductDetailsPage: FC = () => {
   const navigate = useNavigate();
@@ -42,6 +44,7 @@ const ProductDetailsPage: FC = () => {
   const [relatedProducts, setRelatedProducts] = useState<ProductInterface[]>(
     [] as ProductInterface[]
   );
+  const products = useSelector(selectProducts);
 
   const redirectToHomepage = () => {
     navigate(ROUTES.LANDING);
@@ -60,11 +63,31 @@ const ProductDetailsPage: FC = () => {
       return response?.data[0] ?? null;
     };
 
-    fetchProduct()
+    if (_.isEmpty(products)) {
+      fetchProduct()
       .then((result) => {
         setProduct(result);
       })
       .catch((error) => console.error(error));
+    }
+
+    if (!_.isEmpty(products)) {
+      const product = products.find(
+        (item: ProductInterface) => item._id === productID
+      );
+
+      if (product) {
+        setProduct(product);
+      }
+
+      if (!product) {
+        fetchProduct()
+        .then((result) => {
+          setProduct(result);
+        })
+        .catch((error) => console.error(error));
+      }
+    }
 
     // get related products
     const fetchRelatedProductIDs = async () => {
@@ -86,8 +109,6 @@ const ProductDetailsPage: FC = () => {
             const price = parseFloat(obj.price);
             return { ...obj, price };
           });
-
-          console.log("converted response: ", convertedResponse);
 
           //  remove if related product has the same id
           const relatedProducts = convertedResponse.filter(

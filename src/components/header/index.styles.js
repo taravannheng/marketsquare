@@ -1,8 +1,10 @@
 import styled from "styled-components";
-import { AppBar, Box, Toolbar, Typography } from "@mui/material";
+import { AppBar, Box, Drawer, Icon, Link, Toolbar, Typography } from "@mui/material";
 
 import colors from "../../styles/colors";
 import typography from "../../styles/typography";
+import space from "../../styles/spacing";
+import borderRadius from "../../styles/border-radius";
 
 export const AppBarSC = styled(AppBar)`
   
@@ -33,4 +35,87 @@ export const ToolbarSC = styled(Toolbar)`
   @media only screen and (min-width: 1080px) {
     padding: 0 48px !important;
   }
+`;
+
+export const MenuIconSC = styled(Icon)`
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  width: clamp(40px, 40px, 40px) !important;
+  height: clamp(40px, 40px, 40px) !important;
+  border-radius: ${borderRadius.s} !important;
+  margin-left: 24px;
+  cursor: pointer;
+  color: ${colors.dark};
+  background-color: ${colors.light} !important;
+  transition: background-color 0.3s ease-in-out;
+
+  &:hover {
+    background-color: ${colors.primary} !important;
+    color: ${colors.lightest} !important;
+  }
+`;
+
+export const AvatarContainerSC = styled(Box)`
+  margin-left: ${space.l};
+`;
+
+export const DrawerSC = styled(Drawer)`
+  position: relative;
+`;
+
+export const DrawerContentSC = styled(Box)`
+  padding: 56px 24px 180px 24px;
+  width: clamp(360px, 360px, 360px);
+  height: auto;
+  background-color: ${colors.lightest};
+`;
+
+export const DrawerHeadSC = styled(Box)`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const DrawerBodySC = styled(Box)`
+
+`;
+
+export const DrawerBottomSC = styled(Box)`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: clamp(360px, 360px, 360px);
+  padding: 12px 24px 48px 24px;
+  background-color: ${colors.lightest};
+`;
+
+export const UsernameSC = styled(Typography)`
+  margin-top: ${space.xs} !important;
+  font-size: ${typography.body.fontSize} !important;
+  font-weight: ${typography.body.fontWeight} !important;
+  color: ${colors.darkest} !important;
+`;
+
+export const EmailSC = styled(Typography)`
+  font-size: ${typography.body.fontSize} !important;
+  font-weight: ${typography.body.fontWeight} !important;
+  color: ${colors.dark} !important;
+`;
+
+export const SignOutSC = styled(Link)`
+text-decoration: none !important;
+color: ${colors.dark} !important;
+font-size: ${typography.body.fontSize} !important;
+font-weight: ${typography.body.fontWeight} !important;
+
+&:hover {
+  color: ${colors.red} !important;
+  cursor: pointer;
+}
 `;

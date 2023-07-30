@@ -3,10 +3,10 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import LandingPage from "./pages/landing/index.component";
 import ProductDetailsPage from "./pages/product-details/index.component";
+import SignInPage from "./pages/signin/signin.component";
+import SignUpPage from "./pages/signup/signup.component";
 import { ROUTES } from "./utils/constants";
 import GlobalStyle from "./styles/globalstyles";
-import { CartContextProvider } from "./contexts/cart-context";
-import { ProductsContextProvider } from "./contexts/product-context";
 import PrivateConfirmationRoute from "./pages/confirmation/index.private";
 
 const ConfirmationPage = React.lazy(() => import("./pages/confirmation/index.component"));
@@ -15,12 +15,12 @@ const App: FC = () => {
   return (
     <div className="App">
       <GlobalStyle />
-      <CartContextProvider>
-        <ProductsContextProvider>
           <Router>
             <Routes>
               <Route path={ROUTES.LANDING} element={<LandingPage />} />
               <Route path={ROUTES.PRODUCT_DETAILS} element={<ProductDetailsPage />} />
+              <Route path={ROUTES.SIGN_UP} element={<SignUpPage />} />
+              <Route path={ROUTES.SIGN_IN} element={<SignInPage />} />
               <Route path={ROUTES.CONFIRMATION} element={<PrivateConfirmationRoute />}>
                 <Route
                   path={ROUTES.CONFIRMATION}
@@ -33,8 +33,6 @@ const App: FC = () => {
               </Route>
             </Routes>
           </Router>
-        </ProductsContextProvider>
-      </CartContextProvider>
     </div>
   );
 };
