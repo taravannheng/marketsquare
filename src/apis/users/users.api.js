@@ -5,4 +5,9 @@ const api = axios.create({
 });
 
 export const createUser = (user) => api.post(`/api/users`, { user });
-export const getUser = (email) => api.get(`/api/users/${email}`);
+export const getUserByEmail = (email) => api.get(`/api/users/${email}`);
+export const getUser = (token) => api.get(`/api/users`, { 
+  headers: { 
+    Authorization: `Bearer ${token}` 
+  } 
+});
