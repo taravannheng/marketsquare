@@ -4,12 +4,14 @@ import { persistReducer } from 'redux-persist';
 import { productReducer } from './product/product.reducer';
 import { cartReducer } from './cart/cart.reducer';
 import { orderReducer } from './order/order.reducer';
+import { userReducer } from './user/user.reducer';
 import persistConfig from './config/persist-config';
 
 export const rootReducer = combineReducers({
   product: productReducer,
   cart: cartReducer,
   order: orderReducer,
+  user: userReducer,
 });
 
 export const persistedReducer = persistReducer(persistConfig, rootReducer);
