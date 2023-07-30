@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import LandingPage from "./pages/landing/index.component";
 import ProductDetailsPage from "./pages/product-details/index.component";
+import SignInPage from "./pages/signin/signin.component";
 import SignUpPage from "./pages/signup/signup.component";
 import { ROUTES } from "./utils/constants";
 import GlobalStyle from "./styles/globalstyles";
@@ -19,6 +20,7 @@ const App: FC = () => {
               <Route path={ROUTES.LANDING} element={<LandingPage />} />
               <Route path={ROUTES.PRODUCT_DETAILS} element={<ProductDetailsPage />} />
               <Route path={ROUTES.SIGN_UP} element={<SignUpPage />} />
+              <Route path={ROUTES.SIGN_IN} element={<SignInPage />} />
               <Route path={ROUTES.CONFIRMATION} element={<PrivateConfirmationRoute />}>
                 <Route
                   path={ROUTES.CONFIRMATION}
