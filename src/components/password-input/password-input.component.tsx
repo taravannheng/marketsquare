@@ -34,6 +34,7 @@ const PasswordInput: FC<PasswordInputInterface> = ({
   onChange,
   placeholder = "",
   password,
+  isRequired = true,
 }) => {
   const { value, isValid, validityDetails } = password;
   const [isInitialFocus, setIsInitialFocus] = useState(false);
@@ -82,6 +83,7 @@ const PasswordInput: FC<PasswordInputInterface> = ({
           placeholder={placeholder}
           value={value}
           type={showPassword ? "text" : "password"}
+          required={isRequired}
         />
         <ShowPasswordIconSC>
           {showPassword ? (
