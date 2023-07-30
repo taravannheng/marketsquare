@@ -7,4 +7,5 @@ export default interface SuggestionListInterface {
   suggestions: ProductInterface[];
   correctedSearchTerm: string;
   setSearchTerm: (searchTerm: string) => void;
+  isLoading: boolean;
 }

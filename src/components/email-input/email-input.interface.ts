@@ -10,6 +10,9 @@ export default interface EmailInputInterface {
   label?: string;
   placeholder?: string;
   email: EmailInterface;
+  isRequired?: boolean;
+  isUnique?: boolean;
+  checkUniqueness?: boolean;
 }
 
 export interface EmailInterface {

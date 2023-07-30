@@ -110,6 +110,7 @@ export const TooltipSC = styled(Box)`
   font-weight: ${typography.body.fontWeight} !important;
   line-height: ${typography.body.lineHeight} !important;
   background-color: ${colors.light} !important;
+  margin-bottom: ${spacing.m} !important;
 `;
 
 export const TooltipTextSC = styled(Typography)`
