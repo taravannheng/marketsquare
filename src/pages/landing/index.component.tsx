@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from "react";
 import _ from "lodash";
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 
 import Header from "../../components/header/index.component";
@@ -14,10 +14,12 @@ import footerItemsSample from "../../sample/footer/utility-links-sample";
 import { getProducts } from "../../apis/products/products.api";
 import { LandingPageSC } from "./index.styles";
 import { selectProducts } from "../../store/product/product.selector";
+import { ROUTES } from "../../utils/constants";
 import { selectUser } from "../../store/user/user.selector";
 const { getUser } = require("../../apis/users/users.api");
 
 const LandingPage: FC = () => {
+  const navigate = useNavigate();
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   const isSignedIn = params.get("signedIn");
@@ -69,6 +71,9 @@ const LandingPage: FC = () => {
 
       // set user state
       dispatch({ type: "SET_USER", payload: {...response.data} });
+
+      // navigate to home page
+      navigate(`${ROUTES.LANDING}`);
     };
 
     if (!_.isEmpty(products) || products === null) {
@@ -82,7 +87,9 @@ const LandingPage: FC = () => {
         });
 
         // set cookie to expire in 1hr
-        Cookies.set("jwt", jwtToken!, { expires: 1 / 24 });
+        if (!_.isEmpty(jwtToken)) {
+          Cookies.set("jwt", jwtToken!, { expires: 1 / 24 });
+        }
 
         // get user details
         fetchUser();
