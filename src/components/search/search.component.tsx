@@ -69,8 +69,8 @@ const Search: FC<SearchInterface> = () => {
 
   return (
     <SearchSC>
-      <SearchBox searchTerm={searchTerm} setSearchTerm={setSearchTerm} setIsFocused={setIsFocused} />
-      {searchTerm.length > 2 && isFocused && (
+      <SearchBox searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+      {searchTerm.length > 2 && (
         <SuggestionList
           setSearchTerm={setSearchTerm}
           suggestions={suggestions}

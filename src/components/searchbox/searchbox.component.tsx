@@ -11,7 +11,7 @@ import {
 } from "./searchbox.style";
 import _ from "lodash";
 
-const SearchBox: FC<SearchBoxInterface> = ({ searchTerm, setSearchTerm, setIsFocused }) => {
+const SearchBox: FC<SearchBoxInterface> = ({ searchTerm, setSearchTerm }) => {
   const handleSearchTermChange = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
@@ -35,8 +35,6 @@ const SearchBox: FC<SearchBoxInterface> = ({ searchTerm, setSearchTerm, setIsFoc
         value={searchTerm}
         placeholder="Search products..."
         onChange={handleSearchTermChange}
-        onFocus={() => setIsFocused(true)}
-        onBlur={() => setIsFocused(false)}
       />
       {!_.isEmpty(searchTerm) && (
         <ClearIconSC onClick={clearSearchTermHandler}>
