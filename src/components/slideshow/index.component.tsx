@@ -66,9 +66,11 @@ const SlideShow: FC<SlideShowInterface> = ({
 
   return (
     <SlideShowSC>
-      <SkeletonContainerSC>
-        {_.isEmpty(data) && <SlideshowSkeleton />}
-      </SkeletonContainerSC>
+      {_.isEmpty(data) && (
+        <SkeletonContainerSC>
+          <SlideshowSkeleton />
+        </SkeletonContainerSC>
+      )}
       <SlideShowCardSC>
         {!_.isEmpty(data) &&
           data.map((item: SlideShowItemInterface, index: number) => {
