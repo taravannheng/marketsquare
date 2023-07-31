@@ -18,7 +18,10 @@ export const SlideShowSC = styled(Box)`
 `
 
 export const SkeletonContainerSC = styled(Box)`
+  width: clamp(100%, 100%, 100%) !important;
+  height: clamp(100%, 100%, 100%) !important;
   border-radius: ${borderRadius.m} !important;
+  overflow: hidden !important;
 `;
 
 export const SlideShowCardSC = styled(Card)`

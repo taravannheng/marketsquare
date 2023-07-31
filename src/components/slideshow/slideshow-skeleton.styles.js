@@ -10,15 +10,6 @@ export const SlideShowSkeletonSC = styled(Box)`
 
   background-color: ${colors.light} !important;
   animation: pulse 1s infinite linear;
-  
-  @keyframes shimmer {
-    0% {
-      background-position: -800px 0;
-    }
-    100% {
-      background-position: 800px 0;
-    }
-  }
 
   @keyframes pulse {
     0% {
