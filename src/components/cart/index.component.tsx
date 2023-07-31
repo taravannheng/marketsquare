@@ -25,7 +25,11 @@ import {
 } from "./index.styles";
 import CartProps from "./index.interface";
 import { createCart } from "../../apis/carts/cart.api";
-import { selectCart, selectCartTotal, selectCartLength } from "../../store/cart/cart.selector";
+import {
+  selectCart,
+  selectCartTotal,
+  selectCartLength,
+} from "../../store/cart/cart.selector";
 import { formatPrice } from "../../utils/helpers";
 
 const Cart: FC<CartProps> = () => {
@@ -40,7 +44,7 @@ const Cart: FC<CartProps> = () => {
     const response = await createCart(cart);
     const url = response.data.url;
     window.location.href = url;
-  }
+  };
 
   const handleDrawerOpen = () => {
     setIsDrawerOpen(true);
@@ -54,15 +58,18 @@ const Cart: FC<CartProps> = () => {
     <Box display="flex" alignItems="center">
       <CartButtonSC onClick={handleDrawerOpen}>
         <ShoppingCartSC />
-        <Icon>
-          <CartCounterSC>{cartLength}</CartCounterSC>
-        </Icon>
+        <CartCounterSC>{cartLength}</CartCounterSC>
       </CartButtonSC>
 
       <DrawerSC anchor="right" open={isDrawerOpen} onClose={handleDrawerClose}>
         <CartSC>
           <LogoContainerSC>
-            <img src="https://firebasestorage.googleapis.com/v0/b/marketsquare-62b8e.appspot.com/o/logos%2Flogo-transparent.svg?alt=media&token=251c1267-68e9-49bf-b04e-c6519ab85019&_gl=1*mparyn*_ga*NzA5MzcyODc5LjE2ODU2MzYyOTA.*_ga_CW55HF8NVT*MTY4NTYzNjI5MC4xLjEuMTY4NTYzNjQ0MC4wLjAuMA.." alt="logo" width="64px" height="64px" />
+            <img
+              src="https://firebasestorage.googleapis.com/v0/b/marketsquare-62b8e.appspot.com/o/logos%2Flogo-transparent.svg?alt=media&token=251c1267-68e9-49bf-b04e-c6519ab85019&_gl=1*mparyn*_ga*NzA5MzcyODc5LjE2ODU2MzYyOTA.*_ga_CW55HF8NVT*MTY4NTYzNjI5MC4xLjEuMTY4NTYzNjQ0MC4wLjAuMA.."
+              alt="logo"
+              width="64px"
+              height="64px"
+            />
           </LogoContainerSC>
           <TitleContainerSC>
             <IconButtonSC onClick={handleDrawerClose}>
@@ -84,7 +91,9 @@ const Cart: FC<CartProps> = () => {
             <CheckoutContainerSC>
               <TotalContainerSC>
                 <TotalLabelSC variant="body1">Total:</TotalLabelSC>
-                <TotalTextSC variant="body1">${formatPrice(cartTotal)}</TotalTextSC>
+                <TotalTextSC variant="body1">
+                  ${formatPrice(cartTotal)}
+                </TotalTextSC>
               </TotalContainerSC>
               <Button
                 boldLabel
