@@ -222,10 +222,10 @@ const SignUpForm: FC<SignUpFormInterface> = () => {
         <SocialLogoSC src={GoogleLogo} alt="social logo" />
         Sign Up with Google
       </SignUpWithGoogleButtonSC>
-      <SignUpWithFacebookButtonSC href={`${ROUTES.AUTH_FACEBOOK}`}>
+      {/* <SignUpWithFacebookButtonSC href={`${ROUTES.AUTH_FACEBOOK}`}>
         <SocialLogoSC src={FacebookLogo} alt="social logo" />
         Sign Up with Facebook
-      </SignUpWithFacebookButtonSC>
+      </SignUpWithFacebookButtonSC> */}
       <SignInSC>
         Already a user?{" "}
         <SignInLinkSC href={`${ROUTES.SIGN_IN}`}>Sign In</SignInLinkSC>
