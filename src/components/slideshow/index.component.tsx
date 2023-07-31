@@ -3,6 +3,7 @@ import _ from "lodash";
 import { v4 as uuidv4 } from "uuid";
 import { useNavigate } from "react-router-dom";
 
+import SlideshowSkeleton from "./slideshow.skeleton";
 import Button from "../button/index.component";
 import SlideShowInterface from "./index.interface";
 import SlideShowItemInterface from "../../interfaces/slideshow-item.interface";
@@ -12,6 +13,7 @@ import {
   IndicatorTextSC,
   NextButtonSC,
   PrevButtonSC,
+  SkeletonContainerSC,
   SlideShowCardSC,
   SlideShowMediaSC,
   SlideShowPaginationActiveIndicatorSC,
@@ -64,6 +66,9 @@ const SlideShow: FC<SlideShowInterface> = ({
 
   return (
     <SlideShowSC>
+      <SkeletonContainerSC>
+        {_.isEmpty(data) && <SlideshowSkeleton />}
+      </SkeletonContainerSC>
       <SlideShowCardSC>
         {!_.isEmpty(data) &&
           data.map((item: SlideShowItemInterface, index: number) => {
