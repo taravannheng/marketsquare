@@ -45,21 +45,6 @@ export const SignUpButtonSC = styled(Button)`
   color: ${colors.lightest} !important;
 `;
 
-export const ForgottenPasswordLinkSC = styled(Link)`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100% !important;
-  margin-bottom: ${space.xl} !important;
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
-  color: ${colors.primary} !important;
-
-  &:hover {
-    cursor: pointer;
-  }
-`;
-
 export const SignUpWithGoogleButtonSC = styled(Button)`
   width: 100% !important;
   height: clamp(48px, 48px, 48px) !important;
