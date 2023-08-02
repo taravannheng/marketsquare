@@ -13,4 +13,5 @@ export default interface UsernameInputInterface {
   placeholder?: string;
   username: UsernameInterface;
   isRequired?: boolean;
+  showTooltip?: boolean;
 }

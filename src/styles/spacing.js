@@ -7,6 +7,7 @@ const space = {
   xl: '32px',
   xxl: '48px',
   xxxl: '80px',
+  xxxxl: '120px',
 }
 
 export default space;

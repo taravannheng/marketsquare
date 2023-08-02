@@ -8,7 +8,8 @@ import ProgressIndicator from "../progress-indicator/index.component";
 import typography from "../../styles/typography";
 
 const Button: FC<ButtonInterface> = ({
-  type,
+  styleType,
+  actionType,
   label,
   labelColor,
   backgroundColor,
@@ -22,8 +23,9 @@ const Button: FC<ButtonInterface> = ({
 }) => {
   return (
     <>
-      {type === "default" && (
+      {styleType === "default" && (
         <ButtonSC
+          type={actionType}
           sx={{
             fontSize: `${boldLabel && typography.h5.fontSize} !important`,
             fontWeight: `${boldLabel && typography.h5.fontWeight} !important`,
@@ -41,8 +43,9 @@ const Button: FC<ButtonInterface> = ({
           {!isLoading && label}
         </ButtonSC>
       )}
-      {type === "rounded" && (
+      {styleType === "rounded" && (
         <RoundedButtonSC
+          type={actionType}
           sx={{
             fontSize: `${boldLabel && typography.h5.fontSize} !important`,
             fontWeight: `${boldLabel && typography.h5.fontWeight} !important`,
@@ -59,8 +62,9 @@ const Button: FC<ButtonInterface> = ({
           {label}
         </RoundedButtonSC>
       )}
-      {type === "icon" && (
+      {styleType === "icon" && (
         <IconButtonSC
+          type={actionType}
           sx={{
             width: `${width && width} !important`,
             height: `${height && height} !important`,

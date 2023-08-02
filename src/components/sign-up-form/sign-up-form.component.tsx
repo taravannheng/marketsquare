@@ -9,7 +9,6 @@ import Divider from "../divider/index.component";
 import SignUpFormInterface from "./sign-up-form.interface";
 import {
   AlertContainerSC,
-  ForgottenPasswordLinkSC,
   SignInLinkSC,
   SignInSC,
   SignUpButtonSC,
@@ -214,18 +213,15 @@ const SignUpForm: FC<SignUpFormInterface> = () => {
       />
       <PasswordInput password={password} onChange={passwordChangeHandler} />
       <SignUpButtonSC type="submit">Sign Up</SignUpButtonSC>
-      <ForgottenPasswordLinkSC href={`${ROUTES.RESET_PASSWORD}`}>
-        Forgotten password?
-      </ForgottenPasswordLinkSC>
       <Divider />
       <SignUpWithGoogleButtonSC href={`${ROUTES.AUTH_GOOGLE}`}>
         <SocialLogoSC src={GoogleLogo} alt="social logo" />
         Sign Up with Google
       </SignUpWithGoogleButtonSC>
-      <SignUpWithFacebookButtonSC href={`${ROUTES.AUTH_FACEBOOK}`}>
+      {/* <SignUpWithFacebookButtonSC href={`${ROUTES.AUTH_FACEBOOK}`}>
         <SocialLogoSC src={FacebookLogo} alt="social logo" />
         Sign Up with Facebook
-      </SignUpWithFacebookButtonSC>
+      </SignUpWithFacebookButtonSC> */}
       <SignInSC>
         Already a user?{" "}
         <SignInLinkSC href={`${ROUTES.SIGN_IN}`}>Sign In</SignInLinkSC>
