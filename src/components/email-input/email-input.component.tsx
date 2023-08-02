@@ -25,12 +25,13 @@ const EmailInput: FC<EmailInputInterface> = ({
   label = "Email",
   name = "email",
   onChange,
-  placeholder = "example@gmail.com",
+  placeholder = "",
   email,
   id,
   isRequired = true,
   isUnique = undefined,
   checkUniqueness = false,
+  showTooltip = true,
 }) => {
   const { value, isValid, validityDetails } = email;
   const [isInitialFocus, setIsInitialFocus] = useState(false);
@@ -38,6 +39,7 @@ const EmailInput: FC<EmailInputInterface> = ({
 
   const focusHandler = () => {
     if (!isInitialFocus) {
+      console.log('changing...');
       setIsInitialFocus(true);
     }
 
@@ -84,7 +86,7 @@ const EmailInput: FC<EmailInputInterface> = ({
         type="email"
         required={isRequired}
       />
-      {isFocus && (
+      {/* {isFocus && showTooltip && !isValid && (
         <TooltipSC>
           <TooltipTextSC>Email should include:</TooltipTextSC>
           <TooltipListSC>
@@ -256,7 +258,7 @@ const EmailInput: FC<EmailInputInterface> = ({
             </TooltipItemSC>
           </TooltipListSC>
         </TooltipSC>
-      )}
+      )} */}
       {!isValid && isInitialFocus && !isFocus && (
         <StatusTextSC>Please enter a valid email!</StatusTextSC>
       )}
