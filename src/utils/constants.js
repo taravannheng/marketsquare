@@ -6,7 +6,9 @@ export const ROUTES = {
   SIGN_UP: '/sign-up',
   AUTH_GOOGLE: `${process.env.REACT_APP_BASE_URL}/api/auth/google`,
   // AUTH_FACEBOOK: `${process.env.REACT_APP_BASE_URL}/api/auth/facebook/callback`,
-  RESET_PASSWORD: '/reset-password',
+  RESET_PASSWORD_REQUEST: '/reset-password/request',
+  RESET_PASSWORD_VERIFY: '/reset-password/verify',
+  RESET_PASSWORD_UPDATE: '/reset-password/update',
 }
 
 export const SLIDESHOWIDS = {
