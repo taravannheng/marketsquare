@@ -16,18 +16,28 @@ export const CartButtonSC = styled(Box)`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: clamp(120px, 120px, 120px);
-  height: clamp(40px, 40px, 40px);
-  padding: 0 24px; 
+  width: clamp(80px, 80px, 80px) !important;
+  height: clamp(32px, 32px, 32px);
+  padding: 0 16px; 
   border-radius: 1000px;
   background-color: ${colors.primary};
   cursor: pointer;
   transition: background-color 0.3s linear;
+
+  @media only screen and (min-width: 640px) {
+    width: clamp(120px, 120px, 120px) !important;
+    height: clamp(40px, 40px, 40px) !important;
+    padding: 0 24px; 
+  }
 `;
 
 export const ShoppingCartSC = styled(ShoppingCart)`
   color: ${colors.lightest};
-  font-size: 30px;
+  font-size: 20px !important;
+
+  @media only screen and (min-width: 640px) {
+    font-size: 24px !important;
+  }
 `;
 
 export const CartCounterSC = styled(Box)`
@@ -35,13 +45,18 @@ export const CartCounterSC = styled(Box)`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: clamp(24px, 24px, 24px);
-  height: clamp(24px, 24px, 24px);
+  width: clamp(20px, 20px, 20px);
+  height: clamp(20px, 20px, 20px);
   border-radius: 1000px;
   color: ${colors.primary};
   background-color: ${colors.lightest};
   font-weight: ${typography.h5.fontWeight};
   font-size: ${typography.h5.fontSize};
+
+  @media only screen and (min-width: 640px) {
+    width: clamp(24px, 24px, 24px);
+    height: clamp(24px, 24px, 24px);
+  }
 `;
 
 export const TotalContainerSC = styled(Box)`

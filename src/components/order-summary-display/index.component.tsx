@@ -37,7 +37,8 @@ const OrderSummaryDisplay: FC<OrderSummaryDisplayInterface> = ({
           width="112px"
           icon={<ArrowBackRounded />}
           label="Home"
-          type="icon"
+          styleType="icon"
+          actionType="button"
           clickHandler={redirectToHomepage}
         />
       </BackNavSC>

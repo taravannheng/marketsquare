@@ -7,6 +7,7 @@ import space from "../../styles/spacing";
 import borderRadius from "../../styles/border-radius";
 
 export const SignInFormSC = styled.form`
+  width: 480px !important;
   padding: 0 ${space.l} !important; 
 
   @media only screen and (min-width: 1080px) {
@@ -17,13 +18,8 @@ export const SignInFormSC = styled.form`
 
 export const TitleSC = styled(Typography)`
   margin-bottom: ${space.l} !important;
-  font-size: ${typography.h4.fontSize} !important;
-  font-weight: ${typography.h4.fontWeight} !important;
-
-  @media only screen and (min-width: 640px) {
-    font-size: ${typography.h3.fontSize} !important;
-    font-weight: ${typography.h3.fontWeight} !important;
-  }
+  font-size: ${typography.h2.fontSize} !important;
+  font-weight: ${typography.h2.fontWeight} !important;
 
   @media only screen and (min-width: 1080px) {
     text-align: center;

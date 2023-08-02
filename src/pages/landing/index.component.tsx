@@ -26,7 +26,6 @@ const LandingPage: FC = () => {
   const jwtToken = params.get("token");
   const isSignedOut = params.get("signedOut");
 
-  const [loading, setLoading] = useState(true);
   const [snackbar, setSnackbar] = useState<{
     open: boolean;
     message: string;
@@ -77,8 +76,6 @@ const LandingPage: FC = () => {
     };
 
     if (!_.isEmpty(products) || products === null) {
-      setLoading(false);
-
       if (isSignedIn) {
         setSnackbar({
           open: true,
@@ -115,8 +112,6 @@ const LandingPage: FC = () => {
 
   return (
     <LandingPageSC>
-      {loading && <LoadingScreen />}
-      {!loading && (
         <>
           <Header />
           <ProductsDisplay title="Trending Products" products={products} />
@@ -128,7 +123,6 @@ const LandingPage: FC = () => {
             open={snackbar.open}
           />
         </>
-      )}
     </LandingPageSC>
   );
 };

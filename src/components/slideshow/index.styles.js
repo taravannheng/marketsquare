@@ -3,6 +3,7 @@ import { Box, Button, ButtonGroup, Card, CardMedia, Stack, Typography } from "@m
 
 import colors from "../../styles/colors";
 import typography from "../../styles/typography";
+import borderRadius from "../../styles/border-radius";
 
 export const SlideShowSC = styled(Box)`
   width: clamp(100%, 100%, 100%); 
@@ -16,11 +17,18 @@ export const SlideShowSC = styled(Box)`
   }
 `
 
+export const SkeletonContainerSC = styled(Box)`
+  width: clamp(100%, 100%, 100%) !important;
+  height: clamp(100%, 100%, 100%) !important;
+  border-radius: ${borderRadius.m} !important;
+  overflow: hidden !important;
+`;
+
 export const SlideShowCardSC = styled(Card)`
   width: clamp(100%, 100%, 100%) !important;
   height: calc(100% - 64px);
   margin-bottom: 12px;
-  border-radius: 16px !important;
+  border-radius: ${borderRadius.m} !important;
   box-shadow: none !important;
   overflow: hidden !important;
 
@@ -49,7 +57,7 @@ export const SlideShowPaginationPrevButtonSC = styled(Button)`
   width: clamp(130px, 130px, 130px);
   height: clamp(40px, 40px, 40px);
   border: 0 !important;
-  border-radius: 1000px !important;
+  border-radius: ${borderRadius.rounded} !important;
   margin-right: 36px !important;
   background-color: ${colors.light} !important;
   color: ${colors.darkest} !important;
@@ -72,7 +80,7 @@ export const SlideShowPaginationNextButtonSC = styled(Button)`
   width: clamp(130px, 130px, 130px);
   height: clamp(40px, 40px, 40px);
   border: 0 !important;
-  border-radius: 1000px !important;
+  border-radius: ${borderRadius.rounded} !important;
   margin-left: 36px !important;
   background-color: ${colors.light} !important;
   color: ${colors.darkest} !important;
@@ -97,7 +105,7 @@ export const SlideShowPaginationIndicatorStackSC = styled(Stack)`
 export const SlideShowPaginationIndicatorSC = styled(Box)`
   width: clamp(14px, 14px, 14px) !important;
   height: clamp(14px, 14px, 14px) !important;
-  border-radius: 100%;
+  border-radius: ${borderRadius.rounded} !important;
   background-color: ${colors.light};
   cursor: pointer;
   transition: all 0.3s ease;
@@ -117,7 +125,7 @@ export const IndicatorTextSC = styled(Typography)`
 export const SlideShowPaginationActiveIndicatorSC = styled(Box)`
   width: clamp(14px, 14px, 14px) !important;
   height: clamp(14px, 14px, 14px) !important;
-  border-radius: 100%;
+  border-radius: ${borderRadius.rounded} !important;
   border: 1px solid ${colors.primary};
   background-color: ${colors.primary};
   cursor: pointer;
