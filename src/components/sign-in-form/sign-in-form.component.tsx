@@ -34,6 +34,7 @@ const SignInForm: FC<SignInFormInterface> = () => {
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   const isNewUser = params.get("newUser");
+  const updatedPassword = params.get("updatedPassword");
 
   const dispatch = useDispatch();
 
@@ -166,6 +167,14 @@ const SignInForm: FC<SignInFormInterface> = () => {
       });
       setAlertVisible(true);
     }
+
+    if (updatedPassword) {
+      setAlert({
+        type: "success",
+        message: "You have successfully updated your password! Please sign in.",
+      });
+      setAlertVisible(true);
+    }
 }, []);
 
   return (
@@ -183,9 +192,9 @@ const SignInForm: FC<SignInFormInterface> = () => {
         )}
       </AlertContainerSC>
       <EmailInput email={email} onChange={emailChangeHandler} />
-      <PasswordInput password={password} onChange={passwordChangeHandler} />
+      <PasswordInput password={password} onChange={passwordChangeHandler} showTooltip={false} />
       <SignInButtonSC type="submit">Sign In</SignInButtonSC>
-      <ForgottenPasswordLinkSC href={`${ROUTES.RESET_PASSWORD}`}>
+      <ForgottenPasswordLinkSC href={`${ROUTES.RESET_PASSWORD_REQUEST}`}>
         Forgotten password?
       </ForgottenPasswordLinkSC>
       <Divider />

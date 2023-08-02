@@ -13,6 +13,7 @@ export default interface EmailInputInterface {
   isRequired?: boolean;
   isUnique?: boolean;
   checkUniqueness?: boolean;
+  showTooltip?: boolean;
 }
 
 export interface EmailInterface {

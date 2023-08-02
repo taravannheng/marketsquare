@@ -13,4 +13,5 @@ export interface PasswordInputInterface {
   placeholder?: string;
   password: PasswordInterface;
   isRequired?: boolean;
+  showTooltip?: boolean;
 }

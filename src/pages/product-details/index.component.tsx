@@ -150,7 +150,8 @@ const ProductDetailsPage: FC = () => {
             <Button
               width="102px"
               height="40px"
-              type="icon"
+              styleType="icon"
+              actionType="button"
               icon={<ArrowBackIosRounded />}
               label="Back"
               clickHandler={redirectToHomepage}
