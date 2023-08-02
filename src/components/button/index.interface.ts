@@ -2,7 +2,8 @@ import { ReactNode } from "react";
 
 export default interface ButtonInterface {
   children?: ReactNode;
-  type: 'rounded' | 'default' | 'icon';
+  styleType: 'rounded' | 'default' | 'icon';
+  actionType: 'submit' | 'button';
   width?: string;
   height?: string;
   icon?: ReactNode;
@@ -12,5 +13,5 @@ export default interface ButtonInterface {
   uppercaseLabel?: boolean;
   isLoading?: boolean;
   boldLabel?: boolean;
-  clickHandler: () => void;
+  clickHandler?: (() => void) | ((event: any) => Promise<void>);
 }

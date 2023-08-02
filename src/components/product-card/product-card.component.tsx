@@ -130,7 +130,8 @@ const ProductCard: FC<ProductCardInterface> = ({
                 {isAddedToCart && (
                   <Box sx={{ width: "auto !important" }}>
                     <Button
-                      type="default"
+                      styleType="default"
+                      actionType="button"
                       label="Remove from Cart"
                       clickHandler={addToCartHandler}
                     />
@@ -139,7 +140,8 @@ const ProductCard: FC<ProductCardInterface> = ({
                 {!isAddedToCart && (
                   <Box sx={{ width: "auto !important" }}>
                     <Button
-                      type="default"
+                      styleType="default"
+                      actionType="button"
                       label="Add to Cart"
                       clickHandler={addToCartHandler}
                     />

@@ -86,7 +86,8 @@ const OrderDetails: FC<OrderInterface> = ({
           <ButtonContainerSC>
             <Button
               label="Continue Shopping"
-              type="default"
+              styleType="default"
+              actionType="button"
               width="200px"
               height="40px"
               clickHandler={redirectToHomepage}

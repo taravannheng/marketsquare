@@ -88,7 +88,8 @@ const SlideShow: FC<SlideShowInterface> = ({
             <Button
               width="120px"
               height="36px"
-              type="rounded"
+              styleType="rounded"
+              actionType="button"
               label="Prev"
               clickHandler={prevButtonHandler}
             />
@@ -123,7 +124,8 @@ const SlideShow: FC<SlideShowInterface> = ({
             <Button
               width="120px"
               height="36px"
-              type="rounded"
+              styleType="rounded"
+              actionType="button"
               label="Next"
               clickHandler={nextButtonHandler}
             />

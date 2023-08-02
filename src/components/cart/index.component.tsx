@@ -92,7 +92,8 @@ const Cart: FC<CartProps> = () => {
                 labelColor="#12162A"
                 backgroundColor="#F2F2F2"
                 label="Checkout"
-                type="default"
+                styleType="default"
+                actionType="button"
                 clickHandler={checkoutHandler}
                 isLoading={checkoutButtonIsLoading}
               />
