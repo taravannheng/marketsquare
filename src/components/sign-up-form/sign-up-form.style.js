@@ -7,23 +7,19 @@ import space from "../../styles/spacing";
 import borderRadius from "../../styles/border-radius";
 
 export const SignUpFormSC = styled.form`
+  width: 480px !important;
   padding: 0 ${space.l} !important; 
 
   @media only screen and (min-width: 1080px) {
-    max-width: 480px;
+    max-width: 480px !important;
     padding: 0 ${space.xxl} !important;
   }
 `;
 
 export const TitleSC = styled(Typography)`
   margin-bottom: ${space.l} !important;
-  font-size: ${typography.h4.fontSize} !important;
-  font-weight: ${typography.h4.fontWeight} !important;
-
-  @media only screen and (min-width: 640px) {
-    font-size: ${typography.h3.fontSize} !important;
-    font-weight: ${typography.h3.fontWeight} !important;
-  }
+  font-size: ${typography.h2.fontSize} !important;
+  font-weight: ${typography.h2.fontWeight} !important;
 
   @media only screen and (min-width: 1080px) {
     text-align: center;
@@ -47,21 +43,6 @@ export const SignUpButtonSC = styled(Button)`
   font-weight: ${typography.body.fontWeight} !important;
   text-transform: none !important;
   color: ${colors.lightest} !important;
-`;
-
-export const ForgottenPasswordLinkSC = styled(Link)`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100% !important;
-  margin-bottom: ${space.xl} !important;
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
-  color: ${colors.primary} !important;
-
-  &:hover {
-    cursor: pointer;
-  }
 `;
 
 export const SignUpWithGoogleButtonSC = styled(Button)`

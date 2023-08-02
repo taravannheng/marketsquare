@@ -35,6 +35,7 @@ const PasswordInput: FC<PasswordInputInterface> = ({
   placeholder = "",
   password,
   isRequired = true,
+  showTooltip = true,
 }) => {
   const { value, isValid, validityDetails } = password;
   const [isInitialFocus, setIsInitialFocus] = useState(false);
@@ -99,7 +100,7 @@ const PasswordInput: FC<PasswordInputInterface> = ({
           )}
         </ShowPasswordIconSC>
       </InputContainerSC>
-      {isFocus && (
+      {isFocus && showTooltip && (
         <TooltipSC>
           <TooltipTextSC>Password should include:</TooltipTextSC>
           <TooltipListSC>

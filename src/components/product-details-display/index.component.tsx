@@ -86,7 +86,8 @@ const ProductDetailsDisplay: FC<ProductDetailsDisplayInterface> = ({
             <Button
               width="102px"
               height="40px"
-              type="icon"
+              styleType="icon"
+              actionType="button"
               icon={<ArrowBackIosRounded />}
               label="Back"
               clickHandler={goBack}
@@ -111,7 +112,8 @@ const ProductDetailsDisplay: FC<ProductDetailsDisplayInterface> = ({
                 </ProductDescriptionSC>
                 <Button
                   width="180px"
-                  type="default"
+                  styleType="default"
+                  actionType="button"
                   label={isAddedToCart ? "Remove from Cart" : "Add to Cart"}
                   clickHandler={addToCartHandler}
                 />
