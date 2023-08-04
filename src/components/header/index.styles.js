@@ -1,20 +1,27 @@
 import styled from "styled-components";
-import { AppBar, Box, Drawer, Icon, Link, Toolbar, Typography } from "@mui/material";
+import {
+  AppBar,
+  Box,
+  Drawer,
+  Icon,
+  IconButton,
+  Link,
+  Toolbar,
+  Typography,
+} from "@mui/material";
 
 import colors from "../../styles/colors";
 import typography from "../../styles/typography";
 import space from "../../styles/spacing";
 import borderRadius from "../../styles/border-radius";
 
-export const AppBarSC = styled(AppBar)`
-  
-`
+export const AppBarSC = styled(AppBar)``;
 
 export const ToolbarPlaceholderSC = styled(Box)`
   width: 100%;
   height: 100px;
   background-color: ${colors.lightest} !important;
-`
+`;
 
 export const ToolbarSC = styled(Toolbar)`
   position: fixed !important;
@@ -98,9 +105,7 @@ export const DrawerHeadSC = styled(Box)`
   align-items: center;
 `;
 
-export const DrawerBodySC = styled(Box)`
-
-`;
+export const DrawerBodySC = styled(Box)``;
 
 export const DrawerBottomSC = styled(Box)`
   position: fixed;
@@ -129,15 +134,15 @@ export const EmailSC = styled(Typography)`
 `;
 
 export const SignOutSC = styled(Link)`
-text-decoration: none !important;
-color: ${colors.dark} !important;
-font-size: ${typography.body.fontSize} !important;
-font-weight: ${typography.body.fontWeight} !important;
+  text-decoration: none !important;
+  color: ${colors.dark} !important;
+  font-size: ${typography.body.fontSize} !important;
+  font-weight: ${typography.body.fontWeight} !important;
 
-&:hover {
-  color: ${colors.red} !important;
-  cursor: pointer;
-}
+  &:hover {
+    color: ${colors.red} !important;
+    cursor: pointer;
+  }
 `;
 
 // MOBILE DRAWER
@@ -153,23 +158,50 @@ export const MobileDrawerContentSC = styled(Box)`
   background-color: ${colors.lightest};
 `;
 
-export const MobileDrawerHeadSC = styled(Box)`
+export const MobileDrawerLogoContainerSC = styled(Box)`
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: clamp(100%, 100%, 100%);
+  height: clamp(64px, 64px, 64px);
+  margin-bottom: 48px;
 `;
 
-export const MobileDrawerBodySC = styled(Box)`
+export const IconButtonSC = styled(IconButton)`
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: clamp(32px, 32px, 32px);
+  height: clamp(32px, 32px, 32px);
+  border-radius: 100%;
+  background-color: ${colors.light} !important;
+  transition: background-color 0.3s linear;
 
+  &:hover {
+    background-color: ${colors.primary} !important;
+  }
+
+  & > svg {
+    width: 16px;
+    height: 16px;
+    margin-right: -6px;
+    font-size: ${typography.h5.fontSize}
+    color: ${colors.grey};
+  }
+
+  &:hover > svg {
+    color: ${colors.lightest} !important;
+  }
 `;
 
-export const MobileDrawerBottomSC = styled(Box)`
+export const MobileDrawerAuthBlockContainerSC = styled(Box)`
   position: fixed;
   bottom: 0;
   right: 0;
   width: clamp(360px, 360px, 360px);
   box-shadow: 0 -4px 4px 0 rgba(0, 0, 0, 0.05);
   background-color: ${colors.lightest};
-  overflow: hidden;
 `;
