@@ -35,8 +35,10 @@ import {
   MobileDrawerSC,
   MobileDrawerContentSC,
   NavigationContainerSC,
-  MobileDrawerLogoContainerSC,
-  ButtonContainerSC,
+  MobileDrawerHeadSC,
+  LogoContainerSC,
+  MobileDrawerBodySC,
+  MobileDrawerBottomSC,
 } from "./index.styles";
 import navMenuList from "../../sample/navigation-menu/navigationMenuSample";
 import { ROUTES } from "../../utils/constants";
@@ -196,24 +198,15 @@ const Header: FC<HeaderProps> = () => {
         onClose={mobileDrawerCloseHandler}
       >
         <MobileDrawerContentSC>
-          <MobileDrawerLogoContainerSC>
-            <img
-              src="https://firebasestorage.googleapis.com/v0/b/marketsquare-62b8e.appspot.com/o/logos%2Flogo-transparent.svg?alt=media&token=251c1267-68e9-49bf-b04e-c6519ab85019&_gl=1*mparyn*_ga*NzA5MzcyODc5LjE2ODU2MzYyOTA.*_ga_CW55HF8NVT*MTY4NTYzNjI5MC4xLjEuMTY4NTYzNjQ0MC4wLjAuMA.."
-              alt="logo"
-              width="64px"
-              height="64px"
-            />
-          </MobileDrawerLogoContainerSC>
-          <ButtonContainerSC>
-              <Button
-                uppercaseLabel
-                labelColor="#12162A"
-                backgroundColor="#F2F2F2"
-                label="Sign In"
-                styleType="default"
-                actionType="button"
-              />
-            </ButtonContainerSC>
+          <MobileDrawerHeadSC>
+            <LogoContainerSC>
+              <img src="https://firebasestorage.googleapis.com/v0/b/marketsquare-62b8e.appspot.com/o/logos%2Flogo-transparent.svg?alt=media&token=251c1267-68e9-49bf-b04e-c6519ab85019&_gl=1*mparyn*_ga*NzA5MzcyODc5LjE2ODU2MzYyOTA.*_ga_CW55HF8NVT*MTY4NTYzNjI5MC4xLjEuMTY4NTYzNjQ0MC4wLjAuMA.." alt="logo" width="64px" height="64px" />
+            </LogoContainerSC>
+          </MobileDrawerHeadSC>
+          <MobileDrawerBodySC></MobileDrawerBodySC>
+          <MobileDrawerBottomSC>
+            <AuthBlock />
+          </MobileDrawerBottomSC>
         </MobileDrawerContentSC>
       </MobileDrawerSC>
     </>

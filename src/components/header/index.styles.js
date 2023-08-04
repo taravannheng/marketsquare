@@ -150,7 +150,6 @@ export const SignOutSC = styled(Link)`
 
 export const MobileDrawerSC = styled(Drawer)`
   position: relative;
-  overflow: hidden !important;
 `;
 
 export const MobileDrawerContentSC = styled(Box)`
@@ -162,13 +161,11 @@ export const MobileDrawerContentSC = styled(Box)`
   overflow: hidden !important;
 `;
 
-export const MobileDrawerLogoContainerSC = styled(Box)`
+export const MobileDrawerHeadSC = styled(Box)`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: clamp(100%, 100%, 100%);
-  height: clamp(64px, 64px, 64px);
-  margin-bottom: 48px;
 `;
 
 export const MobileDrawerBodySC = styled(Box)`
@@ -180,6 +177,7 @@ export const MobileDrawerBottomSC = styled(Box)`
   bottom: 0;
   right: 0;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: clamp(100%, 100%, 100%) !important;
