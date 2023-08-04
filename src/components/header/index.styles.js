@@ -2,6 +2,7 @@ import styled from "styled-components";
 import {
   AppBar,
   Box,
+  Button,
   Drawer,
   Icon,
   IconButton,
@@ -149,6 +150,7 @@ export const SignOutSC = styled(Link)`
 
 export const MobileDrawerSC = styled(Drawer)`
   position: relative;
+  overflow: hidden !important;
 `;
 
 export const MobileDrawerContentSC = styled(Box)`
@@ -156,6 +158,7 @@ export const MobileDrawerContentSC = styled(Box)`
   width: clamp(360px, 360px, 360px);
   height: auto;
   background-color: ${colors.lightest};
+  overflow: hidden !important;
 `;
 
 export const MobileDrawerLogoContainerSC = styled(Box)`
@@ -202,6 +205,37 @@ export const MobileDrawerAuthBlockContainerSC = styled(Box)`
   bottom: 0;
   right: 0;
   width: clamp(360px, 360px, 360px);
+  padding: 12px 24px 48px 24px;
   box-shadow: 0 -4px 4px 0 rgba(0, 0, 0, 0.05);
   background-color: ${colors.lightest};
+  overflow: hidden !important;
+`;
+
+export const SignUpButtonSC = styled(Button)`
+  width: 100% !important;
+  height: clamp(48px, 48px, 48px) !important;
+  margin-bottom: ${space.m} !important;
+  border-radius: ${borderRadius.s} !important;
+  background-color: ${colors.primary} !important;
+  font-size: ${typography.body.fontSize} !important;
+  font-weight: ${typography.body.fontWeight} !important;
+  text-transform: none !important;
+  color: ${colors.lightest} !important;
+`;
+
+export const SignInButtonSC = styled(Button)`
+  width: 100% !important;
+  height: clamp(48px, 48px, 48px) !important;
+  border-radius: ${borderRadius.s} !important;
+  background-color: ${colors.light} !important;
+  font-size: ${typography.body.fontSize} !important;
+  font-weight: ${typography.body.fontWeight} !important;
+  text-transform: none !important;
+  color: ${colors.darkest} !important;
+  transition: background-color 0.2s ease-in-out !important;
+
+  &:hover {
+    color: ${colors.lightest} !important;
+    background-color: ${colors.primary} !important;
+  }
 `;
