@@ -36,9 +36,7 @@ import {
   MobileDrawerContentSC,
   NavigationContainerSC,
   MobileDrawerLogoContainerSC,
-  MobileDrawerAuthBlockContainerSC,
-  SignUpButtonSC,
-  SignInButtonSC,
+  ButtonContainerSC,
 } from "./index.styles";
 import navMenuList from "../../sample/navigation-menu/navigationMenuSample";
 import { ROUTES } from "../../utils/constants";
@@ -47,6 +45,7 @@ import menuListSample from "../../sample/menu/menu";
 import { selectUser } from "../../store/user/user.selector";
 import colors from "../../styles/colors";
 import AuthBlock from "../auth-block/auth-block.component";
+import Button from "../button/index.component";
 
 const Header: FC<HeaderProps> = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -205,14 +204,16 @@ const Header: FC<HeaderProps> = () => {
               height="64px"
             />
           </MobileDrawerLogoContainerSC>
-          <MobileDrawerAuthBlockContainerSC>
-          <SignUpButtonSC type="button" href={`${ROUTES.SIGN_UP}`}>
-            Sign Up
-          </SignUpButtonSC>
-          <SignInButtonSC type="button" href={`${ROUTES.SIGN_IN}`}>
-            Sign In
-          </SignInButtonSC>
-          </MobileDrawerAuthBlockContainerSC>
+          <ButtonContainerSC>
+              <Button
+                uppercaseLabel
+                labelColor="#12162A"
+                backgroundColor="#F2F2F2"
+                label="Sign In"
+                styleType="default"
+                actionType="button"
+              />
+            </ButtonContainerSC>
         </MobileDrawerContentSC>
       </MobileDrawerSC>
     </>
