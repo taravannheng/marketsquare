@@ -36,7 +36,6 @@ import {
   MobileDrawerContentSC,
   NavigationContainerSC,
   MobileDrawerLogoContainerSC,
-  ButtonContainerSC,
 } from "./index.styles";
 import navMenuList from "../../sample/navigation-menu/navigationMenuSample";
 import { ROUTES } from "../../utils/constants";
