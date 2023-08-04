@@ -37,6 +37,8 @@ import {
   NavigationContainerSC,
   MobileDrawerLogoContainerSC,
   MobileDrawerAuthBlockContainerSC,
+  SignUpButtonSC,
+  SignInButtonSC,
 } from "./index.styles";
 import navMenuList from "../../sample/navigation-menu/navigationMenuSample";
 import { ROUTES } from "../../utils/constants";
@@ -204,7 +206,12 @@ const Header: FC<HeaderProps> = () => {
             />
           </MobileDrawerLogoContainerSC>
           <MobileDrawerAuthBlockContainerSC>
-            <AuthBlock />
+          <SignUpButtonSC type="button" href={`${ROUTES.SIGN_UP}`}>
+            Sign Up
+          </SignUpButtonSC>
+          <SignInButtonSC type="button" href={`${ROUTES.SIGN_IN}`}>
+            Sign In
+          </SignInButtonSC>
           </MobileDrawerAuthBlockContainerSC>
         </MobileDrawerContentSC>
       </MobileDrawerSC>
