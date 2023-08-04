@@ -154,9 +154,10 @@ export const MobileDrawerSC = styled(Drawer)`
 `;
 
 export const MobileDrawerContentSC = styled(Box)`
+  position: relative;
   padding: 56px 24px 180px 24px;
-  width: clamp(360px, 360px, 360px);
-  height: auto;
+  width: clamp(360px, 360px, 360px) !important;
+  height: 100vh !important;
   background-color: ${colors.lightest};
   overflow: hidden !important;
 `;
@@ -170,42 +171,17 @@ export const MobileDrawerLogoContainerSC = styled(Box)`
   margin-bottom: 48px;
 `;
 
-export const IconButtonSC = styled(IconButton)`
-  position: absolute !important;
-  top: 0;
-  left: 0;
+export const MobileDrawerBodySC = styled(Box)`
+
+`;
+
+export const MobileDrawerBottomSC = styled(Box)`
+  position: absolute;
+  bottom: 0;
+  right: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: clamp(32px, 32px, 32px);
-  height: clamp(32px, 32px, 32px);
-  border-radius: 100%;
-  background-color: ${colors.light} !important;
-  transition: background-color 0.3s linear;
-
-  &:hover {
-    background-color: ${colors.primary} !important;
-  }
-
-  & > svg {
-    width: 16px;
-    height: 16px;
-    margin-right: -6px;
-    font-size: ${typography.h5.fontSize}
-    color: ${colors.grey};
-  }
-
-  &:hover > svg {
-    color: ${colors.lightest} !important;
-  }
-`;
-
-export const ButtonContainerSC = styled(Box)`
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  width: clamp(360px, 360px, 360px);
-  padding: 12px 24px 48px 24px;
-  box-shadow: 0 -4px 4px 0 rgba(0, 0, 0, 0.05);
+  width: clamp(100%, 100%, 100%) !important;
   background-color: ${colors.lightest};
 `;
