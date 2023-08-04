@@ -103,13 +103,13 @@ export const DrawerBodySC = styled(Box)`
 `;
 
 export const DrawerBottomSC = styled(Box)`
+  position: fixed;
+  bottom: 0;
+  right: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: fixed;
-  bottom: 0;
-  right: 0;
   width: clamp(360px, 360px, 360px);
   padding: 12px 24px 48px 24px;
   background-color: ${colors.lightest};
@@ -165,13 +165,11 @@ export const MobileDrawerBodySC = styled(Box)`
 `;
 
 export const MobileDrawerBottomSC = styled(Box)`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   position: fixed;
   bottom: 0;
   right: 0;
   width: clamp(360px, 360px, 360px);
+  box-shadow: 0 -4px 4px 0 rgba(0, 0, 0, 0.05);
   background-color: ${colors.lightest};
+  overflow: hidden;
 `;
