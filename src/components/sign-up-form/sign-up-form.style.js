@@ -8,6 +8,7 @@ import borderRadius from "../../styles/border-radius";
 
 export const SignUpFormSC = styled.form`
   width: 480px !important;
+  max-width: 100vw !important;
   padding: 0 ${space.l} !important; 
 
   @media only screen and (min-width: 1080px) {
