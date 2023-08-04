@@ -1,20 +1,28 @@
 import styled from "styled-components";
-import { AppBar, Box, Drawer, Icon, Link, Toolbar, Typography } from "@mui/material";
+import {
+  AppBar,
+  Box,
+  Button,
+  Drawer,
+  Icon,
+  IconButton,
+  Link,
+  Toolbar,
+  Typography,
+} from "@mui/material";
 
 import colors from "../../styles/colors";
 import typography from "../../styles/typography";
 import space from "../../styles/spacing";
 import borderRadius from "../../styles/border-radius";
 
-export const AppBarSC = styled(AppBar)`
-  
-`
+export const AppBarSC = styled(AppBar)``;
 
 export const ToolbarPlaceholderSC = styled(Box)`
   width: 100%;
   height: 100px;
   background-color: ${colors.lightest} !important;
-`
+`;
 
 export const ToolbarSC = styled(Toolbar)`
   position: fixed !important;
@@ -98,18 +106,16 @@ export const DrawerHeadSC = styled(Box)`
   align-items: center;
 `;
 
-export const DrawerBodySC = styled(Box)`
-
-`;
+export const DrawerBodySC = styled(Box)``;
 
 export const DrawerBottomSC = styled(Box)`
+  position: fixed;
+  bottom: 0;
+  right: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: fixed;
-  bottom: 0;
-  right: 0;
   width: clamp(360px, 360px, 360px);
   padding: 12px 24px 48px 24px;
   background-color: ${colors.lightest};
@@ -129,21 +135,22 @@ export const EmailSC = styled(Typography)`
 `;
 
 export const SignOutSC = styled(Link)`
-text-decoration: none !important;
-color: ${colors.dark} !important;
-font-size: ${typography.body.fontSize} !important;
-font-weight: ${typography.body.fontWeight} !important;
+  text-decoration: none !important;
+  color: ${colors.dark} !important;
+  font-size: ${typography.body.fontSize} !important;
+  font-weight: ${typography.body.fontWeight} !important;
 
-&:hover {
-  color: ${colors.red} !important;
-  cursor: pointer;
-}
+  &:hover {
+    color: ${colors.red} !important;
+    cursor: pointer;
+  }
 `;
 
 // MOBILE DRAWER
 
 export const MobileDrawerSC = styled(Drawer)`
   position: relative;
+  overflow: hidden !important;
 `;
 
 export const MobileDrawerContentSC = styled(Box)`
@@ -155,11 +162,13 @@ export const MobileDrawerContentSC = styled(Box)`
   overflow: hidden !important;
 `;
 
-export const MobileDrawerHeadSC = styled(Box)`
+export const MobileDrawerLogoContainerSC = styled(Box)`
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: clamp(100%, 100%, 100%);
+  height: clamp(64px, 64px, 64px);
+  margin-bottom: 48px;
 `;
 
 export const MobileDrawerBodySC = styled(Box)`
@@ -171,7 +180,6 @@ export const MobileDrawerBottomSC = styled(Box)`
   bottom: 0;
   right: 0;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: clamp(100%, 100%, 100%) !important;
