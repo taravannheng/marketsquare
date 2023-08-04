@@ -183,3 +183,7 @@ export const MobileDrawerBottomSC = styled(Box)`
   width: clamp(100%, 100%, 100%) !important;
   background-color: ${colors.lightest};
 `;
+
+export const MobileSignOutContainerSC = styled(Box)`
+  padding: 12px 24px 48px 24px;
+`;
