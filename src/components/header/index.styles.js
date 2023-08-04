@@ -147,10 +147,12 @@ export const MobileDrawerSC = styled(Drawer)`
 `;
 
 export const MobileDrawerContentSC = styled(Box)`
+  position: relative;
   padding: 56px 24px 180px 24px;
-  width: clamp(360px, 360px, 360px);
-  height: auto;
+  width: clamp(360px, 360px, 360px) !important;
+  height: 100vh !important;
   background-color: ${colors.lightest};
+  overflow: hidden !important;
 `;
 
 export const MobileDrawerHeadSC = styled(Box)`
@@ -165,13 +167,13 @@ export const MobileDrawerBodySC = styled(Box)`
 `;
 
 export const MobileDrawerBottomSC = styled(Box)`
+  position: absolute;
+  bottom: 0;
+  right: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  width: clamp(360px, 360px, 360px);
+  width: clamp(100%, 100%, 100%) !important;
   background-color: ${colors.lightest};
 `;
