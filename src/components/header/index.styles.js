@@ -1,20 +1,28 @@
 import styled from "styled-components";
-import { AppBar, Box, Drawer, Icon, Link, Toolbar, Typography } from "@mui/material";
+import {
+  AppBar,
+  Box,
+  Button,
+  Drawer,
+  Icon,
+  IconButton,
+  Link,
+  Toolbar,
+  Typography,
+} from "@mui/material";
 
 import colors from "../../styles/colors";
 import typography from "../../styles/typography";
 import space from "../../styles/spacing";
 import borderRadius from "../../styles/border-radius";
 
-export const AppBarSC = styled(AppBar)`
-  
-`
+export const AppBarSC = styled(AppBar)``;
 
 export const ToolbarPlaceholderSC = styled(Box)`
   width: 100%;
   height: 100px;
   background-color: ${colors.lightest} !important;
-`
+`;
 
 export const ToolbarSC = styled(Toolbar)`
   position: fixed !important;
@@ -37,6 +45,20 @@ export const ToolbarSC = styled(Toolbar)`
   }
 `;
 
+export const NavigationContainerSC = styled(Box)`
+  display: flex;
+  flex-direction: row;
+`;
+
+export const LogoContainerSC = styled(Box)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: clamp(100%, 100%, 100%);
+  height: clamp(64px, 64px, 64px);
+  margin-bottom: 48px;
+`;
+
 export const MenuIconSC = styled(Icon)`
   display: flex !important;
   justify-content: center;
@@ -47,12 +69,18 @@ export const MenuIconSC = styled(Icon)`
   margin-left: 24px;
   cursor: pointer;
   color: ${colors.dark};
-  background-color: ${colors.light} !important;
   transition: background-color 0.3s ease-in-out;
+  background-color: ${colors.light} !important;
 
   &:hover {
-    background-color: ${colors.primary} !important;
-    color: ${colors.lightest} !important;
+    color: ${colors.primary} !important;
+  }
+
+  @media only screen and (min-width: 640px) {
+    &:hover {
+      background-color: ${colors.primary} !important;
+      color: ${colors.lightest} !important;
+    }
   }
 `;
 
@@ -78,18 +106,16 @@ export const DrawerHeadSC = styled(Box)`
   align-items: center;
 `;
 
-export const DrawerBodySC = styled(Box)`
-
-`;
+export const DrawerBodySC = styled(Box)``;
 
 export const DrawerBottomSC = styled(Box)`
+  position: fixed;
+  bottom: 0;
+  right: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: fixed;
-  bottom: 0;
-  right: 0;
   width: clamp(360px, 360px, 360px);
   padding: 12px 24px 48px 24px;
   background-color: ${colors.lightest};
@@ -109,13 +135,55 @@ export const EmailSC = styled(Typography)`
 `;
 
 export const SignOutSC = styled(Link)`
-text-decoration: none !important;
-color: ${colors.dark} !important;
-font-size: ${typography.body.fontSize} !important;
-font-weight: ${typography.body.fontWeight} !important;
+  text-decoration: none !important;
+  color: ${colors.dark} !important;
+  font-size: ${typography.body.fontSize} !important;
+  font-weight: ${typography.body.fontWeight} !important;
 
-&:hover {
-  color: ${colors.red} !important;
-  cursor: pointer;
-}
+  &:hover {
+    color: ${colors.red} !important;
+    cursor: pointer;
+  }
+`;
+
+// MOBILE DRAWER
+
+export const MobileDrawerSC = styled(Drawer)`
+  position: relative;
+`;
+
+export const MobileDrawerContentSC = styled(Box)`
+  position: relative;
+  padding: 56px 24px 180px 24px;
+  width: clamp(360px, 360px, 360px) !important;
+  height: 100vh !important;
+  background-color: ${colors.lightest};
+  overflow: hidden !important;
+`;
+
+export const MobileDrawerHeadSC = styled(Box)`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const MobileDrawerBodySC = styled(Box)`
+
+`;
+
+export const MobileDrawerBottomSC = styled(Box)`
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: clamp(100%, 100%, 100%) !important;
+  background-color: ${colors.lightest};
+`;
+
+export const MobileSignOutContainerSC = styled(Box)`
+  padding: 12px 24px 48px 24px;
 `;

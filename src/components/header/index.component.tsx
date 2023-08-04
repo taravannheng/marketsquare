@@ -8,7 +8,7 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import { AccountCircle, Login } from "@mui/icons-material";
+import { AccountCircle, ArrowBackIos, Login } from "@mui/icons-material";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import _ from "lodash";
@@ -32,6 +32,14 @@ import {
   DrawerBodySC,
   DrawerBottomSC,
   SignOutSC,
+  MobileDrawerSC,
+  MobileDrawerContentSC,
+  NavigationContainerSC,
+  MobileDrawerHeadSC,
+  LogoContainerSC,
+  MobileDrawerBodySC,
+  MobileDrawerBottomSC,
+  MobileSignOutContainerSC,
 } from "./index.styles";
 import navMenuList from "../../sample/navigation-menu/navigationMenuSample";
 import { ROUTES } from "../../utils/constants";
@@ -39,9 +47,12 @@ import Menu from "../../components/menu/menu.component";
 import menuListSample from "../../sample/menu/menu";
 import { selectUser } from "../../store/user/user.selector";
 import colors from "../../styles/colors";
+import AuthBlock from "../auth-block/auth-block.component";
+import Button from "../button/index.component";
 
 const Header: FC<HeaderProps> = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [isMobileDrawerOpen, setIsMobileDrawerOpen] = useState(false);
   const user = useSelector(selectUser);
   const isBigScreen = useMediaQuery("(min-width: 640px)");
   const navigate = useNavigate();
@@ -62,6 +73,14 @@ const Header: FC<HeaderProps> = () => {
 
   const handleDrawerClose = () => {
     setIsDrawerOpen(false);
+  };
+
+  const mobileDrawerOpenHandler = () => {
+    setIsMobileDrawerOpen(true);
+  };
+
+  const mobileDrawerCloseHandler = () => {
+    setIsMobileDrawerOpen(false);
   };
 
   const signOutHandler = () => {
@@ -106,12 +125,27 @@ const Header: FC<HeaderProps> = () => {
             <img
               src="https://firebasestorage.googleapis.com/v0/b/marketsquare-62b8e.appspot.com/o/logos%2Flogo-transparent.svg?alt=media&token=251c1267-68e9-49bf-b04e-c6519ab85019&_gl=1*mparyn*_ga*NzA5MzcyODc5LjE2ODU2MzYyOTA.*_ga_CW55HF8NVT*MTY4NTYzNjI5MC4xLjEuMTY4NTYzNjQ0MC4wLjAuMA.."
               alt="logo"
-              width="64"
-              height="64"
+              width={`${isBigScreen ? "64" : "48"}}`}
+              height={`${isBigScreen ? "64" : "48"}}`}
             />
           </Link>
           {isBigScreen && <Search />}
-          <Cart />
+          <NavigationContainerSC>
+            <Cart />
+            {/* MENU ICON FOR MOBILE */}
+            {!isBigScreen && (
+              <MenuIconSC
+                onClick={mobileDrawerOpenHandler}
+                sx={{
+                  backgroundColor: `${colors.lightest} !important`,
+                  color: `${colors.grey} !important`,
+                }}
+              >
+                <MenuIcon />
+              </MenuIconSC>
+            )}
+          </NavigationContainerSC>
+          {/* MENU ICON FOR DESKTOP */}
           {isBigScreen && _.isEmpty(user) && (
             <MenuIconSC
               onClick={handleClick}
@@ -157,6 +191,50 @@ const Header: FC<HeaderProps> = () => {
           </DrawerBottomSC>
         </DrawerContentSC>
       </DrawerSC>
+      {/* MOBILE DRAWER */}
+
+      <MobileDrawerSC
+        anchor="right"
+        open={isMobileDrawerOpen}
+        onClose={mobileDrawerCloseHandler}
+      >
+        <MobileDrawerContentSC>
+          {!_.isEmpty(user) && (
+            <DrawerHeadSC>
+              {!_.isEmpty(user) && (
+                <Avatar src={user?.profileUrl} size="large" />
+              )}
+              {!_.isEmpty(user) && <UsernameSC>{user.username}</UsernameSC>}
+              {!_.isEmpty(user) && <EmailSC>{user.email}</EmailSC>}
+            </DrawerHeadSC>
+          )}
+          {_.isEmpty(user) && (
+            <MobileDrawerHeadSC>
+              <LogoContainerSC>
+                <img
+                  src="https://firebasestorage.googleapis.com/v0/b/marketsquare-62b8e.appspot.com/o/logos%2Flogo-transparent.svg?alt=media&token=251c1267-68e9-49bf-b04e-c6519ab85019&_gl=1*mparyn*_ga*NzA5MzcyODc5LjE2ODU2MzYyOTA.*_ga_CW55HF8NVT*MTY4NTYzNjI5MC4xLjEuMTY4NTYzNjQ0MC4wLjAuMA.."
+                  alt="logo"
+                  width="64px"
+                  height="64px"
+                />
+              </LogoContainerSC>
+            </MobileDrawerHeadSC>
+          )}
+          <MobileDrawerBodySC></MobileDrawerBodySC>
+          {_.isEmpty(user) && (
+            <MobileDrawerBottomSC>
+              <AuthBlock />
+            </MobileDrawerBottomSC>
+          )}
+          {!_.isEmpty(user) && (
+            <MobileDrawerBottomSC>
+              <MobileSignOutContainerSC>
+                <SignOutSC onClick={signOutHandler}>Sign Out</SignOutSC>
+              </MobileSignOutContainerSC>
+            </MobileDrawerBottomSC>
+          )}
+        </MobileDrawerContentSC>
+      </MobileDrawerSC>
     </>
   );
 };

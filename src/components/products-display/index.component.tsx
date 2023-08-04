@@ -28,6 +28,7 @@ import { getSlideshow } from "../../apis/slideshows/slideshow.api";
 import SlideShowItemInterface from "../../interfaces/slideshow-item.interface";
 import { SLIDESHOWIDS } from "../../utils/constants";
 import { getProductsPerPage } from "../../utils/helpers";
+import ProductCardSkeleton from "../product-card/product-card-skeleton.component";
 
 const theme = createTheme({
   palette: {
@@ -51,6 +52,16 @@ const ProductsDisplay: FC<ProductsDisplayInterface> = ({ title, products }) => {
   const [displayedProducts, setDisplayedProducts] = useState<
     ProductInterface[]
   >([]);
+  const skeletonProducts = [
+    {_id: 'product-skeleton-1'},
+    {_id: 'product-skeleton-2'},
+    {_id: 'product-skeleton-3'},
+    {_id: 'product-skeleton-4'},
+    {_id: 'product-skeleton-5'},
+    {_id: 'product-skeleton-6'},
+    {_id: 'product-skeleton-7'},
+    {_id: 'product-skeleton-8'},
+  ];
   const isSmallScreen = useMediaQuery("(max-width: 639px)");
 
   useEffect(() => {
@@ -123,8 +134,7 @@ const ProductsDisplay: FC<ProductsDisplayInterface> = ({ title, products }) => {
         )}
         <Sort sortMenuItem={sortMenuItem} setSortMenuItem={setSortMenuItem} />
       </TitleContainerSC>
-      {loading && <ProgressIndicator />}
-      {!loading && (
+      {(
         <ThemeProvider theme={theme}>
           <Grid container spacing={3} sx={{ marginBottom: "40px" }}>
             {!_.isEmpty(products) &&
@@ -139,6 +149,23 @@ const ProductsDisplay: FC<ProductsDisplayInterface> = ({ title, products }) => {
                       key={`product-${product._id}`}
                     >
                       <ProductCard {...product} />
+                    </Grid>
+                  );
+                }
+              )}
+              {/* GENERATE SKELETONS */}
+              {_.isEmpty(products) && loading &&
+              skeletonProducts.map(
+                (product, index: number) => {
+                  return (
+                    <Grid
+                      item
+                      xs={6}
+                      lg={4}
+                      xl={3}
+                      key={`product-${product._id}`}
+                    >
+                      <ProductCardSkeleton />
                     </Grid>
                   );
                 }
@@ -162,7 +189,6 @@ const ProductsDisplay: FC<ProductsDisplayInterface> = ({ title, products }) => {
           No products...
         </ProductsDisplayEmptyTextSC>
       )}
-      {/* <ProductCategory title="Shop by Brands" images={[]} /> */}
     </ProductsDisplaySC>
   );
 };

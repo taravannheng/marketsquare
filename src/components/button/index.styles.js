@@ -3,13 +3,16 @@ import { Button, IconButton } from "@mui/material";
 
 import colors from "../../styles/colors";
 import typography from "../../styles/typography";
+import borderRadius from "../../styles/border-radius";
 
 export const ButtonSC = styled(Button)`
   width: clamp(100%, 100%, 100%);
+  height: clamp(48px, 48px, 48px) !important;
   color: ${colors.darkest} !important;
   font-size: ${typography.body.fontSize} !important;
   font-weight: ${typography.body.fontWeight} !important;
   background-color: ${colors.light} !important;
+  border-radius: ${borderRadius.s} !important;
   box-shadow: none !important;
   text-transform: none !important;
   padding: 8px 24px !important;

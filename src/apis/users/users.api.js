@@ -11,3 +11,4 @@ export const getUser = (token) => api.get(`/api/users`, {
     Authorization: `Bearer ${token}` 
   } 
 });
+export const updatePassword = (email, password) => api.patch(`/api/users/${email}/password`, { password });
