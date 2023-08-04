@@ -8,7 +8,7 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import { AccountCircle, Login } from "@mui/icons-material";
+import { AccountCircle, ArrowBackIos, Login } from "@mui/icons-material";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import _ from "lodash";
@@ -34,11 +34,9 @@ import {
   SignOutSC,
   MobileDrawerSC,
   MobileDrawerContentSC,
-  MobileDrawerHeadSC,
-  MobileDrawerBodySC,
-  MobileDrawerBottomSC,
   NavigationContainerSC,
-  LogoContainerSC,
+  MobileDrawerLogoContainerSC,
+  MobileDrawerAuthBlockContainerSC,
 } from "./index.styles";
 import navMenuList from "../../sample/navigation-menu/navigationMenuSample";
 import { ROUTES } from "../../utils/constants";
@@ -190,21 +188,24 @@ const Header: FC<HeaderProps> = () => {
         </DrawerContentSC>
       </DrawerSC>
       {/* MOBILE DRAWER */}
+
       <MobileDrawerSC
         anchor="right"
         open={isMobileDrawerOpen}
         onClose={mobileDrawerCloseHandler}
       >
         <MobileDrawerContentSC>
-          <MobileDrawerHeadSC>
-            <LogoContainerSC>
-              <img src="https://firebasestorage.googleapis.com/v0/b/marketsquare-62b8e.appspot.com/o/logos%2Flogo-transparent.svg?alt=media&token=251c1267-68e9-49bf-b04e-c6519ab85019&_gl=1*mparyn*_ga*NzA5MzcyODc5LjE2ODU2MzYyOTA.*_ga_CW55HF8NVT*MTY4NTYzNjI5MC4xLjEuMTY4NTYzNjQ0MC4wLjAuMA.." alt="logo" width="64px" height="64px" />
-            </LogoContainerSC>
-          </MobileDrawerHeadSC>
-          <MobileDrawerBodySC></MobileDrawerBodySC>
-          <MobileDrawerBottomSC>
+          <MobileDrawerLogoContainerSC>
+            <img
+              src="https://firebasestorage.googleapis.com/v0/b/marketsquare-62b8e.appspot.com/o/logos%2Flogo-transparent.svg?alt=media&token=251c1267-68e9-49bf-b04e-c6519ab85019&_gl=1*mparyn*_ga*NzA5MzcyODc5LjE2ODU2MzYyOTA.*_ga_CW55HF8NVT*MTY4NTYzNjI5MC4xLjEuMTY4NTYzNjQ0MC4wLjAuMA.."
+              alt="logo"
+              width="64px"
+              height="64px"
+            />
+          </MobileDrawerLogoContainerSC>
+          <MobileDrawerAuthBlockContainerSC>
             <AuthBlock />
-          </MobileDrawerBottomSC>
+          </MobileDrawerAuthBlockContainerSC>
         </MobileDrawerContentSC>
       </MobileDrawerSC>
     </>
