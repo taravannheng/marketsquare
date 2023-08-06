@@ -10,6 +10,8 @@ import { ShoppingCart, ArrowBackIos } from "@mui/icons-material";
 
 import colors from "../../styles/colors";
 import typography from "../../styles/typography";
+import space from "../../styles/spacing";
+import borderRadius from "../../styles/border-radius";
 
 export const CartButtonSC = styled(Box)`
   box-sizing: border-box;
@@ -97,16 +99,6 @@ export const CheckoutButtonSC = styled(Button)`
   }
 `;
 
-export const EmptyCartTextSC = styled(Typography)`
-  margin-left: 24px;
-  font-size: 16px;
-  font-weight: 400px;
-  color: ${colors.dark} !important;
-  text-align: center;
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
-`;
-
 // ---------------------------------------------------
 
 export const DrawerSC = styled(Drawer)`
@@ -181,4 +173,46 @@ export const CheckoutContainerSC = styled(Box)`
   padding: 12px 24px 48px 24px;
   box-shadow: 0 -4px 4px 0 rgba(0, 0, 0, 0.05);
   background-color: ${colors.lightest};
+`;
+
+export const EmptyCartContentSC = styled(Box)`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100% !important;
+  // background-color: ${colors.red} !important;
+`;
+
+export const EmptyCartIconSC = styled(Box)`
+
+`;
+
+export const ShoppingButtonSC = styled(Button)`
+  width: 100% !important;
+  height: clamp(48px, 48px, 48px) !important;
+  margin-top: ${space.xl} !important;
+  margin-bottom: ${space.m} !important;
+  border-radius: ${borderRadius.s} !important;
+  background-color: ${colors.primary} !important;
+  color: ${colors.lightest} !important;
+  font-size: ${typography.body.fontSize} !important;
+  font-weight: ${typography.body.fontWeight} !important;
+  text-transform: none !important;
+`;
+
+export const ShoppingButtonIconSC = styled(IconButton)`
+  font-size: 16px !important;
+  color: ${colors.lightest} !important;
+`;
+
+export const EmptyCartTextSC = styled(Typography)`
+  margin-top: ${space.l} !important;
+  margin-bottom: ${space.l} !important;
+  font-size: 16px;
+  font-weight: 400px;
+  color: ${colors.dark} !important;
+  text-align: center;
+  font-size: ${typography.body.fontSize} !important;
+  font-weight: ${typography.body.fontWeight} !important;
 `;
