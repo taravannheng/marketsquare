@@ -9,6 +9,7 @@ export const ROUTES = {
   RESET_PASSWORD_REQUEST: '/reset-password/request',
   RESET_PASSWORD_VERIFY: '/reset-password/verify',
   RESET_PASSWORD_UPDATE: '/reset-password/update',
+  NOTFOUND: '/*',
 }
 
 export const SLIDESHOWIDS = {
