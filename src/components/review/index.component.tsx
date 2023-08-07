@@ -9,6 +9,7 @@ import {
 } from "./index.styles";
 import ReviewInterface from "./index.interface";
 import Rating from "../rating/index.component";
+import SeeMoreText from "../see-more-text/see-more-text.component";
 
 const Review: FC<ReviewInterface> = ({
   width,
@@ -29,7 +30,7 @@ const Review: FC<ReviewInterface> = ({
       <ContentSC>
         <ReviewerSC>{reviewer}</ReviewerSC>
         <Rating type="long" rating={rating} showLabel={false} />
-        <CommentSC>{comment}</CommentSC>
+        <CommentSC><SeeMoreText defaultTextLength={250}>{comment}</SeeMoreText></CommentSC>
       </ContentSC>
     </ReviewSC>
   );
