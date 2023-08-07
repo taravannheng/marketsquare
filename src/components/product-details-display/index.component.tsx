@@ -6,6 +6,7 @@ import { ArrowBackIosRounded } from "@mui/icons-material";
 import _ from "lodash";
 
 import SlideShow from "../slideshow/index.component";
+import SeeMoreText from "../see-more-text/see-more-text.component";
 import Rating from "../rating/index.component";
 import Button from "../button/index.component";
 import ProductDetailsDisplayInterface from "./index.interface";
@@ -108,7 +109,7 @@ const ProductDetailsDisplay: FC<ProductDetailsDisplayInterface> = ({
                 <ProductPriceSC>${formatPrice(product.price)}</ProductPriceSC>
                 <Rating type="long" showLabel rating={product.rating} />
                 <ProductDescriptionSC>
-                  {product.description}
+                  <SeeMoreText defaultTextLength={250}>{product.description}</SeeMoreText>
                 </ProductDescriptionSC>
                 <Button
                   width="180px"

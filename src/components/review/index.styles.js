@@ -19,7 +19,6 @@ export const MediaSC = styled(CardMedia)`
 export const ContentSC = styled(CardContent)`
   width: calc(100% - 64px);
   height: auto;
-  max-height: 160px !important;
   margin: 0 !important;
   padding: 0 !important;
   padding-left: 16px !important;
@@ -34,9 +33,7 @@ export const ReviewerSC = styled(Typography)`
 
 export const CommentSC = styled(Typography)`
   height: auto;
-  max-height: 96px !important;
   overflow-x: hidden;
-  overflow-y: scroll;
   color: ${colors.dark};
   font-size: ${typography.body.fontSize} !important;
   font-weight: ${typography.body.fontWeight} !important;
