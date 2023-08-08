@@ -171,5 +171,7 @@ export const adjustCloudinaryImgSize = (url, width) => {
   const public_id = url.substring(index);
   const optimization = `/c_scale,w_${width}`;
 
-  return `${endpoint}${optimization}${public_id}`;
+  const newUrl = width === 0 ? `${endpoint}${public_id}` : `${endpoint}${optimization}${public_id}`;
+
+  return newUrl;
 }
