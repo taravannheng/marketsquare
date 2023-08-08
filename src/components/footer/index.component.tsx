@@ -33,7 +33,7 @@ import InstagramLogo from "../../assets/socials/social-instagram.png";
 import LinkedinLogo from "../../assets/socials/social-linkedin.png";
 import TwitterLogo from "../../assets/socials/social-twitter.png";
 import YoutubeLogo from "../../assets/socials/social-youtube.png";
-import { ROUTES } from "../../utils/constants";
+import { LOGO_URLS, ROUTES } from "../../utils/constants";
 
 const Footer: FC<FooterInterface> = ({ footerItems }) => {
   return (
@@ -41,7 +41,7 @@ const Footer: FC<FooterInterface> = ({ footerItems }) => {
       <SmallFooterSC>
         <Link href={ROUTES.LANDING}>
           <SmallFooterLogoSC
-            image="https://firebasestorage.googleapis.com/v0/b/marketsquare-62b8e.appspot.com/o/logos%2Flogo-vertical-white.svg?alt=media&token=79a0c5c5-a0b1-4d4a-8c66-6cabf2bc4114&_gl=1*15if7hq*_ga*NzA5MzcyODc5LjE2ODU2MzYyOTA.*_ga_CW55HF8NVT*MTY4NTYzNjI5MC4xLjEuMTY4NTYzNjQ5Ny4wLjAuMA.."
+            image={LOGO_URLS.VERTICAL_WHITE}
             title="logo"
             sx={{ maxHeight: 80 }}
           />
@@ -58,7 +58,10 @@ const Footer: FC<FooterInterface> = ({ footerItems }) => {
                     <UtilityLinkStackSC direction="column" spacing={1}>
                       {utilityLink.links.map((link: any) => {
                         return (
-                          <UtilityLinkSC href={link.route} key={`accordion-${link.id}`}>
+                          <UtilityLinkSC
+                            href={link.route}
+                            key={`accordion-${link.id}`}
+                          >
                             {link.text}
                           </UtilityLinkSC>
                         );
@@ -116,7 +119,11 @@ const Footer: FC<FooterInterface> = ({ footerItems }) => {
       <LargeFooterSC>
         <FooterLeftContainerSC>
           <Link href={ROUTES.LANDING}>
-            <FooterLogoSC image="https://firebasestorage.googleapis.com/v0/b/marketsquare-62b8e.appspot.com/o/logos%2Flogo-filled.svg?alt=media&token=6be32793-a8ba-4671-a66f-dd528d5cb523&_gl=1*mg1h9*_ga*NzA5MzcyODc5LjE2ODU2MzYyOTA.*_ga_CW55HF8NVT*MTY4NTYzNjI5MC4xLjEuMTY4NTYzNjM1NS4wLjAuMA.." title="logo" sx={{ maxHeight: 240 }} />
+            <FooterLogoSC
+              image={LOGO_URLS.FILLED}
+              title="logo"
+              sx={{ maxHeight: 240 }}
+            />
           </Link>
           <FooterLeftContent>
             <FooterCopyright variant="body1">
@@ -138,7 +145,10 @@ const Footer: FC<FooterInterface> = ({ footerItems }) => {
                       <UtilityLinkStackSC direction="column" spacing={1}>
                         {utilityLink.links.map((link: any) => {
                           return (
-                            <UtilityLinkSC href={link.route} key={`grid-${link.id}`}>
+                            <UtilityLinkSC
+                              href={link.route}
+                              key={`grid-${link.id}`}
+                            >
                               {link.text}
                             </UtilityLinkSC>
                           );
