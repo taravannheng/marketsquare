@@ -20,7 +20,7 @@ import {
   ProductNameSC,
   SlideShowContainerSC,
 } from "./index.styles";
-import { formatPrice } from "../../utils/helpers";
+import { adjustCloudinaryImgSize, formatPrice } from "../../utils/helpers";
 import { selectCart } from "../../store/cart/cart.selector";
 
 const ProductDetailsDisplay: FC<ProductDetailsDisplayInterface> = ({
@@ -35,6 +35,13 @@ const ProductDetailsDisplay: FC<ProductDetailsDisplayInterface> = ({
     ? product.imgUrls.map((imgUrl: string) => ({ imgUrl }))
     : [];
 
+  // ADJUST SLIDESHOW IMAGE SIZE
+  const DEFAULT_IMG_SIZE = 800;
+  const imgUrls = slideshowData.map((item) => {
+    return { imgUrl: adjustCloudinaryImgSize(item.imgUrl, DEFAULT_IMG_SIZE) };
+  });
+
+  // HANDLERS
   const goBack = () => {
     navigate(-1);
   };
@@ -97,10 +104,10 @@ const ProductDetailsDisplay: FC<ProductDetailsDisplayInterface> = ({
             <BodySC>
               <SlideShowContainerSC>
                 {isSmallScreen && (
-                  <SlideShow indicatorType="dot" data={slideshowData} />
+                  <SlideShow indicatorType="dot" data={imgUrls} />
                 )}
                 {!isSmallScreen && (
-                  <SlideShow indicatorType="number" data={slideshowData} />
+                  <SlideShow indicatorType="number" data={imgUrls} />
                 )}
               </SlideShowContainerSC>
               <DetailsContainerSC>
