@@ -23,7 +23,7 @@ import {
   RatingSC,
   ProductInfoSC,
 } from "./product-card.styles";
-import { formatPrice } from "../../utils/helpers";
+import { formatPrice, adjustCloudinaryImgSize } from "../../utils/helpers";
 import { selectCart } from "../../store/cart/cart.selector";
 
 const ProductCard: FC<ProductCardInterface> = ({
@@ -42,6 +42,11 @@ const ProductCard: FC<ProductCardInterface> = ({
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const cart = useSelector(selectCart);
+
+  // SET IMG SIZE
+  const MAX_IMG_SIZE = 640;
+  const firstImgUrl = imgUrls[0];
+  const imgUrl = adjustCloudinaryImgSize(firstImgUrl, MAX_IMG_SIZE);
 
   const addToCartHandler = () => {
     setIsAddedToCart((prevState) => !prevState);
@@ -97,7 +102,7 @@ const ProductCard: FC<ProductCardInterface> = ({
     <>
       <ProductCardSC>
         <CardMediaSC
-          image={imgUrls[0]}
+          image={imgUrl}
           title={name}
           onClick={showDetailsHandler}
         />
