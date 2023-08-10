@@ -27,13 +27,13 @@ export const ToolbarPlaceholderSC = styled(Box)`
 export const ToolbarSC = styled(Toolbar)`
   position: fixed !important;
   top: 0;
-  left: 0;
   z-index: 1000;
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: clamp(100%, 100%, 100%);
+  width: 100% !important;
+  max-width: 1280px !important;
   height: clamp(100px, 100px, 100px);
   border-bottom: 1px solid ${colors.light};
   padding: 0 24px !important;
