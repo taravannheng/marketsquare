@@ -1,4 +1,4 @@
-<div align="center">
+<div align="left">
   <img src="https://res.cloudinary.com/dzcwvn0sk/image/upload/c_scale,w_120/f_auto/q_auto:eco/v1691492423/marketsquare/logos/logo-transparent_qf50bm.svg">
 </div>
 
