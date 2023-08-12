@@ -185,7 +185,6 @@ export const EmptyCartContentSC = styled(Box)`
 `;
 
 export const EmptyCartIconSC = styled(Box)`
-
 `;
 
 export const ShoppingButtonSC = styled(Button)`

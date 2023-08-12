@@ -2,6 +2,7 @@ import { FC, useState } from "react";
 import _ from "lodash";
 import { Box, Icon, IconButton, Drawer, List } from "@mui/material";
 import { ArrowBackIos } from "@mui/icons-material";
+import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import { useSelector } from "react-redux";
 
@@ -36,8 +37,8 @@ import {
   selectCartLength,
 } from "../../store/cart/cart.selector";
 import { formatPrice } from "../../utils/helpers";
-import EmptyCartIcon from '../../assets/icons/cart-empty.png';
 import { ROUTES } from "../../utils/constants";
+import colors from "../../styles/colors";
 
 const Cart: FC<CartProps> = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -118,12 +119,7 @@ const Cart: FC<CartProps> = () => {
           {_.isEmpty(cart) && (
             <EmptyCartContentSC>
               <EmptyCartIconSC>
-                <img
-                  src={EmptyCartIcon}
-                  alt="empty cart icon"
-                  width="160px"
-                  height="160px"
-                />
+                <ShoppingBasketIcon sx={{ fontSize: 160, color: colors.light }} />
               </EmptyCartIconSC>
               <EmptyCartTextSC>Cart is empty...</EmptyCartTextSC>
               <ShoppingButtonSC href={`${ROUTES.LANDING}`}>
