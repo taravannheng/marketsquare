@@ -72,7 +72,6 @@ export const ProductDescriptionSC = styled(Typography)`
   width: auto;
   max-width: 486px;
   height: auto;
-  max-height: 96px !important;
   overflow-x: hidden;
   overflow-y: scroll;
   color: ${colors.dark};

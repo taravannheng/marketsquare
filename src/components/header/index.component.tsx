@@ -42,13 +42,12 @@ import {
   MobileSignOutContainerSC,
 } from "./index.styles";
 import navMenuList from "../../sample/navigation-menu/navigationMenuSample";
-import { ROUTES } from "../../utils/constants";
+import { LOGO_URLS, ROUTES } from "../../utils/constants";
 import Menu from "../../components/menu/menu.component";
 import menuListSample from "../../sample/menu/menu";
 import { selectUser } from "../../store/user/user.selector";
 import colors from "../../styles/colors";
 import AuthBlock from "../auth-block/auth-block.component";
-import Button from "../button/index.component";
 
 const Header: FC<HeaderProps> = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -60,6 +59,13 @@ const Header: FC<HeaderProps> = () => {
   const open = Boolean(anchorEl);
   const dispatch = useDispatch();
 
+  // DETERMINE LOGO SIZE
+  const smallLogoSize = "48";
+  const bigLogoSize = "64";
+  const logoSize = isBigScreen ? bigLogoSize : smallLogoSize;
+
+
+  // HANDLERS
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
@@ -123,10 +129,10 @@ const Header: FC<HeaderProps> = () => {
         <ToolbarSC>
           <Link to={ROUTES.LANDING}>
             <img
-              src="https://firebasestorage.googleapis.com/v0/b/marketsquare-62b8e.appspot.com/o/logos%2Flogo-transparent.svg?alt=media&token=251c1267-68e9-49bf-b04e-c6519ab85019&_gl=1*mparyn*_ga*NzA5MzcyODc5LjE2ODU2MzYyOTA.*_ga_CW55HF8NVT*MTY4NTYzNjI5MC4xLjEuMTY4NTYzNjQ0MC4wLjAuMA.."
+              src={LOGO_URLS.TRANSPARENT}
               alt="logo"
-              width={`${isBigScreen ? "64" : "48"}}`}
-              height={`${isBigScreen ? "64" : "48"}}`}
+              width={logoSize}
+              height={logoSize}
             />
           </Link>
           {isBigScreen && <Search />}
@@ -212,10 +218,10 @@ const Header: FC<HeaderProps> = () => {
             <MobileDrawerHeadSC>
               <LogoContainerSC>
                 <img
-                  src="https://firebasestorage.googleapis.com/v0/b/marketsquare-62b8e.appspot.com/o/logos%2Flogo-transparent.svg?alt=media&token=251c1267-68e9-49bf-b04e-c6519ab85019&_gl=1*mparyn*_ga*NzA5MzcyODc5LjE2ODU2MzYyOTA.*_ga_CW55HF8NVT*MTY4NTYzNjI5MC4xLjEuMTY4NTYzNjQ0MC4wLjAuMA.."
+                  src={LOGO_URLS.TRANSPARENT}
                   alt="logo"
-                  width="64px"
-                  height="64px"
+                  width={bigLogoSize}
+                  height={bigLogoSize}
                 />
               </LogoContainerSC>
             </MobileDrawerHeadSC>

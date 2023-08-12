@@ -3,7 +3,7 @@ import { Add, Remove, Delete } from "@mui/icons-material";
 import { useSelector, useDispatch } from "react-redux";
 
 import CartItemProps from "./index.interface";
-import { formatPrice } from "../../utils/helpers";
+import { adjustCloudinaryImgSize, formatPrice } from "../../utils/helpers";
 import {
   CartItemRootSC,
   CartItemImageSC,
@@ -22,7 +22,13 @@ import { selectCart } from "../../store/cart/cart.selector";
 const CartItem: FC<CartItemProps> = ({ item, closeCartHandler }) => {
   const cart = useSelector(selectCart);
   const dispatch = useDispatch();
+  const { imgUrls, name, price, quantity } = item;
 
+  // ADJUST IMAGE SIZE
+  const DEFAULT_IMG_SIZE = 280;
+  const imgUrl = adjustCloudinaryImgSize(imgUrls[0], DEFAULT_IMG_SIZE);
+
+  // HANDLERS
   const increaseQuantity = () => {
     dispatch({
       type: "INCREASE_QUANTITY",
@@ -52,21 +58,21 @@ const CartItem: FC<CartItemProps> = ({ item, closeCartHandler }) => {
 
   return (
     <CartItemRootSC>
-      <CartItemImageSC image={item.imgUrls[0]} />
+      <CartItemImageSC image={imgUrl} />
       <CartItemContentSC>
-        <ItemNameSC variant="h6">{item.name}</ItemNameSC>
+        <ItemNameSC variant="h6">{name}</ItemNameSC>
         <ItemSubTotalSC variant="subtitle1">
-          ${formatPrice((item.price * item.quantity))}
+          ${formatPrice((price * quantity))}
         </ItemSubTotalSC>
         <ControlContainerSC>
           <QuantityContainerSC>
             <DecreaseButtonSC
               onClick={decreaseQuantity}
-              disabled={item.quantity === 1}
+              disabled={quantity === 1}
             >
               <Remove />
             </DecreaseButtonSC>
-            <QuantityTextSC>{item.quantity}</QuantityTextSC>
+            <QuantityTextSC>{quantity}</QuantityTextSC>
             <IncreaseButtonSC onClick={increaseQuantity}>
               <Add />
             </IncreaseButtonSC>

@@ -13,6 +13,9 @@ import GlobalStyle from "./styles/globalstyles";
 import PrivateConfirmationRoute from "./pages/confirmation/index.private";
 
 const ConfirmationPage = React.lazy(() => import("./pages/confirmation/index.component"));
+const NotFoundPage = React.lazy(
+  () => import("./pages/notfound/notfound.component")
+);
 
 const App: FC = () => {
   return (
@@ -37,6 +40,14 @@ const App: FC = () => {
                   }
                 />
               </Route>
+              <Route
+                path={ROUTES.NOTFOUND}
+                element={
+                  <Suspense>
+                    <NotFoundPage />
+                  </Suspense>
+                }
+              />
             </Routes>
           </Router>
     </div>

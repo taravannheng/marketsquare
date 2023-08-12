@@ -6,6 +6,7 @@ import { ArrowBackIosRounded } from "@mui/icons-material";
 import _ from "lodash";
 
 import SlideShow from "../slideshow/index.component";
+import SeeMoreText from "../see-more-text/see-more-text.component";
 import Rating from "../rating/index.component";
 import Button from "../button/index.component";
 import ProductDetailsDisplayInterface from "./index.interface";
@@ -20,7 +21,7 @@ import {
   ProductNameSC,
   SlideShowContainerSC,
 } from "./index.styles";
-import { formatPrice } from "../../utils/helpers";
+import { adjustCloudinaryImgSize, formatPrice } from "../../utils/helpers";
 import { selectCart } from "../../store/cart/cart.selector";
 
 const ProductDetailsDisplay: FC<ProductDetailsDisplayInterface> = ({
@@ -35,6 +36,13 @@ const ProductDetailsDisplay: FC<ProductDetailsDisplayInterface> = ({
     ? product.imgUrls.map((imgUrl: string) => ({ imgUrl }))
     : [];
 
+  // ADJUST SLIDESHOW IMAGE SIZE
+  const DEFAULT_IMG_SIZE = 800;
+  const imgUrls = slideshowData.map((item) => {
+    return { imgUrl: adjustCloudinaryImgSize(item.imgUrl, DEFAULT_IMG_SIZE) };
+  });
+
+  // HANDLERS
   const goBack = () => {
     navigate(-1);
   };
@@ -97,10 +105,10 @@ const ProductDetailsDisplay: FC<ProductDetailsDisplayInterface> = ({
             <BodySC>
               <SlideShowContainerSC>
                 {isSmallScreen && (
-                  <SlideShow indicatorType="dot" data={slideshowData} />
+                  <SlideShow indicatorType="dot" data={imgUrls} />
                 )}
                 {!isSmallScreen && (
-                  <SlideShow indicatorType="number" data={slideshowData} />
+                  <SlideShow indicatorType="number" data={imgUrls} />
                 )}
               </SlideShowContainerSC>
               <DetailsContainerSC>
@@ -108,7 +116,7 @@ const ProductDetailsDisplay: FC<ProductDetailsDisplayInterface> = ({
                 <ProductPriceSC>${formatPrice(product.price)}</ProductPriceSC>
                 <Rating type="long" showLabel rating={product.rating} />
                 <ProductDescriptionSC>
-                  {product.description}
+                  <SeeMoreText defaultTextLength={250}>{product.description}</SeeMoreText>
                 </ProductDescriptionSC>
                 <Button
                   width="180px"

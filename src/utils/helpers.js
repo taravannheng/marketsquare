@@ -159,7 +159,19 @@ export const checkFourDigits = (digits) => {
   );
 };
 
-// create a helper function that takes two passwords and check if they match
 export const checkPasswordMatch = (password, confirmPassword) => {
   return password === confirmPassword;
+}
+
+export const adjustCloudinaryImgSize = (url, width) => {
+  const delimiter = '/upload';
+  const index = url.indexOf(delimiter) + delimiter.length;
+
+  const endpoint = url.substring(0, index);
+  const public_id = url.substring(index);
+  const optimization = `/c_scale,w_${width}`;
+
+  const newUrl = width === 0 ? `${endpoint}${public_id}` : `${endpoint}${optimization}${public_id}`;
+
+  return newUrl;
 }
