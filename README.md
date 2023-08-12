@@ -1,5 +1,5 @@
 <div align="left">
-  <img src="https://res.cloudinary.com/dzcwvn0sk/image/upload/c_scale,w_120/f_auto/q_auto:good/v1691492423/marketsquare/logos/logo-transparent_qf50bm.svg">
+  <img src="https://res.cloudinary.com/dzcwvn0sk/image/upload/c_scale,w_120/q_auto:good/v1691492423/marketsquare/logos/logo-transparent_qf50bm.svg">
 </div>
 
 
