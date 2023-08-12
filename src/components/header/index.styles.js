@@ -20,25 +20,33 @@ export const AppBarSC = styled(AppBar)``;
 
 export const ToolbarPlaceholderSC = styled(Box)`
   width: 100%;
-  height: 100px;
+  height: clamp(56px, 56px, 56px) !important;
   background-color: ${colors.lightest} !important;
+
+  @media only screen and (min-width: 640px) {
+    height: clamp(100px, 100px, 100px) !important;
+  }
 `;
 
 export const ToolbarSC = styled(Toolbar)`
   position: fixed !important;
   top: 0;
-  left: 0;
   z-index: 1000;
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: clamp(100%, 100%, 100%);
-  height: clamp(100px, 100px, 100px);
+  width: 100% !important;
+  max-width: 1280px !important;
+  height: clamp(56px, 56px, 56px) !important;
   border-bottom: 1px solid ${colors.light};
   padding: 0 24px !important;
   background-color: ${colors.lightest};
   box-shadow: none;
+
+  @media only screen and (min-width: 640px) {
+    height: clamp(100px, 100px, 100px) !important;
+  }
 
   @media only screen and (min-width: 1080px) {
     padding: 0 48px !important;
