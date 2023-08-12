@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://firebasestorage.googleapis.com/v0/b/marketsquare-62b8e.appspot.com/o/logos%2Flogo-horizontal.png?alt=media&token=ee9b57d6-ec00-4dff-a683-d015f3db9ea3&_gl=1*1jyrwog*_ga*MTcyMjg1OTQuMTY4NTMxNjU0MA..*_ga_CW55HF8NVT*MTY4NTUyMDM2NS4yLjEuMTY4NTUyMDQ4My4wLjAuMA..">
+  <img src="https://res.cloudinary.com/dzcwvn0sk/image/upload/c_scale,w_120/f_auto/q_auto:eco/v1691492423/marketsquare/logos/logo-transparent_qf50bm.svg">
 </div>
 
 
@@ -29,7 +29,7 @@ Functionalities include:
 ## Payment Flow
 
 <div align="center">
-    <img src="https://firebasestorage.googleapis.com/v0/b/marketsquare-62b8e.appspot.com/o/payment%20flows%2Fpayment-flow.png?alt=media&token=2d5572b6-3672-4245-ae46-c1861814e9c2&_gl=1*1vow5st*_ga*MTkzMDIyNzI4NC4xNjg1Nzg4MDQ2*_ga_CW55HF8NVT*MTY4NTc4ODA0Ni4xLjEuMTY4NTc4ODU3My4wLjAuMA..">
+    <img src="https://res.cloudinary.com/dzcwvn0sk/image/upload/f_auto/q_auto:eco/v1691832738/marketsquare/flows/payment-flow_petwyy.png">
 </div>
 
 
