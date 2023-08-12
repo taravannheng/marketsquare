@@ -8,7 +8,7 @@ import Button from "../button/index.component";
 import SlideShowInterface from "./index.interface";
 import SlideShowItemInterface from "../../interfaces/slideshow-item.interface";
 import colors from "../../styles/colors";
-import { Box } from "@mui/material";
+import { Box, useMediaQuery } from "@mui/material";
 import {
   IndicatorTextSC,
   NextButtonSC,
@@ -24,6 +24,7 @@ import {
   SlideShowPaginationSC,
   SlideShowSC,
 } from "./index.styles";
+import { adjustCloudinaryImgSize } from "../../utils/helpers";
 
 const SlideShow: FC<SlideShowInterface> = ({
   data,
@@ -33,6 +34,37 @@ const SlideShow: FC<SlideShowInterface> = ({
 }) => {
   const navigate = useNavigate();
   const [activeItemIndex, setActiveItemIndex] = useState(0);
+
+  // ADJUST IMAGE SIZE
+  const DEFAULT_IMG_SIZE = 1024;
+  const ORIGINAL_IMG_SIZE = 0; // use original image size
+  let imgSize = DEFAULT_IMG_SIZE;
+  const isSmallScreen = useMediaQuery("(max-width: 640px)");
+  const isMediumScreen = useMediaQuery("(max-width: 768px)");
+  const isLargeScreen = useMediaQuery("(max-width: 1024px)");
+  const isExtraLargeScreen = useMediaQuery("(min-width: 1024px)");
+
+  // DETERMINE IMAGE SIZE
+  if (isExtraLargeScreen) {
+    imgSize = ORIGINAL_IMG_SIZE; // use original image size
+  }
+
+  if (isLargeScreen) {
+    imgSize = 1024;
+  }
+
+  if (isMediumScreen) {
+    imgSize = 768;
+  }
+
+  if (isSmallScreen) {
+    imgSize = 640;
+  }
+
+  // GET IMAGE URL
+  const imgUrls = data.map((item: SlideShowItemInterface) => {
+    return adjustCloudinaryImgSize(item.imgUrl, imgSize);
+  });
 
   useEffect(() => {
     if (autoSlide) {
@@ -77,7 +109,7 @@ const SlideShow: FC<SlideShowInterface> = ({
             return (
               <SlideShowMediaSC
                 key={`slide-media-${item?._id ?? index}`}
-                image={item.imgUrl}
+                image={imgUrls[index]}
                 sx={{
                   transform: `translateY(-${activeItemIndex * 100}%)`,
                   "&:hover": {

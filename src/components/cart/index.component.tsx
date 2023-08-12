@@ -2,6 +2,8 @@ import { FC, useState } from "react";
 import _ from "lodash";
 import { Box, Icon, IconButton, Drawer, List } from "@mui/material";
 import { ArrowBackIos } from "@mui/icons-material";
+import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
+import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import { useSelector } from "react-redux";
 
 import CartItem from "../cart-item/index.component";
@@ -22,6 +24,10 @@ import {
   IconButtonSC,
   CheckoutContainerSC,
   DrawerSC,
+  EmptyCartContentSC,
+  EmptyCartIconSC,
+  ShoppingButtonSC,
+  ShoppingButtonIconSC,
 } from "./index.styles";
 import CartProps from "./index.interface";
 import { createCart } from "../../apis/carts/cart.api";
@@ -31,6 +37,8 @@ import {
   selectCartLength,
 } from "../../store/cart/cart.selector";
 import { formatPrice } from "../../utils/helpers";
+import { ROUTES } from "../../utils/constants";
+import colors from "../../styles/colors";
 
 const Cart: FC<CartProps> = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -63,14 +71,14 @@ const Cart: FC<CartProps> = () => {
 
       <DrawerSC anchor="right" open={isDrawerOpen} onClose={handleDrawerClose}>
         <CartSC>
-          <LogoContainerSC>
+          {/* <LogoContainerSC>
             <img
               src="https://firebasestorage.googleapis.com/v0/b/marketsquare-62b8e.appspot.com/o/logos%2Flogo-transparent.svg?alt=media&token=251c1267-68e9-49bf-b04e-c6519ab85019&_gl=1*mparyn*_ga*NzA5MzcyODc5LjE2ODU2MzYyOTA.*_ga_CW55HF8NVT*MTY4NTYzNjI5MC4xLjEuMTY4NTYzNjQ0MC4wLjAuMA.."
               alt="logo"
               width="64px"
               height="64px"
             />
-          </LogoContainerSC>
+          </LogoContainerSC> */}
           <TitleContainerSC>
             <IconButtonSC onClick={handleDrawerClose}>
               <ArrowBackIos />
@@ -109,7 +117,18 @@ const Cart: FC<CartProps> = () => {
             </CheckoutContainerSC>
           )}
           {_.isEmpty(cart) && (
-            <EmptyCartTextSC>Cart is empty...</EmptyCartTextSC>
+            <EmptyCartContentSC>
+              <EmptyCartIconSC>
+                <ShoppingBasketIcon sx={{ fontSize: 160, color: colors.light }} />
+              </EmptyCartIconSC>
+              <EmptyCartTextSC>Cart is empty...</EmptyCartTextSC>
+              <ShoppingButtonSC href={`${ROUTES.LANDING}`}>
+                Start Shopping
+                <ShoppingButtonIconSC>
+                  <ShoppingBagIcon />
+                </ShoppingButtonIconSC>
+              </ShoppingButtonSC>
+            </EmptyCartContentSC>
           )}
         </CartSC>
       </DrawerSC>

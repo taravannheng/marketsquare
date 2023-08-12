@@ -11,6 +11,7 @@ import {
   RelatedProductCardSC,
 } from "./index.styles";
 import _ from "lodash";
+import { adjustCloudinaryImgSize } from "../../utils/helpers";
 
 const RelatedProductCard: FC<RelatedProductCardInterface> = ({
   product,
@@ -19,7 +20,13 @@ const RelatedProductCard: FC<RelatedProductCardInterface> = ({
   backgroundColor,
 }) => {
   const navigate = useNavigate();
+  const { name, price, rating } = product;
 
+  // ADJUST IMAGE SIZE
+  const DEFAULT_IMG_SIZE = 240;
+  const imgUrl = adjustCloudinaryImgSize(product.imgUrls[0], DEFAULT_IMG_SIZE);
+
+  // HANDLERS
   const showDetailsHandler = () => {
     navigate(`/product/${product._id}`);
   };
@@ -35,11 +42,11 @@ const RelatedProductCard: FC<RelatedProductCardInterface> = ({
     >
       {!_.isEmpty(product) && (
         <>
-          <CardMediaSC image={product.imgUrls[0]} />
+          <CardMediaSC image={imgUrl} />
           <CardContentSC>
-            <ProductNameSC>{product.name}</ProductNameSC>
-            <ProductPriceSC>${product.price}</ProductPriceSC>
-            <Rating type="long" showLabel={false} rating={product.rating} />
+            <ProductNameSC>{name}</ProductNameSC>
+            <ProductPriceSC>${price}</ProductPriceSC>
+            <Rating type="long" showLabel={false} rating={rating} />
           </CardContentSC>
         </>
       )}
