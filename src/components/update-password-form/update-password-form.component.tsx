@@ -188,7 +188,7 @@ const UpdatePasswordForm: FC<UpdatePasswordFormI> = () => {
       <Button
         labelColor={`${colors.lightest}`}
         backgroundColor={`${colors.primary}`}
-        label="Submit Code"
+        label="Update Password"
         styleType="default"
         actionType='button'
         clickHandler={formHandler}
