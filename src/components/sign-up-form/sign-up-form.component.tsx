@@ -9,6 +9,7 @@ import Divider from "../divider/index.component";
 import SignUpFormInterface from "./sign-up-form.interface";
 import {
   AlertContainerSC,
+  InputContainerSC,
   SignInLinkSC,
   SignInSC,
   SignUpButtonSC,
@@ -204,14 +205,16 @@ const SignUpForm: FC<SignUpFormInterface> = () => {
           </Alert>
         )}
       </AlertContainerSC>
-      <UsernameInput username={username} onChange={usernameChangeHandler} />
-      <EmailInput
-        email={email}
-        onChange={emailChangeHandler}
-        checkUniqueness={true}
-        isUnique={isUniqueEmail}
-      />
-      <PasswordInput password={password} onChange={passwordChangeHandler} />
+      <InputContainerSC>
+        <UsernameInput username={username} onChange={usernameChangeHandler} />
+        <EmailInput
+          email={email}
+          onChange={emailChangeHandler}
+          checkUniqueness={true}
+          isUnique={isUniqueEmail}
+        />
+        <PasswordInput password={password} onChange={passwordChangeHandler} />
+      </InputContainerSC>
       <SignUpButtonSC type="submit">Sign Up</SignUpButtonSC>
       <Divider />
       <SignUpWithGoogleButtonSC href={`${ROUTES.AUTH_GOOGLE}`}>
