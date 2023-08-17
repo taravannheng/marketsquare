@@ -1,160 +1,50 @@
-import { FC, useState, useEffect } from "react";
+import { FC } from "react";
 import { useNavigate } from "react-router-dom";
-import _ from "lodash";
-import { Box, useMediaQuery } from "@mui/material";
-import { AddShoppingCart, RemoveShoppingCart } from "@mui/icons-material";
-import { useSelector, useDispatch } from "react-redux";
 
-import Button from "../button/index.component";
-import ProductInterface from "../../interfaces/product-interface";
 import ProductCardInterface from "./product-card.interface";
 import {
   ProductCardSC,
   CardContentSC,
   CardMediaSC,
-  ProductContentHeaderSC,
-  ProductContentBodySC,
   ProductNameSC,
-  ProductPriceBigCardSC,
-  ProductPriceSmallCardSC,
-  AddToCartButtonContainerSC,
-  AddToCartIconButtonSC,
-  DefaultButtonContainerSC,
-  RatingSC,
-  ProductInfoSC,
+  ProductPriceSC,
+  CardMediaContainerSC,
 } from "./product-card.styles";
 import { formatPrice, adjustCloudinaryImgSize } from "../../utils/helpers";
-import { selectCart } from "../../store/cart/cart.selector";
 
 const ProductCard: FC<ProductCardInterface> = ({
   imgUrls,
   name,
-  description,
   price,
-  quantity,
-  rating,
-  reviews,
-  stripeID,
   _id,
 }) => {
-  const isSmallScreen = useMediaQuery("(max-width: 640px)");
-  const [isAddedToCart, setIsAddedToCart] = useState(false);
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const cart = useSelector(selectCart);
 
   // SET IMG SIZE
   const MAX_IMG_SIZE = 640;
   const firstImgUrl = imgUrls[0];
   const imgUrl = adjustCloudinaryImgSize(firstImgUrl, MAX_IMG_SIZE);
 
-  const addToCartHandler = () => {
-    setIsAddedToCart((prevState) => !prevState);
-
-    if (!isAddedToCart) {
-      dispatch({
-        type: "ADD_TO_CART",
-        payload: {
-          imgUrls,
-          name,
-          description,
-          price,
-          quantity,
-          reviews,
-          stripeID,
-          rating,
-          _id,
-        },
-      });
-    }
-
-    if (isAddedToCart) {
-      dispatch({
-        type: "REMOVE_FROM_CART",
-        payload: {
-          _id,
-        },
-      });
-    }
-  };
-
   const showDetailsHandler = () => {
     navigate(`/product/${_id}`);
   };
 
-  useEffect(() => {
-    if (_.isEmpty(cart)) {
-      setIsAddedToCart(false);
-    }
-
-    if (!_.isEmpty(cart)) {
-      const isProductInCart = () => {
-        const matchedProduct = cart.find(
-          (productInCart: ProductInterface) => _id === productInCart._id
-        );
-        return matchedProduct !== undefined;
-      };
-      setIsAddedToCart(isProductInCart());
-    }
-  }, [cart, _id]);
-
   return (
     <>
-      <ProductCardSC>
-        <CardMediaSC
-          image={imgUrl}
-          title={name}
-          onClick={showDetailsHandler}
-        />
+      <ProductCardSC onClick={showDetailsHandler}>
+        <CardMediaContainerSC>
+          <CardMediaSC
+            image={imgUrl}
+            title={name}
+          />
+        </CardMediaContainerSC>
         <CardContentSC>
-          <ProductContentHeaderSC onClick={showDetailsHandler}>
-            <ProductNameSC gutterBottom variant="body1">
-              {name}
-            </ProductNameSC>
-            <ProductPriceBigCardSC variant="body1" color="text.primary">
-              ${formatPrice(price)}
-            </ProductPriceBigCardSC>
-          </ProductContentHeaderSC>
-          <ProductContentBodySC>
-            <ProductInfoSC>
-              {isSmallScreen && <RatingSC type="short" showLabel={false} rating={rating} />}
-              <ProductPriceSmallCardSC
-                onClick={showDetailsHandler}
-                variant="body1"
-                color="text.primary"
-              >
-                ${formatPrice(price)}
-              </ProductPriceSmallCardSC>
-            </ProductInfoSC>
-            {!isSmallScreen && <RatingSC type="long" rating={rating} showLabel={false} />}
-            <AddToCartButtonContainerSC>
-              <AddToCartIconButtonSC onClick={addToCartHandler}>
-                {isAddedToCart ? <RemoveShoppingCart /> : <AddShoppingCart />}
-              </AddToCartIconButtonSC>
-              <DefaultButtonContainerSC>
-                {isAddedToCart && (
-                  <Box sx={{ width: "auto !important" }}>
-                    <Button
-                      styleType="default"
-                      actionType="button"
-                      label="Remove from Cart"
-                      clickHandler={addToCartHandler}
-                    />
-                  </Box>
-                )}
-                {!isAddedToCart && (
-                  <Box sx={{ width: "auto !important" }}>
-                    <Button
-                      styleType="default"
-                      actionType="button"
-                      label="Add to Cart"
-                      clickHandler={addToCartHandler}
-                    />
-                  </Box>
-                )}
-              </DefaultButtonContainerSC>
-            </AddToCartButtonContainerSC>
-          </ProductContentBodySC>
+          <ProductNameSC gutterBottom variant="body1">
+            {name}
+          </ProductNameSC>
+          <ProductPriceSC variant="body1" color="text.primary">
+            ${formatPrice(price)}
+            </ProductPriceSC>
         </CardContentSC>
       </ProductCardSC>
     </>

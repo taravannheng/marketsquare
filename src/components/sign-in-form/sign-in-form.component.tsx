@@ -19,6 +19,7 @@ import {
   SignInWithGoogleButtonSC,
   SocialLogoSC,
   TitleSC,
+  InputContainerSC,
 } from "./sign-in-form.style";
 import { checkEmail, checkPassword } from "../../utils/helpers";
 import { ROUTES } from "../../utils/constants";
@@ -191,8 +192,10 @@ const SignInForm: FC<SignInFormInterface> = () => {
           </Alert>
         )}
       </AlertContainerSC>
-      <EmailInput email={email} onChange={emailChangeHandler} />
-      <PasswordInput password={password} onChange={passwordChangeHandler} showTooltip={false} />
+      <InputContainerSC>
+        <EmailInput email={email} onChange={emailChangeHandler} />
+        <PasswordInput password={password} onChange={passwordChangeHandler} showTooltip={false} />
+      </InputContainerSC>
       <SignInButtonSC type="submit">Sign In</SignInButtonSC>
       <ForgottenPasswordLinkSC href={`${ROUTES.RESET_PASSWORD_REQUEST}`}>
         Forgotten password?
