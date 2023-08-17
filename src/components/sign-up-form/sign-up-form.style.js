@@ -18,7 +18,7 @@ export const SignUpFormSC = styled.form`
 `;
 
 export const TitleSC = styled(Typography)`
-  margin-bottom: ${space.l} !important;
+  margin-bottom: ${space.xl} !important;
   font-size: ${typography.h2.fontSize} !important;
   font-weight: ${typography.h2.fontWeight} !important;
 
@@ -30,7 +30,13 @@ export const TitleSC = styled(Typography)`
 `;
 
 export const AlertContainerSC = styled(Box)`
-  margin-bottom: ${space.m} !important;
+  margin-bottom: ${space.xl} !important;
+`;
+
+export const InputContainerSC = styled(Box)`
+  & > *:not(last-child) {
+    margin-bottom: ${space.xxs} !important;
+  }
 `;
 
 export const SignUpButtonSC = styled(Button)`
