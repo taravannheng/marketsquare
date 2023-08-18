@@ -29,7 +29,7 @@ Functionalities include:
 ## Payment Flow
 
 <div align="center">
-    <img src="https://res.cloudinary.com/dzcwvn0sk/image/upload/f_auto/q_auto:eco/v1691832738/marketsquare/flows/payment-flow_petwyy.png">
+    <img src="https://res.cloudinary.com/dzcwvn0sk/image/upload/f_auto/q_auto:eco/v1692244180/marketsquare/flows/payment-flow_ga51wl.png">
 </div>
 
 
