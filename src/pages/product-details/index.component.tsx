@@ -51,11 +51,6 @@ const ProductDetailsPage: FC = () => {
   };
 
   useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-
     // get product data
     const fetchProduct = async () => {
       const response = await getProduct(productID);
