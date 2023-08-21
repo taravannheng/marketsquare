@@ -4,12 +4,4 @@ import typography from "./typography";
 import borderRadius from "./border-radius";
 import shadows from "./shadows";
 
-const styles = {
-  space,
-  colors,
-  typography,
-  borderRadius,
-  shadows
-};
-
-export default styles;
+export { space, colors, typography, borderRadius, shadows };
