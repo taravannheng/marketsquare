@@ -1,13 +1,10 @@
 import styled from "@emotion/styled";
 import { Alert } from "@mui/material";
 
-import colors from "../../styles/colors";
-import typography from "../../styles/typography";
-import space from "../../styles/spacing";
-import borderRadius from "../../styles/border-radius";
+import { colors, typography, space, borderRadius } from "../../styles/styles";
 
 export const AlertSC = styled(Alert)`
-  padding: 8px 16px !important;
+  padding: ${space.xs} ${space.m} !important;
   background-color: ${colors.light};
   border-radius: ${borderRadius.s};
 
