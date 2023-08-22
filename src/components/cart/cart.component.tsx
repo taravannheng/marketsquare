@@ -28,8 +28,8 @@ import {
   ShoppingButtonSC,
   ShoppingButtonIconSC,
   AlertContainerSC,
-} from "./index.styles";
-import CartProps from "./index.interface";
+} from "./cart.styles";
+import CartProps from "./cart.interface";
 import ProductInterface from "../../interfaces/product-interface";
 import { createCart } from "../../apis/carts/cart.api";
 import {
