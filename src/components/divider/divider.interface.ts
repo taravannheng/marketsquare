@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-export default interface DividerInterface {
+export default interface DividerProps {
   children?: ReactNode;
   width?: string;
   height?: string;
