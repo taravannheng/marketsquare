@@ -1,10 +1,23 @@
-import styled from "styled-components";
-
-import colors from "../../styles/colors";
-import typography from "../../styles/typography";
-import spacing from "../../styles/spacing";
-import borderRadius from "../../styles/border-radius";
+import styled, { css } from "styled-components";
 import { Box, Icon, TextField, Typography } from "@mui/material";
+
+import { colors, typography, space, borderRadius } from "../../styles/styles";
+
+// SHARED STYLES ---------------------------------------------------------------
+
+const flexCenter = css`
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+`;
+
+const flexSpaceBetween = css`
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+`;
+
+// COMPONENT STYLES ---------------------------------------------------------------
 
 export const EmailInputSC = styled(Box)`
   width: 100%;
@@ -12,17 +25,15 @@ export const EmailInputSC = styled(Box)`
 `;
 
 export const LabelContainerSC = styled(Box)`
-  display: flex;
+  ${flexSpaceBetween};
   flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
   width: fit-content !important;
   max-width: fit-content !important;
-  margin-bottom: ${spacing.xs};
+  margin-bottom: ${space.xs};
 `;
 
 export const LabelSC = styled(Typography)`
-  margin-right: ${spacing.xxs} !important;
+  margin-right: ${space.xxs} !important;
   color: ${colors.darkest} !important;
   font-size: ${typography.body.fontSize} !important;
   font-weight: ${typography.body.fontWeight} !important;
@@ -34,9 +45,7 @@ export const LabelSC = styled(Typography)`
 `;
 
 export const StatusIconSC = styled(Icon)`
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
+  ${flexCenter};
   width: 18px !important;
   height: 18px !important;
   transition: opacity 0.3s ease-in-out;
@@ -50,10 +59,10 @@ export const StatusIconSC = styled(Icon)`
 export const InputSC = styled(TextField)`
   width: 100% !important;
   border: 0px !important;
-  margin-bottom: ${spacing.xs} !important;
+  margin-bottom: ${space.xs} !important;
 
   & input {
-    padding: ${spacing.xs} ${spacing.m} !important;
+    padding: ${space.xs} ${space.m} !important;
     border: 0px !important;
     border-radius: ${borderRadius.s} !important;
     color: ${colors.darkest} !important;
@@ -77,17 +86,17 @@ export const TooltipSC = styled(Box)`
   align-items: flex-start;
   justify-content: flex-start;
   width: 100% !important;
-  padding: ${spacing.xs} !important;
+  padding: ${space.xs} !important;
   border-radius: ${borderRadius.s} !important;
   font-size: ${typography.body.fontSize} !important;
   font-weight: ${typography.body.fontWeight} !important;
   line-height: ${typography.body.lineHeight} !important;
   background-color: ${colors.light} !important;
-  margin-bottom: ${spacing.m} !important;
+  margin-bottom: ${space.m} !important;
 `;
 
 export const TooltipTextSC = styled(Typography)`
-  margin-bottom: ${spacing.xs} !important;
+  margin-bottom: ${space.xs} !important;
   color: ${colors.darkest} !important;
   font-size: inherit !important;
   font-weight: inherit !important;
