@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 import { Cancel, CheckCircle } from "@mui/icons-material";
 
-import EmailInputInterface from "./email-input.interface";
+import EmailInputProps from "./email-input.interface";
 import {
   InputSC,
   LabelContainerSC,
@@ -14,7 +14,7 @@ import {
 } from "./email-input.style";
 import colors from "../../styles/colors";
 
-const EmailInput: FC<EmailInputInterface> = ({
+const EmailInput: FC<EmailInputProps> = ({
   disabled = false,
   label = "Email",
   name = "email",
