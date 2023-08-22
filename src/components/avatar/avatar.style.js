@@ -1,8 +1,7 @@
 import styled from "@emotion/styled";
 import { Avatar } from "@mui/material";
 
-import colors from "../../styles/colors";
-import typography from "../../styles/typography";
+import { colors } from "../../styles/styles";
 
 export const AvatarSC = styled(Avatar)`
   border: 2px solid ${colors.light};
@@ -11,7 +10,7 @@ export const AvatarSC = styled(Avatar)`
   transition: all 0.3s ease-in-out;
 
   &:hover {
-    border: 2px solid ${colors.primary};
+    border-color: ${colors.primary};
     cursor: pointer;
   }
 
