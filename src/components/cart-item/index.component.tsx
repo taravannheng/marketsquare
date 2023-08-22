@@ -18,8 +18,10 @@ import {
   ControlContainerSC,
 } from "./index.styles";
 import { selectCart } from "../../store/cart/cart.selector";
+import CART_ACTION_TYPES from "../../store/cart/cart.types";
 
 const CartItem: FC<CartItemProps> = ({ item, closeCartHandler }) => {
+  const { INCREASE_QUANTITY, DECREASE_QUANTITY, REMOVE_FROM_CART } = CART_ACTION_TYPES;
   const cart = useSelector(selectCart);
   const dispatch = useDispatch();
   const { imgUrls, name, price, quantity } = item;
@@ -31,14 +33,14 @@ const CartItem: FC<CartItemProps> = ({ item, closeCartHandler }) => {
   // HANDLERS
   const increaseQuantity = () => {
     dispatch({
-      type: "INCREASE_QUANTITY",
+      type: INCREASE_QUANTITY,
       payload: item,
     });
   };
 
   const decreaseQuantity = () => {
     dispatch({
-      type: "DECREASE_QUANTITY",
+      type: DECREASE_QUANTITY,
       payload: item,
     });
   };
@@ -51,7 +53,7 @@ const CartItem: FC<CartItemProps> = ({ item, closeCartHandler }) => {
     }
 
     dispatch({
-      type: "REMOVE_FROM_CART",
+      type: REMOVE_FROM_CART,
       payload: item,
     });
   };
