@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import { Cancel, CheckCircle, CheckCircleOutline } from "@mui/icons-material";
+import { Cancel, CheckCircle } from "@mui/icons-material";
 
 import EmailInputInterface from "./email-input.interface";
 import {
@@ -26,12 +26,16 @@ const EmailInput: FC<EmailInputInterface> = ({
   showTooltip = true,
 }) => {
   const { value, isValid } = email;
-  const [isInitialFocus, setIsInitialFocus] = useState(false);
+  const [hasBeenFocused, setHasBeenFocused] = useState(false);
   const [isFocus, setIsFocus] = useState(false);
+  const isInvalid = !isValid && hasBeenFocused && !isFocus;
+  const isInvalidFormat = !isFocus && showTooltip && !isValid && hasBeenFocused;
+  const errorMessage = 'Please enter a valid email!';
+  const tooltipMessage = 'Email should have the following format: username@example.com';
 
   const focusHandler = () => {
-    if (!isInitialFocus) {
-      setIsInitialFocus(true);
+    if (!hasBeenFocused) {
+      setHasBeenFocused(true);
     }
 
     setIsFocus(true);
@@ -45,7 +49,7 @@ const EmailInput: FC<EmailInputInterface> = ({
     <EmailInputSC>
       <LabelContainerSC>
         <LabelSC>{label}</LabelSC>
-        {isInitialFocus && (
+        {hasBeenFocused && (
           <StatusIconSC sx={{ opacity: `${!isFocus ? "1" : "0"}` }}>
             {!isValid ? (
               <Cancel sx={{ color: `${colors.red}` }} />
@@ -68,14 +72,14 @@ const EmailInput: FC<EmailInputInterface> = ({
         type="email"
         required={isRequired}
       />
-      {!isFocus && showTooltip && !isValid && (
+      {isInvalidFormat && (
         <TooltipSC>
-          <TooltipTextSC>Email should have the following format: email@example.com</TooltipTextSC>
+          <TooltipTextSC>
+            {tooltipMessage}
+          </TooltipTextSC>
         </TooltipSC>
       )}
-      {!isValid && isInitialFocus && !isFocus && (
-        <StatusTextSC>Please enter a valid email!</StatusTextSC>
-      )}
+      {isInvalid && <StatusTextSC>{errorMessage}</StatusTextSC>}
     </EmailInputSC>
   );
 };
