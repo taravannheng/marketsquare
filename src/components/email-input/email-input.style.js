@@ -4,8 +4,7 @@ import colors from "../../styles/colors";
 import typography from "../../styles/typography";
 import spacing from "../../styles/spacing";
 import borderRadius from "../../styles/border-radius";
-import shadows from "../../styles/shadows";
-import { Box, Icon, List, ListItem, ListItemIcon, ListItemText, TextField, Typography } from "@mui/material";
+import { Box, Icon, TextField, Typography } from "@mui/material";
 
 export const EmailInputSC = styled(Box)`
   width: 100%;
@@ -92,76 +91,6 @@ export const TooltipTextSC = styled(Typography)`
   color: ${colors.darkest} !important;
   font-size: inherit !important;
   font-weight: inherit !important;
-`;
-
-export const TooltipListSC = styled(List)`
-  margin: 0 !important;
-  padding: 0 !important;
-`;
-
-export const TooltipItemSC = styled(ListItem)`
-  display: flex !important;
-  flex-direction: row !important;
-  margin: 0 0 ${spacing.xxs} 0 !important;
-  padding: 0 !important;
-`;
-
-export const TooltipItemIconSC = styled(ListItemIcon)`
-  position: relative !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  min-width: 18px !important;
-  width: 18px !important;
-  max-width: 18px !important;
-  height: 18px !important;
-  margin-right: ${spacing.xs} !important;
-  color: ${colors.grey} !important;
-  transition: all 0.3s ease-in-out;
-
-  & > svg {
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    margin: 0 !important;
-    font-size: 18px !important;
-    transition: all 0.3s ease-in-out;
-  }
-`;
-
-export const TooltipItemTextSC = styled(ListItemText)`
-  display: flex !important;
-  flex-direction: row !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  color: ${colors.dark} !important;
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
-  line-height: ${typography.body.lineHeight} !important;
-
-  & > span {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    font-size: inherit !important;
-    font-weight: inherit !important;
-    line-height: inherit !important;
-    transition: color 0.3s ease-in-out;
-  }
-`;
-
-export const TooltipItemTextExampleSC = styled(Typography)`
-  margin-left: ${spacing.s} !important;
-  color: ${colors.dark} !important;
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
-  line-height: ${typography.body.lineHeight} !important;
-`;
-
-export const ExampleBoldSC = styled(Typography)`
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.h5.fontWeight} !important;
-  line-height: ${typography.body.lineHeight} !important;
 `;
 
 export const StatusTextSC = styled(Typography)`

@@ -11,12 +11,6 @@ import {
   StatusTextSC,
   TooltipSC,
   TooltipTextSC,
-  TooltipListSC,
-  TooltipItemSC,
-  TooltipItemIconSC,
-  TooltipItemTextSC,
-  TooltipItemTextExampleSC,
-  ExampleBoldSC,
 } from "./email-input.style";
 import colors from "../../styles/colors";
 
