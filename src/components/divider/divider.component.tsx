@@ -1,10 +1,10 @@
 import { FC } from "react";
 
-import DividerInterface from "./divider.interface";
+import DividerProps from "./divider.interface";
 import { DividerSC } from "./divider.styles";
 import { colors } from '../../styles/styles';
 
-const Divider: FC<DividerInterface> = ({ width, height, color }) => {
+const Divider: FC<DividerProps> = ({ width, height, color }) => {
   return (
     <DividerSC
       sx={{
