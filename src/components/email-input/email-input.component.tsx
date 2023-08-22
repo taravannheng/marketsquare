@@ -29,17 +29,14 @@ const EmailInput: FC<EmailInputInterface> = ({
   email,
   id,
   isRequired = true,
-  isUnique = undefined,
-  checkUniqueness = false,
   showTooltip = true,
 }) => {
-  const { value, isValid, validityDetails } = email;
+  const { value, isValid } = email;
   const [isInitialFocus, setIsInitialFocus] = useState(false);
   const [isFocus, setIsFocus] = useState(false);
 
   const focusHandler = () => {
     if (!isInitialFocus) {
-      console.log('changing...');
       setIsInitialFocus(true);
     }
 
@@ -54,18 +51,9 @@ const EmailInput: FC<EmailInputInterface> = ({
     <EmailInputSC>
       <LabelContainerSC>
         <LabelSC>{label}</LabelSC>
-        {isInitialFocus && !checkUniqueness && (
+        {isInitialFocus && (
           <StatusIconSC sx={{ opacity: `${!isFocus ? "1" : "0"}` }}>
             {!isValid ? (
-              <Cancel sx={{ color: `${colors.red}` }} />
-            ) : (
-              <CheckCircle sx={{ color: `${colors.green}` }} />
-            )}
-          </StatusIconSC>
-        )}
-        {isInitialFocus && checkUniqueness && (
-          <StatusIconSC sx={{ opacity: `${!isFocus ? "1" : "0"}` }}>
-            {!isValid || !isUnique ? (
               <Cancel sx={{ color: `${colors.red}` }} />
             ) : (
               <CheckCircle sx={{ color: `${colors.green}` }} />
@@ -86,184 +74,13 @@ const EmailInput: FC<EmailInputInterface> = ({
         type="email"
         required={isRequired}
       />
-      {/* {isFocus && showTooltip && !isValid && (
+      {!isFocus && showTooltip && !isValid && (
         <TooltipSC>
-          <TooltipTextSC>Email should include:</TooltipTextSC>
-          <TooltipListSC>
-            <TooltipItemSC>
-              <TooltipItemIconSC>
-                <CheckCircle
-                  sx={{
-                    color: `${colors.green} !important`,
-                    opacity: `${
-                      validityDetails.isValidUsername ? "1" : "0"
-                    } !important`,
-                  }}
-                />
-                <CheckCircleOutline
-                  sx={{
-                    color: `${colors.grey} !important`,
-                    opacity: `${
-                      validityDetails.isValidUsername ? "0" : "1"
-                    } !important`,
-                  }}
-                />
-              </TooltipItemIconSC>
-              <TooltipItemTextSC
-                variant="subtitle2"
-                sx={{
-                  color: `${
-                    validityDetails.isValidUsername
-                      ? `${colors.darkest}`
-                      : `${colors.dark}`
-                  } !important`,
-                }}
-              >
-                Username{" "}
-                <TooltipItemTextExampleSC
-                  sx={{
-                    color: `${
-                      validityDetails.isValidUsername
-                        ? `${colors.darkest}`
-                        : `${colors.dark}`
-                    } !important`,
-                  }}
-                  variant="body1"
-                >
-                  e.g.{" "}
-                  <ExampleBoldSC
-                    sx={{
-                      color: `${
-                        validityDetails.isValidUsername
-                          ? `${colors.darkest}`
-                          : `${colors.dark}`
-                      } !important`,
-                    }}
-                    variant="caption"
-                  >
-                    example
-                  </ExampleBoldSC>
-                  @gmail.com
-                </TooltipItemTextExampleSC>
-              </TooltipItemTextSC>
-            </TooltipItemSC>
-            <TooltipItemSC>
-              <TooltipItemIconSC>
-                <CheckCircle
-                  sx={{
-                    color: `${colors.green} !important`,
-                    opacity: `${validityDetails.hasAt ? "1" : "0"} !important`,
-                  }}
-                />
-                <CheckCircleOutline
-                  sx={{
-                    color: `${colors.grey} !important`,
-                    opacity: `${validityDetails.hasAt ? "0" : "1"} !important`,
-                  }}
-                />
-              </TooltipItemIconSC>
-              <TooltipItemTextSC
-                variant="subtitle2"
-                sx={{
-                  color: `${
-                    validityDetails.hasAt
-                      ? `${colors.darkest}`
-                      : `${colors.dark}`
-                  } !important`,
-                }}
-              >
-                @{" "}
-                <TooltipItemTextExampleSC
-                  sx={{
-                    color: `${
-                      validityDetails.isValidUsername
-                        ? `${colors.darkest}`
-                        : `${colors.dark}`
-                    } !important`,
-                  }}
-                  variant="body1"
-                >
-                  e.g. example
-                  <ExampleBoldSC
-                    sx={{
-                      color: `${
-                        validityDetails.isValidUsername
-                          ? `${colors.darkest}`
-                          : `${colors.dark}`
-                      } !important`,
-                    }}
-                    variant="caption"
-                  >
-                    @
-                  </ExampleBoldSC>
-                  gmail.com
-                </TooltipItemTextExampleSC>
-              </TooltipItemTextSC>
-            </TooltipItemSC>
-            <TooltipItemSC>
-              <TooltipItemIconSC>
-                <CheckCircle
-                  sx={{
-                    color: `${colors.green} !important`,
-                    opacity: `${
-                      validityDetails.isValidDomain ? "1" : "0"
-                    } !important`,
-                  }}
-                />
-                <CheckCircleOutline
-                  sx={{
-                    color: `${colors.grey} !important`,
-                    opacity: `${
-                      validityDetails.isValidDomain ? "0" : "1"
-                    } !important`,
-                  }}
-                />
-              </TooltipItemIconSC>
-              <TooltipItemTextSC
-                variant="subtitle2"
-                sx={{
-                  color: `${
-                    validityDetails.isValidDomain
-                      ? `${colors.darkest}`
-                      : `${colors.dark}`
-                  } !important`,
-                }}
-              >
-                Domain{" "}
-                <TooltipItemTextExampleSC
-                  sx={{
-                    color: `${
-                      validityDetails.isValidUsername
-                        ? `${colors.darkest}`
-                        : `${colors.dark}`
-                    } !important`,
-                  }}
-                  variant="body1"
-                >
-                  e.g. example@
-                  <ExampleBoldSC
-                    sx={{
-                      color: `${
-                        validityDetails.isValidUsername
-                          ? `${colors.darkest}`
-                          : `${colors.dark}`
-                      } !important`,
-                    }}
-                    variant="caption"
-                  >
-                    gmail.com
-                  </ExampleBoldSC>
-                </TooltipItemTextExampleSC>
-              </TooltipItemTextSC>
-            </TooltipItemSC>
-          </TooltipListSC>
+          <TooltipTextSC>Email should have the following format: email@example.com</TooltipTextSC>
         </TooltipSC>
-      )} */}
+      )}
       {!isValid && isInitialFocus && !isFocus && (
         <StatusTextSC>Please enter a valid email!</StatusTextSC>
-      )}
-      {checkUniqueness && !isUnique && isInitialFocus && !isFocus && (
-        <StatusTextSC>Email is already taken!</StatusTextSC>
       )}
     </EmailInputSC>
   );
