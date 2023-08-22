@@ -6,7 +6,7 @@ import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import { useSelector } from "react-redux";
 
-import CartItem from "../cart-item/index.component";
+import CartItem from "../cart-item/cart-item.component";
 import Button from "../button/index.component";
 import Alert from "../alert/alert.component";
 import {

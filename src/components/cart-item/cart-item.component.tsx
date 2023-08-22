@@ -2,7 +2,7 @@ import { FC } from "react";
 import { Add, Remove, Delete } from "@mui/icons-material";
 import { useSelector, useDispatch } from "react-redux";
 
-import CartItemProps from "./index.interface";
+import CartItemProps from "./cart-item.interface";
 import { adjustCloudinaryImgSize, formatPrice } from "../../utils/helpers";
 import {
   CartItemRootSC,
@@ -16,7 +16,7 @@ import {
   QuantityTextSC,
   RemoveButtonSC,
   ControlContainerSC,
-} from "./index.styles";
+} from "./cart-item.styles";
 import { selectCart } from "../../store/cart/cart.selector";
 import CART_ACTION_TYPES from "../../store/cart/cart.types";
 
@@ -25,6 +25,7 @@ const CartItem: FC<CartItemProps> = ({ item, closeCartHandler }) => {
   const cart = useSelector(selectCart);
   const dispatch = useDispatch();
   const { imgUrls, name, price, quantity } = item;
+  const { INCREASE_QUANTITY, DECREASE_QUANTITY, REMOVE_FROM_CART } = CART_ACTION_TYPES;
 
   // ADJUST IMAGE SIZE
   const DEFAULT_IMG_SIZE = 280;
