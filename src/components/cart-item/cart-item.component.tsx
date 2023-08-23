@@ -25,7 +25,6 @@ const CartItem: FC<CartItemProps> = ({ item, closeCartHandler }) => {
   const cart = useSelector(selectCart);
   const dispatch = useDispatch();
   const { imgUrls, name, price, quantity } = item;
-  const { INCREASE_QUANTITY, DECREASE_QUANTITY, REMOVE_FROM_CART } = CART_ACTION_TYPES;
 
   // ADJUST IMAGE SIZE
   const DEFAULT_IMG_SIZE = 280;
