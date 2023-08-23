@@ -2,9 +2,8 @@ import { FC } from "react";
 import { Grid, Link } from "@mui/material";
 import { ExpandCircleDown } from "@mui/icons-material";
 import _ from "lodash";
-import { v4 as uuidv4 } from "uuid";
 
-import FooterInterface from "./index.interface";
+import FooterProps from "./index.interface";
 import {
   FooterSC,
   SmallFooterSC,
@@ -35,7 +34,7 @@ import TwitterLogo from "../../assets/socials/social-twitter.png";
 import YoutubeLogo from "../../assets/socials/social-youtube.png";
 import { LOGO_URLS, ROUTES } from "../../utils/constants";
 
-const Footer: FC<FooterInterface> = ({ footerItems }) => {
+const Footer: FC<FooterProps> = ({ footerItems }) => {
   return (
     <FooterSC>
       <SmallFooterSC>
