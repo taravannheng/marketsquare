@@ -2,9 +2,8 @@ import { FC } from "react";
 import { Grid, Link } from "@mui/material";
 import { ExpandCircleDown } from "@mui/icons-material";
 import _ from "lodash";
-import { v4 as uuidv4 } from "uuid";
 
-import FooterInterface from "./index.interface";
+import FooterProps from "./index.interface";
 import {
   FooterSC,
   SmallFooterSC,
@@ -35,7 +34,16 @@ import TwitterLogo from "../../assets/socials/social-twitter.png";
 import YoutubeLogo from "../../assets/socials/social-youtube.png";
 import { LOGO_URLS, ROUTES } from "../../utils/constants";
 
-const Footer: FC<FooterInterface> = ({ footerItems }) => {
+const Footer: FC<FooterProps> = ({ footerItems }) => {
+  const isEmptyFooterItems = footerItems && footerItems.length === 0;
+  const SOCIAL_LOGOS = [
+    { id: 'sl_fb', href: '/', image: FacebookLogo, title: 'social facebook logo' },
+    { id: 'sl_ig', href: '/', image: InstagramLogo, title: 'social instagram logo' },
+    { id: 'sl_li', href: '/', image: LinkedinLogo, title: 'social linkedin logo' },
+    { id: 'sl_twt', href: '/', image: TwitterLogo, title: 'social twitter logo' },
+    { id: 'sl_yt', href: '/', image: YoutubeLogo, title: 'social youtube logo' },
+  ];
+
   return (
     <FooterSC>
       <SmallFooterSC>
@@ -47,7 +55,7 @@ const Footer: FC<FooterInterface> = ({ footerItems }) => {
           />
         </Link>
         <UtilityLinkAccordionContainerSC>
-          {footerItems.map((utilityLink: any) => {
+          {!isEmptyFooterItems && footerItems.map((utilityLink: any) => {
             return (
               <AccordionSC disableGutters key={`accordion-${utilityLink.id}`}>
                 <AccordionSummarySC expandIcon={<ExpandCircleDown />}>
@@ -75,40 +83,19 @@ const Footer: FC<FooterInterface> = ({ footerItems }) => {
         </UtilityLinkAccordionContainerSC>
         <SocialContainerSC>
           <SocialStackSC direction="row" spacing={4}>
-            <Link href="/">
-              <SocialLogoContainerSC>
-                <SocialLogoSC
-                  image={FacebookLogo}
-                  title="social facebook logo"
-                />
-              </SocialLogoContainerSC>
-            </Link>
-            <Link href="/">
-              <SocialLogoContainerSC>
-                <SocialLogoSC
-                  image={InstagramLogo}
-                  title="social instagram logo"
-                />
-              </SocialLogoContainerSC>
-            </Link>
-            <Link href="/">
-              <SocialLogoContainerSC>
-                <SocialLogoSC
-                  image={LinkedinLogo}
-                  title="social linkedin logo"
-                />
-              </SocialLogoContainerSC>
-            </Link>
-            <Link href="/">
-              <SocialLogoContainerSC>
-                <SocialLogoSC image={YoutubeLogo} title="social youtube logo" />
-              </SocialLogoContainerSC>
-            </Link>
-            <Link href="/">
-              <SocialLogoContainerSC>
-                <SocialLogoSC image={TwitterLogo} title="social twitter logo" />
-              </SocialLogoContainerSC>
-            </Link>
+            {SOCIAL_LOGOS.map((socialLogo) => {
+              return (
+                <Link href={socialLogo.href} key={socialLogo.id}>
+                  <SocialLogoContainerSC>
+                    <SocialLogoSC
+                      image={socialLogo.image}
+                      title={socialLogo.title}
+                    />
+                  </SocialLogoContainerSC>
+                </Link>
+              );
+            })
+            }
           </SocialStackSC>
         </SocialContainerSC>
         <FooterCopyright variant="body1">
@@ -134,7 +121,7 @@ const Footer: FC<FooterInterface> = ({ footerItems }) => {
         </FooterLeftContainerSC>
         <FooterRightContainerSC>
           <Grid container sx={{ flexGrow: 1 }}>
-            {!_.isEmpty(footerItems) &&
+            {!isEmptyFooterItems &&
               footerItems.map((utilityLink: any) => {
                 return (
                   <Grid item xs={3} key={`grid-${utilityLink.id}`}>
@@ -161,46 +148,18 @@ const Footer: FC<FooterInterface> = ({ footerItems }) => {
           </Grid>
           <SocialContainerSC>
             <SocialStackSC direction="row" spacing={4}>
-              <Link href="/">
-                <SocialLogoContainerSC>
-                  <SocialLogoSC
-                    image={FacebookLogo}
-                    title="social facebook logo"
-                  />
-                </SocialLogoContainerSC>
-              </Link>
-              <Link href="/">
-                <SocialLogoContainerSC>
-                  <SocialLogoSC
-                    image={InstagramLogo}
-                    title="social instagram logo"
-                  />
-                </SocialLogoContainerSC>
-              </Link>
-              <Link href="/">
-                <SocialLogoContainerSC>
-                  <SocialLogoSC
-                    image={LinkedinLogo}
-                    title="social linkedin logo"
-                  />
-                </SocialLogoContainerSC>
-              </Link>
-              <Link href="/">
-                <SocialLogoContainerSC>
-                  <SocialLogoSC
-                    image={YoutubeLogo}
-                    title="social youtube logo"
-                  />
-                </SocialLogoContainerSC>
-              </Link>
-              <Link href="/">
-                <SocialLogoContainerSC>
-                  <SocialLogoSC
-                    image={TwitterLogo}
-                    title="social twitter logo"
-                  />
-                </SocialLogoContainerSC>
-              </Link>
+              {SOCIAL_LOGOS.map(socialLogo => {
+                return (
+                  <Link href={socialLogo.href} key={socialLogo.id}>
+                    <SocialLogoContainerSC>
+                      <SocialLogoSC
+                        image={socialLogo.image}
+                        title={socialLogo.title}
+                      />
+                    </SocialLogoContainerSC>
+                  </Link>
+                );
+              })}
             </SocialStackSC>
           </SocialContainerSC>
         </FooterRightContainerSC>

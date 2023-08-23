@@ -1,17 +1,36 @@
-import styled from 'styled-components';
-import { Accordion, AccordionSummary, AccordionDetails, Link, Stack, Box, Card, CardMedia, CardContent, Typography, Grid, IconButton } from '@mui/material';
+import styled, { css } from "styled-components";
+import {
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+  Link,
+  Stack,
+  Box,
+  Card,
+  CardMedia,
+  CardContent,
+  Typography,
+} from "@mui/material";
 
-import colors from '../../styles/colors';
-import typography from '../../styles/typography';
+import { colors, typography, space } from "../../styles/styles";
 
-export const FooterSC = styled(Box)`
+// SHARED STYLES ------------------------------------------
+
+const flexCenter = css`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
+
+// COMPONENT STYLES ------------------------------------------
+
+export const FooterSC = styled(Box)``;
 
 export const SmallFooterSC = styled(Box)`
   display: flex;
-  flex-direction: column;
   align-items: center;
-  padding: 40px 24px 24px 24px;
+  flex-direction: column;
+  padding: 40px ${space.l} ${space.l} ${space.l};
   background-color: ${colors.primary};
 
   @media only screen and (min-width: 1080px) {
@@ -41,10 +60,7 @@ export const AccordionSummarySC = styled(AccordionSummary)`
   }
 `;
 
-export const AccordionDetailsSC = styled(AccordionDetails)`
-`;
-
-
+export const AccordionDetailsSC = styled(AccordionDetails)``;
 
 export const LargeFooterSC = styled(Box)`
   display: none !important;
@@ -102,7 +118,6 @@ export const FooterRightContainerSC = styled(Box)`
 export const UtilityLinkContainerSC = styled(Box)`
   width: clamp(100%, 100%, 100%);
   height: clamp(100%, 100%, 100%);
-  
 
   @media only screen and (min-width: 1080px) {
     padding-top: 40px;
@@ -113,7 +128,6 @@ export const UtilityLinkTitleSC = styled(Typography)`
   color: ${colors.lightest} !important;
   font-size: ${typography.h5.fontSize} !important;
   font-weight: ${typography.h5.fontWeight} !important;
-  
 
   @media only screen and (min-width: 1080px) {
     margin-bottom: 20px !important;
@@ -121,9 +135,7 @@ export const UtilityLinkTitleSC = styled(Typography)`
   }
 `;
 
-export const UtilityLinkStackSC = styled(Stack)`
-  
-`;
+export const UtilityLinkStackSC = styled(Stack)``;
 
 export const UtilityLinkSC = styled(Link)`
   text-decoration: none !important;
@@ -145,20 +157,14 @@ export const UtilityLinkSC = styled(Link)`
 `;
 
 export const SocialContainerSC = styled(Box)`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  ${flexCenter};
   height: 64px;
 `;
 
-export const SocialStackSC = styled(Stack)`
-
-`;
+export const SocialStackSC = styled(Stack)``;
 
 export const SocialLogoContainerSC = styled(Card)`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  ${flexCenter};
   width: clamp(32px, 32px, 32px);
   height: clamp(32px, 32px, 32px);
   box-shadow: none !important;
@@ -188,4 +194,3 @@ export const SocialLogoSC = styled(CardMedia)`
     height: clamp(24px, 24px, 24px);
   }
 `;
-
