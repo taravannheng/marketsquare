@@ -1,9 +1,9 @@
 import { FC, useEffect, useRef } from "react";
 
 import { DigitInputSC, FourDigitInputSC } from "./four-digit-input.styles";
-import FourDigitInputI from "./four-digit-input.interface";
+import FourDigitInputProps from "./four-digit-input.interface";
 
-const FourDigitInput: FC<FourDigitInputI> = ({ values, onChange, refs }) => {
+const FourDigitInput: FC<FourDigitInputProps> = ({ values, onChange, refs }) => {
   useEffect(() => {
     const firstDigitInput = refs[0].current;
     if (firstDigitInput) {
