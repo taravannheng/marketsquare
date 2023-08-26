@@ -14,7 +14,7 @@ import { useSelector, useDispatch } from "react-redux";
 import _ from "lodash";
 import Cookies from "js-cookie";
 
-import Cart from "../cart/index.component";
+import Cart from "../cart/cart.component";
 import NavigationMenu from "../navigation-menu/index.component";
 import Search from "../search/search.component";
 import Avatar from "../avatar/avatar.component";

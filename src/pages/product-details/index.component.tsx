@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 
 import Header from "../../components/header/index.component";
 import ProductDetailsDisplay from "../../components/product-details-display/index.component";
-import Divider from "../../components/divider/index.component";
+import Divider from "../../components/divider/divider.component";
 import ReviewDisplay from "../../components/review-display/index.component";
 import RelatedProductDisplay from "../../components/related-product-display/index.component";
 import Footer from "../../components/footer/index.component";
@@ -51,11 +51,6 @@ const ProductDetailsPage: FC = () => {
   };
 
   useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-
     // get product data
     const fetchProduct = async () => {
       const response = await getProduct(productID);

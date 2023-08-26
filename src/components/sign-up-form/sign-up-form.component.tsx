@@ -5,7 +5,7 @@ import _ from "lodash";
 import UsernameInput from "../username-input/username-input.component";
 import PasswordInput from "../password-input/password-input.component";
 import EmailInput from "../email-input/email-input.component";
-import Divider from "../divider/index.component";
+import Divider from "../divider/divider.component";
 import SignUpFormInterface from "./sign-up-form.interface";
 import {
   AlertContainerSC,

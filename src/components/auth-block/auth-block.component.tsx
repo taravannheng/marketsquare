@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import AuthBlockI from "./auth-block.interface";
+import AuthBlockProps from "./auth-block.interface";
 import {
   AuthBlockSC,
   SignInButtonSC,
@@ -8,7 +8,7 @@ import {
 } from "./auth-block.styles";
 import { ROUTES } from "../../utils/constants";
 
-const AuthBlock: FC<AuthBlockI> = () => {
+const AuthBlock: FC<AuthBlockProps> = () => {
   return (
     <AuthBlockSC>
       <SignUpButtonSC type="button" href={`${ROUTES.SIGN_UP}`}>

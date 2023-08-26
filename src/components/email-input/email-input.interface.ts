@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-export default interface EmailInputInterface {
+export default interface EmailInputProps {
   children?: ReactNode;
   className?: string;
   disabled?: boolean;
