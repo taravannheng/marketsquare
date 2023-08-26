@@ -9,9 +9,9 @@ interface FooterItem {
   title: string; links: LinkInterface[];
 }
 
-interface FooterInterface {
+interface FooterProps {
   children?: ReactNode;
   footerItems: FooterItem[];
 }
 
-export default FooterInterface;
+export default FooterProps;

@@ -1,20 +1,16 @@
 import { FC } from "react";
-import _ from "lodash";
 
 import AvatarInterface from "./avatar.interface";
 import { AvatarSC } from "./avatar.style";
 
-const getSize = (size: string) => {
-  switch (size) {
-    case "small":
-      return "40px";
-    case "medium":
-      return "48px";
-    case "large":
-      return "56px";
-    default:
-      return "30px";
-  }
+const getSize = (size: string): string => {
+  const sizes: Record<string, string> = {
+    small: "40px",
+    medium: "48px",
+    large: "56px"
+  };
+  
+  return sizes[size] || "30px";
 };
 
 const Avatar: FC<AvatarInterface> = ({
@@ -24,25 +20,18 @@ const Avatar: FC<AvatarInterface> = ({
   clickHandler,
   children,
 }) => {
+  const commonProps = {
+    onClick: clickHandler,
+    sx: {
+      width: getSize(size),
+      height: getSize(size),
+    },
+  };
+  
   return (
-    <>
-      {!_.isEmpty(src) && (
-        <AvatarSC
-          onClick={clickHandler}
-          alt={alt}
-          src={src}
-          sx={{ width: `${getSize(size)}`, height: `${getSize(size)}` }}
-        />
-      )}
-      {_.isEmpty(src) && (
-        <AvatarSC
-          onClick={clickHandler}
-          sx={{ width: `${getSize(size)}`, height: `${getSize(size)}` }}
-        >
-          {children}
-        </AvatarSC>
-      )}
-    </>
+    <AvatarSC {...commonProps} alt={src ? alt : undefined} src={src || undefined}>
+      {!src && children}
+    </AvatarSC>
   );
 };
 

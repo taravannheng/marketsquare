@@ -6,7 +6,7 @@ import Cookies from 'js-cookie';
 
 import PasswordInput from "../password-input/password-input.component";
 import EmailInput from "../email-input/email-input.component";
-import Divider from "../divider/index.component";
+import Divider from "../divider/divider.component";
 import SignInFormInterface from "./sign-in-form.interface";
 import {
   AlertContainerSC,

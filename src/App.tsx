@@ -1,5 +1,5 @@
-import React, { FC, Suspense } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React, { FC, Suspense, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route, ScrollRestoration, useLocation } from "react-router-dom";
 
 import LandingPage from "./pages/landing/index.component";
 import ProductDetailsPage from "./pages/product-details/index.component";
@@ -18,10 +18,21 @@ const NotFoundPage = React.lazy(
 );
 
 const App: FC = () => {
+  const ScrollToTopOnNavigation = () => {
+  let location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+
+  return null;
+}
+
   return (
     <div className="App">
       <GlobalStyle />
           <Router>
+            <ScrollToTopOnNavigation />
             <Routes>
               <Route path={ROUTES.LANDING} element={<LandingPage />} />
               <Route path={ROUTES.PRODUCT_DETAILS} element={<ProductDetailsPage />} />
