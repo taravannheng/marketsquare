@@ -1,10 +1,7 @@
 import styled from 'styled-components';
 import { Box, TextField } from '@mui/material';
 
-import colors from '../../styles/colors';
-import typography from '../../styles/typography';
-import space from '../../styles/spacing';
-import borderRadius from '../../styles/border-radius';
+import { colors, space, borderRadius } from '../../styles/styles';
 
 export const FourDigitInputSC = styled(Box)`
   display: flex;

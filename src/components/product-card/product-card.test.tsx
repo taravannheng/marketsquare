@@ -8,7 +8,7 @@ import '@testing-library/jest-dom'
 import { Provider } from "react-redux";
 
 import ProductCard from "./product-card.component";
-import Cart from "../cart/index.component";
+import Cart from "../cart/cart.component";
 import ProductCardInterface from "./product-card.interface";
 import store from "../../store/store";
 import { renderWithProvider } from "../../utils/test/test.util";

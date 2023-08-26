@@ -1,25 +1,24 @@
 import { FC, useState } from "react";
 import _ from "lodash";
-import { Box, Icon, IconButton, Drawer, List } from "@mui/material";
+import { Box } from "@mui/material";
 import { ArrowBackIos } from "@mui/icons-material";
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import { useSelector } from "react-redux";
 
-import CartItem from "../cart-item/index.component";
+import CartItem from "../cart-item/cart-item.component";
 import Button from "../button/index.component";
+import Alert from "../alert/alert.component";
 import {
   CartTitleSC,
   TotalContainerSC,
   TotalLabelSC,
   TotalTextSC,
-  CheckoutButtonSC,
   EmptyCartTextSC,
   CartButtonSC,
   CartCounterSC,
   ShoppingCartSC,
   CartSC,
-  LogoContainerSC,
   TitleContainerSC,
   IconButtonSC,
   CheckoutContainerSC,
@@ -28,8 +27,10 @@ import {
   EmptyCartIconSC,
   ShoppingButtonSC,
   ShoppingButtonIconSC,
-} from "./index.styles";
-import CartProps from "./index.interface";
+  AlertContainerSC,
+} from "./cart.styles";
+import CartProps from "./cart.interface";
+import ProductInterface from "../../interfaces/product-interface";
 import { createCart } from "../../apis/carts/cart.api";
 import {
   selectCart,
@@ -38,7 +39,7 @@ import {
 } from "../../store/cart/cart.selector";
 import { formatPrice } from "../../utils/helpers";
 import { ROUTES } from "../../utils/constants";
-import colors from "../../styles/colors";
+import { colors } from "../../styles/styles";
 
 const Cart: FC<CartProps> = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -46,12 +47,41 @@ const Cart: FC<CartProps> = () => {
   const cart = useSelector(selectCart);
   const cartTotal = useSelector(selectCartTotal);
   const cartLength = useSelector(selectCartLength);
+  const isCartEmpty = _.isEmpty(cart);
+
+  const [alert, setAlert] = useState<{
+    type: "info" | "success" | "error";
+    message: string;
+  }>({
+    type: "error",
+    message: "",
+  });
+  const [alertVisible, setAlertVisible] = useState<boolean>(false);
 
   const checkoutHandler = async () => {
-    setCheckoutButtonIsLoading(true);
-    const response = await createCart(cart);
-    const url = response.data.url;
-    window.location.href = url;
+    try {
+      // hide alert if it's visible
+      if (alertVisible) {
+        setAlertVisible(false);
+      }
+
+      // change button loading state
+      setCheckoutButtonIsLoading(true);
+
+      // create cart and redirect to stripe payment page
+      const response = await createCart(cart);
+      window.location.href = response.data.url;
+    } catch (error) {
+      setAlert({
+        type: "error",
+        message: "An error has occured while checking out. Please try again later.",
+      });
+      setAlertVisible(true);
+
+      console.error("Error during checkout:", error);
+    } finally {
+      setCheckoutButtonIsLoading(false);
+    }
   };
 
   const handleDrawerOpen = () => {
@@ -71,22 +101,21 @@ const Cart: FC<CartProps> = () => {
 
       <DrawerSC anchor="right" open={isDrawerOpen} onClose={handleDrawerClose}>
         <CartSC>
-          {/* <LogoContainerSC>
-            <img
-              src="https://firebasestorage.googleapis.com/v0/b/marketsquare-62b8e.appspot.com/o/logos%2Flogo-transparent.svg?alt=media&token=251c1267-68e9-49bf-b04e-c6519ab85019&_gl=1*mparyn*_ga*NzA5MzcyODc5LjE2ODU2MzYyOTA.*_ga_CW55HF8NVT*MTY4NTYzNjI5MC4xLjEuMTY4NTYzNjQ0MC4wLjAuMA.."
-              alt="logo"
-              width="64px"
-              height="64px"
-            />
-          </LogoContainerSC> */}
           <TitleContainerSC>
             <IconButtonSC onClick={handleDrawerClose}>
               <ArrowBackIos />
             </IconButtonSC>
             <CartTitleSC>Cart</CartTitleSC>
           </TitleContainerSC>
-          {!_.isEmpty(cart) &&
-            cart.map((item: any, index: number) => {
+          <AlertContainerSC>
+            {alertVisible && (
+              <Alert alertVisible setAlertVisible={setAlertVisible} type={alert.type}>
+                {alert.message}
+              </Alert>
+            )}
+          </AlertContainerSC>
+          {!isCartEmpty &&
+            cart.map((item: ProductInterface, index: number) => {
               return (
                 <CartItem
                   item={item}
@@ -95,7 +124,7 @@ const Cart: FC<CartProps> = () => {
                 />
               );
             })}
-          {!_.isEmpty(cart) && (
+          {!isCartEmpty && (
             <CheckoutContainerSC>
               <TotalContainerSC>
                 <TotalLabelSC variant="body1">Total:</TotalLabelSC>
@@ -116,10 +145,10 @@ const Cart: FC<CartProps> = () => {
               />
             </CheckoutContainerSC>
           )}
-          {_.isEmpty(cart) && (
+          {isCartEmpty && (
             <EmptyCartContentSC>
               <EmptyCartIconSC>
-                <ShoppingBasketIcon sx={{ fontSize: 160, color: colors.light }} />
+                <ShoppingBasketIcon sx={{ fontSize: 120, color: colors.light }} />
               </EmptyCartIconSC>
               <EmptyCartTextSC>Cart is empty...</EmptyCartTextSC>
               <ShoppingButtonSC href={`${ROUTES.LANDING}`}>
