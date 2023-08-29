@@ -71,7 +71,7 @@ const Sort: FC<SortInterface> = ({ sortMenuItem, setSortMenuItem }) => {
               sx={{
                 backgroundColor: `${
                   sortMenuItem === 0
-                    ? `${colors.lightPrimary} !important`
+                    ? `${COLORS.PRIMARY.P400} !important`
                     : `${colors.lightest} !important`
                 }`,
                 color: `${
@@ -88,7 +88,7 @@ const Sort: FC<SortInterface> = ({ sortMenuItem, setSortMenuItem }) => {
               sx={{
                 backgroundColor: `${
                   sortMenuItem === 1
-                    ? `${colors.lightPrimary} !important`
+                    ? `${COLORS.PRIMARY.P400} !important`
                     : `${colors.lightest} !important`
                 }`,
                 color: `${
@@ -105,7 +105,7 @@ const Sort: FC<SortInterface> = ({ sortMenuItem, setSortMenuItem }) => {
               sx={{
                 backgroundColor: `${
                   sortMenuItem === 2
-                    ? `${colors.lightPrimary} !important`
+                    ? `${COLORS.PRIMARY.P400} !important`
                     : `${colors.lightest} !important`
                 }`,
                 color: `${
