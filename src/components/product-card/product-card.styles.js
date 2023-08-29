@@ -64,10 +64,10 @@ export const CardContentSC = styled(CardContent)`
 export const ProductNameSC = styled(Typography)`
   width: 100% !important;
   max-wdith: 100% !important;
+  height: clamp(24px, 24px, 24px) !important;
   margin-bottom: ${space.xs} !important;
   font-size: ${typography.h5.fontSize} !important;
   font-weight: ${typography.h5.fontWeight} !important;
-  line-height: 16px !important;
   color: ${COLORS.NEUTRAL.N900} !important;
   white-space: nowrap;
   overflow: hidden;
@@ -77,9 +77,9 @@ export const ProductNameSC = styled(Typography)`
 export const ProductPriceSC = styled(Typography)`
   width: 100% !important;
   max-wdith: 100% !important;
+  height: clamp(20px, 20px, 20px) !important;
   font-size: ${typography.body1.fontSize} !important;
   font-weight: ${typography.body1.fontWeight} !important;
-  line-height: 14px !important;
   color: ${COLORS.NEUTRAL.N500} !important;
   white-space: nowrap;
   overflow: hidden;
