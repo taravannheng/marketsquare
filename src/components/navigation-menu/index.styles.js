@@ -12,7 +12,7 @@ export const NavigationMenuSC = styled(Box)`
   height: clamp(64px, 64px, 64px);
   padding: 0 24px;
   border-bottom: 1px solid ${colors.light};
-  background-color: ${colors.lightest};
+  background-color: ${COLORS.NEUTRAL.N0};
   color: ${colors.darkest};
 
   @media only screen and (min-width: 1080px) {

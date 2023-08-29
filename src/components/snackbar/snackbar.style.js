@@ -15,7 +15,7 @@ export const SnackbarSC = styled(Snackbar)`
 `;
 
 export const UndoButtonSC = styled(Button)`
-  color: ${colors.lightest} !important;
+  color: ${COLORS.NEUTRAL.N0} !important;
   font-size: ${typography.h5.fontSize} !important;
   font-weight: ${typography.h5.fontWeight} !important;
 `;

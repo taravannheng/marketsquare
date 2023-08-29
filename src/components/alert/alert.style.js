@@ -22,7 +22,7 @@ export const AlertSC = styled(Alert)`
     transition: all 0.3s ease-in-out !important;
 
     &:hover {
-      color: ${colors.lightest} !important;
+      color: ${COLORS.NEUTRAL.N0} !important;
       background-color: ${colors.red} !important;
     }
   }

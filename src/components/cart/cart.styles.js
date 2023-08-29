@@ -45,7 +45,7 @@ export const CartButtonSC = styled(Box)`
 `;
 
 export const ShoppingCartSC = styled(ShoppingCart)`
-  color: ${colors.lightest};
+  color: ${COLORS.NEUTRAL.N0};
   font-size: 20px !important;
 
   @media only screen and (min-width: 640px) {
@@ -60,7 +60,7 @@ export const CartCounterSC = styled(Box)`
   height: clamp(20px, 20px, 20px);
   border-radius: ${borderRadius.rounded};
   color: ${COLORS.PRIMARY.P500};
-  background-color: ${colors.lightest};
+  background-color: ${COLORS.NEUTRAL.N0};
   font-weight: ${typography.h5.fontWeight};
   font-size: ${typography.h5.fontSize};
 
@@ -100,7 +100,7 @@ export const CheckoutButtonSC = styled(Button)`
 
   &:hover {
     background-color: ${COLORS.PRIMARY.P500} !important;
-    color: ${colors.lightest} !important;
+    color: ${COLORS.NEUTRAL.N0} !important;
   }
 `;
 
@@ -114,7 +114,7 @@ export const CartSC = styled(Box)`
   padding: ${space.xxl} ${space.l} 180px ${space.l};
   width: clamp(360px, 360px, 360px);
   height: auto;
-  background-color: ${colors.lightest};
+  background-color: ${COLORS.NEUTRAL.N0};
 `;
 
 export const LogoContainerSC = styled(Box)`
@@ -155,7 +155,7 @@ export const IconButtonSC = styled(IconButton)`
   }
 
   &:hover > svg {
-    color: ${colors.lightest} !important;
+    color: ${COLORS.NEUTRAL.N0} !important;
   }
 `;
 
@@ -176,7 +176,7 @@ export const CheckoutContainerSC = styled(Box)`
   width: clamp(360px, 360px, 360px);
   padding: ${space.s} ${space.l} ${space.xxl} ${space.l};
   box-shadow: 0 -4px 4px 0 rgba(0, 0, 0, 0.05);
-  background-color: ${colors.lightest};
+  background-color: ${COLORS.NEUTRAL.N0};
 `;
 
 export const EmptyCartContentSC = styled(Box)`
@@ -197,7 +197,7 @@ export const ShoppingButtonSC = styled(Button)`
   margin-bottom: ${space.m} !important;
   border-radius: ${borderRadius.rounded} !important;
   background-color: ${COLORS.PRIMARY.P500} !important;
-  color: ${colors.lightest} !important;
+  color: ${COLORS.NEUTRAL.N0} !important;
   font-size: ${typography.body.fontSize} !important;
   font-weight: ${typography.body.fontWeight} !important;
   text-transform: none !important;
@@ -206,7 +206,7 @@ export const ShoppingButtonSC = styled(Button)`
 export const ShoppingButtonIconSC = styled(IconButton)`
   font-size: ${typography.h5.fontSize} !important;
   font-weight: ${typography.h5.fontWeight} !important;
-  color: ${colors.lightest} !important;
+  color: ${COLORS.NEUTRAL.N0} !important;
 `;
 
 export const EmptyCartTextSC = styled(Typography)`

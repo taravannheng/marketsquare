@@ -27,11 +27,11 @@ export const MenuItemSC = styled(MenuItem)`
   }
 
   &:hover {
-    color: ${colors.lightest} !important;
+    color: ${COLORS.NEUTRAL.N0} !important;
     background-color: ${COLORS.PRIMARY.P500} !important;
 
     & * {
-      color: ${colors.lightest} !important;
+      color: ${COLORS.NEUTRAL.N0} !important;
     }
   }
 `;

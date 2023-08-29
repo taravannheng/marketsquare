@@ -9,7 +9,7 @@ import borderRadius from "../../styles/border-radius";
 export const ListItemSC = styled(ListItem)`
   width: 100% !important;
   height: clamp(40px, 40px, 40px) !important;
-  background-color: ${colors.lightest} !important;
+  background-color: ${COLORS.NEUTRAL.N0} !important;
   border-radius: ${borderRadius.s} !important;
   transition: background-color 0.2s ease-in-out !important;
   color: ${colors.dark} !important;
@@ -18,7 +18,7 @@ export const ListItemSC = styled(ListItem)`
     background-color: ${COLORS.PRIMARY.P500} !important;
 
     & > * {
-      color: ${colors.lightest} !important;
+      color: ${COLORS.NEUTRAL.N0} !important;
     }
   }
 `;
@@ -31,7 +31,7 @@ export const ListItemIconSC = styled(ListItemIcon)`
   color: ${colors.grey} !important;
 
   ${ListItemSC}:hover & {
-    color: ${colors.lightest} !important;
+    color: ${COLORS.NEUTRAL.N0} !important;
   }
 `;
 
@@ -42,6 +42,6 @@ export const ListItemTextSC = styled(ListItemText)`
   transition: color 0.2s ease-in-out !important;
 
   ${ListItemSC}:hover & {
-    color: ${colors.lightest} !important;
+    color: ${COLORS.NEUTRAL.N0} !important;
   }
 `;

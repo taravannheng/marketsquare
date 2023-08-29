@@ -14,5 +14,5 @@ export const LoadingScreenSC = styled(Box)`
   align-items: center;
   width: clamp(100vw, 100vw, 100vw);
   height: clamp(100vh, 100vh, 100vh);
-  background-color: ${colors.lightest};
+  background-color: ${COLORS.NEUTRAL.N0};
 `

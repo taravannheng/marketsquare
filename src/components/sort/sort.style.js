@@ -56,13 +56,13 @@ export const SelectSC = styled(Select)`
 
 export const MenuItemSC = styled(MenuItem)`
   width: clamp(100%, 100%, 100%) !important;
-  background-color: ${colors.lightest} !important;
+  background-color: ${COLORS.NEUTRAL.N0} !important;
   color: ${colors.darkest} !important;
   font-size: ${typography.body.fontSize} !important;
   font-weight: ${typography.body.fontWeight} !important;
 
   &:hover {
-    color: ${colors.lightest} !important;
+    color: ${COLORS.NEUTRAL.N0} !important;
     background-color: ${COLORS.PRIMARY.P500} !important;
   }
 `;

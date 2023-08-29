@@ -67,7 +67,7 @@ export const SlideShowPaginationPrevButtonSC = styled(Button)`
 
   &:hover {
     background-color: ${COLORS.PRIMARY.P500} !important;
-    color: ${colors.lightest} !important;
+    color: ${COLORS.NEUTRAL.N0} !important;
   }
 
   @media only screen and (min-width: 1080px) {
@@ -90,7 +90,7 @@ export const SlideShowPaginationNextButtonSC = styled(Button)`
 
   &:hover {
     background-color: ${COLORS.PRIMARY.P500} !important;
-    color: ${colors.lightest} !important;
+    color: ${COLORS.NEUTRAL.N0} !important;
   }
 
   @media only screen and (min-width: 1080px) {

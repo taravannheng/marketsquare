@@ -19,7 +19,7 @@ export const ProductCardSC = styled(Card)`
   min-width: 170px;
   flex: 1;
   padding-bottom: ${space.m} !important;
-  background-color: ${colors.lightest};
+  background-color: ${COLORS.NEUTRAL.N0};
   box-shadow: none !important;
   overflow: hidden;
   cursor: pointer;

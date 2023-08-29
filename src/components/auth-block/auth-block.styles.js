@@ -22,7 +22,7 @@ export const SignUpButtonSC = styled(Button)`
   font-size: ${typography.body.fontSize} !important;
   font-weight: ${typography.body.fontWeight} !important;
   text-transform: none !important;
-  color: ${colors.lightest} !important;
+  color: ${COLORS.NEUTRAL.N0} !important;
 `;
 
 export const SignInButtonSC = styled(Button)`
@@ -37,7 +37,7 @@ export const SignInButtonSC = styled(Button)`
   transition: background-color 0.2s ease-in-out !important;
 
   &:hover {
-    color: ${colors.lightest} !important;
+    color: ${COLORS.NEUTRAL.N0} !important;
     background-color: ${COLORS.PRIMARY.P500} !important;
   }
 `;

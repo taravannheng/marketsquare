@@ -21,7 +21,7 @@ export const MenuSC = styled(Button)`
   transition: all 0.3s ease;
 
   &:hover {
-    color: ${colors.lightest} !important;
+    color: ${COLORS.NEUTRAL.N0} !important;
     background-color: ${COLORS.PRIMARY.P500} !important;
     cursor: pointer;
   }
@@ -42,7 +42,7 @@ export const SubMenuSC = styled(Box)`
   justify-content: center;
   width: clamp(100vw, 100vw, 100vw) !important;
   padding: 24px;
-  background-color: ${colors.lightest} !important;
+  background-color: ${COLORS.NEUTRAL.N0} !important;
   overflow: hidden;
   border: 1px solid ${colors.light} !important;
 `;

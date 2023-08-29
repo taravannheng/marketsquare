@@ -109,7 +109,7 @@ const ResetPasswordRequestForm: FC<ResetPasswordRequestFormI> = () => {
       <EmailInput email={email} onChange={emailChangeHandler} />
       <ButtonContainerSC>
       <Button
-        labelColor={`${colors.lightest}`}
+        labelColor={`${COLORS.NEUTRAL.N0}`}
         backgroundColor={`${COLORS.PRIMARY.P500}`}
         label="Send Code"
         styleType="default"

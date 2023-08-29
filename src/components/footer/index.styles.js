@@ -56,7 +56,7 @@ export const AccordionSC = styled(Accordion)`
 
 export const AccordionSummarySC = styled(AccordionSummary)`
   & > * {
-    color: ${colors.lightest} !important;
+    color: ${COLORS.NEUTRAL.N0} !important;
   }
 `;
 
@@ -95,7 +95,7 @@ export const FooterLeftContent = styled(CardContent)`
 `;
 
 export const FooterCopyright = styled(Typography)`
-  color: ${colors.lightest} !important;
+  color: ${COLORS.NEUTRAL.N0} !important;
   font-size: ${typography.small.fontSize} !important;
   font-weight: ${typography.small.fontWeight} !important;
   margin-top: 64px !important;
@@ -112,7 +112,7 @@ export const FooterRightContainerSC = styled(Box)`
   height: clamp(100%, 100%, 100%);
   padding: 0 64px !important;
   border: 1px solid ${colors.light};
-  background-color: ${colors.lightest};
+  background-color: ${COLORS.NEUTRAL.N0};
 `;
 
 export const UtilityLinkContainerSC = styled(Box)`
@@ -125,7 +125,7 @@ export const UtilityLinkContainerSC = styled(Box)`
 `;
 
 export const UtilityLinkTitleSC = styled(Typography)`
-  color: ${colors.lightest} !important;
+  color: ${COLORS.NEUTRAL.N0} !important;
   font-size: ${typography.h5.fontSize} !important;
   font-weight: ${typography.h5.fontWeight} !important;
 
@@ -139,7 +139,7 @@ export const UtilityLinkStackSC = styled(Stack)``;
 
 export const UtilityLinkSC = styled(Link)`
   text-decoration: none !important;
-  color: ${colors.lightest} !important;
+  color: ${COLORS.NEUTRAL.N0} !important;
   font-size: ${typography.body.fontSize} !important;
   font-weight: ${typography.body.fontWeight} !important;
 

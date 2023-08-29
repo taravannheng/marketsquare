@@ -102,7 +102,7 @@ export const DecreaseButtonSC = styled(IconButton)`
   }
 
   &:hover > svg {
-    color: ${colors.lightest} !important;
+    color: ${COLORS.NEUTRAL.N0} !important;
   }
 `;
 
@@ -132,7 +132,7 @@ export const IncreaseButtonSC = styled(IconButton)`
   }
 
   &:hover > svg {
-    color: ${colors.lightest} !important;
+    color: ${COLORS.NEUTRAL.N0} !important;
   }
 `;
 
@@ -156,6 +156,6 @@ export const RemoveButtonSC = styled(IconButton)`
   }
 
   &:hover > svg {
-    color: ${colors.lightest} !important;
+    color: ${COLORS.NEUTRAL.N0} !important;
   }
 `;

@@ -49,7 +49,7 @@ export const SignUpButtonSC = styled(Button)`
   font-size: ${typography.body.fontSize} !important;
   font-weight: ${typography.body.fontWeight} !important;
   text-transform: none !important;
-  color: ${colors.lightest} !important;
+  color: ${COLORS.NEUTRAL.N0} !important;
 `;
 
 export const SignUpWithGoogleButtonSC = styled(Button)`
@@ -67,7 +67,7 @@ export const SignUpWithGoogleButtonSC = styled(Button)`
 
   &:hover {
     background-color: ${COLORS.PRIMARY.P500} !important;
-    color: ${colors.lightest} !important;
+    color: ${COLORS.NEUTRAL.N0} !important;
   }
 `;
 
@@ -91,7 +91,7 @@ export const SignUpWithFacebookButtonSC = styled(Button)`
 
   &:hover {
     background-color: ${COLORS.PRIMARY.P500} !important;
-    color: ${colors.lightest} !important;
+    color: ${COLORS.NEUTRAL.N0} !important;
   }
 `;
 

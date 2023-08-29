@@ -19,12 +19,12 @@ export const ButtonSC = styled(Button)`
   transition: background-color 0.3s linear;
 
   &:hover {
-    color: ${colors.lightest} !important;
+    color: ${COLORS.NEUTRAL.N0} !important;
     background-color: ${COLORS.PRIMARY.P500} !important;
   }
 
   &:hover > * {
-    color: ${colors.lightest} !important;
+    color: ${COLORS.NEUTRAL.N0} !important;
   }
 `;
 
@@ -40,7 +40,7 @@ export const RoundedButtonSC = styled(Button)`
 
   &:hover {
     background-color: ${COLORS.PRIMARY.P500} !important;
-    color: ${colors.lightest} !important;
+    color: ${COLORS.NEUTRAL.N0} !important;
   }
 `;
 
@@ -64,6 +64,6 @@ export const IconButtonSC = styled(IconButton)`
 
   &:hover {
     background-color: ${COLORS.PRIMARY.P500} !important;
-    color: ${colors.lightest} !important;
+    color: ${COLORS.NEUTRAL.N0} !important;
   }
 `;

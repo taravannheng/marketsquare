@@ -26,7 +26,7 @@ export const SkeletonSC = styled(Box)`
   min-width: 170px;
   flex: 1;
   padding-bottom: 16px;
-  background-color: ${colors.lightest};
+  background-color: ${COLORS.NEUTRAL.N0};
   border: 1px solid ${colors.light};
   border-radius: 8px !important;
   box-shadow: none !important;

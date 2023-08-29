@@ -143,7 +143,7 @@ const Header: FC<HeaderProps> = () => {
               <MenuIconSC
                 onClick={mobileDrawerOpenHandler}
                 sx={{
-                  backgroundColor: `${colors.lightest} !important`,
+                  backgroundColor: `${COLORS.NEUTRAL.N0} !important`,
                   color: `${colors.grey} !important`,
                 }}
               >
@@ -160,7 +160,7 @@ const Header: FC<HeaderProps> = () => {
                   !_.isEmpty(anchorEl) ? COLORS.PRIMARY.P500 : colors.light
                 } !important`,
                 color: `${
-                  !_.isEmpty(anchorEl) ? colors.lightest : colors.grey
+                  !_.isEmpty(anchorEl) ? COLORS.NEUTRAL.N0 : colors.grey
                 } !important`,
               }}
             >

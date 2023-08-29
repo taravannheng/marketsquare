@@ -12,7 +12,7 @@ export const SuggestionListSC = styled(List)`
   padding: 16px 24px;
   margin-top: 8px;
   border-radius: 8px;
-  background-color: ${colors.lightest};
+  background-color: ${COLORS.NEUTRAL.N0};
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08);
 
   @media only screen and (min-width: 640px) {

@@ -21,7 +21,7 @@ export const AppBarSC = styled(AppBar)``;
 export const ToolbarPlaceholderSC = styled(Box)`
   width: 100%;
   height: clamp(56px, 56px, 56px) !important;
-  background-color: ${colors.lightest} !important;
+  background-color: ${COLORS.NEUTRAL.N0} !important;
 
   @media only screen and (min-width: 640px) {
     height: clamp(100px, 100px, 100px) !important;
@@ -41,7 +41,7 @@ export const ToolbarSC = styled(Toolbar)`
   height: clamp(56px, 56px, 56px) !important;
   border-bottom: 1px solid ${colors.light};
   padding: 0 24px !important;
-  background-color: ${colors.lightest};
+  background-color: ${COLORS.NEUTRAL.N0};
   box-shadow: none;
 
   @media only screen and (min-width: 640px) {
@@ -87,7 +87,7 @@ export const MenuIconSC = styled(Icon)`
   @media only screen and (min-width: 640px) {
     &:hover {
       background-color: ${COLORS.PRIMARY.P500} !important;
-      color: ${colors.lightest} !important;
+      color: ${COLORS.NEUTRAL.N0} !important;
     }
   }
 `;
@@ -104,7 +104,7 @@ export const DrawerContentSC = styled(Box)`
   padding: 56px 24px 180px 24px;
   width: clamp(360px, 360px, 360px);
   height: auto;
-  background-color: ${colors.lightest};
+  background-color: ${COLORS.NEUTRAL.N0};
 `;
 
 export const DrawerHeadSC = styled(Box)`
@@ -126,7 +126,7 @@ export const DrawerBottomSC = styled(Box)`
   align-items: center;
   width: clamp(360px, 360px, 360px);
   padding: 12px 24px 48px 24px;
-  background-color: ${colors.lightest};
+  background-color: ${COLORS.NEUTRAL.N0};
 `;
 
 export const UsernameSC = styled(Typography)`
@@ -165,7 +165,7 @@ export const MobileDrawerContentSC = styled(Box)`
   padding: 56px 24px 180px 24px;
   width: clamp(360px, 360px, 360px) !important;
   height: 100vh !important;
-  background-color: ${colors.lightest};
+  background-color: ${COLORS.NEUTRAL.N0};
   overflow: hidden !important;
 `;
 
@@ -189,7 +189,7 @@ export const MobileDrawerBottomSC = styled(Box)`
   justify-content: center;
   align-items: center;
   width: clamp(100%, 100%, 100%) !important;
-  background-color: ${colors.lightest};
+  background-color: ${COLORS.NEUTRAL.N0};
 `;
 
 export const MobileSignOutContainerSC = styled(Box)`

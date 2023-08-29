@@ -22,7 +22,7 @@ const SuggestionItem: FC<SuggestionItemInterface> = ({ suggestion }) => {
         href={`/product/${suggestion._id}`}
         sx={{
           width: "100%",
-          backgroundColor: `${colors.lightest} !important`,
+          backgroundColor: `${COLORS.NEUTRAL.N0} !important`,
           padding: "0 !important",
         }}
       >

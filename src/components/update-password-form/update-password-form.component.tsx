@@ -186,7 +186,7 @@ const UpdatePasswordForm: FC<UpdatePasswordFormI> = () => {
       <PasswordInput label='Confirm Password' password={confirmPassword} onChange={confirmPasswordChangeHandler} showTooltip={false} />
       <ButtonContainerSC>
       <Button
-        labelColor={`${colors.lightest}`}
+        labelColor={`${COLORS.NEUTRAL.N0}`}
         backgroundColor={`${COLORS.PRIMARY.P500}`}
         label="Submit Code"
         styleType="default"

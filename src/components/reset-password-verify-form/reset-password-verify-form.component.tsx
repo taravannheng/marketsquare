@@ -128,7 +128,7 @@ const ResetPasswordVerifyForm: FC<ResetPasswordVerifyFormI> = () => {
       <FourDigitInput values={fourDigits} onChange={digitChangeHandler} refs={refs} />
       <ButtonContainerSC>
       <Button
-        labelColor={`${colors.lightest}`}
+        labelColor={`${COLORS.NEUTRAL.N0}`}
         backgroundColor={`${COLORS.PRIMARY.P500}`}
         label="Submit Code"
         styleType="default"
