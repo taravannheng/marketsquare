@@ -1,10 +1,24 @@
 import { FC, useState } from "react";
 import SortIcon from "@mui/icons-material/Sort";
+import CheckIcon from "@mui/icons-material/Check";
 import { styled } from "@mui/material/styles";
-import { FormControl, InputBase, InputLabel, MenuItem } from "@mui/material";
+import {
+  FormControl,
+  InputBase,
+  InputLabel,
+  MenuItem,
+  MenuList,
+  Icon,
+  useMediaQuery,
+} from "@mui/material";
+import { BottomSheet } from "react-spring-bottom-sheet";
+import "react-spring-bottom-sheet/dist/style.css";
 
 import SortInterface from "./sort.interface";
 import {
+  BottomSheetMenuItemSC,
+  BottomSheetMenuListSC,
+  BottomSheetTitleSC,
   LabelContainerSC,
   LabelIconSC,
   LabelSC,
@@ -13,7 +27,7 @@ import {
   SelectSC,
   SortSC,
 } from "./sort.style";
-import colors from "../../styles/colors";
+import { COLORS, BREAKPOINTS, typography } from "../../styles/styles";
 
 const BootstrapInput = styled(InputBase)(({ theme }) => ({
   "label + &": {
@@ -27,15 +41,12 @@ const BootstrapInput = styled(InputBase)(({ theme }) => ({
     borderRadius: 4,
     outline: 0,
     position: "relative",
-    backgroundColor: `${colors.light}`,
+    backgroundColor: `${COLORS.NEUTRAL.N50}`,
     fontSize: 14,
     padding: "10px 26px 10px 12px",
-    color: `${colors.darkest}`,
+    color: `${COLORS.NEUTRAL.N900}`,
     transition: theme.transitions.create(["border-color", "box-shadow"]),
-    fontFamily: [
-      "Inter",
-      "sans-serif",
-    ].join(","),
+    fontFamily: ["Inter", "sans-serif"].join(","),
     "&:focus": {
       outline: 0,
       borderRadius: 4,
@@ -45,82 +56,189 @@ const BootstrapInput = styled(InputBase)(({ theme }) => ({
 }));
 
 const Sort: FC<SortInterface> = ({ sortMenuItem, setSortMenuItem }) => {
+  const isLargeScreen = useMediaQuery(`(min-width: ${BREAKPOINTS.sm}px)`);
+  const [isBottomSheetOpen, setIsBottomSheetOpen] = useState(false);
+
+  const changeSort = (value: number) => {
+    setSortMenuItem(value);
+    closeBottomSheet();
+  };
+
   const handleChange = (event: any) => {
     setSortMenuItem(event.target.value);
   };
 
+  const openBottomSheet = () => {
+    const isSmallScreen = !isLargeScreen;
+
+    if (isSmallScreen) {
+      setIsBottomSheetOpen(true);
+    }
+  };
+
+  const closeBottomSheet = () => {
+    setIsBottomSheetOpen(false);
+  };
+
   return (
-    <SortSC>
-      <LabelContainerSC>
-        <LabelIconSC>
-          <SortIcon />
-        </LabelIconSC>
-        <LabelSC>Sort</LabelSC>
-      </LabelContainerSC>
-      <SelectContainerSC>
-        <FormControl fullWidth>
-          <SelectSC
-            id="demo-simple-select"
-            value={sortMenuItem}
-            label="sort"
-            onChange={handleChange}
-            input={<BootstrapInput />}
+    <>
+      <SortSC onClick={openBottomSheet}>
+        <LabelContainerSC>
+          <LabelIconSC>
+            <SortIcon />
+          </LabelIconSC>
+          <LabelSC>Sort</LabelSC>
+        </LabelContainerSC>
+        {isLargeScreen && (
+          <SelectContainerSC>
+            <FormControl fullWidth>
+              <SelectSC
+                id="demo-simple-select"
+                value={sortMenuItem}
+                label="sort"
+                onChange={handleChange}
+                input={<BootstrapInput />}
+              >
+                <MenuItemSC
+                  value={0}
+                  sx={{
+                    backgroundColor: `${
+                      sortMenuItem === 0
+                        ? `${COLORS.PRIMARY.P400} !important`
+                        : `${COLORS.NEUTRAL.N0} !important`
+                    }`,
+                    color: `${
+                      sortMenuItem === 0
+                        ? `${COLORS.NEUTRAL.N0} !important`
+                        : `${COLORS.NEUTRAL.N900} !important`
+                    }`,
+                  }}
+                >
+                  None
+                </MenuItemSC>
+                <MenuItemSC
+                  value={1}
+                  sx={{
+                    backgroundColor: `${
+                      sortMenuItem === 1
+                        ? `${COLORS.PRIMARY.P400} !important`
+                        : `${COLORS.NEUTRAL.N0} !important`
+                    }`,
+                    color: `${
+                      sortMenuItem === 1
+                        ? `${COLORS.NEUTRAL.N0} !important`
+                        : `${COLORS.NEUTRAL.N900} !important`
+                    }`,
+                  }}
+                >
+                  Price Low to High
+                </MenuItemSC>
+                <MenuItemSC
+                  value={2}
+                  sx={{
+                    backgroundColor: `${
+                      sortMenuItem === 2
+                        ? `${COLORS.PRIMARY.P400} !important`
+                        : `${COLORS.NEUTRAL.N0} !important`
+                    }`,
+                    color: `${
+                      sortMenuItem === 2
+                        ? `${COLORS.NEUTRAL.N0} !important`
+                        : `${COLORS.NEUTRAL.N900} !important`
+                    }`,
+                  }}
+                >
+                  Price High to Low
+                </MenuItemSC>
+              </SelectSC>
+            </FormControl>
+          </SelectContainerSC>
+        )}
+      </SortSC>
+      <BottomSheet
+        open={isBottomSheetOpen}
+        onDismiss={closeBottomSheet}
+        header={<BottomSheetTitleSC>Sort</BottomSheetTitleSC>}
+      >
+        <BottomSheetMenuListSC>
+          <BottomSheetMenuItemSC
+            sx={{
+              color: `${
+                sortMenuItem === 0
+                  ? `${COLORS.PRIMARY.P500} !important`
+                  : `${COLORS.NEUTRAL.N500} !important`
+              }`,
+              fontWeight: `${
+                sortMenuItem === 0
+                  ? `${typography.body2.fontWeight} !important`
+                  : `${typography.body1.fontWeight} !important`
+              }`,
+            }}
+            onClick={() => {
+              changeSort(0);
+            }}
+            disableRipple
           >
-            <MenuItemSC
-              value={0}
-              sx={{
-                backgroundColor: `${
-                  sortMenuItem === 0
-                    ? `${colors.lightPrimary} !important`
-                    : `${colors.lightest} !important`
-                }`,
-                color: `${
-                  sortMenuItem === 0
-                    ? `${colors.lightest} !important`
-                    : `${colors.darkest} !important`
-                }`,
-              }}
-            >
-              None
-            </MenuItemSC>
-            <MenuItemSC
-              value={1}
-              sx={{
-                backgroundColor: `${
-                  sortMenuItem === 1
-                    ? `${colors.lightPrimary} !important`
-                    : `${colors.lightest} !important`
-                }`,
-                color: `${
-                  sortMenuItem === 1
-                    ? `${colors.lightest} !important`
-                    : `${colors.darkest} !important`
-                }`,
-              }}
-            >
-              Price Low to High
-            </MenuItemSC>
-            <MenuItemSC
-              value={2}
-              sx={{
-                backgroundColor: `${
-                  sortMenuItem === 2
-                    ? `${colors.lightPrimary} !important`
-                    : `${colors.lightest} !important`
-                }`,
-                color: `${
-                  sortMenuItem === 2
-                    ? `${colors.lightest} !important`
-                    : `${colors.darkest} !important`
-                }`,
-              }}
-            >
-              Price High to Low
-            </MenuItemSC>
-          </SelectSC>
-        </FormControl>
-      </SelectContainerSC>
-    </SortSC>
+            None
+            {sortMenuItem === 0 && (
+              <Icon>
+                <CheckIcon />
+              </Icon>
+            )}
+          </BottomSheetMenuItemSC>
+          <BottomSheetMenuItemSC
+            sx={{
+              color: `${
+                sortMenuItem === 1
+                  ? `${COLORS.PRIMARY.P500} !important`
+                  : `${COLORS.NEUTRAL.N500} !important`
+              }`,
+              fontWeight: `${
+                sortMenuItem === 1
+                  ? `${typography.body2.fontWeight} !important`
+                  : `${typography.body1.fontWeight} !important`
+              }`,
+            }}
+            onClick={() => {
+              changeSort(1);
+            }}
+            disableRipple
+          >
+            Price Low to High
+            {sortMenuItem === 1 && (
+              <Icon>
+                <CheckIcon />
+              </Icon>
+            )}
+          </BottomSheetMenuItemSC>
+          <BottomSheetMenuItemSC
+            sx={{
+              color: `${
+                sortMenuItem === 2
+                  ? `${COLORS.PRIMARY.P500} !important`
+                  : `${COLORS.NEUTRAL.N500} !important`
+              }`,
+              fontWeight: `${
+                sortMenuItem === 2
+                  ? `${typography.body2.fontWeight} !important`
+                  : `${typography.body1.fontWeight} !important`
+              }`,
+            }}
+            onClick={() => {
+              changeSort(2);
+            }}
+            disableRipple
+          >
+            Price High to Low
+            {sortMenuItem === 2 && (
+              <Icon>
+                <CheckIcon />
+              </Icon>
+            )}
+          </BottomSheetMenuItemSC>
+        </BottomSheetMenuListSC>
+      </BottomSheet>
+    </>
   );
 };
 

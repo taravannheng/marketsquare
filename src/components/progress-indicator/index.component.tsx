@@ -3,12 +3,12 @@ import { CircularProgress } from '@mui/material'
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 import ProgressIndicatorInterface from './index.interface';
-import colors from '../../styles/colors';
+import COLORS from '../../styles/colors';
 
 const theme = createTheme({
   palette: {
     primary: {
-      main: `${colors.primary}`,
+      main: `${COLORS.PRIMARY.P500}`,
     },
   },
 });

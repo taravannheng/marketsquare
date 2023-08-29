@@ -11,17 +11,14 @@ import {
   Typography,
 } from "@mui/material";
 
-import colors from "../../styles/colors";
-import typography from "../../styles/typography";
-import space from "../../styles/spacing";
-import borderRadius from "../../styles/border-radius";
+import { COLORS, typography, space, borderRadius, BREAKPOINTS } from "../../styles/styles";
 
 export const AppBarSC = styled(AppBar)``;
 
 export const ToolbarPlaceholderSC = styled(Box)`
   width: 100%;
   height: clamp(56px, 56px, 56px) !important;
-  background-color: ${colors.lightest} !important;
+  background-color: ${COLORS.NEUTRAL.N0} !important;
 
   @media only screen and (min-width: 640px) {
     height: clamp(100px, 100px, 100px) !important;
@@ -31,17 +28,17 @@ export const ToolbarPlaceholderSC = styled(Box)`
 export const ToolbarSC = styled(Toolbar)`
   position: fixed !important;
   top: 0;
-  z-index: 1000;
+  z-index: 1;
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100% !important;
-  max-width: 1280px !important;
+  max-width: ${BREAKPOINTS.xxl}px !important;
   height: clamp(56px, 56px, 56px) !important;
-  border-bottom: 1px solid ${colors.light};
+  border-bottom: 1px solid ${COLORS.NEUTRAL.N50};
   padding: 0 24px !important;
-  background-color: ${colors.lightest};
+  background-color: ${COLORS.NEUTRAL.N0};
   box-shadow: none;
 
   @media only screen and (min-width: 640px) {
@@ -76,18 +73,18 @@ export const MenuIconSC = styled(Icon)`
   border-radius: ${borderRadius.s} !important;
   margin-left: 24px;
   cursor: pointer;
-  color: ${colors.dark};
+  color: ${COLORS.NEUTRAL.N500};
   transition: background-color 0.3s ease-in-out;
-  background-color: ${colors.light} !important;
+  background-color: ${COLORS.NEUTRAL.N50} !important;
 
   &:hover {
-    color: ${colors.primary} !important;
+    color: ${COLORS.PRIMARY.P500} !important;
   }
 
   @media only screen and (min-width: 640px) {
     &:hover {
-      background-color: ${colors.primary} !important;
-      color: ${colors.lightest} !important;
+      background-color: ${COLORS.PRIMARY.P500} !important;
+      color: ${COLORS.NEUTRAL.N0} !important;
     }
   }
 `;
@@ -104,7 +101,7 @@ export const DrawerContentSC = styled(Box)`
   padding: 56px 24px 180px 24px;
   width: clamp(360px, 360px, 360px);
   height: auto;
-  background-color: ${colors.lightest};
+  background-color: ${COLORS.NEUTRAL.N0};
 `;
 
 export const DrawerHeadSC = styled(Box)`
@@ -126,30 +123,30 @@ export const DrawerBottomSC = styled(Box)`
   align-items: center;
   width: clamp(360px, 360px, 360px);
   padding: 12px 24px 48px 24px;
-  background-color: ${colors.lightest};
+  background-color: ${COLORS.NEUTRAL.N0};
 `;
 
 export const UsernameSC = styled(Typography)`
   margin-top: ${space.xs} !important;
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
-  color: ${colors.darkest} !important;
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
+  color: ${COLORS.NEUTRAL.N900} !important;
 `;
 
 export const EmailSC = styled(Typography)`
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
-  color: ${colors.dark} !important;
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
+  color: ${COLORS.NEUTRAL.N500} !important;
 `;
 
 export const SignOutSC = styled(Link)`
   text-decoration: none !important;
-  color: ${colors.dark} !important;
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
+  color: ${COLORS.NEUTRAL.N500} !important;
 
   &:hover {
-    color: ${colors.red} !important;
+    color: ${COLORS.RED.R500} !important;
     cursor: pointer;
   }
 `;
@@ -165,7 +162,7 @@ export const MobileDrawerContentSC = styled(Box)`
   padding: 56px 24px 180px 24px;
   width: clamp(360px, 360px, 360px) !important;
   height: 100vh !important;
-  background-color: ${colors.lightest};
+  background-color: ${COLORS.NEUTRAL.N0};
   overflow: hidden !important;
 `;
 
@@ -189,7 +186,7 @@ export const MobileDrawerBottomSC = styled(Box)`
   justify-content: center;
   align-items: center;
   width: clamp(100%, 100%, 100%) !important;
-  background-color: ${colors.lightest};
+  background-color: ${COLORS.NEUTRAL.N0};
 `;
 
 export const MobileSignOutContainerSC = styled(Box)`

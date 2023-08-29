@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Box, Button, Typography, Link } from "@mui/material";
 
-import colors from "../../styles/colors";
+import COLORS from "../../styles/colors";
 import typography from "../../styles/typography";
 import space from "../../styles/spacing";
 import borderRadius from "../../styles/border-radius";
@@ -46,11 +46,11 @@ export const SignInButtonSC = styled(Button)`
   margin-top: ${space.l} !important;
   margin-bottom: ${space.l} !important;
   border-radius: ${borderRadius.s} !important;
-  background-color: ${colors.primary} !important;
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
+  background-color: ${COLORS.PRIMARY.P500} !important;
   text-transform: none !important;
-  color: ${colors.lightest} !important;
+  color: ${COLORS.NEUTRAL.N0} !important;
 `;
 
 export const ForgottenPasswordLinkSC = styled(Link)`
@@ -59,9 +59,9 @@ export const ForgottenPasswordLinkSC = styled(Link)`
   align-items: center;
   width: 100% !important;
   margin-bottom: ${space.xl} !important;
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
-  color: ${colors.primary} !important;
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
+  color: ${COLORS.PRIMARY.P500} !important;
 
   &:hover {
     cursor: pointer;
@@ -74,16 +74,16 @@ export const SignInWithGoogleButtonSC = styled(Button)`
   margin-top: ${space.xl} !important;
   margin-bottom: ${space.m} !important;
   border-radius: ${borderRadius.s} !important;
-  background-color: ${colors.light} !important;
-  color: ${colors.darkest} !important;
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
+  background-color: ${COLORS.NEUTRAL.N50} !important;
+  color: ${COLORS.NEUTRAL.N900} !important;
   text-transform: none !important;
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 
   &:hover {
-    background-color: ${colors.primary} !important;
-    color: ${colors.lightest} !important;
+    background-color: ${COLORS.PRIMARY.P500} !important;
+    color: ${COLORS.NEUTRAL.N0} !important;
   }
 `;
 
@@ -98,27 +98,27 @@ export const SignInWithFacebookButtonSC = styled(Button)`
   height: clamp(48px, 48px, 48px) !important;
   margin-bottom: ${space.xl} !important;
   border-radius: ${borderRadius.s} !important;
-  background-color: ${colors.light} !important;
-  color: ${colors.darkest} !important;
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
+  background-color: ${COLORS.NEUTRAL.N50} !important;
+  color: ${COLORS.NEUTRAL.N900} !important;
   text-transform: none !important;
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 
   &:hover {
-    background-color: ${colors.primary} !important;
-    color: ${colors.lightest} !important;
+    background-color: ${COLORS.PRIMARY.P500} !important;
+    color: ${COLORS.NEUTRAL.N0} !important;
   }
 `;
 
 export const SignUpSC = styled(Typography)`
   text-align: center;
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
 `;
 
 export const SignUpLinkSC = styled(Link)`
-  color: ${colors.primary} !important;
+  color: ${COLORS.PRIMARY.P500} !important;
   font-size: inherit !important;
   font-weight: inherit !important;
 

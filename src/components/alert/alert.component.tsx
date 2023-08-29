@@ -4,22 +4,22 @@ import { CheckCircle, Info, Cancel } from '@mui/icons-material';
 
 import AlertProps, { AlertConfig } from './alert.interface';
 import { AlertSC } from './alert.style';
-import colors from '../../styles/colors';
+import COLORS from '../../styles/colors';
 
 const alertConfigs: Record<string, AlertConfig> = {
   info: {
     icon: <Info />,
-    color: colors.primary,
+    color: COLORS.PRIMARY.P500,
     severity: 'info',
   },
   success: {
     icon: <CheckCircle />,
-    color: colors.green,
+    color: COLORS.GREEN.G400,
     severity: 'success',
   },
   error: {
     icon: <Cancel />,
-    color: colors.red,
+    color: COLORS.RED.R500,
     severity: 'error',
   },
 };

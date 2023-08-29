@@ -16,7 +16,7 @@ import {
   TooltipItemTextSC,
   StatusTextSC,
 } from "./username-input.style";
-import colors from "../../styles/colors";
+import COLORS from "../../styles/colors";
 
 const UsernameInput: FC<UsernameInputInterface> = ({
   disabled = false,
@@ -52,9 +52,9 @@ const UsernameInput: FC<UsernameInputInterface> = ({
         {isInitialFocus && (
           <StatusIconSC sx={{ opacity: `${!isFocus ? "1" : "0"}` }}>
             {!isValid ? (
-              <Cancel sx={{ color: `${colors.red}` }} />
+              <Cancel sx={{ color: `${COLORS.RED.R500}` }} />
             ) : (
-              <CheckCircle sx={{ color: `${colors.green}` }} />
+              <CheckCircle sx={{ color: `${COLORS.GREEN.G400}` }} />
             )}
           </StatusIconSC>
         )}
@@ -80,7 +80,7 @@ const UsernameInput: FC<UsernameInputInterface> = ({
               <TooltipItemIconSC>
                 <CheckCircle
                   sx={{
-                    color: `${colors.green} !important`,
+                    color: `${COLORS.GREEN.G400} !important`,
                     opacity: `${
                       validityDetails.isValidLength ? "1" : "0"
                     } !important`,
@@ -88,7 +88,7 @@ const UsernameInput: FC<UsernameInputInterface> = ({
                 />
                 <CheckCircleOutline
                   sx={{
-                    color: `${colors.grey} !important`,
+                    color: `${COLORS.NEUTRAL.N300} !important`,
                     opacity: `${
                       validityDetails.isValidLength ? "0" : "1"
                     } !important`,
@@ -99,8 +99,8 @@ const UsernameInput: FC<UsernameInputInterface> = ({
                 sx={{
                   color: `${
                     validityDetails.isValidLength
-                      ? `${colors.darkest}`
-                      : `${colors.dark}`
+                      ? `${COLORS.NEUTRAL.N900}`
+                      : `${COLORS.NEUTRAL.N500}`
                   } !important`,
                 }}
               >
@@ -111,7 +111,7 @@ const UsernameInput: FC<UsernameInputInterface> = ({
               <TooltipItemIconSC>
                 <CheckCircle
                   sx={{
-                    color: `${colors.green} !important`,
+                    color: `${COLORS.GREEN.G400} !important`,
                     opacity: `${
                       validityDetails.isValidCharacters ? "1" : "0"
                     } !important`,
@@ -119,7 +119,7 @@ const UsernameInput: FC<UsernameInputInterface> = ({
                 />
                 <CheckCircleOutline
                   sx={{
-                    color: `${colors.grey} !important`,
+                    color: `${COLORS.NEUTRAL.N300} !important`,
                     opacity: `${
                       validityDetails.isValidCharacters ? "0" : "1"
                     } !important`,
@@ -130,8 +130,8 @@ const UsernameInput: FC<UsernameInputInterface> = ({
                 sx={{
                   color: `${
                     validityDetails.isValidCharacters
-                      ? `${colors.darkest}`
-                      : `${colors.dark}`
+                      ? `${COLORS.NEUTRAL.N900}`
+                      : `${COLORS.NEUTRAL.N500}`
                   } !important`,
                 }}
               >
@@ -142,7 +142,7 @@ const UsernameInput: FC<UsernameInputInterface> = ({
               <TooltipItemIconSC>
                 <CheckCircle
                   sx={{
-                    color: `${colors.green} !important`,
+                    color: `${COLORS.GREEN.G400} !important`,
                     opacity: `${
                       validityDetails.hasNoSpaces ? "1" : "0"
                     } !important`,
@@ -150,7 +150,7 @@ const UsernameInput: FC<UsernameInputInterface> = ({
                 />
                 <CheckCircleOutline
                   sx={{
-                    color: `${colors.grey} !important`,
+                    color: `${COLORS.NEUTRAL.N300} !important`,
                     opacity: `${
                       validityDetails.hasNoSpaces ? "0" : "1"
                     } !important`,
@@ -161,8 +161,8 @@ const UsernameInput: FC<UsernameInputInterface> = ({
                 sx={{
                   color: `${
                     validityDetails.hasNoSpaces
-                      ? `${colors.darkest}`
-                      : `${colors.dark}`
+                      ? `${COLORS.NEUTRAL.N900}`
+                      : `${COLORS.NEUTRAL.N500}`
                   } !important`,
                 }}
               >
