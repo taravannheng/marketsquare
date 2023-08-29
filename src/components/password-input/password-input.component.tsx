@@ -127,7 +127,7 @@ const PasswordInput: FC<PasswordInputInterface> = ({
                 sx={{
                   color: `${
                     validityDetails.hasUppercaseLetter
-                      ? `${colors.darkest}`
+                      ? `${COLORS.NEUTRAL.N900}`
                       : `${colors.dark}`
                   } !important`,
                 }}
@@ -158,7 +158,7 @@ const PasswordInput: FC<PasswordInputInterface> = ({
                 sx={{
                   color: `${
                     validityDetails.hasLowercaseLetter
-                      ? `${colors.darkest}`
+                      ? `${COLORS.NEUTRAL.N900}`
                       : `${colors.dark}`
                   } !important`,
                 }}
@@ -189,7 +189,7 @@ const PasswordInput: FC<PasswordInputInterface> = ({
                 sx={{
                   color: `${
                     validityDetails.hasNumber
-                      ? `${colors.darkest}`
+                      ? `${COLORS.NEUTRAL.N900}`
                       : `${colors.dark}`
                   } !important`,
                 }}
@@ -220,7 +220,7 @@ const PasswordInput: FC<PasswordInputInterface> = ({
                 sx={{
                   color: `${
                     validityDetails.hasSpecialCharacter
-                      ? `${colors.darkest}`
+                      ? `${COLORS.NEUTRAL.N900}`
                       : `${colors.dark}`
                   } !important`,
                 }}
@@ -251,7 +251,7 @@ const PasswordInput: FC<PasswordInputInterface> = ({
                 sx={{
                   color: `${
                     validityDetails.hasNoSpaces
-                      ? `${colors.darkest}`
+                      ? `${COLORS.NEUTRAL.N900}`
                       : `${colors.dark}`
                   } !important`,
                 }}
@@ -282,7 +282,7 @@ const PasswordInput: FC<PasswordInputInterface> = ({
                 sx={{
                   color: `${
                     validityDetails.isValidLength
-                      ? `${colors.darkest}`
+                      ? `${COLORS.NEUTRAL.N900}`
                       : `${colors.dark}`
                   } !important`,
                 }}

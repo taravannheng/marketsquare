@@ -131,7 +131,7 @@ export const UtilityLinkTitleSC = styled(Typography)`
 
   @media only screen and (min-width: 1080px) {
     margin-bottom: 20px !important;
-    color: ${colors.darkest} !important;
+    color: ${COLORS.NEUTRAL.N900} !important;
   }
 `;
 

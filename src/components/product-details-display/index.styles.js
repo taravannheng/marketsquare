@@ -61,7 +61,7 @@ export const ProductNameSC = styled(Typography)`
 
 export const ProductPriceSC = styled(Typography)`
   margin-bottom: 24px !important;
-  color: ${colors.darkest} !important;
+  color: ${COLORS.NEUTRAL.N900} !important;
   font-size: ${typography.h1.fontSize} !important;
   font-weight: ${typography.h1.fontWeight} !important;
 `

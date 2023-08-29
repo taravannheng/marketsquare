@@ -15,7 +15,7 @@ export const MenuSC = styled(Button)`
   width: clamp(100%, 100%, 100%);
   height: clamp(100%, 100%, 100%);
   padding: 0 24px !important;
-  color: ${colors.darkest} !important;
+  color: ${COLORS.NEUTRAL.N900} !important;
   text-transform: none !important;
   border-radius: 0 !important;
   transition: all 0.3s ease;
@@ -71,7 +71,7 @@ export const CategoryItemSC = styled(Box)`
 `;
 
 export const CategoryItemTitleSC = styled(Typography)`
-  color: ${colors.darkest} !important;
+  color: ${COLORS.NEUTRAL.N900} !important;
   font-size: ${typography.h5.fontSize} !important;
   font-weight: ${typography.h5.fontWeight} !important;
   margin-bottom: 24px !important;

@@ -77,7 +77,7 @@ export const TotalContainerSC = styled(Box)`
 `;
 
 export const TotalLabelSC = styled(Typography)`
-  color: ${colors.darkest};
+  color: ${COLORS.NEUTRAL.N900};
   font-size: ${typography.h4.fontSize} !important;
   font-weight: ${typography.h4.fontWeight} !important;
 `;
@@ -92,7 +92,7 @@ export const CheckoutButtonSC = styled(Button)`
   ${flexCentered};
   width: clamp(100%, 100%, 100%);
   background-color: ${COLORS.NEUTRAL.N50} !important;
-  color: ${colors.darkest} !important;
+  color: ${COLORS.NEUTRAL.N900} !important;
   font-size: ${typography.h5.fontSize} !important;
   font-weight: ${typography.h5.fontWeight} !important;
   border-radius: ${borderRadius.s};

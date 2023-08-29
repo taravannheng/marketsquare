@@ -8,7 +8,7 @@ import borderRadius from "../../styles/border-radius";
 export const ButtonSC = styled(Button)`
   width: clamp(100%, 100%, 100%);
   height: clamp(48px, 48px, 48px) !important;
-  color: ${colors.darkest} !important;
+  color: ${COLORS.NEUTRAL.N900} !important;
   font-size: ${typography.body.fontSize} !important;
   font-weight: ${typography.body.fontWeight} !important;
   background-color: ${COLORS.NEUTRAL.N50} !important;
@@ -33,7 +33,7 @@ export const RoundedButtonSC = styled(Button)`
   border: 0 !important;
   border-radius: 1000px !important;
   background-color: ${COLORS.NEUTRAL.N50} !important;
-  color: ${colors.darkest} !important;
+  color: ${COLORS.NEUTRAL.N900} !important;
   font-size: ${typography.body.fontSize} !important;
   font-weight: ${typography.body.fontWeight} !important;
   text-transform: none !important;
@@ -53,7 +53,7 @@ export const IconButtonSC = styled(IconButton)`
   border: 0 !important;
   border-radius: 1000px !important;
   background-color: ${COLORS.NEUTRAL.N50} !important;
-  color: ${colors.darkest} !important;
+  color: ${COLORS.NEUTRAL.N900} !important;
   font-size: ${typography.body.fontSize} !important;
   font-weight: ${typography.body.fontWeight} !important;
   text-transform: none !important;

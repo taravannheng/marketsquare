@@ -37,7 +37,7 @@ export const LabelIconSC = styled(Icon)`
 `;
 
 export const LabelSC = styled(Typography)`
-  color: ${colors.darkest} !important;
+  color: ${COLORS.NEUTRAL.N900} !important;
   font-size: ${typography.body.fontSize} !important;
   font-weight: ${typography.body.fontWeight} !important;
 `;
@@ -49,7 +49,7 @@ export const SelectContainerSC = styled(Box)`
 export const SelectSC = styled(Select)`
   width: clamp(100%, 100%, 100%) !important;
   outline: 0 !important;
-  color: ${colors.darkest} !important;
+  color: ${COLORS.NEUTRAL.N900} !important;
   font-size: ${typography.body.fontSize} !important;
   font-weight: ${typography.body.fontWeight} !important;
 `;
@@ -57,7 +57,7 @@ export const SelectSC = styled(Select)`
 export const MenuItemSC = styled(MenuItem)`
   width: clamp(100%, 100%, 100%) !important;
   background-color: ${COLORS.NEUTRAL.N0} !important;
-  color: ${colors.darkest} !important;
+  color: ${COLORS.NEUTRAL.N900} !important;
   font-size: ${typography.body.fontSize} !important;
   font-weight: ${typography.body.fontWeight} !important;
 

@@ -38,7 +38,7 @@ export const ProductNameSC = styled(Typography)`
 `
 
 export const ProductPriceSC = styled(Typography)`
-  color: ${colors.darkest} !important;
+  color: ${COLORS.NEUTRAL.N900} !important;
   font-size: ${typography.h3.fontSize} !important;
   font-weight: ${typography.h3.fontWeight} !important;
 `

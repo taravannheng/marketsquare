@@ -133,7 +133,7 @@ export const UsernameSC = styled(Typography)`
   margin-top: ${space.xs} !important;
   font-size: ${typography.body.fontSize} !important;
   font-weight: ${typography.body.fontWeight} !important;
-  color: ${colors.darkest} !important;
+  color: ${COLORS.NEUTRAL.N900} !important;
 `;
 
 export const EmailSC = styled(Typography)`

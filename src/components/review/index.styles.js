@@ -26,7 +26,7 @@ export const ContentSC = styled(CardContent)`
 `;
 
 export const ReviewerSC = styled(Typography)`
-  color: ${colors.darkest} !important;
+  color: ${COLORS.NEUTRAL.N900} !important;
   font-size: ${typography.h5.fontSize} !important;
   font-weight: ${typography.h5.fontWeight} !important;
 `;

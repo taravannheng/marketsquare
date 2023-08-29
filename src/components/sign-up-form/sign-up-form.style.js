@@ -59,7 +59,7 @@ export const SignUpWithGoogleButtonSC = styled(Button)`
   margin-bottom: ${space.m} !important;
   border-radius: ${borderRadius.s} !important;
   background-color: ${COLORS.NEUTRAL.N50} !important;
-  color: ${colors.darkest} !important;
+  color: ${COLORS.NEUTRAL.N900} !important;
   font-size: ${typography.body.fontSize} !important;
   font-weight: ${typography.body.fontWeight} !important;
   text-transform: none !important;
@@ -83,7 +83,7 @@ export const SignUpWithFacebookButtonSC = styled(Button)`
   margin-bottom: ${space.xl} !important;
   border-radius: ${borderRadius.s} !important;
   background-color: ${COLORS.NEUTRAL.N50} !important;
-  color: ${colors.darkest} !important;
+  color: ${COLORS.NEUTRAL.N900} !important;
   font-size: ${typography.body.fontSize} !important;
   font-weight: ${typography.body.fontWeight} !important;
   text-transform: none !important;

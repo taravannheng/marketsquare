@@ -6,7 +6,7 @@ import typography from "../../styles/typography";
 
 export const SuggestionItemSC = styled(ListItem)`
   width: 100%;
-  color: ${colors.darkest};
+  color: ${COLORS.NEUTRAL.N900};
   padding: 0 !important;
   cursor: pointer;
 

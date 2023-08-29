@@ -10,7 +10,7 @@ export const RelatedProductDisplaySC = styled(Box)`
 `
 
 export const TitleSC = styled(Typography)`
-  color: ${colors.darkest} !important;
+  color: ${COLORS.NEUTRAL.N900} !important;
   font-size: ${typography.h3.fontSize} !important;
   font-weight: ${typography.h3.fontWeight} !important;
   margin-bottom: 40px !important;

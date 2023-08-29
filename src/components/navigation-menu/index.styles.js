@@ -13,7 +13,7 @@ export const NavigationMenuSC = styled(Box)`
   padding: 0 24px;
   border-bottom: 1px solid ${COLORS.NEUTRAL.N50};
   background-color: ${COLORS.NEUTRAL.N0};
-  color: ${colors.darkest};
+  color: ${COLORS.NEUTRAL.N900};
 
   @media only screen and (min-width: 1080px) {
     display: flex;

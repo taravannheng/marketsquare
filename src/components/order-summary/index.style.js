@@ -14,7 +14,7 @@ export const ContentSC = styled(Box)`
 
 export const TitleSC = styled(Typography)`
   margin-bottom: 16px;
-  color: ${colors.darkest} !important;
+  color: ${COLORS.NEUTRAL.N900} !important;
   font-size: ${typography.h5.fontSize} !important;
   font-weight: ${typography.h5.fontWeight} !important;
 

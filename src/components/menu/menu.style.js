@@ -19,7 +19,7 @@ export const MenuSC = styled(Menu)`
 `;
 
 export const MenuItemSC = styled(MenuItem)`
-  color: ${colors.darkest} !important;
+  color: ${COLORS.NEUTRAL.N900} !important;
 
   & svg {
     color: ${COLORS.NEUTRAL.N300};

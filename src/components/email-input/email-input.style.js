@@ -34,7 +34,7 @@ export const LabelContainerSC = styled(Box)`
 
 export const LabelSC = styled(Typography)`
   margin-right: ${space.xxs} !important;
-  color: ${colors.darkest} !important;
+  color: ${COLORS.NEUTRAL.N900} !important;
   font-size: ${typography.body.fontSize} !important;
   font-weight: ${typography.body.fontWeight} !important;
   transition: color 0.3s ease-in-out;
@@ -65,7 +65,7 @@ export const InputSC = styled(TextField)`
     padding: ${space.xs} ${space.m} !important;
     border: 0px !important;
     border-radius: ${borderRadius.s} !important;
-    color: ${colors.darkest} !important;
+    color: ${COLORS.NEUTRAL.N900} !important;
     background-color: ${COLORS.NEUTRAL.N50} !important;
     transition: border 0.1s ease-in-out;
 
@@ -97,7 +97,7 @@ export const TooltipSC = styled(Box)`
 
 export const TooltipTextSC = styled(Typography)`
   margin-bottom: ${space.xs} !important;
-  color: ${colors.darkest} !important;
+  color: ${COLORS.NEUTRAL.N900} !important;
   font-size: inherit !important;
   font-weight: inherit !important;
 `;

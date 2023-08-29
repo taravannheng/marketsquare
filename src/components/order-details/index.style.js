@@ -15,7 +15,7 @@ export const ContentSC = styled(Box)`
 
 export const OrderIDSC = styled(Typography)`
   margin-bottom: 16px;
-  color: ${colors.darkest} !important;
+  color: ${COLORS.NEUTRAL.N900} !important;
   font-size: ${typography.h4.fontSize} !important;
   font-weight: ${typography.h4.fontWeight} !important;
 `;
@@ -38,7 +38,7 @@ export const PaymentSC = styled(Box)`
 
 export const PaymentTitleSC = styled(Typography)`
   margin-bottom: 16px;
-  color: ${colors.darkest} !important;
+  color: ${COLORS.NEUTRAL.N900} !important;
   font-size: ${typography.h5.fontSize} !important;
   font-weight: ${typography.h5.fontWeight} !important;
 `;
@@ -89,7 +89,7 @@ export const ShippingSC = styled(Box)`
 
 export const ShippingTitleSC = styled(Typography)`
   margin-bottom: 16px;
-  color: ${colors.darkest} !important;
+  color: ${COLORS.NEUTRAL.N900} !important;
   font-size: ${typography.h5.fontSize} !important;
   font-weight: ${typography.h5.fontWeight} !important;
 `;

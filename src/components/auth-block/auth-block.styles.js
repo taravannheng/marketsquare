@@ -33,7 +33,7 @@ export const SignInButtonSC = styled(Button)`
   font-size: ${typography.body.fontSize} !important;
   font-weight: ${typography.body.fontWeight} !important;
   text-transform: none !important;
-  color: ${colors.darkest} !important;
+  color: ${COLORS.NEUTRAL.N900} !important;
   transition: background-color 0.2s ease-in-out !important;
 
   &:hover {

@@ -53,7 +53,7 @@ export const ItemNameSC = styled(Typography)`
   margin-bottom: ${space.xxs} !important;
   font-size: ${typography.h5.fontSize} !important;
   font-weight: ${typography.h5.fontWeight} !important;
-  color: ${colors.darkest};
+  color: ${COLORS.NEUTRAL.N900};
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

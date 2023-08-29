@@ -52,7 +52,7 @@ export const TitleContainerSC = styled(Box)`
 
 export const ProductsDisplayTitleSC = styled(Typography)`
   margin-bottom: 16px !important;
-  color: ${colors.darkest} !important;
+  color: ${COLORS.NEUTRAL.N900} !important;
   font-size: ${typography.h3.fontSize} !important;
   font-weight: ${typography.h3.fontWeight} !important;
 

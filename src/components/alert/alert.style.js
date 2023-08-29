@@ -12,11 +12,11 @@ export const AlertSC = styled(Alert)`
     font-size: ${typography.body.fontSize} !important;
     font-weight: ${typography.body.fontWeight} !important;
     line-height: ${typography.body.lineHeight} !important;
-    color: ${colors.darkest} !important;
+    color: ${COLORS.NEUTRAL.N900} !important;
   }
 
   & button {
-    color: ${colors.darkest} !important;
+    color: ${COLORS.NEUTRAL.N900} !important;
     width: clamp(24px, 24px, 24px) !important;
     height: clamp(24px, 24px, 24px) !important;
     transition: all 0.3s ease-in-out !important;

@@ -30,7 +30,7 @@ const BootstrapInput = styled(InputBase)(({ theme }) => ({
     backgroundColor: `${COLORS.NEUTRAL.N50}`,
     fontSize: 14,
     padding: "10px 26px 10px 12px",
-    color: `${colors.darkest}`,
+    color: `${COLORS.NEUTRAL.N900}`,
     transition: theme.transitions.create(["border-color", "box-shadow"]),
     fontFamily: [
       "Inter",
@@ -77,7 +77,7 @@ const Sort: FC<SortInterface> = ({ sortMenuItem, setSortMenuItem }) => {
                 color: `${
                   sortMenuItem === 0
                     ? `${COLORS.NEUTRAL.N0} !important`
-                    : `${colors.darkest} !important`
+                    : `${COLORS.NEUTRAL.N900} !important`
                 }`,
               }}
             >
@@ -94,7 +94,7 @@ const Sort: FC<SortInterface> = ({ sortMenuItem, setSortMenuItem }) => {
                 color: `${
                   sortMenuItem === 1
                     ? `${COLORS.NEUTRAL.N0} !important`
-                    : `${colors.darkest} !important`
+                    : `${COLORS.NEUTRAL.N900} !important`
                 }`,
               }}
             >
@@ -111,7 +111,7 @@ const Sort: FC<SortInterface> = ({ sortMenuItem, setSortMenuItem }) => {
                 color: `${
                   sortMenuItem === 2
                     ? `${COLORS.NEUTRAL.N0} !important`
-                    : `${colors.darkest} !important`
+                    : `${COLORS.NEUTRAL.N900} !important`
                 }`,
               }}
             >

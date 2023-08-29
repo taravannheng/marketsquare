@@ -68,7 +68,7 @@ export const ProductNameSC = styled(Typography)`
   font-size: ${typography.h5.fontSize} !important;
   font-weight: ${typography.h5.fontWeight} !important;
   line-height: 16px !important;
-  color: ${colors.darkest} !important;
+  color: ${COLORS.NEUTRAL.N900} !important;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

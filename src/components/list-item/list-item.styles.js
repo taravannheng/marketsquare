@@ -36,7 +36,7 @@ export const ListItemIconSC = styled(ListItemIcon)`
 `;
 
 export const ListItemTextSC = styled(ListItemText)`
-  color: ${colors.darkest} !important;
+  color: ${COLORS.NEUTRAL.N900} !important;
   font-size: ${typography.body.fontSize} !important;
   font-weight: ${typography.body.fontWeight} !important;
   transition: color 0.2s ease-in-out !important;
