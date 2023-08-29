@@ -11,7 +11,7 @@ export const SearchBoxSC = styled(Box)`
   align-items: center;
   height: clamp(40px, 40px, 40px) !important;
   padding: 0px 8px;
-  background-color: ${colors.light};
+  background-color: ${COLORS.NEUTRAL.N50};
   border-radius: 1000px;
   overflow: hidden;
   transition: border 0.3s ease-in-out;
@@ -42,7 +42,7 @@ export const TextFieldSC = styled(TextField)`
   border: 0px !important;
 
   .MuiInputBase-root {
-    background-color: ${colors.light} !important;
+    background-color: ${COLORS.NEUTRAL.N50} !important;
     width: clamp(100%, 100%, 100%) !important;
     height: clamp(40px, 40px, 40px) !important;
     outline: none;

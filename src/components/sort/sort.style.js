@@ -10,7 +10,7 @@ export const SortSC = styled(Box)`
   align-items: center;
   width: clamp(100%, 100%, 300px) !important;
   padding: 0 0 0 12px;
-  background-color: ${colors.light};
+  background-color: ${COLORS.NEUTRAL.N50};
   border-radius: 8px;
 
   @media only screen and (min-width: 640px) {

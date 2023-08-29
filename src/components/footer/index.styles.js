@@ -111,7 +111,7 @@ export const FooterRightContainerSC = styled(Box)`
   flex-grow: 1;
   height: clamp(100%, 100%, 100%);
   padding: 0 64px !important;
-  border: 1px solid ${colors.light};
+  border: 1px solid ${COLORS.NEUTRAL.N50};
   background-color: ${COLORS.NEUTRAL.N0};
 `;
 

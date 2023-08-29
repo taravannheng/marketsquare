@@ -7,7 +7,7 @@ import { Card, CardContent, CardMedia, Typography } from "@mui/material";
 export const RelatedProductCardSC = styled(Card)`
   display: flex;
   flex-direction: row;
-  border: 1px solid ${colors.light};
+  border: 1px solid ${COLORS.NEUTRAL.N50};
   border-radius: 8px !important;
   box-shadow: none !important;
 

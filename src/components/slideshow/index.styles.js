@@ -59,7 +59,7 @@ export const SlideShowPaginationPrevButtonSC = styled(Button)`
   border: 0 !important;
   border-radius: ${borderRadius.rounded} !important;
   margin-right: 36px !important;
-  background-color: ${colors.light} !important;
+  background-color: ${COLORS.NEUTRAL.N50} !important;
   color: ${colors.darkest} !important;
   font-size: ${typography.body.fontSize} !important;
   font-weight: ${typography.body.fontWeight} !important;
@@ -82,7 +82,7 @@ export const SlideShowPaginationNextButtonSC = styled(Button)`
   border: 0 !important;
   border-radius: ${borderRadius.rounded} !important;
   margin-left: 36px !important;
-  background-color: ${colors.light} !important;
+  background-color: ${COLORS.NEUTRAL.N50} !important;
   color: ${colors.darkest} !important;
   font-size: ${typography.body.fontSize} !important;
   font-weight: ${typography.body.fontWeight} !important;
@@ -106,7 +106,7 @@ export const SlideShowPaginationIndicatorSC = styled(Box)`
   width: clamp(14px, 14px, 14px) !important;
   height: clamp(14px, 14px, 14px) !important;
   border-radius: ${borderRadius.rounded} !important;
-  background-color: ${colors.light};
+  background-color: ${COLORS.NEUTRAL.N50};
   cursor: pointer;
   transition: all 0.3s ease;
 

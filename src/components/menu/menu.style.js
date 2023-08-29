@@ -14,7 +14,7 @@ export const MenuSC = styled(Menu)`
   }
 
   & ul {
-    background-color: ${colors.light} !important;
+    background-color: ${COLORS.NEUTRAL.N50} !important;
   }  
 `;
 

@@ -58,7 +58,7 @@ export const InputSC = styled(TextField)`
     border: 0px !important;
     border-radius: ${borderRadius.s} !important;
     color: ${colors.darkest} !important;
-    background-color: ${colors.light} !important;
+    background-color: ${COLORS.NEUTRAL.N50} !important;
     transition: border 0.1s ease-in-out;
 
     &:focus {
@@ -83,7 +83,7 @@ export const TooltipSC = styled(Box)`
   font-size: ${typography.body.fontSize} !important;
   font-weight: ${typography.body.fontWeight} !important;
   line-height: ${typography.body.lineHeight} !important;
-  background-color: ${colors.light} !important;
+  background-color: ${COLORS.NEUTRAL.N50} !important;
   margin-bottom: ${spacing.m} !important;
 `;
 

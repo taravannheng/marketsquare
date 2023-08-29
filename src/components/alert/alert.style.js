@@ -5,7 +5,7 @@ import { colors, typography, space, borderRadius } from "../../styles/styles";
 
 export const AlertSC = styled(Alert)`
   padding: ${space.xs} ${space.m} !important;
-  background-color: ${colors.light};
+  background-color: ${COLORS.NEUTRAL.N50};
   border-radius: ${borderRadius.s};
 
   .MuiAlert-message {

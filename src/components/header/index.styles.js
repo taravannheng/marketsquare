@@ -39,7 +39,7 @@ export const ToolbarSC = styled(Toolbar)`
   width: 100% !important;
   max-width: 1280px !important;
   height: clamp(56px, 56px, 56px) !important;
-  border-bottom: 1px solid ${colors.light};
+  border-bottom: 1px solid ${COLORS.NEUTRAL.N50};
   padding: 0 24px !important;
   background-color: ${COLORS.NEUTRAL.N0};
   box-shadow: none;
@@ -78,7 +78,7 @@ export const MenuIconSC = styled(Icon)`
   cursor: pointer;
   color: ${colors.dark};
   transition: background-color 0.3s ease-in-out;
-  background-color: ${colors.light} !important;
+  background-color: ${COLORS.NEUTRAL.N50} !important;
 
   &:hover {
     color: ${COLORS.PRIMARY.P500} !important;

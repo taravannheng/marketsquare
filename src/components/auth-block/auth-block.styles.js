@@ -29,7 +29,7 @@ export const SignInButtonSC = styled(Button)`
   width: 100% !important;
   height: clamp(48px, 48px, 48px) !important;
   border-radius: ${borderRadius.s} !important;
-  background-color: ${colors.light} !important;
+  background-color: ${COLORS.NEUTRAL.N50} !important;
   font-size: ${typography.body.fontSize} !important;
   font-weight: ${typography.body.fontWeight} !important;
   text-transform: none !important;

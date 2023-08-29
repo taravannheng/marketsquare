@@ -25,7 +25,7 @@ border: 0px !important;
   border: 0px !important;
   border-radius: ${borderRadius.s} !important;
   color: ${colors.darkest} !important;
-  background-color: ${colors.light} !important;
+  background-color: ${COLORS.NEUTRAL.N50} !important;
   transition: border 0.1s ease-in-out;
 
   &:focus {

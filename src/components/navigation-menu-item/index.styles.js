@@ -44,7 +44,7 @@ export const SubMenuSC = styled(Box)`
   padding: 24px;
   background-color: ${COLORS.NEUTRAL.N0} !important;
   overflow: hidden;
-  border: 1px solid ${colors.light} !important;
+  border: 1px solid ${COLORS.NEUTRAL.N50} !important;
 `;
 
 export const SubMenuMediaSC = styled(CardMedia)`

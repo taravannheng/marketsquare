@@ -11,7 +11,7 @@ export const ButtonSC = styled(Button)`
   color: ${colors.darkest} !important;
   font-size: ${typography.body.fontSize} !important;
   font-weight: ${typography.body.fontWeight} !important;
-  background-color: ${colors.light} !important;
+  background-color: ${COLORS.NEUTRAL.N50} !important;
   border-radius: ${borderRadius.s} !important;
   box-shadow: none !important;
   text-transform: none !important;
@@ -32,7 +32,7 @@ export const RoundedButtonSC = styled(Button)`
   width: clamp(100%, 100%, 100%);
   border: 0 !important;
   border-radius: 1000px !important;
-  background-color: ${colors.light} !important;
+  background-color: ${COLORS.NEUTRAL.N50} !important;
   color: ${colors.darkest} !important;
   font-size: ${typography.body.fontSize} !important;
   font-weight: ${typography.body.fontWeight} !important;
@@ -52,7 +52,7 @@ export const IconButtonSC = styled(IconButton)`
   padding-right: 12px !important;
   border: 0 !important;
   border-radius: 1000px !important;
-  background-color: ${colors.light} !important;
+  background-color: ${COLORS.NEUTRAL.N50} !important;
   color: ${colors.darkest} !important;
   font-size: ${typography.body.fontSize} !important;
   font-weight: ${typography.body.fontWeight} !important;

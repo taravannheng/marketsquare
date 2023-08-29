@@ -148,7 +148,7 @@ const Cart: FC<CartProps> = () => {
           {isCartEmpty && (
             <EmptyCartContentSC>
               <EmptyCartIconSC>
-                <ShoppingBasketIcon sx={{ fontSize: 120, color: colors.light }} />
+                <ShoppingBasketIcon sx={{ fontSize: 120, color: COLORS.NEUTRAL.N50 }} />
               </EmptyCartIconSC>
               <EmptyCartTextSC>Cart is empty...</EmptyCartTextSC>
               <ShoppingButtonSC href={`${ROUTES.LANDING}`}>

@@ -31,7 +31,7 @@ export const CartItemRootSC = styled(Card)`
   display: flex;
   width: clamp(312px, 312px, 312px);
   height: clamp(120px, 120px, 120px);
-  border: 1px solid ${colors.light};
+  border: 1px solid ${COLORS.NEUTRAL.N50};
   border-radius: ${borderRadius.s} !important;
   margin-bottom: ${space.xs};
   box-shadow: none !important;
@@ -87,7 +87,7 @@ export const DecreaseButtonSC = styled(IconButton)`
   width: clamp(24px, 24px, 24px);
   height: clamp(24px, 24px, 24px);
   border-radius: ${borderRadius.rounded} !important;
-  background-color: ${colors.light} !important;
+  background-color: ${COLORS.NEUTRAL.N50} !important;
   transition: background-color 0.3s linear;
 
   &:hover {
@@ -117,7 +117,7 @@ export const IncreaseButtonSC = styled(IconButton)`
   width: clamp(24px, 24px, 24px);
   height: clamp(24px, 24px, 24px);
   border-radius: ${borderRadius.rounded} !important;
-  background-color: ${colors.light} !important;
+  background-color: ${COLORS.NEUTRAL.N50} !important;
   transition: background-color 0.3s linear;
 
   &:hover {
@@ -141,7 +141,7 @@ export const RemoveButtonSC = styled(IconButton)`
   width: clamp(44px, 44px, 44px) !important;
   height: clamp(24px, 24px, 24px);
   border-radius: ${borderRadius.rounded} !important;
-  background-color: ${colors.light} !important;
+  background-color: ${COLORS.NEUTRAL.N50} !important;
   transition: background-color 0.3s linear;
 
   &:hover {

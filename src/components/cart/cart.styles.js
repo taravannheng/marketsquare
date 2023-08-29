@@ -91,7 +91,7 @@ export const TotalTextSC = styled(Typography)`
 export const CheckoutButtonSC = styled(Button)`
   ${flexCentered};
   width: clamp(100%, 100%, 100%);
-  background-color: ${colors.light} !important;
+  background-color: ${COLORS.NEUTRAL.N50} !important;
   color: ${colors.darkest} !important;
   font-size: ${typography.h5.fontSize} !important;
   font-weight: ${typography.h5.fontWeight} !important;
@@ -139,7 +139,7 @@ export const IconButtonSC = styled(IconButton)`
   width: clamp(32px, 32px, 32px);
   height: clamp(32px, 32px, 32px);
   border-radius: ${borderRadius.rounded};
-  background-color: ${colors.light} !important;
+  background-color: ${COLORS.NEUTRAL.N50} !important;
   transition: background-color 0.3s linear;
 
   &:hover {
