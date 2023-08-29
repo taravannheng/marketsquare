@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { Box, Button } from "@mui/material";
 
-import { colors, typography, space, borderRadius, shadows } from "../../styles/styles";
+import { COLORS, typography, space, borderRadius, shadows } from "../../styles/styles";
 
 export const AuthBlockSC = styled(Box)`
   display: flex;

@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 import { ShoppingCart } from "@mui/icons-material";
 
-import { colors, typography, space, borderRadius } from "../../styles/styles";
+import { COLORS, typography, space, borderRadius } from "../../styles/styles";
 
 // SHARED STYLES -------------------------------------
 

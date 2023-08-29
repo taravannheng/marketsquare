@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { Avatar } from "@mui/material";
 
-import { colors } from "../../styles/styles";
+import { COLORS } from "../../styles/styles";
 
 export const AvatarSC = styled(Avatar)`
   border: 2px solid ${COLORS.NEUTRAL.N50};

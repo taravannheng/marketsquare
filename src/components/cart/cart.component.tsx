@@ -39,7 +39,7 @@ import {
 } from "../../store/cart/cart.selector";
 import { formatPrice } from "../../utils/helpers";
 import { ROUTES } from "../../utils/constants";
-import { colors } from "../../styles/styles";
+import { COLORS } from "../../styles/styles";
 
 const Cart: FC<CartProps> = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);

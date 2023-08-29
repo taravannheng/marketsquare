@@ -12,7 +12,7 @@ import {
   Typography,
 } from "@mui/material";
 
-import { colors, typography, space } from "../../styles/styles";
+import { COLORS, typography, space } from "../../styles/styles";
 
 // SHARED STYLES ------------------------------------------
 

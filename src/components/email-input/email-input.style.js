@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 import { Box, Icon, TextField, Typography } from "@mui/material";
 
-import { colors, typography, space, borderRadius } from "../../styles/styles";
+import { COLORS, typography, space, borderRadius } from "../../styles/styles";
 
 // SHARED STYLES ---------------------------------------------------------------
 

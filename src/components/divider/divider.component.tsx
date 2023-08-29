@@ -2,7 +2,7 @@ import { FC } from "react";
 
 import DividerProps from "./divider.interface";
 import { DividerSC } from "./divider.styles";
-import { colors } from '../../styles/styles';
+import { COLORS } from '../../styles/styles';
 
 const Divider: FC<DividerProps> = ({ width, height, color }) => {
   return (

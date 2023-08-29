@@ -8,7 +8,7 @@ import {
   Typography,
 } from "@mui/material";
 
-import { colors, typography, borderRadius, space } from "../../styles/styles";
+import { COLORS, typography, borderRadius, space } from "../../styles/styles";
 
 // SHARED STYLES -------------------------------------------------------
 

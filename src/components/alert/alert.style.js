@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { Alert } from "@mui/material";
 
-import { colors, typography, space, borderRadius } from "../../styles/styles";
+import { COLORS, typography, space, borderRadius } from "../../styles/styles";
 
 export const AlertSC = styled(Alert)`
   padding: ${space.xs} ${space.m} !important;
