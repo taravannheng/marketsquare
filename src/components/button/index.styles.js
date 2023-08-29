@@ -1,17 +1,17 @@
 import styled from "styled-components";
 import { Button, IconButton } from "@mui/material";
 
-import colors from "../../styles/colors";
+import COLORS from "../../styles/colors";
 import typography from "../../styles/typography";
 import borderRadius from "../../styles/border-radius";
 
 export const ButtonSC = styled(Button)`
   width: clamp(100%, 100%, 100%);
   height: clamp(48px, 48px, 48px) !important;
-  color: ${colors.darkest} !important;
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
-  background-color: ${colors.light} !important;
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
+  color: ${COLORS.NEUTRAL.N900} !important;
+  background-color: ${COLORS.NEUTRAL.N50} !important;
   border-radius: ${borderRadius.s} !important;
   box-shadow: none !important;
   text-transform: none !important;
@@ -19,12 +19,12 @@ export const ButtonSC = styled(Button)`
   transition: background-color 0.3s linear;
 
   &:hover {
-    color: ${colors.lightest} !important;
-    background-color: ${colors.primary} !important;
+    color: ${COLORS.NEUTRAL.N0} !important;
+    background-color: ${COLORS.PRIMARY.P500} !important;
   }
 
   &:hover > * {
-    color: ${colors.lightest} !important;
+    color: ${COLORS.NEUTRAL.N0} !important;
   }
 `;
 
@@ -32,15 +32,15 @@ export const RoundedButtonSC = styled(Button)`
   width: clamp(100%, 100%, 100%);
   border: 0 !important;
   border-radius: 1000px !important;
-  background-color: ${colors.light} !important;
-  color: ${colors.darkest} !important;
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
+  background-color: ${COLORS.NEUTRAL.N50} !important;
+  color: ${COLORS.NEUTRAL.N900} !important;
   text-transform: none !important;
 
   &:hover {
-    background-color: ${colors.primary} !important;
-    color: ${colors.lightest} !important;
+    background-color: ${COLORS.PRIMARY.P500} !important;
+    color: ${COLORS.NEUTRAL.N0} !important;
   }
 `;
 
@@ -52,10 +52,10 @@ export const IconButtonSC = styled(IconButton)`
   padding-right: 12px !important;
   border: 0 !important;
   border-radius: 1000px !important;
-  background-color: ${colors.light} !important;
-  color: ${colors.darkest} !important;
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
+  background-color: ${COLORS.NEUTRAL.N50} !important;
+  color: ${COLORS.NEUTRAL.N900} !important;
   text-transform: none !important;
 
   & > svg {
@@ -63,7 +63,7 @@ export const IconButtonSC = styled(IconButton)`
   }
 
   &:hover {
-    background-color: ${colors.primary} !important;
-    color: ${colors.lightest} !important;
+    background-color: ${COLORS.PRIMARY.P500} !important;
+    color: ${COLORS.NEUTRAL.N0} !important;
   }
 `;

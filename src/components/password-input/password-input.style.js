@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import colors from "../../styles/colors";
+import COLORS from "../../styles/colors";
 import typography from "../../styles/typography";
 import spacing from "../../styles/spacing";
 import borderRadius from "../../styles/border-radius";
@@ -24,13 +24,13 @@ export const LabelContainerSC = styled(Box)`
 
 export const LabelSC = styled(Typography)`
   margin-right: ${spacing.xxs} !important;
-  color: ${colors.darkest} !important;
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
+  color: ${COLORS.NEUTRAL.N900} !important;
   transition: color 0.3s ease-in-out;
 
   ${PasswordInputSC}:focus-within & {
-    color: ${colors.primary} !important;
+    color: ${COLORS.PRIMARY.P500} !important;
   }
 `;
 
@@ -61,12 +61,12 @@ export const InputSC = styled(TextField)`
     padding: ${spacing.xs} ${spacing.m} !important;
     border: 0px !important;
     border-radius: ${borderRadius.s} !important;
-    color: ${colors.darkest} !important;
-    background-color: ${colors.light} !important;
+    color: ${COLORS.NEUTRAL.N900} !important;
+    background-color: ${COLORS.NEUTRAL.N50} !important;
     transition: border 0.1s ease-in-out;
 
     &:focus {
-      border: 1px solid ${colors.primary} !important;
+      border: 1px solid ${COLORS.PRIMARY.P500} !important;
     }
   }
 
@@ -93,7 +93,7 @@ export const ShowPasswordIconSC = styled(Icon)`
     transition: color 0.3s ease-in-out;
 
     &:hover {
-      color: ${colors.primary} !important;
+      color: ${COLORS.PRIMARY.P500} !important;
     }
   }
 `;
@@ -106,16 +106,16 @@ export const TooltipSC = styled(Box)`
   width: 100% !important;
   padding: ${spacing.xs} !important;
   border-radius: ${borderRadius.s} !important;
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
-  line-height: ${typography.body.lineHeight} !important;
-  background-color: ${colors.light} !important;
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
+  line-height: ${typography.body1.lineHeight} !important;
+  background-color: ${COLORS.NEUTRAL.N50} !important;
   margin-bottom: ${spacing.m} !important;
 `;
 
 export const TooltipTextSC = styled(Typography)`
   margin-bottom: ${spacing.xs} !important;
-  color: ${colors.darkest} !important;
+  color: ${COLORS.NEUTRAL.N900} !important;
   font-size: inherit !important;
   font-weight: inherit !important;
 `;
@@ -140,7 +140,7 @@ export const TooltipItemIconSC = styled(ListItemIcon)`
   max-width: 18px !important;
   height: 18px !important;
   margin-right: ${spacing.xs} !important;
-  color: ${colors.grey} !important;
+  color: ${COLORS.NEUTRAL.N300} !important;
   transition: all 0.3s ease-in-out;
 
   & > svg {
@@ -156,10 +156,10 @@ export const TooltipItemIconSC = styled(ListItemIcon)`
 export const TooltipItemTextSC = styled(ListItemText)`
   margin: 0 !important;
   padding: 0 !important;
-  color: ${colors.dark} !important;
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
-  line-height: ${typography.body.lineHeight} !important;
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
+  line-height: ${typography.body1.lineHeight} !important;
+  color: ${COLORS.NEUTRAL.N500} !important;
 
   & > span {
     font-size: inherit !important;
@@ -170,7 +170,7 @@ export const TooltipItemTextSC = styled(ListItemText)`
 `;
 
 export const StatusTextSC = styled(Typography)`
-  color: ${colors.red} !important;
+  color: ${COLORS.RED.R500} !important;
   font-size: ${typography.small.fontSize} !important;
   font-weight: ${typography.small.fontWeight} !important;
   font-style: italic !important;

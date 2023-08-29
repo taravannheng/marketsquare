@@ -7,7 +7,7 @@ import '@testing-library/jest-dom'
 import UsernameInput from "./username-input.component";
 import UsernameInterface from "../../interfaces/username.interface";
 import { renderWithProvider } from "../../utils/test/test.util";
-import colors from "../../styles/colors";
+import COLORS from "../../styles/colors";
 
 let username: UsernameInterface;
 
@@ -92,7 +92,7 @@ describe("UsernameInput", () => {
     fireEvent.blur(input);
 
     expect(statusIcon).toBeInTheDocument();
-    expect(statusIcon).toHaveStyle(`color: ${colors.green}`);
+    expect(statusIcon).toHaveStyle(`color: ${COLORS.GREEN.G400}`);
 
   });
 
@@ -121,7 +121,7 @@ describe("UsernameInput", () => {
     const statusIcon = label.nextSibling?.firstChild;
 
     expect(statusIcon).toBeInTheDocument();
-    expect(statusIcon).toHaveStyle(`color: ${colors.red}`);
+    expect(statusIcon).toHaveStyle(`color: ${COLORS.RED.R500}`);
   });
 
   test("renders the error message when the value is invalid", () => {

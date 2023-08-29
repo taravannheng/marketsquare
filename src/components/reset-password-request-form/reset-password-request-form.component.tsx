@@ -9,7 +9,7 @@ import { checkEmail } from '../../utils/helpers';
 import { AlertContainerSC, ButtonContainerSC, FormSC, TitleSC } from './reset-password-request-form.styles';
 import { requestPasswordReset } from '../../apis/passwords/password.api';
 import Button from '../button/index.component';
-import colors from '../../styles/colors';
+import COLORS from '../../styles/colors';
 
 const ResetPasswordRequestForm: FC<ResetPasswordRequestFormI> = () => {
   const [isButtonLoading, setIsButtonLoading] = useState<boolean>(false);
@@ -109,8 +109,8 @@ const ResetPasswordRequestForm: FC<ResetPasswordRequestFormI> = () => {
       <EmailInput email={email} onChange={emailChangeHandler} />
       <ButtonContainerSC>
       <Button
-        labelColor={`${colors.lightest}`}
-        backgroundColor={`${colors.primary}`}
+        labelColor={`${COLORS.NEUTRAL.N0}`}
+        backgroundColor={`${COLORS.PRIMARY.P500}`}
         label="Send Code"
         styleType="default"
         actionType='submit'

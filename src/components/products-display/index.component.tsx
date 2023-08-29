@@ -22,7 +22,7 @@ import {
 } from "./index.styles";
 import slideShowSample from "../../sample/slideshow/slideshow-sample";
 import { Pagination, Stack } from "@mui/material";
-import colors from "../../styles/colors";
+import COLORS from "../../styles/colors";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { getSlideshow } from "../../apis/slideshows/slideshow.api";
 import SlideShowItemInterface from "../../interfaces/slideshow-item.interface";
@@ -33,7 +33,7 @@ import ProductCardSkeleton from "../product-card/product-card-skeleton.component
 const theme = createTheme({
   palette: {
     primary: {
-      main: `${colors.primary}`,
+      main: `${COLORS.PRIMARY.P500}`,
     },
   },
 });

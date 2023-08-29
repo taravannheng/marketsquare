@@ -1,20 +1,21 @@
 import styled from "styled-components";
-import { Typography, Box, Icon, Select, MenuItem } from "@mui/material";
+import { Typography, Box, Icon, Select, MenuItem, MenuList } from "@mui/material";
 
-import colors from "../../styles/colors";
-import typography from "../../styles/typography";
+import { COLORS, typography, BREAKPOINTS, space } from "../../styles/styles";
 
 export const SortSC = styled(Box)`
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: clamp(100%, 100%, 300px) !important;
-  padding: 0 0 0 12px;
-  background-color: ${colors.light};
+  width: auto !important;
+  max-width: fit-content !important;
+  min-height: 44px !important;
+  padding: 0 12px;
+  background-color: ${COLORS.NEUTRAL.N50};
   border-radius: 8px;
+  cursor: pointer;
 
-  @media only screen and (min-width: 640px) {
-    width: auto !important;
+  @media only screen and (min-width: 768px) {
     max-width: 284px !important;
   }
 `;
@@ -23,8 +24,11 @@ export const LabelContainerSC = styled(Box)`
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding-right: 12px;
-  border-right: 1px solid ${colors.grey};
+
+  @media only screen and (min-width: ${BREAKPOINTS.sm}px) {
+    padding-right: 12px;
+    border-right: 1px solid ${COLORS.NEUTRAL.N300};
+  }
 `;
 
 export const LabelIconSC = styled(Icon)`
@@ -37,9 +41,9 @@ export const LabelIconSC = styled(Icon)`
 `;
 
 export const LabelSC = styled(Typography)`
-  color: ${colors.darkest} !important;
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
+  color: ${COLORS.NEUTRAL.N900} !important;
 `;
 
 export const SelectContainerSC = styled(Box)`
@@ -49,20 +53,56 @@ export const SelectContainerSC = styled(Box)`
 export const SelectSC = styled(Select)`
   width: clamp(100%, 100%, 100%) !important;
   outline: 0 !important;
-  color: ${colors.darkest} !important;
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
+  color: ${COLORS.NEUTRAL.N900} !important;
 `;
 
 export const MenuItemSC = styled(MenuItem)`
   width: clamp(100%, 100%, 100%) !important;
-  background-color: ${colors.lightest} !important;
-  color: ${colors.darkest} !important;
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
+  background-color: ${COLORS.NEUTRAL.N0} !important;
+  color: ${COLORS.NEUTRAL.N900} !important;
 
   &:hover {
-    color: ${colors.lightest} !important;
-    background-color: ${colors.primary} !important;
+    color: ${COLORS.NEUTRAL.N0} !important;
+    background-color: ${COLORS.PRIMARY.P500} !important;
+  }
+`;
+
+// BOTTOM SHEET ------------------------------
+
+export const BottomSheetTitleSC = styled(Typography)`
+  font-size: ${typography.h4.fontSize} !important;
+  font-weight: ${typography.h4.fontWeight} !important;
+  color: ${COLORS.NEUTRAL.N900} !important;
+`;
+
+export const BottomSheetMenuListSC = styled(MenuList)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: ${space.xxl} !important;
+`;
+
+export const BottomSheetMenuItemSC = styled(MenuItem)`
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  min-width: calc(100% - 32px) !important;
+  width: calc(100% - 32px) !important;
+  max-width: calc(100% - 32px) !important;
+  height: clamp(56px, 56px, 56px) !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  background-color: ${COLORS.NEUTRAL.N0} !important;
+  color: ${COLORS.NEUTRAL.N500} !important;
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
+  
+  &:not(:last-child) {
+    border-bottom: 1px solid ${COLORS.NEUTRAL.N100} !important;
   }
 `;

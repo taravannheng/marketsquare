@@ -7,7 +7,7 @@ import SlideshowSkeleton from "./slideshow-skeleton.component";
 import Button from "../button/index.component";
 import SlideShowInterface from "./index.interface";
 import SlideShowItemInterface from "../../interfaces/slideshow-item.interface";
-import colors from "../../styles/colors";
+import COLORS from "../../styles/colors";
 import { Box, useMediaQuery } from "@mui/material";
 import {
   IndicatorTextSC,

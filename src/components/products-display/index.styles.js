@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Grid, Typography, Box, Stack } from "@mui/material";
 
-import colors from "../../styles/colors";
+import COLORS from "../../styles/colors";
 import typography from "../../styles/typography";
 
 export const ProductsDisplaySC = styled(Box)`
@@ -40,24 +40,19 @@ export const SlideShowContainerSC = styled(Box)`
 
 export const TitleContainerSC = styled(Box)`
   display: flex;
-  flex-direction: column;
+  flex-direction: row; 
+  justify-content: space-between; 
+  align-items: center !important;
   margin-bottom: 32px !important;
-
-  @media only screen and (min-width: 640px) {
-    flex-direction: row; 
-    justify-content: space-between; 
-    align-items: center;
-  }
 `;
 
 export const ProductsDisplayTitleSC = styled(Typography)`
-  margin-bottom: 16px !important;
-  color: ${colors.darkest} !important;
+  margin-bottom: 0px !important;
+  color: ${COLORS.NEUTRAL.N900} !important;
   font-size: ${typography.h3.fontSize} !important;
   font-weight: ${typography.h3.fontWeight} !important;
 
   @media only screen and (min-width: 640px) {
-    margin-bottom: 0px !important;
     font-size: ${typography.h2.fontSize} !important;
     font-weight: ${typography.h2.fontWeight} !important;
   }
@@ -70,9 +65,9 @@ export const ProductsDisplayTitleSC = styled(Typography)`
 `
 
 export const ProductsDisplayEmptyTextSC = styled(Typography)`
-  color: ${colors.dark} !important;
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
+  color: ${COLORS.NEUTRAL.N500} !important;
 `
 
 export const PaginationStackSC = styled(Stack)`

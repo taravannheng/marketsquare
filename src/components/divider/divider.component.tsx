@@ -2,7 +2,7 @@ import { FC } from "react";
 
 import DividerProps from "./divider.interface";
 import { DividerSC } from "./divider.styles";
-import { colors } from '../../styles/styles';
+import { COLORS } from '../../styles/styles';
 
 const Divider: FC<DividerProps> = ({ width, height, color }) => {
   return (
@@ -10,7 +10,7 @@ const Divider: FC<DividerProps> = ({ width, height, color }) => {
       sx={{
         width: `${width ?? '100%'} !important`,
         height: `${height ?? '1px'} !important`,
-        backgroundColor: `${color ?? colors.light} !important`,
+        backgroundColor: `${color ?? COLORS.NEUTRAL.N50} !important`,
       }}
     />
   );
