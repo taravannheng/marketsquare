@@ -38,8 +38,8 @@ export const LabelIconSC = styled(Icon)`
 
 export const LabelSC = styled(Typography)`
   color: ${colors.darkest} !important;
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
 `;
 
 export const SelectContainerSC = styled(Box)`
@@ -50,16 +50,16 @@ export const SelectSC = styled(Select)`
   width: clamp(100%, 100%, 100%) !important;
   outline: 0 !important;
   color: ${colors.darkest} !important;
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
 `;
 
 export const MenuItemSC = styled(MenuItem)`
   width: clamp(100%, 100%, 100%) !important;
   background-color: ${colors.lightest} !important;
   color: ${colors.darkest} !important;
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
 
   &:hover {
     color: ${colors.lightest} !important;

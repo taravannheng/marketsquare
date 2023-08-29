@@ -37,8 +37,8 @@ export const ListItemIconSC = styled(ListItemIcon)`
 
 export const ListItemTextSC = styled(ListItemText)`
   color: ${colors.darkest} !important;
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
   transition: color 0.2s ease-in-out !important;
 
   ${ListItemSC}:hover & {

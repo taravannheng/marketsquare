@@ -35,7 +35,7 @@ export const CommentSC = styled(Typography)`
   height: auto;
   overflow-x: hidden;
   color: ${colors.dark};
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
-  line-height: ${typography.body.lineHeight} !important;
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
+  line-height: ${typography.body1.lineHeight} !important;
 `;

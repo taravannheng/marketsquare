@@ -63,8 +63,8 @@ export const ItemSubTotalSC = styled(Typography)`
   width: clamp(100%, 100%, 100%);
   margin-bottom: ${space.s} !important;
   color: ${colors.dark};
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
 `;
 
 export const ControlContainerSC = styled(Box)`
@@ -108,8 +108,8 @@ export const DecreaseButtonSC = styled(IconButton)`
 
 export const QuantityTextSC = styled(Typography)`
   color: ${colors.dark} !important;
-  font-size: ${typography.body.fontSize};
-  font-weight: ${typography.body.fontWeight};
+  font-size: ${typography.body1.fontSize};
+  font-weight: ${typography.body1.fontWeight};
 `;
 
 export const IncreaseButtonSC = styled(IconButton)`
