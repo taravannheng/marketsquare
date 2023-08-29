@@ -98,7 +98,7 @@ export const DecreaseButtonSC = styled(IconButton)`
     width: 16px;
     height: 16px;
     font-size: ${typography.h5.fontSize}
-    color: ${colors.grey};
+    color: ${COLORS.NEUTRAL.N300};
   }
 
   &:hover > svg {
@@ -128,7 +128,7 @@ export const IncreaseButtonSC = styled(IconButton)`
     width: 16px;
     height: 16px;
     font-size: ${typography.h5.fontSize}
-    color: ${colors.grey};
+    color: ${COLORS.NEUTRAL.N300};
   }
 
   &:hover > svg {
@@ -152,7 +152,7 @@ export const RemoveButtonSC = styled(IconButton)`
     width: 16px;
     height: 16px;
     font-size: ${typography.h5.fontSize}
-    color: ${colors.grey};
+    color: ${COLORS.NEUTRAL.N300};
   }
 
   &:hover > svg {

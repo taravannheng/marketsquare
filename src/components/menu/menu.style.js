@@ -22,7 +22,7 @@ export const MenuItemSC = styled(MenuItem)`
   color: ${colors.darkest} !important;
 
   & svg {
-    color: ${colors.grey};
+    color: ${COLORS.NEUTRAL.N300};
     margin-right: ${spacing.s};
   }
 

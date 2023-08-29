@@ -89,12 +89,12 @@ const PasswordInput: FC<PasswordInputInterface> = ({
         <ShowPasswordIconSC>
           {showPassword ? (
             <Visibility
-              sx={{ color: `${colors.grey}`, cursor: "pointer" }}
+              sx={{ color: `${COLORS.NEUTRAL.N300}`, cursor: "pointer" }}
               onClick={showPasswordHandler}
             />
           ) : (
             <VisibilityOff
-              sx={{ color: `${colors.grey}`, cursor: "pointer" }}
+              sx={{ color: `${COLORS.NEUTRAL.N300}`, cursor: "pointer" }}
               onClick={showPasswordHandler}
             />
           )}
@@ -116,7 +116,7 @@ const PasswordInput: FC<PasswordInputInterface> = ({
                 />
                 <CheckCircleOutline
                   sx={{
-                    color: `${colors.grey} !important`,
+                    color: `${COLORS.NEUTRAL.N300} !important`,
                     opacity: `${
                       validityDetails.hasUppercaseLetter ? "0" : "1"
                     } !important`,
@@ -147,7 +147,7 @@ const PasswordInput: FC<PasswordInputInterface> = ({
                 />
                 <CheckCircleOutline
                   sx={{
-                    color: `${colors.grey} !important`,
+                    color: `${COLORS.NEUTRAL.N300} !important`,
                     opacity: `${
                       validityDetails.hasLowercaseLetter ? "0" : "1"
                     } !important`,
@@ -178,7 +178,7 @@ const PasswordInput: FC<PasswordInputInterface> = ({
                 />
                 <CheckCircleOutline
                   sx={{
-                    color: `${colors.grey} !important`,
+                    color: `${COLORS.NEUTRAL.N300} !important`,
                     opacity: `${
                       validityDetails.hasNumber ? "0" : "1"
                     } !important`,
@@ -209,7 +209,7 @@ const PasswordInput: FC<PasswordInputInterface> = ({
                 />
                 <CheckCircleOutline
                   sx={{
-                    color: `${colors.grey} !important`,
+                    color: `${COLORS.NEUTRAL.N300} !important`,
                     opacity: `${
                       validityDetails.hasSpecialCharacter ? "0" : "1"
                     } !important`,
@@ -240,7 +240,7 @@ const PasswordInput: FC<PasswordInputInterface> = ({
                 />
                 <CheckCircleOutline
                   sx={{
-                    color: `${colors.grey} !important`,
+                    color: `${COLORS.NEUTRAL.N300} !important`,
                     opacity: `${
                       validityDetails.hasNoSpaces ? "0" : "1"
                     } !important`,
@@ -271,7 +271,7 @@ const PasswordInput: FC<PasswordInputInterface> = ({
                 />
                 <CheckCircleOutline
                   sx={{
-                    color: `${colors.grey} !important`,
+                    color: `${COLORS.NEUTRAL.N300} !important`,
                     opacity: `${
                       validityDetails.isValidLength ? "0" : "1"
                     } !important`,

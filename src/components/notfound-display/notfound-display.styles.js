@@ -33,7 +33,7 @@ export const TitleSC = styled(Typography)`
   margin-top: ${space.xl} !important;
   font-size: ${typography.h1.fontSize} !important;
   font-weight: 900 !important;
-  color: ${colors.grey} !important;
+  color: ${COLORS.NEUTRAL.N300} !important;
 
   @media only screen and (min-width: 864px) {
     font-size: 64px !important;
@@ -43,7 +43,7 @@ export const TitleSC = styled(Typography)`
   @media only screen and (min-width: 1168px) {
     font-size: 80px !important;
     font-weight: 900 !important;
-    color: ${colors.grey} !important;
+    color: ${COLORS.NEUTRAL.N300} !important;
   }
 `;
 
@@ -52,7 +52,7 @@ export const SubtitleSC = styled(Typography)`
   font-size: 24px !important;
   font-weight: 900 !important;
   text-align: center !important;
-  color: ${colors.grey} !important;
+  color: ${COLORS.NEUTRAL.N300} !important;
 
   @media only screen and (min-width: 864px) {
     font-size: 32px !important;
@@ -62,7 +62,7 @@ export const SubtitleSC = styled(Typography)`
   @media only screen and (min-width: 1168px) {
     font-size: 40px !important;
     font-weight: 900 !important;
-    color: ${colors.grey} !important;
+    color: ${COLORS.NEUTRAL.N300} !important;
   }
 `;
 

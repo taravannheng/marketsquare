@@ -27,7 +27,7 @@ export const SearchBoxSC = styled(Box)`
 
 export const SearchIconSC = styled(Icon)`
   transform: scaleX(-1);
-  color: ${colors.grey};
+  color: ${COLORS.NEUTRAL.N300};
   transition: color 0.3s ease-in-out;
 
   ${SearchBoxSC}:focus-within & {
@@ -67,7 +67,7 @@ export const TextFieldSC = styled(TextField)`
 
 
 export const ClearIconSC = styled(Icon)`
-  color: ${colors.grey};
+  color: ${COLORS.NEUTRAL.N300};
   transition: color 0.3s ease-in-out;
   cursor: pointer;
 

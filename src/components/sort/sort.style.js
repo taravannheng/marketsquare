@@ -24,7 +24,7 @@ export const LabelContainerSC = styled(Box)`
   flex-direction: row;
   align-items: center;
   padding-right: 12px;
-  border-right: 1px solid ${colors.grey};
+  border-right: 1px solid ${COLORS.NEUTRAL.N300};
 `;
 
 export const LabelIconSC = styled(Icon)`

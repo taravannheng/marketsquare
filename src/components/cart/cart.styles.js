@@ -151,7 +151,7 @@ export const IconButtonSC = styled(IconButton)`
     height: 16px;
     margin-right: -6px;
     font-size: ${typography.h5.fontSize}
-    color: ${colors.grey};
+    color: ${COLORS.NEUTRAL.N300};
   }
 
   &:hover > svg {

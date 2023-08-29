@@ -140,7 +140,7 @@ export const TooltipItemIconSC = styled(ListItemIcon)`
   max-width: 18px !important;
   height: 18px !important;
   margin-right: ${spacing.xs} !important;
-  color: ${colors.grey} !important;
+  color: ${COLORS.NEUTRAL.N300} !important;
   transition: all 0.3s ease-in-out;
 
   & > svg {

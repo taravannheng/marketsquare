@@ -88,7 +88,7 @@ const UsernameInput: FC<UsernameInputInterface> = ({
                 />
                 <CheckCircleOutline
                   sx={{
-                    color: `${colors.grey} !important`,
+                    color: `${COLORS.NEUTRAL.N300} !important`,
                     opacity: `${
                       validityDetails.isValidLength ? "0" : "1"
                     } !important`,
@@ -119,7 +119,7 @@ const UsernameInput: FC<UsernameInputInterface> = ({
                 />
                 <CheckCircleOutline
                   sx={{
-                    color: `${colors.grey} !important`,
+                    color: `${COLORS.NEUTRAL.N300} !important`,
                     opacity: `${
                       validityDetails.isValidCharacters ? "0" : "1"
                     } !important`,
@@ -150,7 +150,7 @@ const UsernameInput: FC<UsernameInputInterface> = ({
                 />
                 <CheckCircleOutline
                   sx={{
-                    color: `${colors.grey} !important`,
+                    color: `${COLORS.NEUTRAL.N300} !important`,
                     opacity: `${
                       validityDetails.hasNoSpaces ? "0" : "1"
                     } !important`,

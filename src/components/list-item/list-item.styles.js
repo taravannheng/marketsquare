@@ -28,7 +28,7 @@ export const ListItemButtonSC = styled(ListItemButton)`
 `;
 
 export const ListItemIconSC = styled(ListItemIcon)`
-  color: ${colors.grey} !important;
+  color: ${COLORS.NEUTRAL.N300} !important;
 
   ${ListItemSC}:hover & {
     color: ${COLORS.NEUTRAL.N0} !important;
