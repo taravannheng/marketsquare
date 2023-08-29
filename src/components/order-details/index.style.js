@@ -22,7 +22,7 @@ export const OrderIDSC = styled(Typography)`
 
 export const ConfirmationEmailSC = styled(Typography)`
   margin-bottom: 32px;
-  color: ${colors.dark} !important;
+  color: ${COLORS.NEUTRAL.N500} !important;
   font-size: ${typography.body.fontSize} !important;
   font-weight: ${typography.body.fontWeight} !important;
 
@@ -56,7 +56,7 @@ export const PaymentMethodTextSC = styled(Typography)`
   flex-direction: row;
   align-items: center;
   width: clamp(100%, 100%, 100%);
-  color: ${colors.dark} !important;
+  color: ${COLORS.NEUTRAL.N500} !important;
   font-size: ${typography.body.fontSize} !important;
   font-weight: ${typography.body.fontWeight} !important;
 
@@ -99,7 +99,7 @@ export const ShippingAddressSC = styled(Typography)`
   flex-direction: row;
   width: clamp(100%, 100%, 100%);
   margin-bottom: 12px;
-  color: ${colors.dark} !important;
+  color: ${COLORS.NEUTRAL.N500} !important;
   font-size: ${typography.body.fontSize} !important;
   font-weight: ${typography.body.fontWeight} !important;
 
@@ -111,7 +111,7 @@ export const ShippingAddressSC = styled(Typography)`
 
 export const ShippingAddressDetailsSC = styled(Typography)`
   margin-left: 12px;
-  color: ${colors.dark} !important;
+  color: ${COLORS.NEUTRAL.N500} !important;
   font-size: ${typography.body.fontSize} !important;
   font-weight: ${typography.body.fontWeight} !important;
 
@@ -125,7 +125,7 @@ export const ShippingMethodSC = styled(Typography)`
   width: 48ch;
   max-width: 100%;
   margin-bottom: 24px;
-  color: ${colors.dark} !important;
+  color: ${COLORS.NEUTRAL.N500} !important;
   font-size: ${typography.body.fontSize} !important;
   font-weight: ${typography.body.fontWeight} !important;
 

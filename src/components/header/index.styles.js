@@ -76,7 +76,7 @@ export const MenuIconSC = styled(Icon)`
   border-radius: ${borderRadius.s} !important;
   margin-left: 24px;
   cursor: pointer;
-  color: ${colors.dark};
+  color: ${COLORS.NEUTRAL.N500};
   transition: background-color 0.3s ease-in-out;
   background-color: ${COLORS.NEUTRAL.N50} !important;
 
@@ -139,12 +139,12 @@ export const UsernameSC = styled(Typography)`
 export const EmailSC = styled(Typography)`
   font-size: ${typography.body.fontSize} !important;
   font-weight: ${typography.body.fontWeight} !important;
-  color: ${colors.dark} !important;
+  color: ${COLORS.NEUTRAL.N500} !important;
 `;
 
 export const SignOutSC = styled(Link)`
   text-decoration: none !important;
-  color: ${colors.dark} !important;
+  color: ${COLORS.NEUTRAL.N500} !important;
   font-size: ${typography.body.fontSize} !important;
   font-weight: ${typography.body.fontWeight} !important;
 

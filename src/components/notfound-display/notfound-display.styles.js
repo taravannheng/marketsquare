@@ -71,7 +71,7 @@ margin-bottom: ${space.m} !important;
 font-size: ${typography.body.fontSize} !important;
 font-weight: ${typography.body.fontWeight} !important;
 text-align: center !important;
-color: ${colors.dark} !important;
+color: ${COLORS.NEUTRAL.N500} !important;
 
 @media only screen and (min-width: 864px) {
   font-size: 18px !important;

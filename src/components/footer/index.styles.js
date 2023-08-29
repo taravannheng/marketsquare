@@ -148,7 +148,7 @@ export const UtilityLinkSC = styled(Link)`
   }
 
   @media only screen and (min-width: 1080px) {
-    color: ${colors.dark} !important;
+    color: ${COLORS.NEUTRAL.N500} !important;
 
     &:hover {
       color: ${COLORS.PRIMARY.P500} !important;

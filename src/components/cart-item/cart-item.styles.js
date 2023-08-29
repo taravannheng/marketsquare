@@ -62,7 +62,7 @@ export const ItemNameSC = styled(Typography)`
 export const ItemSubTotalSC = styled(Typography)`
   width: clamp(100%, 100%, 100%);
   margin-bottom: ${space.s} !important;
-  color: ${colors.dark};
+  color: ${COLORS.NEUTRAL.N500};
   font-size: ${typography.body.fontSize} !important;
   font-weight: ${typography.body.fontWeight} !important;
 `;
@@ -107,7 +107,7 @@ export const DecreaseButtonSC = styled(IconButton)`
 `;
 
 export const QuantityTextSC = styled(Typography)`
-  color: ${colors.dark} !important;
+  color: ${COLORS.NEUTRAL.N500} !important;
   font-size: ${typography.body.fontSize};
   font-weight: ${typography.body.fontWeight};
 `;

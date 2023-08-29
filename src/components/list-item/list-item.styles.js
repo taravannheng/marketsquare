@@ -12,7 +12,7 @@ export const ListItemSC = styled(ListItem)`
   background-color: ${COLORS.NEUTRAL.N0} !important;
   border-radius: ${borderRadius.s} !important;
   transition: background-color 0.2s ease-in-out !important;
-  color: ${colors.dark} !important;
+  color: ${COLORS.NEUTRAL.N500} !important;
 
   &:hover {
     background-color: ${COLORS.PRIMARY.P500} !important;

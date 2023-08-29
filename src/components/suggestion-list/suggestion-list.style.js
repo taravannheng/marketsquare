@@ -33,7 +33,7 @@ export const ValidationTextSC = styled(Typography)`
   font-size: ${typography.body.fontSize} !important;
   font-weight: ${typography.body.fontWeight} !important;
   font-style: italic;
-  color: ${colors.dark};
+  color: ${COLORS.NEUTRAL.N500};
 `;
 
 export const ValidationTextHighlightSC = styled(Typography)`
@@ -47,5 +47,5 @@ export const ValidationTextHighlightSC = styled(Typography)`
 export const EmptyTextSC = styled(Typography)`
   font-size: ${typography.body.fontSize} !important;
   font-weight: ${typography.body.fontWeight} !important;
-  color: ${colors.dark};
+  color: ${COLORS.NEUTRAL.N500};
 `;

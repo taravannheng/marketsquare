@@ -215,5 +215,5 @@ export const EmptyCartTextSC = styled(Typography)`
   font-size: ${typography.body.fontSize} !important;
   font-weight: ${typography.body.fontWeight} !important;
   text-align: center;
-  color: ${colors.dark} !important;
+  color: ${COLORS.NEUTRAL.N500} !important;
 `;

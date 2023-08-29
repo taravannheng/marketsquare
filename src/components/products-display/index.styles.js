@@ -70,7 +70,7 @@ export const ProductsDisplayTitleSC = styled(Typography)`
 `
 
 export const ProductsDisplayEmptyTextSC = styled(Typography)`
-  color: ${colors.dark} !important;
+  color: ${COLORS.NEUTRAL.N500} !important;
   font-size: ${typography.body.fontSize} !important;
   font-weight: ${typography.body.fontWeight} !important;
 `

@@ -156,7 +156,7 @@ export const TooltipItemIconSC = styled(ListItemIcon)`
 export const TooltipItemTextSC = styled(ListItemText)`
   margin: 0 !important;
   padding: 0 !important;
-  color: ${colors.dark} !important;
+  color: ${COLORS.NEUTRAL.N500} !important;
   font-size: ${typography.body.fontSize} !important;
   font-weight: ${typography.body.fontWeight} !important;
   line-height: ${typography.body.lineHeight} !important;

@@ -47,7 +47,7 @@ export const TextFieldSC = styled(TextField)`
     height: clamp(40px, 40px, 40px) !important;
     outline: none;
     border: 0px !important;
-    color: ${colors.dark} !important;
+    color: ${COLORS.NEUTRAL.N500} !important;
     font-size: ${typography.body.fontSize}px !important;
     font-weight: ${typography.body.fontWeight}px !important;
 

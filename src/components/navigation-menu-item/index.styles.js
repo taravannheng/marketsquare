@@ -83,7 +83,7 @@ export const LinkSC = styled(Link)`
   font-size: ${typography.body.fontSize} !important;
   font-weight: ${typography.body.fontWeight} !important;
   text-decoration: none !important;
-  color: ${colors.dark} !important;
+  color: ${COLORS.NEUTRAL.N500} !important;
 
   &:hover {
     text-decoration: underline !important;

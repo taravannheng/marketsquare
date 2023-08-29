@@ -16,7 +16,7 @@ export const ShortRatingSC = styled(Box)`
 `;
 
 export const ShortRatingLabelSC = styled(Typography)`
-  color: ${colors.dark} !important;
+  color: ${COLORS.NEUTRAL.N500} !important;
   font-size: ${typography.body.fontSize} !important;
   font-weight: ${typography.body.fontWeight} !important;
   margin: 0 !important;
@@ -37,7 +37,7 @@ export const ShortRatingIconSC = styled(Icon)`
 `;
 
 export const LabelSC = styled(Typography)`
-  color: ${colors.dark} !important;
+  color: ${COLORS.NEUTRAL.N500} !important;
   font-size: ${typography.body.fontSize} !important;
   font-weight: ${typography.body.fontWeight} !important;
   margin-bottom: 8px !important;

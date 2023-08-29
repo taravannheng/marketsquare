@@ -80,7 +80,7 @@ export const ProductPriceSC = styled(Typography)`
   font-size: ${typography.body.fontSize} !important;
   font-weight: ${typography.body.fontWeight} !important;
   line-height: 14px !important;
-  color: ${colors.dark} !important;
+  color: ${COLORS.NEUTRAL.N500} !important;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

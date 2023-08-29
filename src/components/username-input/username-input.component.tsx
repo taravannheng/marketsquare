@@ -100,7 +100,7 @@ const UsernameInput: FC<UsernameInputInterface> = ({
                   color: `${
                     validityDetails.isValidLength
                       ? `${COLORS.NEUTRAL.N900}`
-                      : `${colors.dark}`
+                      : `${COLORS.NEUTRAL.N500}`
                   } !important`,
                 }}
               >
@@ -131,7 +131,7 @@ const UsernameInput: FC<UsernameInputInterface> = ({
                   color: `${
                     validityDetails.isValidCharacters
                       ? `${COLORS.NEUTRAL.N900}`
-                      : `${colors.dark}`
+                      : `${COLORS.NEUTRAL.N500}`
                   } !important`,
                 }}
               >
@@ -162,7 +162,7 @@ const UsernameInput: FC<UsernameInputInterface> = ({
                   color: `${
                     validityDetails.hasNoSpaces
                       ? `${COLORS.NEUTRAL.N900}`
-                      : `${colors.dark}`
+                      : `${COLORS.NEUTRAL.N500}`
                   } !important`,
                 }}
               >

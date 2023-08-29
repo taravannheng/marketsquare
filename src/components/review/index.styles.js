@@ -34,7 +34,7 @@ export const ReviewerSC = styled(Typography)`
 export const CommentSC = styled(Typography)`
   height: auto;
   overflow-x: hidden;
-  color: ${colors.dark};
+  color: ${COLORS.NEUTRAL.N500};
   font-size: ${typography.body.fontSize} !important;
   font-weight: ${typography.body.fontWeight} !important;
   line-height: ${typography.body.lineHeight} !important;

@@ -128,7 +128,7 @@ const PasswordInput: FC<PasswordInputInterface> = ({
                   color: `${
                     validityDetails.hasUppercaseLetter
                       ? `${COLORS.NEUTRAL.N900}`
-                      : `${colors.dark}`
+                      : `${COLORS.NEUTRAL.N500}`
                   } !important`,
                 }}
               >
@@ -159,7 +159,7 @@ const PasswordInput: FC<PasswordInputInterface> = ({
                   color: `${
                     validityDetails.hasLowercaseLetter
                       ? `${COLORS.NEUTRAL.N900}`
-                      : `${colors.dark}`
+                      : `${COLORS.NEUTRAL.N500}`
                   } !important`,
                 }}
               >
@@ -190,7 +190,7 @@ const PasswordInput: FC<PasswordInputInterface> = ({
                   color: `${
                     validityDetails.hasNumber
                       ? `${COLORS.NEUTRAL.N900}`
-                      : `${colors.dark}`
+                      : `${COLORS.NEUTRAL.N500}`
                   } !important`,
                 }}
               >
@@ -221,7 +221,7 @@ const PasswordInput: FC<PasswordInputInterface> = ({
                   color: `${
                     validityDetails.hasSpecialCharacter
                       ? `${COLORS.NEUTRAL.N900}`
-                      : `${colors.dark}`
+                      : `${COLORS.NEUTRAL.N500}`
                   } !important`,
                 }}
               >
@@ -252,7 +252,7 @@ const PasswordInput: FC<PasswordInputInterface> = ({
                   color: `${
                     validityDetails.hasNoSpaces
                       ? `${COLORS.NEUTRAL.N900}`
-                      : `${colors.dark}`
+                      : `${COLORS.NEUTRAL.N500}`
                   } !important`,
                 }}
               >
@@ -283,7 +283,7 @@ const PasswordInput: FC<PasswordInputInterface> = ({
                   color: `${
                     validityDetails.isValidLength
                       ? `${COLORS.NEUTRAL.N900}`
-                      : `${colors.dark}`
+                      : `${COLORS.NEUTRAL.N500}`
                   } !important`,
                 }}
               >
