@@ -47,8 +47,8 @@ export const SignInButtonSC = styled(Button)`
   margin-bottom: ${space.l} !important;
   border-radius: ${borderRadius.s} !important;
   background-color: ${colors.primary} !important;
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
   text-transform: none !important;
   color: ${colors.lightest} !important;
 `;
@@ -59,8 +59,8 @@ export const ForgottenPasswordLinkSC = styled(Link)`
   align-items: center;
   width: 100% !important;
   margin-bottom: ${space.xl} !important;
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
   color: ${colors.primary} !important;
 
   &:hover {
@@ -76,8 +76,8 @@ export const SignInWithGoogleButtonSC = styled(Button)`
   border-radius: ${borderRadius.s} !important;
   background-color: ${colors.light} !important;
   color: ${colors.darkest} !important;
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
   text-transform: none !important;
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 
@@ -100,8 +100,8 @@ export const SignInWithFacebookButtonSC = styled(Button)`
   border-radius: ${borderRadius.s} !important;
   background-color: ${colors.light} !important;
   color: ${colors.darkest} !important;
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
   text-transform: none !important;
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 
@@ -113,8 +113,8 @@ export const SignInWithFacebookButtonSC = styled(Button)`
 
 export const SignUpSC = styled(Typography)`
   text-align: center;
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
 `;
 
 export const SignUpLinkSC = styled(Link)`

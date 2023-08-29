@@ -61,8 +61,8 @@ export const SlideShowPaginationPrevButtonSC = styled(Button)`
   margin-right: 36px !important;
   background-color: ${colors.light} !important;
   color: ${colors.darkest} !important;
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
   text-transform: none !important;
 
   &:hover {
@@ -84,8 +84,8 @@ export const SlideShowPaginationNextButtonSC = styled(Button)`
   margin-left: 36px !important;
   background-color: ${colors.light} !important;
   color: ${colors.darkest} !important;
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
   text-transform: none !important;
 
   &:hover {

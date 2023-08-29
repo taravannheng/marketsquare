@@ -128,22 +128,22 @@ export const DrawerBottomSC = styled(Box)`
 
 export const UsernameSC = styled(Typography)`
   margin-top: ${space.xs} !important;
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
   color: ${colors.darkest} !important;
 `;
 
 export const EmailSC = styled(Typography)`
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
   color: ${colors.dark} !important;
 `;
 
 export const SignOutSC = styled(Link)`
   text-decoration: none !important;
   color: ${colors.dark} !important;
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
 
   &:hover {
     color: ${colors.red} !important;

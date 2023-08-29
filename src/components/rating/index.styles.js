@@ -17,16 +17,16 @@ export const ShortRatingSC = styled(Box)`
 
 export const ShortRatingLabelSC = styled(Typography)`
   color: ${colors.dark} !important;
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
   margin: 0 !important;
   margin-right: 8px !important;
 `;
 
 export const ShortRatingNumberSC = styled(Typography)`
   color: ${colors.primary} !important;
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
   margin: 0 !important;
 `;
 
@@ -38,8 +38,8 @@ export const ShortRatingIconSC = styled(Icon)`
 
 export const LabelSC = styled(Typography)`
   color: ${colors.dark} !important;
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
   margin-bottom: 8px !important;
 `;
 

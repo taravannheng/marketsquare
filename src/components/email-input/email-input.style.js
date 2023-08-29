@@ -35,8 +35,8 @@ export const LabelContainerSC = styled(Box)`
 export const LabelSC = styled(Typography)`
   margin-right: ${space.xxs} !important;
   color: ${colors.darkest} !important;
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
   transition: color 0.3s ease-in-out;
 
   ${EmailInputSC}:focus-within & {
@@ -88,9 +88,9 @@ export const TooltipSC = styled(Box)`
   width: 100% !important;
   padding: ${space.xs} !important;
   border-radius: ${borderRadius.s} !important;
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
-  line-height: ${typography.body.lineHeight} !important;
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
+  line-height: ${typography.body1.lineHeight} !important;
   background-color: ${colors.light} !important;
   margin-bottom: ${space.m} !important;
 `;

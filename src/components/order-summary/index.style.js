@@ -48,6 +48,6 @@ export const TotalAmountSC = styled(Typography)`
 
 export const EmptyContentSC = styled(Typography)`
   color: ${colors.dark} !important;
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
 `;

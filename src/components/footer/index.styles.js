@@ -140,8 +140,8 @@ export const UtilityLinkStackSC = styled(Stack)``;
 export const UtilityLinkSC = styled(Link)`
   text-decoration: none !important;
   color: ${colors.lightest} !important;
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
 
   &:hover {
     text-decoration: underline !important;
