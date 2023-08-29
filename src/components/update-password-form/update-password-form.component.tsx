@@ -7,7 +7,7 @@ import PasswordInput from '../password-input/password-input.component';
 import UpdatePasswordFormI from './update-password-form.interface';
 import { AlertContainerSC, ButtonContainerSC, FormSC, TitleSC } from './update-password-form.styles';
 import { updatePassword } from '../../apis/users/users.api';
-import colors from '../../styles/colors';
+import COLORS from '../../styles/colors';
 import { ROUTES } from '../../utils/constants';
 import PasswordInterface from '../../interfaces/password.interface';
 import { checkPassword, checkPasswordMatch } from '../../utils/helpers';

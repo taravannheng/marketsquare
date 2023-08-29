@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import colors from "../../styles/colors";
+import COLORS from "../../styles/colors";
 import typography from "../../styles/typography";
 import { Card, CardContent, CardMedia, Typography } from "@mui/material";
 

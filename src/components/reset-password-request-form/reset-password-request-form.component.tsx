@@ -9,7 +9,7 @@ import { checkEmail } from '../../utils/helpers';
 import { AlertContainerSC, ButtonContainerSC, FormSC, TitleSC } from './reset-password-request-form.styles';
 import { requestPasswordReset } from '../../apis/passwords/password.api';
 import Button from '../button/index.component';
-import colors from '../../styles/colors';
+import COLORS from '../../styles/colors';
 
 const ResetPasswordRequestForm: FC<ResetPasswordRequestFormI> = () => {
   const [isButtonLoading, setIsButtonLoading] = useState<boolean>(false);

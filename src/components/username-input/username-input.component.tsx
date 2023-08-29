@@ -16,7 +16,7 @@ import {
   TooltipItemTextSC,
   StatusTextSC,
 } from "./username-input.style";
-import colors from "../../styles/colors";
+import COLORS from "../../styles/colors";
 
 const UsernameInput: FC<UsernameInputInterface> = ({
   disabled = false,

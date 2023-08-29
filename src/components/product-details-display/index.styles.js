@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-import colors from "../../styles/colors";
+import COLORS from "../../styles/colors";
 import typography from "../../styles/typography";
 import { Box, Typography } from "@mui/material";
 

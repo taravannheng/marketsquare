@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import colors from "../../styles/colors";
+import COLORS from "../../styles/colors";
 import typography from "../../styles/typography";
 import spacing from "../../styles/spacing";
 import borderRadius from "../../styles/border-radius";

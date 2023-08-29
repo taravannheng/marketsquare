@@ -5,7 +5,7 @@ import { IconButton } from "@mui/material";
 
 import SnackbarInterface from "./snackbar.interface";
 import { SnackbarSC, UndoButtonSC } from "./snackbar.style";
-import colors from "../../styles/colors";
+import COLORS from "../../styles/colors";
 
 const SnackBar: FC<SnackbarInterface> = ({
   onClose,

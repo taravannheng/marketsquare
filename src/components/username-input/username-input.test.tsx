@@ -7,7 +7,7 @@ import '@testing-library/jest-dom'
 import UsernameInput from "./username-input.component";
 import UsernameInterface from "../../interfaces/username.interface";
 import { renderWithProvider } from "../../utils/test/test.util";
-import colors from "../../styles/colors";
+import COLORS from "../../styles/colors";
 
 let username: UsernameInterface;
 

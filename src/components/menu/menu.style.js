@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { Menu, MenuItem } from "@mui/material";
 
-import colors from "../../styles/colors";
+import COLORS from "../../styles/colors";
 import typography from "../../styles/typography";
 import borderRadius from "../../styles/border-radius";
 import spacing from "../../styles/spacing";

@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { Box, List, Typography } from "@mui/material";
 
-import colors from "../../styles/colors";
+import COLORS from "../../styles/colors";
 import typography from "../../styles/typography";
 
 export const SuggestionListSC = styled(List)`

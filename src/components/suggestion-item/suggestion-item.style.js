@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { Avatar, ListItem, ListItemAvatar, ListItemText } from "@mui/material";
 
-import colors from "../../styles/colors";
+import COLORS from "../../styles/colors";
 import typography from "../../styles/typography";
 
 export const SuggestionItemSC = styled(ListItem)`

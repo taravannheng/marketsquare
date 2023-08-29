@@ -4,7 +4,7 @@ import { CheckCircle, Info, Cancel } from '@mui/icons-material';
 
 import AlertProps, { AlertConfig } from './alert.interface';
 import { AlertSC } from './alert.style';
-import colors from '../../styles/colors';
+import COLORS from '../../styles/colors';
 
 const alertConfigs: Record<string, AlertConfig> = {
   info: {

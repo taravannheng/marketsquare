@@ -7,7 +7,7 @@ import ResetPasswordVerifyFormI from './reset-password-verify-form.interface';
 import { AlertContainerSC, ButtonContainerSC, FormSC, TitleSC } from './reset-password-verify-form.styles';
 import { verifyPasswordReset } from '../../apis/passwords/password.api';
 import Button from '../button/index.component';
-import colors from '../../styles/colors';
+import COLORS from '../../styles/colors';
 import { checkFourDigits } from '../../utils/helpers';
 import { ROUTES } from '../../utils/constants';
 

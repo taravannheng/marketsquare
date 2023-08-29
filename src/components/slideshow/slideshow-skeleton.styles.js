@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Box } from "@mui/material";
 
-import colors from "../../styles/colors";
+import COLORS from "../../styles/colors";
 import typography from "../../styles/typography";
 
 export const SlideShowSkeletonSC = styled(Box)`

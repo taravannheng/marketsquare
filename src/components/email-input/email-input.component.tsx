@@ -12,7 +12,7 @@ import {
   TooltipSC,
   TooltipTextSC,
 } from "./email-input.style";
-import colors from "../../styles/colors";
+import COLORS from "../../styles/colors";
 
 const EmailInput: FC<EmailInputProps> = ({
   disabled = false,

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Box, Button, ButtonGroup, Card, CardMedia, Stack, Typography } from "@mui/material";
 
-import colors from "../../styles/colors";
+import COLORS from "../../styles/colors";
 import typography from "../../styles/typography";
 import borderRadius from "../../styles/border-radius";
 

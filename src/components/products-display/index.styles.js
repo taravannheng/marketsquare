@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Grid, Typography, Box, Stack } from "@mui/material";
 
-import colors from "../../styles/colors";
+import COLORS from "../../styles/colors";
 import typography from "../../styles/typography";
 
 export const ProductsDisplaySC = styled(Box)`

@@ -8,7 +8,7 @@ import {
   SuggestionItemSC,
   TextSC,
 } from "./suggestion-item.style";
-import colors from "../../styles/colors";
+import COLORS from "../../styles/colors";
 
 const SuggestionItem: FC<SuggestionItemInterface> = ({ suggestion }) => {
   return (

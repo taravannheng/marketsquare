@@ -13,7 +13,7 @@ import {
   SelectSC,
   SortSC,
 } from "./sort.style";
-import colors from "../../styles/colors";
+import COLORS from "../../styles/colors";
 
 const BootstrapInput = styled(InputBase)(({ theme }) => ({
   "label + &": {

@@ -22,7 +22,7 @@ import {
 } from "./index.styles";
 import slideShowSample from "../../sample/slideshow/slideshow-sample";
 import { Pagination, Stack } from "@mui/material";
-import colors from "../../styles/colors";
+import COLORS from "../../styles/colors";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { getSlideshow } from "../../apis/slideshows/slideshow.api";
 import SlideShowItemInterface from "../../interfaces/slideshow-item.interface";

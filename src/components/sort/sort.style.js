@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Typography, Box, Icon, Select, MenuItem } from "@mui/material";
 
-import colors from "../../styles/colors";
+import COLORS from "../../styles/colors";
 import typography from "../../styles/typography";
 
 export const SortSC = styled(Box)`

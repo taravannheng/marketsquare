@@ -46,7 +46,7 @@ import { LOGO_URLS, ROUTES } from "../../utils/constants";
 import Menu from "../../components/menu/menu.component";
 import menuListSample from "../../sample/menu/menu";
 import { selectUser } from "../../store/user/user.selector";
-import colors from "../../styles/colors";
+import COLORS from "../../styles/colors";
 import AuthBlock from "../auth-block/auth-block.component";
 
 const Header: FC<HeaderProps> = () => {

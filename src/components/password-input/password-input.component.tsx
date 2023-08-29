@@ -24,7 +24,7 @@ import {
   InputContainerSC,
   ShowPasswordIconSC,
 } from "./password-input.style";
-import colors from "../../styles/colors";
+import COLORS from "../../styles/colors";
 
 const PasswordInput: FC<PasswordInputInterface> = ({
   disabled = false,
