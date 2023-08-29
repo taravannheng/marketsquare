@@ -28,7 +28,7 @@ export const ToolbarPlaceholderSC = styled(Box)`
 export const ToolbarSC = styled(Toolbar)`
   position: fixed !important;
   top: 0;
-  z-index: 1000;
+  z-index: 1;
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
