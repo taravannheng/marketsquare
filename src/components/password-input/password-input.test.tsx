@@ -127,7 +127,7 @@ describe("EmailInput", () => {
     const statusIcon = label.nextSibling?.firstChild;
 
     expect(statusIcon).toBeInTheDocument();
-    expect(statusIcon).toHaveStyle(`color: ${colors.red}`);
+    expect(statusIcon).toHaveStyle(`color: ${COLORS.RED.R500}`);
   });
 
   test("renders the error message when the value is invalid", () => {

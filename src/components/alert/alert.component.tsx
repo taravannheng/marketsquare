@@ -19,7 +19,7 @@ const alertConfigs: Record<string, AlertConfig> = {
   },
   error: {
     icon: <Cancel />,
-    color: colors.red,
+    color: COLORS.RED.R500,
     severity: 'error',
   },
 };

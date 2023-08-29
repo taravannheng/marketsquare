@@ -22,7 +22,7 @@ const SnackBar: FC<SnackbarInterface> = ({
       backgroundColor = COLORS.PRIMARY.P500;
       break;
     case "error":
-      backgroundColor = colors.red;
+      backgroundColor = COLORS.RED.R500;
       break;
     case "success":
       backgroundColor = colors.green;

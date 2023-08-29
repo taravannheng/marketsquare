@@ -52,7 +52,7 @@ const UsernameInput: FC<UsernameInputInterface> = ({
         {isInitialFocus && (
           <StatusIconSC sx={{ opacity: `${!isFocus ? "1" : "0"}` }}>
             {!isValid ? (
-              <Cancel sx={{ color: `${colors.red}` }} />
+              <Cancel sx={{ color: `${COLORS.RED.R500}` }} />
             ) : (
               <CheckCircle sx={{ color: `${colors.green}` }} />
             )}

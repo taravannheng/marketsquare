@@ -149,7 +149,7 @@ export const SignOutSC = styled(Link)`
   font-weight: ${typography.body.fontWeight} !important;
 
   &:hover {
-    color: ${colors.red} !important;
+    color: ${COLORS.RED.R500} !important;
     cursor: pointer;
   }
 `;

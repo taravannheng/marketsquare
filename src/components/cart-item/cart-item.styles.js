@@ -91,7 +91,7 @@ export const DecreaseButtonSC = styled(IconButton)`
   transition: background-color 0.3s linear;
 
   &:hover {
-    background-color: ${colors.red} !important;
+    background-color: ${COLORS.RED.R500} !important;
   }
 
   & > svg {
@@ -145,7 +145,7 @@ export const RemoveButtonSC = styled(IconButton)`
   transition: background-color 0.3s linear;
 
   &:hover {
-    background-color: ${colors.red} !important;
+    background-color: ${COLORS.RED.R500} !important;
   }
 
   & > svg {

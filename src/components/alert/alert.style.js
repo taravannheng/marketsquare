@@ -23,7 +23,7 @@ export const AlertSC = styled(Alert)`
 
     &:hover {
       color: ${COLORS.NEUTRAL.N0} !important;
-      background-color: ${colors.red} !important;
+      background-color: ${COLORS.RED.R500} !important;
     }
   }
 `;

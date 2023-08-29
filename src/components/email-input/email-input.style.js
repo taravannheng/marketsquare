@@ -103,7 +103,7 @@ export const TooltipTextSC = styled(Typography)`
 `;
 
 export const StatusTextSC = styled(Typography)`
-  color: ${colors.red} !important;
+  color: ${COLORS.RED.R500} !important;
   font-size: ${typography.small.fontSize} !important;
   font-weight: ${typography.small.fontWeight} !important;
   font-style: italic !important;
