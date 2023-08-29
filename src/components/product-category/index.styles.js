@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Box, CardMedia, Typography } from "@mui/material";
 
-import colors from "../../styles/colors";
+import COLORS from "../../styles/colors";
 import typography from "../../styles/typography";
 
 export const ProductCategorySC = styled(Box)`
@@ -23,7 +23,7 @@ export const ProductCategorySC = styled(Box)`
 
 export const TitleSC = styled(Typography)`
   margin-bottom: 32px !important;
-  color: ${colors.darkest} !important;
+  color: ${COLORS.NEUTRAL.N900} !important;
   font-size: ${typography.h2.fontSize} !important;
   font-weight: ${typography.h2.fontWeight} !important;
 

@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { Box, CardMedia, Icon, Typography } from "@mui/material";
 
-import colors from "../../styles/colors";
+import COLORS from "../../styles/colors";
 import typography from "../../styles/typography";
 
 
@@ -15,16 +15,16 @@ export const ContentSC = styled(Box)`
 
 export const OrderIDSC = styled(Typography)`
   margin-bottom: 16px;
-  color: ${colors.darkest} !important;
+  color: ${COLORS.NEUTRAL.N900} !important;
   font-size: ${typography.h4.fontSize} !important;
   font-weight: ${typography.h4.fontWeight} !important;
 `;
 
 export const ConfirmationEmailSC = styled(Typography)`
   margin-bottom: 32px;
-  color: ${colors.dark} !important;
   font-size: ${typography.body1.fontSize} !important;
   font-weight: ${typography.body1.fontWeight} !important;
+  color: ${COLORS.NEUTRAL.N500} !important;
 
   @media only screen and (min-width: 1080px) {
     font-size: ${typography.body1.fontSize} !important;
@@ -38,7 +38,7 @@ export const PaymentSC = styled(Box)`
 
 export const PaymentTitleSC = styled(Typography)`
   margin-bottom: 16px;
-  color: ${colors.darkest} !important;
+  color: ${COLORS.NEUTRAL.N900} !important;
   font-size: ${typography.h5.fontSize} !important;
   font-weight: ${typography.h5.fontWeight} !important;
 `;
@@ -56,9 +56,9 @@ export const PaymentMethodTextSC = styled(Typography)`
   flex-direction: row;
   align-items: center;
   width: clamp(100%, 100%, 100%);
-  color: ${colors.dark} !important;
   font-size: ${typography.body1.fontSize} !important;
   font-weight: ${typography.body1.fontWeight} !important;
+  color: ${COLORS.NEUTRAL.N500} !important;
 
   @media only screen and (min-width: 1080px) {
     font-size: ${typography.body1.fontSize} !important;
@@ -89,7 +89,7 @@ export const ShippingSC = styled(Box)`
 
 export const ShippingTitleSC = styled(Typography)`
   margin-bottom: 16px;
-  color: ${colors.darkest} !important;
+  color: ${COLORS.NEUTRAL.N900} !important;
   font-size: ${typography.h5.fontSize} !important;
   font-weight: ${typography.h5.fontWeight} !important;
 `;
@@ -99,9 +99,9 @@ export const ShippingAddressSC = styled(Typography)`
   flex-direction: row;
   width: clamp(100%, 100%, 100%);
   margin-bottom: 12px;
-  color: ${colors.dark} !important;
   font-size: ${typography.body1.fontSize} !important;
   font-weight: ${typography.body1.fontWeight} !important;
+  color: ${COLORS.NEUTRAL.N500} !important;
 
   @media only screen and (min-width: 1080px) {
     font-size: ${typography.body1.fontSize} !important;
@@ -111,9 +111,9 @@ export const ShippingAddressSC = styled(Typography)`
 
 export const ShippingAddressDetailsSC = styled(Typography)`
   margin-left: 12px;
-  color: ${colors.dark} !important;
   font-size: ${typography.body1.fontSize} !important;
   font-weight: ${typography.body1.fontWeight} !important;
+  color: ${COLORS.NEUTRAL.N500} !important;
 
   @media only screen and (min-width: 1080px) {
     font-size: ${typography.body1.fontSize} !important;
@@ -125,9 +125,9 @@ export const ShippingMethodSC = styled(Typography)`
   width: 48ch;
   max-width: 100%;
   margin-bottom: 24px;
-  color: ${colors.dark} !important;
   font-size: ${typography.body1.fontSize} !important;
   font-weight: ${typography.body1.fontWeight} !important;
+  color: ${COLORS.NEUTRAL.N500} !important;
 
   @media only screen and (min-width: 1080px) {
     font-size: ${typography.body1.fontSize} !important;

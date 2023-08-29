@@ -8,7 +8,7 @@ import {
   Typography,
 } from "@mui/material";
 
-import { colors, typography, borderRadius, space } from "../../styles/styles";
+import { COLORS, typography, borderRadius, space } from "../../styles/styles";
 
 // SHARED STYLES -------------------------------------------------------
 
@@ -31,7 +31,7 @@ export const CartItemRootSC = styled(Card)`
   display: flex;
   width: clamp(312px, 312px, 312px);
   height: clamp(120px, 120px, 120px);
-  border: 1px solid ${colors.light};
+  border: 1px solid ${COLORS.NEUTRAL.N50};
   border-radius: ${borderRadius.s} !important;
   margin-bottom: ${space.xs};
   box-shadow: none !important;
@@ -53,7 +53,7 @@ export const ItemNameSC = styled(Typography)`
   margin-bottom: ${space.xxs} !important;
   font-size: ${typography.h5.fontSize} !important;
   font-weight: ${typography.h5.fontWeight} !important;
-  color: ${colors.darkest};
+  color: ${COLORS.NEUTRAL.N900};
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -62,9 +62,9 @@ export const ItemNameSC = styled(Typography)`
 export const ItemSubTotalSC = styled(Typography)`
   width: clamp(100%, 100%, 100%);
   margin-bottom: ${space.s} !important;
-  color: ${colors.dark};
   font-size: ${typography.body1.fontSize} !important;
   font-weight: ${typography.body1.fontWeight} !important;
+  color: ${COLORS.NEUTRAL.N500};
 `;
 
 export const ControlContainerSC = styled(Box)`
@@ -87,29 +87,29 @@ export const DecreaseButtonSC = styled(IconButton)`
   width: clamp(24px, 24px, 24px);
   height: clamp(24px, 24px, 24px);
   border-radius: ${borderRadius.rounded} !important;
-  background-color: ${colors.light} !important;
+  background-color: ${COLORS.NEUTRAL.N50} !important;
   transition: background-color 0.3s linear;
 
   &:hover {
-    background-color: ${colors.red} !important;
+    background-color: ${COLORS.RED.R500} !important;
   }
 
   & > svg {
     width: 16px;
     height: 16px;
     font-size: ${typography.h5.fontSize}
-    color: ${colors.grey};
+    color: ${COLORS.NEUTRAL.N300};
   }
 
   &:hover > svg {
-    color: ${colors.lightest} !important;
+    color: ${COLORS.NEUTRAL.N0} !important;
   }
 `;
 
 export const QuantityTextSC = styled(Typography)`
-  color: ${colors.dark} !important;
   font-size: ${typography.body1.fontSize};
   font-weight: ${typography.body1.fontWeight};
+  color: ${COLORS.NEUTRAL.N500} !important;
 `;
 
 export const IncreaseButtonSC = styled(IconButton)`
@@ -117,22 +117,22 @@ export const IncreaseButtonSC = styled(IconButton)`
   width: clamp(24px, 24px, 24px);
   height: clamp(24px, 24px, 24px);
   border-radius: ${borderRadius.rounded} !important;
-  background-color: ${colors.light} !important;
+  background-color: ${COLORS.NEUTRAL.N50} !important;
   transition: background-color 0.3s linear;
 
   &:hover {
-    background-color: ${colors.primary} !important;
+    background-color: ${COLORS.PRIMARY.P500} !important;
   }
 
   & > svg {
     width: 16px;
     height: 16px;
     font-size: ${typography.h5.fontSize}
-    color: ${colors.grey};
+    color: ${COLORS.NEUTRAL.N300};
   }
 
   &:hover > svg {
-    color: ${colors.lightest} !important;
+    color: ${COLORS.NEUTRAL.N0} !important;
   }
 `;
 
@@ -141,21 +141,21 @@ export const RemoveButtonSC = styled(IconButton)`
   width: clamp(44px, 44px, 44px) !important;
   height: clamp(24px, 24px, 24px);
   border-radius: ${borderRadius.rounded} !important;
-  background-color: ${colors.light} !important;
+  background-color: ${COLORS.NEUTRAL.N50} !important;
   transition: background-color 0.3s linear;
 
   &:hover {
-    background-color: ${colors.red} !important;
+    background-color: ${COLORS.RED.R500} !important;
   }
 
   & > svg {
     width: 16px;
     height: 16px;
     font-size: ${typography.h5.fontSize}
-    color: ${colors.grey};
+    color: ${COLORS.NEUTRAL.N300};
   }
 
   &:hover > svg {
-    color: ${colors.lightest} !important;
+    color: ${COLORS.NEUTRAL.N0} !important;
   }
 `;

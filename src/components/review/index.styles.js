@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import colors from "../../styles/colors";
+import COLORS from "../../styles/colors";
 import typography from "../../styles/typography";
 import { Box, Card, CardContent, CardMedia, Typography } from "@mui/material";
 
@@ -26,7 +26,7 @@ export const ContentSC = styled(CardContent)`
 `;
 
 export const ReviewerSC = styled(Typography)`
-  color: ${colors.darkest} !important;
+  color: ${COLORS.NEUTRAL.N900} !important;
   font-size: ${typography.h5.fontSize} !important;
   font-weight: ${typography.h5.fontWeight} !important;
 `;
@@ -34,8 +34,8 @@ export const ReviewerSC = styled(Typography)`
 export const CommentSC = styled(Typography)`
   height: auto;
   overflow-x: hidden;
-  color: ${colors.dark};
   font-size: ${typography.body1.fontSize} !important;
   font-weight: ${typography.body1.fontWeight} !important;
   line-height: ${typography.body1.lineHeight} !important;
+  color: ${COLORS.NEUTRAL.N500};
 `;

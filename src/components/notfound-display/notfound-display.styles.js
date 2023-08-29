@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Box, Button, IconButton, Typography, } from "@mui/material";
 
-import colors from "../../styles/colors";
+import COLORS from "../../styles/colors";
 import typography from "../../styles/typography";
 import space from "../../styles/spacing";
 import borderRadius from "../../styles/border-radius";
@@ -33,7 +33,7 @@ export const TitleSC = styled(Typography)`
   margin-top: ${space.xl} !important;
   font-size: ${typography.h1.fontSize} !important;
   font-weight: 900 !important;
-  color: ${colors.grey} !important;
+  color: ${COLORS.NEUTRAL.N300} !important;
 
   @media only screen and (min-width: 864px) {
     font-size: 64px !important;
@@ -43,7 +43,7 @@ export const TitleSC = styled(Typography)`
   @media only screen and (min-width: 1168px) {
     font-size: 80px !important;
     font-weight: 900 !important;
-    color: ${colors.grey} !important;
+    color: ${COLORS.NEUTRAL.N300} !important;
   }
 `;
 
@@ -52,7 +52,7 @@ export const SubtitleSC = styled(Typography)`
   font-size: 24px !important;
   font-weight: 900 !important;
   text-align: center !important;
-  color: ${colors.grey} !important;
+  color: ${COLORS.NEUTRAL.N300} !important;
 
   @media only screen and (min-width: 864px) {
     font-size: 32px !important;
@@ -62,7 +62,7 @@ export const SubtitleSC = styled(Typography)`
   @media only screen and (min-width: 1168px) {
     font-size: 40px !important;
     font-weight: 900 !important;
-    color: ${colors.grey} !important;
+    color: ${COLORS.NEUTRAL.N300} !important;
   }
 `;
 
@@ -71,7 +71,7 @@ margin-bottom: ${space.m} !important;
 font-size: ${typography.body1.fontSize} !important;
 font-weight: ${typography.body1.fontWeight} !important;
 text-align: center !important;
-color: ${colors.dark} !important;
+color: ${COLORS.NEUTRAL.N500} !important;
 
 @media only screen and (min-width: 864px) {
   font-size: 18px !important;
@@ -86,9 +86,9 @@ export const ButtonSC = styled(Button)`
   margin-top: ${space.xl} !important;
   margin-bottom: ${space.xxxl} !important;
   border-radius: ${borderRadius.s} !important;
-  background-color: ${colors.primary} !important;
-  color: ${colors.lightest} !important;
   font-size: ${typography.body1.fontSize} !important;
   font-weight: ${typography.body1.fontWeight} !important;
+  background-color: ${COLORS.PRIMARY.P500} !important;
+  color: ${COLORS.NEUTRAL.N0} !important;
   text-transform: none !important;
 `;

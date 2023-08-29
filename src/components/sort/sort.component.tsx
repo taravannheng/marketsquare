@@ -13,7 +13,7 @@ import {
   SelectSC,
   SortSC,
 } from "./sort.style";
-import colors from "../../styles/colors";
+import COLORS from "../../styles/colors";
 
 const BootstrapInput = styled(InputBase)(({ theme }) => ({
   "label + &": {
@@ -27,10 +27,10 @@ const BootstrapInput = styled(InputBase)(({ theme }) => ({
     borderRadius: 4,
     outline: 0,
     position: "relative",
-    backgroundColor: `${colors.light}`,
+    backgroundColor: `${COLORS.NEUTRAL.N50}`,
     fontSize: 14,
     padding: "10px 26px 10px 12px",
-    color: `${colors.darkest}`,
+    color: `${COLORS.NEUTRAL.N900}`,
     transition: theme.transitions.create(["border-color", "box-shadow"]),
     fontFamily: [
       "Inter",
@@ -71,13 +71,13 @@ const Sort: FC<SortInterface> = ({ sortMenuItem, setSortMenuItem }) => {
               sx={{
                 backgroundColor: `${
                   sortMenuItem === 0
-                    ? `${colors.lightPrimary} !important`
-                    : `${colors.lightest} !important`
+                    ? `${COLORS.PRIMARY.P400} !important`
+                    : `${COLORS.NEUTRAL.N0} !important`
                 }`,
                 color: `${
                   sortMenuItem === 0
-                    ? `${colors.lightest} !important`
-                    : `${colors.darkest} !important`
+                    ? `${COLORS.NEUTRAL.N0} !important`
+                    : `${COLORS.NEUTRAL.N900} !important`
                 }`,
               }}
             >
@@ -88,13 +88,13 @@ const Sort: FC<SortInterface> = ({ sortMenuItem, setSortMenuItem }) => {
               sx={{
                 backgroundColor: `${
                   sortMenuItem === 1
-                    ? `${colors.lightPrimary} !important`
-                    : `${colors.lightest} !important`
+                    ? `${COLORS.PRIMARY.P400} !important`
+                    : `${COLORS.NEUTRAL.N0} !important`
                 }`,
                 color: `${
                   sortMenuItem === 1
-                    ? `${colors.lightest} !important`
-                    : `${colors.darkest} !important`
+                    ? `${COLORS.NEUTRAL.N0} !important`
+                    : `${COLORS.NEUTRAL.N900} !important`
                 }`,
               }}
             >
@@ -105,13 +105,13 @@ const Sort: FC<SortInterface> = ({ sortMenuItem, setSortMenuItem }) => {
               sx={{
                 backgroundColor: `${
                   sortMenuItem === 2
-                    ? `${colors.lightPrimary} !important`
-                    : `${colors.lightest} !important`
+                    ? `${COLORS.PRIMARY.P400} !important`
+                    : `${COLORS.NEUTRAL.N0} !important`
                 }`,
                 color: `${
                   sortMenuItem === 2
-                    ? `${colors.lightest} !important`
-                    : `${colors.darkest} !important`
+                    ? `${COLORS.NEUTRAL.N0} !important`
+                    : `${COLORS.NEUTRAL.N900} !important`
                 }`,
               }}
             >

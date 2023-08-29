@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { Menu, MenuItem } from "@mui/material";
 
-import colors from "../../styles/colors";
+import COLORS from "../../styles/colors";
 import typography from "../../styles/typography";
 import borderRadius from "../../styles/border-radius";
 import spacing from "../../styles/spacing";
@@ -14,24 +14,24 @@ export const MenuSC = styled(Menu)`
   }
 
   & ul {
-    background-color: ${colors.light} !important;
+    background-color: ${COLORS.NEUTRAL.N50} !important;
   }  
 `;
 
 export const MenuItemSC = styled(MenuItem)`
-  color: ${colors.darkest} !important;
+  color: ${COLORS.NEUTRAL.N900} !important;
 
   & svg {
-    color: ${colors.grey};
+    color: ${COLORS.NEUTRAL.N300};
     margin-right: ${spacing.s};
   }
 
   &:hover {
-    color: ${colors.lightest} !important;
-    background-color: ${colors.primary} !important;
+    color: ${COLORS.NEUTRAL.N0} !important;
+    background-color: ${COLORS.PRIMARY.P500} !important;
 
     & * {
-      color: ${colors.lightest} !important;
+      color: ${COLORS.NEUTRAL.N0} !important;
     }
   }
 `;

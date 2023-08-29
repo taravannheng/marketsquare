@@ -7,7 +7,7 @@ import {
   Typography,
 } from "@mui/material";
 
-import colors from "../../styles/colors";
+import COLORS from "../../styles/colors";
 import typography from "../../styles/typography";
 import space from "../../styles/spacing";
 import borderRadius from "../../styles/border-radius";
@@ -19,7 +19,7 @@ export const ProductCardSC = styled(Card)`
   min-width: 170px;
   flex: 1;
   padding-bottom: ${space.m} !important;
-  background-color: ${colors.lightest};
+  background-color: ${COLORS.NEUTRAL.N0};
   box-shadow: none !important;
   overflow: hidden;
   cursor: pointer;
@@ -68,7 +68,7 @@ export const ProductNameSC = styled(Typography)`
   font-size: ${typography.h5.fontSize} !important;
   font-weight: ${typography.h5.fontWeight} !important;
   line-height: 16px !important;
-  color: ${colors.darkest} !important;
+  color: ${COLORS.NEUTRAL.N900} !important;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -80,7 +80,7 @@ export const ProductPriceSC = styled(Typography)`
   font-size: ${typography.body1.fontSize} !important;
   font-weight: ${typography.body1.fontWeight} !important;
   line-height: 14px !important;
-  color: ${colors.dark} !important;
+  color: ${COLORS.NEUTRAL.N500} !important;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

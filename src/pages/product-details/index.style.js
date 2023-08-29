@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import colors from "../../styles/colors";
+import COLORS from "../../styles/colors";
 import typography from "../../styles/typography";
 import { Box, Typography } from "@mui/material";
 
@@ -75,7 +75,7 @@ export const EmptyBodySC = styled(Box)`
 `
 
 export const EmptyTextSC = styled(Typography)`
-  color: ${colors.dark} !important;
   font-size: ${typography.body1.fontSize} !important;
   font-weight: ${typography.body1.fontWeight} !important;
+  color: ${COLORS.NEUTRAL.N500} !important;
 `

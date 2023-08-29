@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 import { Box, Icon, TextField, Typography } from "@mui/material";
 
-import { colors, typography, space, borderRadius } from "../../styles/styles";
+import { COLORS, typography, space, borderRadius } from "../../styles/styles";
 
 // SHARED STYLES ---------------------------------------------------------------
 
@@ -34,13 +34,13 @@ export const LabelContainerSC = styled(Box)`
 
 export const LabelSC = styled(Typography)`
   margin-right: ${space.xxs} !important;
-  color: ${colors.darkest} !important;
   font-size: ${typography.body1.fontSize} !important;
   font-weight: ${typography.body1.fontWeight} !important;
+  color: ${COLORS.NEUTRAL.N900} !important;
   transition: color 0.3s ease-in-out;
 
   ${EmailInputSC}:focus-within & {
-    color: ${colors.primary} !important;
+    color: ${COLORS.PRIMARY.P500} !important;
   }
 `;
 
@@ -65,12 +65,12 @@ export const InputSC = styled(TextField)`
     padding: ${space.xs} ${space.m} !important;
     border: 0px !important;
     border-radius: ${borderRadius.s} !important;
-    color: ${colors.darkest} !important;
-    background-color: ${colors.light} !important;
+    color: ${COLORS.NEUTRAL.N900} !important;
+    background-color: ${COLORS.NEUTRAL.N50} !important;
     transition: border 0.1s ease-in-out;
 
     &:focus {
-      border: 1px solid ${colors.primary} !important;
+      border: 1px solid ${COLORS.PRIMARY.P500} !important;
     }
   }
 
@@ -91,19 +91,19 @@ export const TooltipSC = styled(Box)`
   font-size: ${typography.body1.fontSize} !important;
   font-weight: ${typography.body1.fontWeight} !important;
   line-height: ${typography.body1.lineHeight} !important;
-  background-color: ${colors.light} !important;
+  background-color: ${COLORS.NEUTRAL.N50} !important;
   margin-bottom: ${space.m} !important;
 `;
 
 export const TooltipTextSC = styled(Typography)`
   margin-bottom: ${space.xs} !important;
-  color: ${colors.darkest} !important;
+  color: ${COLORS.NEUTRAL.N900} !important;
   font-size: inherit !important;
   font-weight: inherit !important;
 `;
 
 export const StatusTextSC = styled(Typography)`
-  color: ${colors.red} !important;
+  color: ${COLORS.RED.R500} !important;
   font-size: ${typography.small.fontSize} !important;
   font-weight: ${typography.small.fontWeight} !important;
   font-style: italic !important;

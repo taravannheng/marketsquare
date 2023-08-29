@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Grid, Typography, Box, Stack } from "@mui/material";
 
-import colors from "../../styles/colors";
+import COLORS from "../../styles/colors";
 import typography from "../../styles/typography";
 
 export const ProductsDisplaySC = styled(Box)`
@@ -52,7 +52,7 @@ export const TitleContainerSC = styled(Box)`
 
 export const ProductsDisplayTitleSC = styled(Typography)`
   margin-bottom: 16px !important;
-  color: ${colors.darkest} !important;
+  color: ${COLORS.NEUTRAL.N900} !important;
   font-size: ${typography.h3.fontSize} !important;
   font-weight: ${typography.h3.fontWeight} !important;
 
@@ -70,9 +70,9 @@ export const ProductsDisplayTitleSC = styled(Typography)`
 `
 
 export const ProductsDisplayEmptyTextSC = styled(Typography)`
-  color: ${colors.dark} !important;
   font-size: ${typography.body1.fontSize} !important;
   font-weight: ${typography.body1.fontWeight} !important;
+  color: ${COLORS.NEUTRAL.N500} !important;
 `
 
 export const PaginationStackSC = styled(Stack)`

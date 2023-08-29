@@ -12,7 +12,7 @@ import {
   Typography,
 } from "@mui/material";
 
-import { colors, typography, space } from "../../styles/styles";
+import { COLORS, typography, space } from "../../styles/styles";
 
 // SHARED STYLES ------------------------------------------
 
@@ -31,7 +31,7 @@ export const SmallFooterSC = styled(Box)`
   align-items: center;
   flex-direction: column;
   padding: 40px ${space.l} ${space.l} ${space.l};
-  background-color: ${colors.primary};
+  background-color: ${COLORS.PRIMARY.P500};
 
   @media only screen and (min-width: 1080px) {
     display: none;
@@ -56,7 +56,7 @@ export const AccordionSC = styled(Accordion)`
 
 export const AccordionSummarySC = styled(AccordionSummary)`
   & > * {
-    color: ${colors.lightest} !important;
+    color: ${COLORS.NEUTRAL.N0} !important;
   }
 `;
 
@@ -70,7 +70,7 @@ export const LargeFooterSC = styled(Box)`
     width: clamp(100%, 100%, 100%);
     height: clamp(300px, 300px, 300px);
     margin: 0 !important;
-    background-color: ${colors.primary};
+    background-color: ${COLORS.PRIMARY.P500};
   }
 `;
 
@@ -80,7 +80,7 @@ export const FooterLeftContainerSC = styled(Card)`
   align-items: center;
   width: clamp(330px, 330px, 330px) !important;
   height: clamp(100%, 100%, 100%);
-  background-color: ${colors.primary} !important;
+  background-color: ${COLORS.PRIMARY.P500} !important;
   box-shadow: none !important;
   border-radius: none;
 `;
@@ -95,7 +95,7 @@ export const FooterLeftContent = styled(CardContent)`
 `;
 
 export const FooterCopyright = styled(Typography)`
-  color: ${colors.lightest} !important;
+  color: ${COLORS.NEUTRAL.N0} !important;
   font-size: ${typography.small.fontSize} !important;
   font-weight: ${typography.small.fontWeight} !important;
   margin-top: 64px !important;
@@ -111,8 +111,8 @@ export const FooterRightContainerSC = styled(Box)`
   flex-grow: 1;
   height: clamp(100%, 100%, 100%);
   padding: 0 64px !important;
-  border: 1px solid ${colors.light};
-  background-color: ${colors.lightest};
+  border: 1px solid ${COLORS.NEUTRAL.N50};
+  background-color: ${COLORS.NEUTRAL.N0};
 `;
 
 export const UtilityLinkContainerSC = styled(Box)`
@@ -125,13 +125,13 @@ export const UtilityLinkContainerSC = styled(Box)`
 `;
 
 export const UtilityLinkTitleSC = styled(Typography)`
-  color: ${colors.lightest} !important;
+  color: ${COLORS.NEUTRAL.N0} !important;
   font-size: ${typography.h5.fontSize} !important;
   font-weight: ${typography.h5.fontWeight} !important;
 
   @media only screen and (min-width: 1080px) {
     margin-bottom: 20px !important;
-    color: ${colors.darkest} !important;
+    color: ${COLORS.NEUTRAL.N900} !important;
   }
 `;
 
@@ -139,19 +139,19 @@ export const UtilityLinkStackSC = styled(Stack)``;
 
 export const UtilityLinkSC = styled(Link)`
   text-decoration: none !important;
-  color: ${colors.lightest} !important;
   font-size: ${typography.body1.fontSize} !important;
   font-weight: ${typography.body1.fontWeight} !important;
+  color: ${COLORS.NEUTRAL.N0} !important;
 
   &:hover {
     text-decoration: underline !important;
   }
 
   @media only screen and (min-width: 1080px) {
-    color: ${colors.dark} !important;
+    color: ${COLORS.NEUTRAL.N500} !important;
 
     &:hover {
-      color: ${colors.primary} !important;
+      color: ${COLORS.PRIMARY.P500} !important;
     }
   }
 `;

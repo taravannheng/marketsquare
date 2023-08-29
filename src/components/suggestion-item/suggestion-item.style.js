@@ -1,12 +1,12 @@
 import styled from "@emotion/styled";
 import { Avatar, ListItem, ListItemAvatar, ListItemText } from "@mui/material";
 
-import colors from "../../styles/colors";
+import COLORS from "../../styles/colors";
 import typography from "../../styles/typography";
 
 export const SuggestionItemSC = styled(ListItem)`
   width: 100%;
-  color: ${colors.darkest};
+  color: ${COLORS.NEUTRAL.N900};
   padding: 0 !important;
   cursor: pointer;
 
@@ -15,7 +15,7 @@ export const SuggestionItemSC = styled(ListItem)`
   }
 
   &:hover {
-    color: ${colors.primary};
+    color: ${COLORS.PRIMARY.P500};
   }
 `;
 

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Box, Button, ButtonGroup, Card, CardMedia, Stack, Typography } from "@mui/material";
 
-import colors from "../../styles/colors";
+import COLORS from "../../styles/colors";
 import typography from "../../styles/typography";
 import borderRadius from "../../styles/border-radius";
 
@@ -59,15 +59,15 @@ export const SlideShowPaginationPrevButtonSC = styled(Button)`
   border: 0 !important;
   border-radius: ${borderRadius.rounded} !important;
   margin-right: 36px !important;
-  background-color: ${colors.light} !important;
-  color: ${colors.darkest} !important;
   font-size: ${typography.body1.fontSize} !important;
   font-weight: ${typography.body1.fontWeight} !important;
+  background-color: ${COLORS.NEUTRAL.N50} !important;
+  color: ${COLORS.NEUTRAL.N900} !important;
   text-transform: none !important;
 
   &:hover {
-    background-color: ${colors.primary} !important;
-    color: ${colors.lightest} !important;
+    background-color: ${COLORS.PRIMARY.P500} !important;
+    color: ${COLORS.NEUTRAL.N0} !important;
   }
 
   @media only screen and (min-width: 1080px) {
@@ -82,15 +82,15 @@ export const SlideShowPaginationNextButtonSC = styled(Button)`
   border: 0 !important;
   border-radius: ${borderRadius.rounded} !important;
   margin-left: 36px !important;
-  background-color: ${colors.light} !important;
-  color: ${colors.darkest} !important;
   font-size: ${typography.body1.fontSize} !important;
   font-weight: ${typography.body1.fontWeight} !important;
+  background-color: ${COLORS.NEUTRAL.N50} !important;
+  color: ${COLORS.NEUTRAL.N900} !important;
   text-transform: none !important;
 
   &:hover {
-    background-color: ${colors.primary} !important;
-    color: ${colors.lightest} !important;
+    background-color: ${COLORS.PRIMARY.P500} !important;
+    color: ${COLORS.NEUTRAL.N0} !important;
   }
 
   @media only screen and (min-width: 1080px) {
@@ -106,18 +106,18 @@ export const SlideShowPaginationIndicatorSC = styled(Box)`
   width: clamp(14px, 14px, 14px) !important;
   height: clamp(14px, 14px, 14px) !important;
   border-radius: ${borderRadius.rounded} !important;
-  background-color: ${colors.light};
+  background-color: ${COLORS.NEUTRAL.N50};
   cursor: pointer;
   transition: all 0.3s ease;
 
   &:hover {
-    background-color: ${colors.primary};
-    border: 1px solid ${colors.primary};
+    background-color: ${COLORS.PRIMARY.P500};
+    border: 1px solid ${COLORS.PRIMARY.P500};
   }
 `
 
 export const IndicatorTextSC = styled(Typography)`
-  color: ${colors.darkest} !important;
+  color: ${COLORS.NEUTRAL.N900} !important;
   font-size: ${typography.h4.fontSize} !important;
   font-weight: ${typography.h4.fontWeight} !important;
 `
@@ -126,8 +126,8 @@ export const SlideShowPaginationActiveIndicatorSC = styled(Box)`
   width: clamp(14px, 14px, 14px) !important;
   height: clamp(14px, 14px, 14px) !important;
   border-radius: ${borderRadius.rounded} !important;
-  border: 1px solid ${colors.primary};
-  background-color: ${colors.primary};
+  border: 1px solid ${COLORS.PRIMARY.P500};
+  background-color: ${COLORS.PRIMARY.P500};
   cursor: pointer;
 `
 
