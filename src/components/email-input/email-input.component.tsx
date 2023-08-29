@@ -54,7 +54,7 @@ const EmailInput: FC<EmailInputProps> = ({
             {!isValid ? (
               <Cancel sx={{ color: `${COLORS.RED.R500}` }} />
             ) : (
-              <CheckCircle sx={{ color: `${colors.green}` }} />
+              <CheckCircle sx={{ color: `${COLORS.GREEN.G400}` }} />
             )}
           </StatusIconSC>
         )}

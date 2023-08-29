@@ -14,7 +14,7 @@ const alertConfigs: Record<string, AlertConfig> = {
   },
   success: {
     icon: <CheckCircle />,
-    color: colors.green,
+    color: COLORS.GREEN.G400,
     severity: 'success',
   },
   error: {

@@ -95,7 +95,7 @@ describe("EmailInput", () => {
     fireEvent.blur(input);
 
     expect(statusIcon).toBeInTheDocument();
-    expect(statusIcon).toHaveStyle(`color: ${colors.green}`);
+    expect(statusIcon).toHaveStyle(`color: ${COLORS.GREEN.G400}`);
 
   });
 

@@ -67,7 +67,7 @@ const PasswordInput: FC<PasswordInputInterface> = ({
             {!isValid ? (
               <Cancel sx={{ color: `${COLORS.RED.R500}` }} />
             ) : (
-              <CheckCircle sx={{ color: `${colors.green}` }} />
+              <CheckCircle sx={{ color: `${COLORS.GREEN.G400}` }} />
             )}
           </StatusIconSC>
         )}
@@ -108,7 +108,7 @@ const PasswordInput: FC<PasswordInputInterface> = ({
               <TooltipItemIconSC>
                 <CheckCircle
                   sx={{
-                    color: `${colors.green} !important`,
+                    color: `${COLORS.GREEN.G400} !important`,
                     opacity: `${
                       validityDetails.hasUppercaseLetter ? "1" : "0"
                     } !important`,
@@ -139,7 +139,7 @@ const PasswordInput: FC<PasswordInputInterface> = ({
               <TooltipItemIconSC>
                 <CheckCircle
                   sx={{
-                    color: `${colors.green} !important`,
+                    color: `${COLORS.GREEN.G400} !important`,
                     opacity: `${
                       validityDetails.hasLowercaseLetter ? "1" : "0"
                     } !important`,
@@ -170,7 +170,7 @@ const PasswordInput: FC<PasswordInputInterface> = ({
               <TooltipItemIconSC>
                 <CheckCircle
                   sx={{
-                    color: `${colors.green} !important`,
+                    color: `${COLORS.GREEN.G400} !important`,
                     opacity: `${
                       validityDetails.hasNumber ? "1" : "0"
                     } !important`,
@@ -201,7 +201,7 @@ const PasswordInput: FC<PasswordInputInterface> = ({
               <TooltipItemIconSC>
                 <CheckCircle
                   sx={{
-                    color: `${colors.green} !important`,
+                    color: `${COLORS.GREEN.G400} !important`,
                     opacity: `${
                       validityDetails.hasSpecialCharacter ? "1" : "0"
                     } !important`,
@@ -232,7 +232,7 @@ const PasswordInput: FC<PasswordInputInterface> = ({
               <TooltipItemIconSC>
                 <CheckCircle
                   sx={{
-                    color: `${colors.green} !important`,
+                    color: `${COLORS.GREEN.G400} !important`,
                     opacity: `${
                       validityDetails.hasNoSpaces ? "1" : "0"
                     } !important`,
@@ -263,7 +263,7 @@ const PasswordInput: FC<PasswordInputInterface> = ({
               <TooltipItemIconSC>
                 <CheckCircle
                   sx={{
-                    color: `${colors.green} !important`,
+                    color: `${COLORS.GREEN.G400} !important`,
                     opacity: `${
                       validityDetails.isValidLength ? "1" : "0"
                     } !important`,

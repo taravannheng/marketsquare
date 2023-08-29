@@ -54,7 +54,7 @@ const UsernameInput: FC<UsernameInputInterface> = ({
             {!isValid ? (
               <Cancel sx={{ color: `${COLORS.RED.R500}` }} />
             ) : (
-              <CheckCircle sx={{ color: `${colors.green}` }} />
+              <CheckCircle sx={{ color: `${COLORS.GREEN.G400}` }} />
             )}
           </StatusIconSC>
         )}
@@ -80,7 +80,7 @@ const UsernameInput: FC<UsernameInputInterface> = ({
               <TooltipItemIconSC>
                 <CheckCircle
                   sx={{
-                    color: `${colors.green} !important`,
+                    color: `${COLORS.GREEN.G400} !important`,
                     opacity: `${
                       validityDetails.isValidLength ? "1" : "0"
                     } !important`,
@@ -111,7 +111,7 @@ const UsernameInput: FC<UsernameInputInterface> = ({
               <TooltipItemIconSC>
                 <CheckCircle
                   sx={{
-                    color: `${colors.green} !important`,
+                    color: `${COLORS.GREEN.G400} !important`,
                     opacity: `${
                       validityDetails.isValidCharacters ? "1" : "0"
                     } !important`,
@@ -142,7 +142,7 @@ const UsernameInput: FC<UsernameInputInterface> = ({
               <TooltipItemIconSC>
                 <CheckCircle
                   sx={{
-                    color: `${colors.green} !important`,
+                    color: `${COLORS.GREEN.G400} !important`,
                     opacity: `${
                       validityDetails.hasNoSpaces ? "1" : "0"
                     } !important`,
