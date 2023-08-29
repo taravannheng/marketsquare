@@ -31,7 +31,7 @@ export const SmallFooterSC = styled(Box)`
   align-items: center;
   flex-direction: column;
   padding: 40px ${space.l} ${space.l} ${space.l};
-  background-color: ${colors.primary};
+  background-color: ${COLORS.PRIMARY.P500};
 
   @media only screen and (min-width: 1080px) {
     display: none;
@@ -70,7 +70,7 @@ export const LargeFooterSC = styled(Box)`
     width: clamp(100%, 100%, 100%);
     height: clamp(300px, 300px, 300px);
     margin: 0 !important;
-    background-color: ${colors.primary};
+    background-color: ${COLORS.PRIMARY.P500};
   }
 `;
 
@@ -80,7 +80,7 @@ export const FooterLeftContainerSC = styled(Card)`
   align-items: center;
   width: clamp(330px, 330px, 330px) !important;
   height: clamp(100%, 100%, 100%);
-  background-color: ${colors.primary} !important;
+  background-color: ${COLORS.PRIMARY.P500} !important;
   box-shadow: none !important;
   border-radius: none;
 `;
@@ -151,7 +151,7 @@ export const UtilityLinkSC = styled(Link)`
     color: ${colors.dark} !important;
 
     &:hover {
-      color: ${colors.primary} !important;
+      color: ${COLORS.PRIMARY.P500} !important;
     }
   }
 `;

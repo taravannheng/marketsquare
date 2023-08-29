@@ -24,14 +24,14 @@ export const ShortRatingLabelSC = styled(Typography)`
 `;
 
 export const ShortRatingNumberSC = styled(Typography)`
-  color: ${colors.primary} !important;
+  color: ${COLORS.PRIMARY.P500} !important;
   font-size: ${typography.body.fontSize} !important;
   font-weight: ${typography.body.fontWeight} !important;
   margin: 0 !important;
 `;
 
 export const ShortRatingIconSC = styled(Icon)`
-  color: ${colors.primary} !important;
+  color: ${COLORS.PRIMARY.P500} !important;
   margin-top: -2px !important;
   padding: 0 !important;
 `;
@@ -45,6 +45,6 @@ export const LabelSC = styled(Typography)`
 
 export const StarsSC = styled(Rating)`
   span.MuiRating-iconFilled > svg {
-    color: ${colors.primary} !important;
+    color: ${COLORS.PRIMARY.P500} !important;
   }
 `;

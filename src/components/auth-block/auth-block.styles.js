@@ -18,7 +18,7 @@ export const SignUpButtonSC = styled(Button)`
   height: clamp(48px, 48px, 48px) !important;
   margin-bottom: ${space.m} !important;
   border-radius: ${borderRadius.s} !important;
-  background-color: ${colors.primary} !important;
+  background-color: ${COLORS.PRIMARY.P500} !important;
   font-size: ${typography.body.fontSize} !important;
   font-weight: ${typography.body.fontWeight} !important;
   text-transform: none !important;
@@ -38,6 +38,6 @@ export const SignInButtonSC = styled(Button)`
 
   &:hover {
     color: ${colors.lightest} !important;
-    background-color: ${colors.primary} !important;
+    background-color: ${COLORS.PRIMARY.P500} !important;
   }
 `;

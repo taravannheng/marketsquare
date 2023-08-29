@@ -121,7 +121,7 @@ export const IncreaseButtonSC = styled(IconButton)`
   transition: background-color 0.3s linear;
 
   &:hover {
-    background-color: ${colors.primary} !important;
+    background-color: ${COLORS.PRIMARY.P500} !important;
   }
 
   & > svg {

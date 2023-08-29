@@ -15,7 +15,7 @@ export const ListItemSC = styled(ListItem)`
   color: ${colors.dark} !important;
 
   &:hover {
-    background-color: ${colors.primary} !important;
+    background-color: ${COLORS.PRIMARY.P500} !important;
 
     & > * {
       color: ${colors.lightest} !important;

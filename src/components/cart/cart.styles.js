@@ -33,7 +33,7 @@ export const CartButtonSC = styled(Box)`
   height: clamp(32px, 32px, 32px);
   padding: 0 ${space.m}; 
   border-radius: ${borderRadius.rounded};
-  background-color: ${colors.primary};
+  background-color: ${COLORS.PRIMARY.P500};
   cursor: pointer;
   transition: background-color 0.3s linear;
 
@@ -59,7 +59,7 @@ export const CartCounterSC = styled(Box)`
   width: clamp(20px, 20px, 20px);
   height: clamp(20px, 20px, 20px);
   border-radius: ${borderRadius.rounded};
-  color: ${colors.primary};
+  color: ${COLORS.PRIMARY.P500};
   background-color: ${colors.lightest};
   font-weight: ${typography.h5.fontWeight};
   font-size: ${typography.h5.fontSize};
@@ -83,7 +83,7 @@ export const TotalLabelSC = styled(Typography)`
 `;
 
 export const TotalTextSC = styled(Typography)`
-  color: ${colors.primary};
+  color: ${COLORS.PRIMARY.P500};
   font-size: ${typography.h3.fontSize} !important;
   font-weight: ${typography.h3.fontWeight} !important;
 `;
@@ -99,7 +99,7 @@ export const CheckoutButtonSC = styled(Button)`
   transition: background-color 0.3s linear;
 
   &:hover {
-    background-color: ${colors.primary} !important;
+    background-color: ${COLORS.PRIMARY.P500} !important;
     color: ${colors.lightest} !important;
   }
 `;
@@ -143,7 +143,7 @@ export const IconButtonSC = styled(IconButton)`
   transition: background-color 0.3s linear;
 
   &:hover {
-    background-color: ${colors.primary} !important;
+    background-color: ${COLORS.PRIMARY.P500} !important;
   }
 
   & > svg {
@@ -196,7 +196,7 @@ export const ShoppingButtonSC = styled(Button)`
   margin-top: ${space.xl} !important;
   margin-bottom: ${space.m} !important;
   border-radius: ${borderRadius.rounded} !important;
-  background-color: ${colors.primary} !important;
+  background-color: ${COLORS.PRIMARY.P500} !important;
   color: ${colors.lightest} !important;
   font-size: ${typography.body.fontSize} !important;
   font-weight: ${typography.body.fontWeight} !important;

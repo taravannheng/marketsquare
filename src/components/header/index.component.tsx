@@ -157,7 +157,7 @@ const Header: FC<HeaderProps> = () => {
               onClick={handleClick}
               sx={{
                 backgroundColor: `${
-                  !_.isEmpty(anchorEl) ? colors.primary : colors.light
+                  !_.isEmpty(anchorEl) ? COLORS.PRIMARY.P500 : colors.light
                 } !important`,
                 color: `${
                   !_.isEmpty(anchorEl) ? colors.lightest : colors.grey

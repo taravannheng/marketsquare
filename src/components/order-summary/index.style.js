@@ -37,7 +37,7 @@ export const TotalTextSC = styled(Typography)`
 
 export const TotalAmountSC = styled(Typography)`
   margin-left: 24px;
-  color: ${colors.primary} !important;
+  color: ${COLORS.PRIMARY.P500} !important;
   font-size: ${typography.h2.fontSize} !important;
   font-weight: ${typography.h2.fontWeight} !important;
 

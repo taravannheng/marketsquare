@@ -22,7 +22,7 @@ export const MenuSC = styled(Button)`
 
   &:hover {
     color: ${colors.lightest} !important;
-    background-color: ${colors.primary} !important;
+    background-color: ${COLORS.PRIMARY.P500} !important;
     cursor: pointer;
   }
 `;
@@ -87,6 +87,6 @@ export const LinkSC = styled(Link)`
 
   &:hover {
     text-decoration: underline !important;
-    color: ${colors.primary} !important;
+    color: ${COLORS.PRIMARY.P500} !important;
   }
 `;

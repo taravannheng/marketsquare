@@ -86,7 +86,7 @@ export const ButtonSC = styled(Button)`
   margin-top: ${space.xl} !important;
   margin-bottom: ${space.xxxl} !important;
   border-radius: ${borderRadius.s} !important;
-  background-color: ${colors.primary} !important;
+  background-color: ${COLORS.PRIMARY.P500} !important;
   color: ${colors.lightest} !important;
   font-size: ${typography.body.fontSize} !important;
   font-weight: ${typography.body.fontWeight} !important;

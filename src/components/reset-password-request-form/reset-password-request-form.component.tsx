@@ -110,7 +110,7 @@ const ResetPasswordRequestForm: FC<ResetPasswordRequestFormI> = () => {
       <ButtonContainerSC>
       <Button
         labelColor={`${colors.lightest}`}
-        backgroundColor={`${colors.primary}`}
+        backgroundColor={`${COLORS.PRIMARY.P500}`}
         label="Send Code"
         styleType="default"
         actionType='submit'

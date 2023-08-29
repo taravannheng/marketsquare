@@ -40,7 +40,7 @@ export const LabelSC = styled(Typography)`
   transition: color 0.3s ease-in-out;
 
   ${EmailInputSC}:focus-within & {
-    color: ${colors.primary} !important;
+    color: ${COLORS.PRIMARY.P500} !important;
   }
 `;
 
@@ -70,7 +70,7 @@ export const InputSC = styled(TextField)`
     transition: border 0.1s ease-in-out;
 
     &:focus {
-      border: 1px solid ${colors.primary} !important;
+      border: 1px solid ${COLORS.PRIMARY.P500} !important;
     }
   }
 

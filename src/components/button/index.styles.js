@@ -20,7 +20,7 @@ export const ButtonSC = styled(Button)`
 
   &:hover {
     color: ${colors.lightest} !important;
-    background-color: ${colors.primary} !important;
+    background-color: ${COLORS.PRIMARY.P500} !important;
   }
 
   &:hover > * {
@@ -39,7 +39,7 @@ export const RoundedButtonSC = styled(Button)`
   text-transform: none !important;
 
   &:hover {
-    background-color: ${colors.primary} !important;
+    background-color: ${COLORS.PRIMARY.P500} !important;
     color: ${colors.lightest} !important;
   }
 `;
@@ -63,7 +63,7 @@ export const IconButtonSC = styled(IconButton)`
   }
 
   &:hover {
-    background-color: ${colors.primary} !important;
+    background-color: ${COLORS.PRIMARY.P500} !important;
     color: ${colors.lightest} !important;
   }
 `;

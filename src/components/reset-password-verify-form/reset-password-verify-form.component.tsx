@@ -129,7 +129,7 @@ const ResetPasswordVerifyForm: FC<ResetPasswordVerifyFormI> = () => {
       <ButtonContainerSC>
       <Button
         labelColor={`${colors.lightest}`}
-        backgroundColor={`${colors.primary}`}
+        backgroundColor={`${COLORS.PRIMARY.P500}`}
         label="Submit Code"
         styleType="default"
         actionType='button'

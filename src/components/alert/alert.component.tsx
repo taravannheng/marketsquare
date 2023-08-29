@@ -9,7 +9,7 @@ import COLORS from '../../styles/colors';
 const alertConfigs: Record<string, AlertConfig> = {
   info: {
     icon: <Info />,
-    color: colors.primary,
+    color: COLORS.PRIMARY.P500,
     severity: 'info',
   },
   success: {

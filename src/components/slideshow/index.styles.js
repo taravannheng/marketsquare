@@ -66,7 +66,7 @@ export const SlideShowPaginationPrevButtonSC = styled(Button)`
   text-transform: none !important;
 
   &:hover {
-    background-color: ${colors.primary} !important;
+    background-color: ${COLORS.PRIMARY.P500} !important;
     color: ${colors.lightest} !important;
   }
 
@@ -89,7 +89,7 @@ export const SlideShowPaginationNextButtonSC = styled(Button)`
   text-transform: none !important;
 
   &:hover {
-    background-color: ${colors.primary} !important;
+    background-color: ${COLORS.PRIMARY.P500} !important;
     color: ${colors.lightest} !important;
   }
 
@@ -111,8 +111,8 @@ export const SlideShowPaginationIndicatorSC = styled(Box)`
   transition: all 0.3s ease;
 
   &:hover {
-    background-color: ${colors.primary};
-    border: 1px solid ${colors.primary};
+    background-color: ${COLORS.PRIMARY.P500};
+    border: 1px solid ${COLORS.PRIMARY.P500};
   }
 `
 
@@ -126,8 +126,8 @@ export const SlideShowPaginationActiveIndicatorSC = styled(Box)`
   width: clamp(14px, 14px, 14px) !important;
   height: clamp(14px, 14px, 14px) !important;
   border-radius: ${borderRadius.rounded} !important;
-  border: 1px solid ${colors.primary};
-  background-color: ${colors.primary};
+  border: 1px solid ${COLORS.PRIMARY.P500};
+  background-color: ${COLORS.PRIMARY.P500};
   cursor: pointer;
 `
 

@@ -6,11 +6,11 @@ import { colors } from "../../styles/styles";
 export const AvatarSC = styled(Avatar)`
   border: 2px solid ${colors.light};
   color: ${colors.lightest};
-  background-color: ${colors.primary};
+  background-color: ${COLORS.PRIMARY.P500};
   transition: all 0.3s ease-in-out;
 
   &:hover {
-    border-color: ${colors.primary};
+    border-color: ${COLORS.PRIMARY.P500};
     cursor: pointer;
   }
 

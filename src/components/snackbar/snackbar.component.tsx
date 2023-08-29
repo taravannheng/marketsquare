@@ -19,7 +19,7 @@ const SnackBar: FC<SnackbarInterface> = ({
 
   switch (type) {
     case "info":
-      backgroundColor = colors.primary;
+      backgroundColor = COLORS.PRIMARY.P500;
       break;
     case "error":
       backgroundColor = colors.red;
@@ -28,7 +28,7 @@ const SnackBar: FC<SnackbarInterface> = ({
       backgroundColor = colors.green;
       break;
     default:
-      backgroundColor = colors.primary;
+      backgroundColor = COLORS.PRIMARY.P500;
       break;
   }
 

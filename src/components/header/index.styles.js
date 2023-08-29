@@ -81,12 +81,12 @@ export const MenuIconSC = styled(Icon)`
   background-color: ${colors.light} !important;
 
   &:hover {
-    color: ${colors.primary} !important;
+    color: ${COLORS.PRIMARY.P500} !important;
   }
 
   @media only screen and (min-width: 640px) {
     &:hover {
-      background-color: ${colors.primary} !important;
+      background-color: ${COLORS.PRIMARY.P500} !important;
       color: ${colors.lightest} !important;
     }
   }

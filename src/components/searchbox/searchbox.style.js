@@ -17,7 +17,7 @@ export const SearchBoxSC = styled(Box)`
   transition: border 0.3s ease-in-out;
 
   &:focus-within {
-    border: 1px solid ${colors.primary} !important;
+    border: 1px solid ${COLORS.PRIMARY.P500} !important;
   }
 
   @media only screen and (max-width: 639px) {
@@ -31,7 +31,7 @@ export const SearchIconSC = styled(Icon)`
   transition: color 0.3s ease-in-out;
 
   ${SearchBoxSC}:focus-within & {
-    color: ${colors.primary};
+    color: ${COLORS.PRIMARY.P500};
   }
 `;
 
@@ -72,6 +72,6 @@ export const ClearIconSC = styled(Icon)`
   cursor: pointer;
 
   &:hover {
-    color: ${colors.primary};
+    color: ${COLORS.PRIMARY.P500};
   }
 `;

@@ -40,7 +40,7 @@ export const ValidationTextHighlightSC = styled(Typography)`
   font-size: ${typography.body.fontSize} !important;
   font-weight: ${typography.body.fontWeight} !important;
   font-style: italic;
-  color: ${colors.primary};
+  color: ${COLORS.PRIMARY.P500};
   cursor: pointer;
 `;
 

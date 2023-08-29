@@ -46,7 +46,7 @@ export const SignInButtonSC = styled(Button)`
   margin-top: ${space.l} !important;
   margin-bottom: ${space.l} !important;
   border-radius: ${borderRadius.s} !important;
-  background-color: ${colors.primary} !important;
+  background-color: ${COLORS.PRIMARY.P500} !important;
   font-size: ${typography.body.fontSize} !important;
   font-weight: ${typography.body.fontWeight} !important;
   text-transform: none !important;
@@ -61,7 +61,7 @@ export const ForgottenPasswordLinkSC = styled(Link)`
   margin-bottom: ${space.xl} !important;
   font-size: ${typography.body.fontSize} !important;
   font-weight: ${typography.body.fontWeight} !important;
-  color: ${colors.primary} !important;
+  color: ${COLORS.PRIMARY.P500} !important;
 
   &:hover {
     cursor: pointer;
@@ -82,7 +82,7 @@ export const SignInWithGoogleButtonSC = styled(Button)`
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 
   &:hover {
-    background-color: ${colors.primary} !important;
+    background-color: ${COLORS.PRIMARY.P500} !important;
     color: ${colors.lightest} !important;
   }
 `;
@@ -106,7 +106,7 @@ export const SignInWithFacebookButtonSC = styled(Button)`
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 
   &:hover {
-    background-color: ${colors.primary} !important;
+    background-color: ${COLORS.PRIMARY.P500} !important;
     color: ${colors.lightest} !important;
   }
 `;
@@ -118,7 +118,7 @@ export const SignUpSC = styled(Typography)`
 `;
 
 export const SignUpLinkSC = styled(Link)`
-  color: ${colors.primary} !important;
+  color: ${COLORS.PRIMARY.P500} !important;
   font-size: inherit !important;
   font-weight: inherit !important;
 

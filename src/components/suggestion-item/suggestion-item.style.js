@@ -15,7 +15,7 @@ export const SuggestionItemSC = styled(ListItem)`
   }
 
   &:hover {
-    color: ${colors.primary};
+    color: ${COLORS.PRIMARY.P500};
   }
 `;
 

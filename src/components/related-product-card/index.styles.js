@@ -13,7 +13,7 @@ export const RelatedProductCardSC = styled(Card)`
 
   &:hover {
     cursor: pointer;
-    border: 1px solid ${colors.primary};
+    border: 1px solid ${COLORS.PRIMARY.P500};
   }
 `
 

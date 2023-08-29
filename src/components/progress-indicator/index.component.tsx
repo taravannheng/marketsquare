@@ -8,7 +8,7 @@ import COLORS from '../../styles/colors';
 const theme = createTheme({
   palette: {
     primary: {
-      main: `${colors.primary}`,
+      main: `${COLORS.PRIMARY.P500}`,
     },
   },
 });
