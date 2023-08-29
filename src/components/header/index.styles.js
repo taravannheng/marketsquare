@@ -11,10 +11,7 @@ import {
   Typography,
 } from "@mui/material";
 
-import colors from "../../styles/colors";
-import typography from "../../styles/typography";
-import space from "../../styles/spacing";
-import borderRadius from "../../styles/border-radius";
+import { colors, typography, space, borderRadius, BREAKPOINTS } from "../../styles/styles";
 
 export const AppBarSC = styled(AppBar)``;
 
@@ -37,7 +34,7 @@ export const ToolbarSC = styled(Toolbar)`
   justify-content: space-between;
   align-items: center;
   width: 100% !important;
-  max-width: 1280px !important;
+  max-width: ${BREAKPOINTS.xxl}px !important;
   height: clamp(56px, 56px, 56px) !important;
   border-bottom: 1px solid ${colors.light};
   padding: 0 24px !important;
