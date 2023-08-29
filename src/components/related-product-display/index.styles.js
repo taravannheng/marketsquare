@@ -22,6 +22,6 @@ export const StackSC = styled(Stack)`
 
 export const EmptyTextSC = styled(Typography)`
   color: ${colors.dark} !important;
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
 `

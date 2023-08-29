@@ -19,7 +19,11 @@ const typography = {
     fontSize: '16px',
     fontWeight: 600,
   },
-  body: {
+  body2: {
+    fontSize: '14px',
+    fontWeight: 600,
+  },
+  body1: {
     fontSize: '14px',
     fontWeight: 400,
     lineHeight: '150%',

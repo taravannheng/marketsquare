@@ -19,8 +19,8 @@ export const SignUpButtonSC = styled(Button)`
   margin-bottom: ${space.m} !important;
   border-radius: ${borderRadius.s} !important;
   background-color: ${colors.primary} !important;
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
   text-transform: none !important;
   color: ${colors.lightest} !important;
 `;
@@ -30,8 +30,8 @@ export const SignInButtonSC = styled(Button)`
   height: clamp(48px, 48px, 48px) !important;
   border-radius: ${borderRadius.s} !important;
   background-color: ${colors.light} !important;
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
   text-transform: none !important;
   color: ${colors.darkest} !important;
   transition: background-color 0.2s ease-in-out !important;

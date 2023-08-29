@@ -68,8 +68,8 @@ export const SubtitleSC = styled(Typography)`
 
 export const TextSC = styled(Typography)`
 margin-bottom: ${space.m} !important;
-font-size: ${typography.body.fontSize} !important;
-font-weight: ${typography.body.fontWeight} !important;
+font-size: ${typography.body1.fontSize} !important;
+font-weight: ${typography.body1.fontWeight} !important;
 text-align: center !important;
 color: ${colors.dark} !important;
 
@@ -88,7 +88,7 @@ export const ButtonSC = styled(Button)`
   border-radius: ${borderRadius.s} !important;
   background-color: ${colors.primary} !important;
   color: ${colors.lightest} !important;
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
   text-transform: none !important;
 `;

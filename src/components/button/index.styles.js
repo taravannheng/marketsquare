@@ -9,8 +9,8 @@ export const ButtonSC = styled(Button)`
   width: clamp(100%, 100%, 100%);
   height: clamp(48px, 48px, 48px) !important;
   color: ${colors.darkest} !important;
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
   background-color: ${colors.light} !important;
   border-radius: ${borderRadius.s} !important;
   box-shadow: none !important;
@@ -34,8 +34,8 @@ export const RoundedButtonSC = styled(Button)`
   border-radius: 1000px !important;
   background-color: ${colors.light} !important;
   color: ${colors.darkest} !important;
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
   text-transform: none !important;
 
   &:hover {
@@ -54,8 +54,8 @@ export const IconButtonSC = styled(IconButton)`
   border-radius: 1000px !important;
   background-color: ${colors.light} !important;
   color: ${colors.darkest} !important;
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
   text-transform: none !important;
 
   & > svg {

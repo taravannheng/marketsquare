@@ -48,8 +48,8 @@ export const TextFieldSC = styled(TextField)`
     outline: none;
     border: 0px !important;
     color: ${colors.dark} !important;
-    font-size: ${typography.body.fontSize}px !important;
-    font-weight: ${typography.body.fontWeight}px !important;
+    font-size: ${typography.body1.fontSize}px !important;
+    font-weight: ${typography.body1.fontWeight}px !important;
 
     @media only screen and (min-width: 960px) {
       width: clamp(400px, 400px, 400px) !important;

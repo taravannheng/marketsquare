@@ -46,8 +46,8 @@ export const SignUpButtonSC = styled(Button)`
   margin-bottom: ${space.l} !important;
   border-radius: ${borderRadius.s} !important;
   background-color: ${colors.primary} !important;
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
   text-transform: none !important;
   color: ${colors.lightest} !important;
 `;
@@ -60,8 +60,8 @@ export const SignUpWithGoogleButtonSC = styled(Button)`
   border-radius: ${borderRadius.s} !important;
   background-color: ${colors.light} !important;
   color: ${colors.darkest} !important;
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
   text-transform: none !important;
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 
@@ -84,8 +84,8 @@ export const SignUpWithFacebookButtonSC = styled(Button)`
   border-radius: ${borderRadius.s} !important;
   background-color: ${colors.light} !important;
   color: ${colors.darkest} !important;
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
   text-transform: none !important;
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 
@@ -97,8 +97,8 @@ export const SignUpWithFacebookButtonSC = styled(Button)`
 
 export const SignInSC = styled(Typography)`
   text-align: center;
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
 `;
 
 export const SignInLinkSC = styled(Link)`

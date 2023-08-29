@@ -71,8 +71,8 @@ export const ProductsDisplayTitleSC = styled(Typography)`
 
 export const ProductsDisplayEmptyTextSC = styled(Typography)`
   color: ${colors.dark} !important;
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
 `
 
 export const PaginationStackSC = styled(Stack)`

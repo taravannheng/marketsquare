@@ -198,8 +198,8 @@ export const ShoppingButtonSC = styled(Button)`
   border-radius: ${borderRadius.rounded} !important;
   background-color: ${colors.primary} !important;
   color: ${colors.lightest} !important;
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
   text-transform: none !important;
 `;
 
@@ -212,8 +212,8 @@ export const ShoppingButtonIconSC = styled(IconButton)`
 export const EmptyCartTextSC = styled(Typography)`
   margin-top: ${space.m} !important;
   margin-bottom: ${space.l} !important;
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
   text-align: center;
   color: ${colors.dark} !important;
 `;
