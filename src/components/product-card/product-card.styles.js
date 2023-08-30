@@ -33,7 +33,7 @@ export const ProductCardSC = styled(Card)`
 export const CardMediaContainerSC = styled(Box)`
   max-height: 124px;
   border-radius: ${borderRadius.s} !important;
-  margin-bottom: ${space.m} !important;
+  margin-bottom: ${space.xs} !important;
   overflow: hidden;
 
   @media only screen and (min-width: 640px) {
@@ -65,7 +65,6 @@ export const ProductNameSC = styled(Typography)`
   width: 100% !important;
   max-width: 100% !important;
   height: clamp(24px, 24px, 24px) !important;
-  margin-bottom: ${space.xs} !important;
   font-size: ${typography.body1.fontSize} !important;
   font-weight: ${typography.body1.fontWeight} !important;
   color: ${COLORS.NEUTRAL.N900} !important;
