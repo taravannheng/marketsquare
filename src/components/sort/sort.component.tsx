@@ -115,7 +115,7 @@ const Sort: FC<SortInterface> = ({ sortMenuItem, setSortMenuItem }) => {
                     }`,
                   }}
                 >
-                  None
+                  Default
                 </MenuItemSC>
                 <MenuItemSC
                   value={1}
@@ -180,7 +180,7 @@ const Sort: FC<SortInterface> = ({ sortMenuItem, setSortMenuItem }) => {
             }}
             disableRipple
           >
-            None
+            Default
             {sortMenuItem === 0 && (
               <Icon>
                 <CheckIcon />
