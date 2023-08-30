@@ -64,7 +64,6 @@ export const CardContentSC = styled(CardContent)`
 export const ProductNameSC = styled(Typography)`
   width: 100% !important;
   max-width: 100% !important;
-  height: clamp(24px, 24px, 24px) !important;
   font-size: ${typography.body1.fontSize} !important;
   font-weight: ${typography.body1.fontWeight} !important;
   color: ${COLORS.NEUTRAL.N900} !important;
