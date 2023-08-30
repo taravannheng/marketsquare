@@ -11,9 +11,11 @@ export const SeeMoreTextSC = styled(Typography)`
 `;
 
 export const ButtonSC = styled(Button)`
+  padding-left: 0 !important;
   color: ${COLORS.PRIMARY.P500} !important;
   background-color: transparent !important;
-  font-size: ${typography.h5.fontSize} !important;
-  font-weight: ${typography.h5.fontWeight} !important;
+  font-size: ${typography.body2.fontSize} !important;
+  font-weight: ${typography.body2.fontWeight} !important;
+  line-height: 100% !important;
   text-transform: none !important;
 `;
