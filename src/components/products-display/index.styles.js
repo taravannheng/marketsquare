@@ -49,8 +49,8 @@ export const TitleContainerSC = styled(Box)`
 export const ProductsDisplayTitleSC = styled(Typography)`
   margin-bottom: 0px !important;
   color: ${COLORS.NEUTRAL.N900} !important;
-  font-size: ${typography.h3.fontSize} !important;
-  font-weight: ${typography.h3.fontWeight} !important;
+  font-size: ${typography.h5.fontSize} !important;
+  font-weight: ${typography.h5.fontWeight} !important;
 
   @media only screen and (min-width: 640px) {
     font-size: ${typography.h2.fontSize} !important;
