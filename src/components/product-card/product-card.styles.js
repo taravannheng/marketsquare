@@ -76,7 +76,6 @@ export const ProductNameSC = styled(Typography)`
 export const ProductPriceSC = styled(Typography)`
   width: 100% !important;
   max-wdith: 100% !important;
-  height: clamp(20px, 20px, 20px) !important;
   font-size: ${typography.body1.fontSize} !important;
   font-weight: ${typography.body1.fontWeight} !important;
   color: ${COLORS.NEUTRAL.N500} !important;
