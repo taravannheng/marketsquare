@@ -11,7 +11,7 @@ export const SortSC = styled(Box)`
   max-width: fit-content !important;
   min-height: 44px !important;
   padding: 0 12px;
-  background-color: ${COLORS.NEUTRAL.N50};
+  background-color: ${COLORS.NEUTRAL.N0};
   border-radius: 8px;
   cursor: pointer;
 
@@ -27,7 +27,6 @@ export const LabelContainerSC = styled(Box)`
 
   @media only screen and (min-width: ${BREAKPOINTS.sm}px) {
     padding-right: 12px;
-    border-right: 1px solid ${COLORS.NEUTRAL.N300};
   }
 `;
 
@@ -37,13 +36,14 @@ export const LabelIconSC = styled(Icon)`
   align-items: center;
   font-size: 20px !important;
   margin-top: -4px;
-  margin-right: 4px;
+  color: ${COLORS.NEUTRAL.N300} !important;
 `;
 
 export const LabelSC = styled(Typography)`
+  text-wrap: nowrap;
   font-size: ${typography.body1.fontSize} !important;
   font-weight: ${typography.body1.fontWeight} !important;
-  color: ${COLORS.NEUTRAL.N900} !important;
+  color: ${COLORS.NEUTRAL.N500} !important;
 `;
 
 export const SelectContainerSC = styled(Box)`

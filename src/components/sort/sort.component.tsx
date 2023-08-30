@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import SortIcon from "@mui/icons-material/Sort";
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import CheckIcon from "@mui/icons-material/Check";
 import { styled } from "@mui/material/styles";
 import {
@@ -41,10 +41,10 @@ const BootstrapInput = styled(InputBase)(({ theme }) => ({
     borderRadius: 4,
     outline: 0,
     position: "relative",
-    backgroundColor: `${COLORS.NEUTRAL.N50}`,
+    backgroundColor: `${COLORS.NEUTRAL.N0}`,
     fontSize: 14,
     padding: "10px 26px 10px 12px",
-    color: `${COLORS.NEUTRAL.N900}`,
+    color: `${COLORS.NEUTRAL.N500}`,
     transition: theme.transitions.create(["border-color", "box-shadow"]),
     fontFamily: ["Inter", "sans-serif"].join(","),
     "&:focus": {
@@ -57,6 +57,7 @@ const BootstrapInput = styled(InputBase)(({ theme }) => ({
 
 const Sort: FC<SortInterface> = ({ sortMenuItem, setSortMenuItem }) => {
   const isLargeScreen = useMediaQuery(`(min-width: ${BREAKPOINTS.sm}px)`);
+  const label = isLargeScreen ? "Sort by: " : "Sort";
   const [isBottomSheetOpen, setIsBottomSheetOpen] = useState(false);
 
   const changeSort = (value: number) => {
@@ -84,10 +85,10 @@ const Sort: FC<SortInterface> = ({ sortMenuItem, setSortMenuItem }) => {
     <>
       <SortSC onClick={openBottomSheet}>
         <LabelContainerSC>
-          <LabelIconSC>
-            <SortIcon />
-          </LabelIconSC>
-          <LabelSC>Sort</LabelSC>
+          <LabelSC>{label}</LabelSC>
+          {!isLargeScreen && (<LabelIconSC>
+            <ExpandMoreIcon />
+          </LabelIconSC>)}
         </LabelContainerSC>
         {isLargeScreen && (
           <SelectContainerSC>
