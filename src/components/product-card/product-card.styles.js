@@ -66,8 +66,8 @@ export const ProductNameSC = styled(Typography)`
   max-wdith: 100% !important;
   height: clamp(24px, 24px, 24px) !important;
   margin-bottom: ${space.xs} !important;
-  font-size: ${typography.h5.fontSize} !important;
-  font-weight: ${typography.h5.fontWeight} !important;
+  font-size: ${typography.body2.fontSize} !important;
+  font-weight: ${typography.body2.fontWeight} !important;
   color: ${COLORS.NEUTRAL.N900} !important;
   white-space: nowrap;
   overflow: hidden;
