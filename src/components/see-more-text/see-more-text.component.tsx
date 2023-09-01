@@ -13,8 +13,8 @@ const SeeMoreText: FC<SeeMoreTextI> = ({ children, defaultTextLength = 100 }) =>
 
   return (
     <SeeMoreTextSC>
-      {isExpanded ? children : shortenedText}<ButtonSC onClick={clickHandler} disableRipple>
-        {isExpanded ? '<br />See Less' : 'See More'}
+      {isExpanded ? children : shortenedText}<ButtonSC onClick={clickHandler} disableRipple  sx={{ display: isExpanded ? 'block !important' : 'inline !important' }}>
+        {isExpanded ? `See Less` : 'See More'}
       </ButtonSC>
     </SeeMoreTextSC>
   )
