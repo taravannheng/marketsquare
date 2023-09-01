@@ -120,7 +120,7 @@ const ProductDetailsDisplay: FC<ProductDetailsDisplayInterface> = ({
                   <SeeMoreText defaultTextLength={250}>{product.description}</SeeMoreText>
                 </ProductDescriptionSC>
                 <Button
-                  width="180px"
+                  width="200px"
                   styleType="default"
                   actionType="button"
                   label={isAddedToCart ? "Remove from Cart" : "Add to Cart"}
