@@ -23,6 +23,7 @@ import {
 } from "./index.styles";
 import { adjustCloudinaryImgSize, formatPrice } from "../../utils/helpers";
 import { selectCart } from "../../store/cart/cart.selector";
+import { COLORS } from "../../styles/styles";
 
 const ProductDetailsDisplay: FC<ProductDetailsDisplayInterface> = ({
   product,
@@ -124,6 +125,9 @@ const ProductDetailsDisplay: FC<ProductDetailsDisplayInterface> = ({
                   actionType="button"
                   label={isAddedToCart ? "Remove from Cart" : "Add to Cart"}
                   clickHandler={addToCartHandler}
+                  backgroundColor={COLORS.PRIMARY.P500}
+                  labelColor={COLORS.NEUTRAL.N0}
+                  boldLabel
                 />
               </DetailsContainerSC>
             </BodySC>
