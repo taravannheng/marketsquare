@@ -7,7 +7,7 @@ import ResetPasswordVerifyFormI from './reset-password-verify-form.interface';
 import { AlertContainerSC, ButtonContainerSC, FormSC, TitleSC } from './reset-password-verify-form.styles';
 import { verifyPasswordReset } from '../../apis/passwords/password.api';
 import Button from '../button/index.component';
-import colors from '../../styles/colors';
+import COLORS from '../../styles/colors';
 import { checkFourDigits } from '../../utils/helpers';
 import { ROUTES } from '../../utils/constants';
 
@@ -128,8 +128,8 @@ const ResetPasswordVerifyForm: FC<ResetPasswordVerifyFormI> = () => {
       <FourDigitInput values={fourDigits} onChange={digitChangeHandler} refs={refs} />
       <ButtonContainerSC>
       <Button
-        labelColor={`${colors.lightest}`}
-        backgroundColor={`${colors.primary}`}
+        labelColor={`${COLORS.NEUTRAL.N0}`}
+        backgroundColor={`${COLORS.PRIMARY.P500}`}
         label="Submit Code"
         styleType="default"
         actionType='button'

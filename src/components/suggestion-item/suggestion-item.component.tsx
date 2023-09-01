@@ -8,7 +8,7 @@ import {
   SuggestionItemSC,
   TextSC,
 } from "./suggestion-item.style";
-import colors from "../../styles/colors";
+import COLORS from "../../styles/colors";
 
 const SuggestionItem: FC<SuggestionItemInterface> = ({ suggestion }) => {
   return (
@@ -22,7 +22,7 @@ const SuggestionItem: FC<SuggestionItemInterface> = ({ suggestion }) => {
         href={`/product/${suggestion._id}`}
         sx={{
           width: "100%",
-          backgroundColor: `${colors.lightest} !important`,
+          backgroundColor: `${COLORS.NEUTRAL.N0} !important`,
           padding: "0 !important",
         }}
       >

@@ -7,7 +7,7 @@ import '@testing-library/jest-dom'
 import PasswordInput from "./password-input.component";
 import PasswordInterface from "../../interfaces/password.interface";
 import { renderWithProvider } from "../../utils/test/test.util";
-import colors from "../../styles/colors";
+import COLORS from "../../styles/colors";
 
 let password: PasswordInterface;
 
@@ -95,7 +95,7 @@ describe("EmailInput", () => {
     fireEvent.blur(input);
 
     expect(statusIcon).toBeInTheDocument();
-    expect(statusIcon).toHaveStyle(`color: ${colors.green}`);
+    expect(statusIcon).toHaveStyle(`color: ${COLORS.GREEN.G400}`);
 
   });
 
@@ -127,7 +127,7 @@ describe("EmailInput", () => {
     const statusIcon = label.nextSibling?.firstChild;
 
     expect(statusIcon).toBeInTheDocument();
-    expect(statusIcon).toHaveStyle(`color: ${colors.red}`);
+    expect(statusIcon).toHaveStyle(`color: ${COLORS.RED.R500}`);
   });
 
   test("renders the error message when the value is invalid", () => {

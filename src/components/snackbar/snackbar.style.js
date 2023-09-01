@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { Button, Snackbar } from "@mui/material";
 
-import colors from "../../styles/colors";
+import COLORS from "../../styles/colors";
 import typography from "../../styles/typography";
 import spacing from "../../styles/spacing";
 import borderRadius from "../../styles/border-radius";
@@ -15,7 +15,7 @@ export const SnackbarSC = styled(Snackbar)`
 `;
 
 export const UndoButtonSC = styled(Button)`
-  color: ${colors.lightest} !important;
+  color: ${COLORS.NEUTRAL.N0} !important;
   font-size: ${typography.h5.fontSize} !important;
   font-weight: ${typography.h5.fontWeight} !important;
 `;

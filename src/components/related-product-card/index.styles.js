@@ -1,19 +1,19 @@
 import styled from "styled-components";
 
-import colors from "../../styles/colors";
+import COLORS from "../../styles/colors";
 import typography from "../../styles/typography";
 import { Card, CardContent, CardMedia, Typography } from "@mui/material";
 
 export const RelatedProductCardSC = styled(Card)`
   display: flex;
   flex-direction: row;
-  border: 1px solid ${colors.light};
+  border: 1px solid ${COLORS.NEUTRAL.N50};
   border-radius: 8px !important;
   box-shadow: none !important;
 
   &:hover {
     cursor: pointer;
-    border: 1px solid ${colors.primary};
+    border: 1px solid ${COLORS.PRIMARY.P500};
   }
 `
 
@@ -32,13 +32,13 @@ export const ProductNameSC = styled(Typography)`
   white-space: nowrap;
   overflow-x: scroll;
   overflow-y: hidden;
-  color: ${colors.dark} !important;
+  color: ${COLORS.NEUTRAL.N500} !important;
   font-size: ${typography.h5.fontSize} !important;
   font-weight: ${typography.h5.fontWeight} !important;
 `
 
 export const ProductPriceSC = styled(Typography)`
-  color: ${colors.darkest} !important;
+  color: ${COLORS.NEUTRAL.N900} !important;
   font-size: ${typography.h3.fontSize} !important;
   font-weight: ${typography.h3.fontWeight} !important;
 `

@@ -46,7 +46,7 @@ import { LOGO_URLS, ROUTES } from "../../utils/constants";
 import Menu from "../../components/menu/menu.component";
 import menuListSample from "../../sample/menu/menu";
 import { selectUser } from "../../store/user/user.selector";
-import colors from "../../styles/colors";
+import COLORS from "../../styles/colors";
 import AuthBlock from "../auth-block/auth-block.component";
 
 const Header: FC<HeaderProps> = () => {
@@ -143,8 +143,8 @@ const Header: FC<HeaderProps> = () => {
               <MenuIconSC
                 onClick={mobileDrawerOpenHandler}
                 sx={{
-                  backgroundColor: `${colors.lightest} !important`,
-                  color: `${colors.grey} !important`,
+                  backgroundColor: `${COLORS.NEUTRAL.N0} !important`,
+                  color: `${COLORS.NEUTRAL.N300} !important`,
                 }}
               >
                 <MenuIcon />
@@ -157,10 +157,10 @@ const Header: FC<HeaderProps> = () => {
               onClick={handleClick}
               sx={{
                 backgroundColor: `${
-                  !_.isEmpty(anchorEl) ? colors.primary : colors.light
+                  !_.isEmpty(anchorEl) ? COLORS.PRIMARY.P500 : COLORS.NEUTRAL.N50
                 } !important`,
                 color: `${
-                  !_.isEmpty(anchorEl) ? colors.lightest : colors.grey
+                  !_.isEmpty(anchorEl) ? COLORS.NEUTRAL.N0 : COLORS.NEUTRAL.N300
                 } !important`,
               }}
             >
