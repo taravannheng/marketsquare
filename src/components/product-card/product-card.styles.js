@@ -7,7 +7,7 @@ import {
   Typography,
 } from "@mui/material";
 
-import colors from "../../styles/colors";
+import COLORS from "../../styles/colors";
 import typography from "../../styles/typography";
 import space from "../../styles/spacing";
 import borderRadius from "../../styles/border-radius";
@@ -19,7 +19,7 @@ export const ProductCardSC = styled(Card)`
   min-width: 170px;
   flex: 1;
   padding-bottom: ${space.m} !important;
-  background-color: ${colors.lightest};
+  background-color: ${COLORS.NEUTRAL.N0};
   box-shadow: none !important;
   overflow: hidden;
   cursor: pointer;
@@ -33,7 +33,7 @@ export const ProductCardSC = styled(Card)`
 export const CardMediaContainerSC = styled(Box)`
   max-height: 124px;
   border-radius: ${borderRadius.s} !important;
-  margin-bottom: ${space.m} !important;
+  margin-bottom: ${space.xs} !important;
   overflow: hidden;
 
   @media only screen and (min-width: 640px) {
@@ -63,12 +63,11 @@ export const CardContentSC = styled(CardContent)`
 
 export const ProductNameSC = styled(Typography)`
   width: 100% !important;
-  max-wdith: 100% !important;
-  margin-bottom: ${space.xs} !important;
-  font-size: ${typography.h5.fontSize} !important;
-  font-weight: ${typography.h5.fontWeight} !important;
-  line-height: 16px !important;
-  color: ${colors.darkest} !important;
+  max-width: 100% !important;
+  padding: 0 !important;
+  font-size: ${typography.body2.fontSize} !important;
+  font-weight: ${typography.body2.fontWeight} !important;
+  color: ${COLORS.NEUTRAL.N900} !important;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -77,10 +76,10 @@ export const ProductNameSC = styled(Typography)`
 export const ProductPriceSC = styled(Typography)`
   width: 100% !important;
   max-wdith: 100% !important;
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
-  line-height: 14px !important;
-  color: ${colors.dark} !important;
+  padding: 0 !important;
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
+  color: ${COLORS.NEUTRAL.N500} !important;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

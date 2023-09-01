@@ -5,7 +5,7 @@ import { IconButton } from "@mui/material";
 
 import SnackbarInterface from "./snackbar.interface";
 import { SnackbarSC, UndoButtonSC } from "./snackbar.style";
-import colors from "../../styles/colors";
+import COLORS from "../../styles/colors";
 
 const SnackBar: FC<SnackbarInterface> = ({
   onClose,
@@ -19,16 +19,16 @@ const SnackBar: FC<SnackbarInterface> = ({
 
   switch (type) {
     case "info":
-      backgroundColor = colors.primary;
+      backgroundColor = COLORS.PRIMARY.P500;
       break;
     case "error":
-      backgroundColor = colors.red;
+      backgroundColor = COLORS.RED.R500;
       break;
     case "success":
-      backgroundColor = colors.green;
+      backgroundColor = COLORS.GREEN.G500;
       break;
     default:
-      backgroundColor = colors.primary;
+      backgroundColor = COLORS.PRIMARY.P500;
       break;
   }
 

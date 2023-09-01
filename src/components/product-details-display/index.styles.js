@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-import colors from "../../styles/colors";
+import COLORS from "../../styles/colors";
 import typography from "../../styles/typography";
 import { Box, Typography } from "@mui/material";
 
@@ -54,14 +54,14 @@ export const DetailsContainerSC = styled(Box)`
 
 export const ProductNameSC = styled(Typography)`
   margin-bottom: 8px !important;
-  color: ${colors.dark} !important;
+  color: ${COLORS.NEUTRAL.N500} !important;
   font-size: ${typography.h5.fontSize} !important;
   font-weight: ${typography.h5.fontWeight} !important;
 `
 
 export const ProductPriceSC = styled(Typography)`
   margin-bottom: 24px !important;
-  color: ${colors.darkest} !important;
+  color: ${COLORS.NEUTRAL.N900} !important;
   font-size: ${typography.h1.fontSize} !important;
   font-weight: ${typography.h1.fontWeight} !important;
 `
@@ -74,8 +74,8 @@ export const ProductDescriptionSC = styled(Typography)`
   height: auto;
   overflow-x: hidden;
   overflow-y: scroll;
-  color: ${colors.dark};
-  font-size: ${typography.body.fontSize} !important;
-  font-weight: ${typography.body.fontWeight} !important;
-  line-height: ${typography.body.lineHeight} !important;
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
+  line-height: ${typography.body1.lineHeight} !important;
+  color: ${COLORS.NEUTRAL.N500};
 `
