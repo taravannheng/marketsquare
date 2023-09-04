@@ -9,19 +9,15 @@ export const SearchBoxSC = styled(Box)`
   display: flex;
   flex-direction: row;
   align-items: center;
+  width: clamp(100%, 100%, 100%) !important;
   height: clamp(40px, 40px, 40px) !important;
   padding: 0px 8px;
   background-color: ${COLORS.NEUTRAL.N50};
   border-radius: 1000px;
   overflow: hidden;
-  transition: border 0.3s ease-in-out;
 
   &:focus-within {
     border: 1px solid ${COLORS.PRIMARY.P500} !important;
-  }
-
-  @media only screen and (max-width: 639px) {
-    width: clamp(100%, 100%, 100%) !important;
   }
 `;
 
@@ -51,9 +47,9 @@ export const TextFieldSC = styled(TextField)`
     font-weight: ${typography.body1.fontWeight}px !important;
     color: ${COLORS.NEUTRAL.N500} !important;
 
-    @media only screen and (min-width: 960px) {
-      width: clamp(400px, 400px, 400px) !important;
-    }
+    // @media only screen and (min-width: 960px) {
+    //   width: clamp(400px, 400px, 400px) !important;
+    // }
   }
 
   .MuiInputBase-root::after {
