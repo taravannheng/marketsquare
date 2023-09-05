@@ -133,6 +133,10 @@ export const SlideShowPaginationActiveIndicatorSC = styled(Box)`
 
 export const PrevButtonSC = styled(Box)`
   margin-right: 24px;
+  
+  & > button {
+    border: 0 !important;
+  }
 
   @media only screen and (max-width: 800px) {
     display: none
@@ -141,6 +145,10 @@ export const PrevButtonSC = styled(Box)`
 
 export const NextButtonSC = styled(Box)`
   margin-left: 24px;
+  
+  & > button {
+    border: 0 !important;
+  }
 
   @media only screen and (max-width: 800px) {
     display: none

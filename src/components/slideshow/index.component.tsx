@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 import { useNavigate } from "react-router-dom";
 
 import SlideshowSkeleton from "./slideshow-skeleton.component";
-import Button from "../button/index.component";
+import Button from "../button/button.component";
 import SlideShowInterface from "./index.interface";
 import SlideShowItemInterface from "../../interfaces/slideshow-item.interface";
 import COLORS from "../../styles/colors";
@@ -19,8 +19,6 @@ import {
   SlideShowPaginationActiveIndicatorSC,
   SlideShowPaginationIndicatorSC,
   SlideShowPaginationIndicatorStackSC,
-  SlideShowPaginationNextButtonSC,
-  SlideShowPaginationPrevButtonSC,
   SlideShowPaginationSC,
   SlideShowSC,
 } from "./index.styles";
@@ -124,14 +122,9 @@ const SlideShow: FC<SlideShowInterface> = ({
       {data.length > 1 && (
         <SlideShowPaginationSC>
           <PrevButtonSC>
-            <Button
-              width="120px"
-              height="36px"
-              styleType="rounded"
-              actionType="button"
-              label="Prev"
-              clickHandler={prevButtonHandler}
-            />
+            <Button styleType="tertiary" clickHandler={prevButtonHandler}>
+              Prev
+            </Button>
           </PrevButtonSC>
           {indicatorType === "dot" && (
             <SlideShowPaginationIndicatorStackSC direction="row" spacing={1}>
@@ -160,14 +153,9 @@ const SlideShow: FC<SlideShowInterface> = ({
             </IndicatorTextSC>
           )}
           <NextButtonSC>
-            <Button
-              width="120px"
-              height="36px"
-              styleType="rounded"
-              actionType="button"
-              label="Next"
-              clickHandler={nextButtonHandler}
-            />
+            <Button styleType="tertiary" clickHandler={nextButtonHandler}>
+              Next
+            </Button>
           </NextButtonSC>
         </SlideShowPaginationSC>
       )}
