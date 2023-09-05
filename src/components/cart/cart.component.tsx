@@ -15,8 +15,6 @@ import {
   TotalLabelSC,
   TotalTextSC,
   EmptyCartTextSC,
-  CartButtonSC,
-  CartCounterSC,
   ShoppingCartSC,
   CartSC,
   TitleContainerSC,
@@ -28,6 +26,8 @@ import {
   ShoppingButtonSC,
   ShoppingButtonIconSC,
   AlertContainerSC,
+  BadgeSC,
+  BadgeContainerSC,
 } from "./cart.styles";
 import CartProps from "./cart.interface";
 import ProductInterface from "../../interfaces/product-interface";
@@ -93,11 +93,13 @@ const Cart: FC<CartProps> = () => {
   };
 
   return (
+    
     <Box display="flex" alignItems="center">
-      <CartButtonSC onClick={handleDrawerOpen}>
-        <ShoppingCartSC />
-        <CartCounterSC>{cartLength}</CartCounterSC>
-      </CartButtonSC>
+      <BadgeContainerSC onClick={handleDrawerOpen}>
+        <BadgeSC badgeContent={cartLength}>
+          <ShoppingCartSC />
+        </BadgeSC>
+      </BadgeContainerSC>
 
       <DrawerSC anchor="right" open={isDrawerOpen} onClose={handleDrawerClose}>
         <CartSC>
