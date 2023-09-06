@@ -23,8 +23,6 @@ import {
   DrawerSC,
   EmptyCartContentSC,
   EmptyCartIconSC,
-  ShoppingButtonSC,
-  ShoppingButtonIconSC,
   AlertContainerSC,
   BadgeSC,
   BadgeContainerSC,
@@ -155,12 +153,14 @@ const Cart: FC<CartProps> = () => {
                 />
               </EmptyCartIconSC>
               <EmptyCartTextSC>Cart is empty...</EmptyCartTextSC>
-              <ShoppingButtonSC href={`${ROUTES.LANDING}`}>
+              <Button
+                icon={<ShoppingBagIcon />}
+                iconPosition="right"
+                href={`${ROUTES.LANDING}`}
+                rounded
+              >
                 Start Shopping
-                <ShoppingButtonIconSC>
-                  <ShoppingBagIcon />
-                </ShoppingButtonIconSC>
-              </ShoppingButtonSC>
+              </Button>
             </EmptyCartContentSC>
           )}
         </CartSC>

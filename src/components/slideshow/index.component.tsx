@@ -122,7 +122,12 @@ const SlideShow: FC<SlideShowInterface> = ({
       {data.length > 1 && (
         <SlideShowPaginationSC>
           <PrevButtonSC>
-            <Button styleType="tertiary" clickHandler={prevButtonHandler}>
+            <Button
+              styleType="secondary"
+              clickHandler={prevButtonHandler}
+              rounded
+              disabled={activeItemIndex === 0}
+            >
               Prev
             </Button>
           </PrevButtonSC>
@@ -153,7 +158,12 @@ const SlideShow: FC<SlideShowInterface> = ({
             </IndicatorTextSC>
           )}
           <NextButtonSC>
-            <Button styleType="tertiary" clickHandler={nextButtonHandler}>
+            <Button
+              styleType="secondary"
+              clickHandler={nextButtonHandler}
+              rounded
+              disabled={activeItemIndex === data.length - 1}
+            >
               Next
             </Button>
           </NextButtonSC>

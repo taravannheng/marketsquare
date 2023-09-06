@@ -33,7 +33,7 @@ export const SlideShowCardSC = styled(Card)`
   overflow: hidden !important;
 
   @media only screen and (min-width: 1080px) {
-    margin-bottom: 24px;
+    margin-bottom: 20px;
   }
 `
 
@@ -135,7 +135,9 @@ export const PrevButtonSC = styled(Box)`
   margin-right: 24px;
   
   & > button {
+    background-color: ${COLORS.NEUTRAL.N50} !important;
     border: 0 !important;
+    color: ${COLORS.NEUTRAL.N500} !important;
   }
 
   @media only screen and (max-width: 800px) {
@@ -147,7 +149,9 @@ export const NextButtonSC = styled(Box)`
   margin-left: 24px;
   
   & > button {
+    background-color: ${COLORS.NEUTRAL.N50} !important;
     border: 0 !important;
+    color: ${COLORS.NEUTRAL.N500} !important;
   }
 
   @media only screen and (max-width: 800px) {

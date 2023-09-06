@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Box, Button, IconButton } from "@mui/material";
 
-import { COLORS, typography, borderRadius, space } from "../../styles/styles";
+import { COLORS, typography, space } from "../../styles/styles";
 
 // SHARED STYLES ------------------------------------------
 
@@ -33,7 +33,6 @@ export const PrimaryButtonSC = styled(Button)`
   padding: 0 32px !important;
   background-color: ${COLORS.PRIMARY.P500} !important;
   color: ${COLORS.NEUTRAL.N0} !important;
-  border-radius: ${borderRadius.s} !important;
 
   &:hover {
     background-color: ${COLORS.PRIMARY.P600} !important;
@@ -55,7 +54,6 @@ export const SecondaryButtonSC = styled(Button)`
   background-color: ${COLORS.NEUTRAL.N0} !important;
   color: ${COLORS.PRIMARY.P500} !important;
   border: 1px solid ${COLORS.PRIMARY.P500} !important;
-  border-radius: ${borderRadius.s} !important;
 
   &:hover {
     background-color: ${COLORS.PRIMARY.P500} !important;
