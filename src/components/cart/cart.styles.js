@@ -178,27 +178,6 @@ export const EmptyCartContentSC = styled(Box)`
 export const EmptyCartIconSC = styled(Box)`
 `;
 
-export const ShoppingButtonSC = styled(Button)`
-  width: auto-fit !important;
-  height: clamp(44px, 44px, 44px) !important;
-  padding-left: ${space.xl} !important;
-  padding-right: ${space.l} !important;
-  margin-top: ${space.xl} !important;
-  margin-bottom: ${space.m} !important;
-  border-radius: ${borderRadius.rounded} !important;
-  font-size: ${typography.body1.fontSize} !important;
-  font-weight: ${typography.body1.fontWeight} !important;
-  background-color: ${COLORS.PRIMARY.P500} !important;
-  color: ${COLORS.NEUTRAL.N0} !important;
-  text-transform: none !important;
-`;
-
-export const ShoppingButtonIconSC = styled(IconButton)`
-  font-size: ${typography.h5.fontSize} !important;
-  font-weight: ${typography.h5.fontWeight} !important;
-  color: ${COLORS.NEUTRAL.N0} !important;
-`;
-
 export const EmptyCartTextSC = styled(Typography)`
   margin-top: ${space.m} !important;
   margin-bottom: ${space.l} !important;
