@@ -183,6 +183,7 @@ const SignInForm: FC<SignInFormInterface> = () => {
             alertVisible
             setAlertVisible={setAlertVisible}
             type={alert.type}
+            hideCloseButton
           >
             {alert.message}
           </Alert>
