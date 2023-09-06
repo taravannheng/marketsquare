@@ -10,7 +10,7 @@ import {
   TertiaryButtonSC,
 } from "./button.styles";
 import ProgressIndicator from "../progress-indicator/index.component";
-import { space } from "../../styles/styles";
+import { space, borderRadius } from "../../styles/styles";
 
 const Button: FC<ButtonProps> = ({
   actionType = "button",
@@ -24,6 +24,7 @@ const Button: FC<ButtonProps> = ({
   width = "auto",
   href,
   underlineLabel = false,
+  rounded = false,
 }) => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
   const buttonWidth =
@@ -37,7 +38,12 @@ const Button: FC<ButtonProps> = ({
           onClick={clickHandler}
           href={href}
           disabled={disabled}
-          sx={{ width: buttonWidth }}
+          sx={{
+            width: buttonWidth,
+            borderRadius: `${
+              rounded ? `${borderRadius.rounded}` : `${borderRadius.s}`
+            }`,
+          }}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
           disableRipple
@@ -60,7 +66,12 @@ const Button: FC<ButtonProps> = ({
           disabled={disabled}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
-          sx={{ width: buttonWidth }}
+          sx={{
+            width: buttonWidth,
+            borderRadius: `${
+              rounded ? `${borderRadius.rounded}` : `${borderRadius.s}`
+            }`,
+          }}
           disableRipple
         >
           {icon && iconPosition === "left" && <IconSC>{icon}</IconSC>}

@@ -12,4 +12,5 @@ export default interface ButtonProps {
   clickHandler?: (() => void) | ((event: any) => Promise<void>);
   href?: string;
   underlineLabel?: boolean;
+  rounded?: boolean;
 }
