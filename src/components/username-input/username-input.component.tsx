@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import { Cancel, CheckCircle, CheckCircleOutline } from "@mui/icons-material";
+import { Cancel, CheckCircle } from "@mui/icons-material";
 
 import UsernameInputInterface from "./username-input.interface";
 import {
@@ -7,14 +7,10 @@ import {
   LabelContainerSC,
   LabelSC,
   StatusIconSC,
-  TooltipListSC,
+  UsernameInputSC,
+  StatusTextSC,
   TooltipSC,
   TooltipTextSC,
-  UsernameInputSC,
-  TooltipItemSC,
-  TooltipItemIconSC,
-  TooltipItemTextSC,
-  StatusTextSC,
 } from "./username-input.style";
 import COLORS from "../../styles/colors";
 
@@ -30,12 +26,18 @@ const UsernameInput: FC<UsernameInputInterface> = ({
   showTooltip = true,
 }) => {
   const { value, isValid, validityDetails } = username;
-  const [isInitialFocus, setIsInitialFocus] = useState(false);
+  const [hasBeenFocused, setHasBeenFocused] = useState(false);
   const [isFocus, setIsFocus] = useState(false);
+  const showStatusIcon = hasBeenFocused && value.length > 0;
+  const isInvalid = !isValid && hasBeenFocused && !isFocus && value.length > 0;
+  const isInvalidFormat = isFocus && showTooltip && !isValid && hasBeenFocused && value.length > 0;
+  const errorMessage = "Please enter a valid username!";
+  const tooltipMessage =
+    "Username must be 4-20 characters and include only letters, numbers, or underscores.";
 
   const focusHandler = () => {
-    if (!isInitialFocus) {
-      setIsInitialFocus(true);
+    if (!hasBeenFocused) {
+      setHasBeenFocused(true);
     }
 
     setIsFocus(true);
@@ -49,7 +51,7 @@ const UsernameInput: FC<UsernameInputInterface> = ({
     <UsernameInputSC>
       <LabelContainerSC>
         <LabelSC>{label}</LabelSC>
-        {isInitialFocus && (
+        {showStatusIcon && (
           <StatusIconSC sx={{ opacity: `${!isFocus ? "1" : "0"}` }}>
             {!isValid ? (
               <Cancel sx={{ color: `${COLORS.RED.R500}` }} />
@@ -72,108 +74,13 @@ const UsernameInput: FC<UsernameInputInterface> = ({
         type="text"
         required={isRequired}
       />
-      {/* {isFocus && showTooltip && (
+      {isInvalid && <StatusTextSC>{errorMessage}</StatusTextSC>}
+      {isInvalidFormat && (
         <TooltipSC>
-          <TooltipTextSC>Username should be:</TooltipTextSC>
-          <TooltipListSC>
-            <TooltipItemSC>
-              <TooltipItemIconSC>
-                <CheckCircle
-                  sx={{
-                    color: `${COLORS.GREEN.G400} !important`,
-                    opacity: `${
-                      validityDetails.isValidLength ? "1" : "0"
-                    } !important`,
-                  }}
-                />
-                <CheckCircleOutline
-                  sx={{
-                    color: `${COLORS.NEUTRAL.N300} !important`,
-                    opacity: `${
-                      validityDetails.isValidLength ? "0" : "1"
-                    } !important`,
-                  }}
-                />
-              </TooltipItemIconSC>
-              <TooltipItemTextSC
-                sx={{
-                  color: `${
-                    validityDetails.isValidLength
-                      ? `${COLORS.NEUTRAL.N900}`
-                      : `${COLORS.NEUTRAL.N500}`
-                  } !important`,
-                }}
-              >
-                Length between 4 to 20 characters
-              </TooltipItemTextSC>
-            </TooltipItemSC>
-            <TooltipItemSC>
-              <TooltipItemIconSC>
-                <CheckCircle
-                  sx={{
-                    color: `${COLORS.GREEN.G400} !important`,
-                    opacity: `${
-                      validityDetails.isValidCharacters ? "1" : "0"
-                    } !important`,
-                  }}
-                />
-                <CheckCircleOutline
-                  sx={{
-                    color: `${COLORS.NEUTRAL.N300} !important`,
-                    opacity: `${
-                      validityDetails.isValidCharacters ? "0" : "1"
-                    } !important`,
-                  }}
-                />
-              </TooltipItemIconSC>
-              <TooltipItemTextSC
-                sx={{
-                  color: `${
-                    validityDetails.isValidCharacters
-                      ? `${COLORS.NEUTRAL.N900}`
-                      : `${COLORS.NEUTRAL.N500}`
-                  } !important`,
-                }}
-              >
-                Letters, numbers and underscore only
-              </TooltipItemTextSC>
-            </TooltipItemSC>
-            <TooltipItemSC>
-              <TooltipItemIconSC>
-                <CheckCircle
-                  sx={{
-                    color: `${COLORS.GREEN.G400} !important`,
-                    opacity: `${
-                      validityDetails.hasNoSpaces ? "1" : "0"
-                    } !important`,
-                  }}
-                />
-                <CheckCircleOutline
-                  sx={{
-                    color: `${COLORS.NEUTRAL.N300} !important`,
-                    opacity: `${
-                      validityDetails.hasNoSpaces ? "0" : "1"
-                    } !important`,
-                  }}
-                />
-              </TooltipItemIconSC>
-              <TooltipItemTextSC
-                sx={{
-                  color: `${
-                    validityDetails.hasNoSpaces
-                      ? `${COLORS.NEUTRAL.N900}`
-                      : `${COLORS.NEUTRAL.N500}`
-                  } !important`,
-                }}
-              >
-                No spaces allowed
-              </TooltipItemTextSC>
-            </TooltipItemSC>
-          </TooltipListSC>
+          <TooltipTextSC>
+            {tooltipMessage}
+          </TooltipTextSC>
         </TooltipSC>
-      )} */}
-      {!isValid && isInitialFocus && !isFocus && (
-        <StatusTextSC>Please enter a valid username!</StatusTextSC>
       )}
     </UsernameInputSC>
   );

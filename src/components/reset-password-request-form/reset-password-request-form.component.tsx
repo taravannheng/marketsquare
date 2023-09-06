@@ -2,7 +2,6 @@ import { FC, useState } from "react";
 
 import EmailInput from "../email-input/email-input.component";
 import Alert from "../alert/alert.component";
-import ProgressIndicator from "../progress-indicator/index.component";
 import ResetPasswordRequestFormI from "./reset-password-request-form.interface";
 import EmailInterface from "../../interfaces/email.interface";
 import { checkEmail } from "../../utils/helpers";
@@ -14,7 +13,6 @@ import {
 } from "./reset-password-request-form.styles";
 import { requestPasswordReset } from "../../apis/passwords/password.api";
 import Button from "../button/button.component";
-import COLORS from "../../styles/colors";
 
 const ResetPasswordRequestForm: FC<ResetPasswordRequestFormI> = () => {
   const [isButtonLoading, setIsButtonLoading] = useState<boolean>(false);
@@ -114,7 +112,7 @@ const ResetPasswordRequestForm: FC<ResetPasswordRequestFormI> = () => {
       </AlertContainerSC>
       <EmailInput email={email} onChange={emailChangeHandler} />
       <ButtonContainerSC>
-        <Button actionType="submit" isLoading={isButtonLoading}>
+        <Button actionType="submit" isLoading={isButtonLoading} width="full">
           Send Code
         </Button>
       </ButtonContainerSC>

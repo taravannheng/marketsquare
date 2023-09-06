@@ -12,7 +12,6 @@ import {
 } from "./reset-password-verify-form.styles";
 import { verifyPasswordReset } from "../../apis/passwords/password.api";
 import Button from "../button/button.component";
-import COLORS from "../../styles/colors";
 import { checkFourDigits } from "../../utils/helpers";
 import { ROUTES } from "../../utils/constants";
 
@@ -141,7 +140,11 @@ const ResetPasswordVerifyForm: FC<ResetPasswordVerifyFormI> = () => {
         refs={refs}
       />
       <ButtonContainerSC>
-        <Button clickHandler={formHandler} isLoading={isButtonLoading}>
+        <Button
+          clickHandler={formHandler}
+          isLoading={isButtonLoading}
+          width="full"
+        >
           Submit Code
         </Button>
       </ButtonContainerSC>

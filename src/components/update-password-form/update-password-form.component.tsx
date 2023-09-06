@@ -198,7 +198,11 @@ const UpdatePasswordForm: FC<UpdatePasswordFormI> = () => {
         showTooltip={false}
       />
       <ButtonContainerSC>
-        <Button clickHandler={formHandler} isLoading={isButtonLoading}>
+        <Button
+          clickHandler={formHandler}
+          isLoading={isButtonLoading}
+          width="full"
+        >
           Update Password
         </Button>
       </ButtonContainerSC>
