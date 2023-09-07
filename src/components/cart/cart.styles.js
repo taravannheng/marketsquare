@@ -5,6 +5,7 @@ import {
   Box,
   IconButton,
   Drawer,
+  Badge,
 } from "@mui/material";
 import { ShoppingCart } from "@mui/icons-material";
 
@@ -26,47 +27,36 @@ const flexSpaceBetween = css`
 
 // COMPONENT STYLES -------------------------------------
 
-export const CartButtonSC = styled(Box)`
-  ${flexSpaceBetween};
-  box-sizing: border-box;
-  width: clamp(80px, 80px, 80px) !important;
-  height: clamp(32px, 32px, 32px);
-  padding: 0 ${space.m}; 
-  border-radius: ${borderRadius.rounded};
-  background-color: ${COLORS.PRIMARY.P500};
+export const BadgeContainerSC = styled(Box)`
+  ${flexCentered};
+  width: clamp(44px, 44px, 44px);
+  height: clamp(44px, 44px, 44px);
   cursor: pointer;
-  transition: background-color 0.3s linear;
+`;
 
-  @media only screen and (min-width: 640px) {
-    width: clamp(120px, 120px, 120px) !important;
-    height: clamp(40px, 40px, 40px) !important;
-    padding: 0 ${space.l}; 
+export const BadgeSC = styled(Badge)`
+  ${flexCentered};
+  cursor: pointer;
+
+  & .MuiBadge-badge {
+    background-color: ${COLORS.PRIMARY.P500};
+    color: ${COLORS.NEUTRAL.N0};
+    font-size: ${typography.small.fontSize} !important;
+    font-weight: ${typography.small.fontWeight} !important;
   }
 `;
 
 export const ShoppingCartSC = styled(ShoppingCart)`
-  color: ${COLORS.NEUTRAL.N0};
+  color: ${COLORS.NEUTRAL.N300};
   font-size: 20px !important;
+
+  ${BadgeContainerSC}:hover & {
+    cursor: pointer;
+    color: ${COLORS.PRIMARY.P500};
+  }
 
   @media only screen and (min-width: 640px) {
     font-size: 24px !important;
-  }
-`;
-
-export const CartCounterSC = styled(Box)`
-  ${flexCentered};
-  box-sizing: border-box;
-  width: clamp(20px, 20px, 20px);
-  height: clamp(20px, 20px, 20px);
-  border-radius: ${borderRadius.rounded};
-  color: ${COLORS.PRIMARY.P500};
-  background-color: ${COLORS.NEUTRAL.N0};
-  font-weight: ${typography.h5.fontWeight};
-  font-size: ${typography.h5.fontSize};
-
-  @media only screen and (min-width: 640px) {
-    width: clamp(24px, 24px, 24px);
-    height: clamp(24px, 24px, 24px);
   }
 `;
 
@@ -186,27 +176,6 @@ export const EmptyCartContentSC = styled(Box)`
 `;
 
 export const EmptyCartIconSC = styled(Box)`
-`;
-
-export const ShoppingButtonSC = styled(Button)`
-  width: auto-fit !important;
-  height: clamp(44px, 44px, 44px) !important;
-  padding-left: ${space.xl} !important;
-  padding-right: ${space.l} !important;
-  margin-top: ${space.xl} !important;
-  margin-bottom: ${space.m} !important;
-  border-radius: ${borderRadius.rounded} !important;
-  font-size: ${typography.body1.fontSize} !important;
-  font-weight: ${typography.body1.fontWeight} !important;
-  background-color: ${COLORS.PRIMARY.P500} !important;
-  color: ${COLORS.NEUTRAL.N0} !important;
-  text-transform: none !important;
-`;
-
-export const ShoppingButtonIconSC = styled(IconButton)`
-  font-size: ${typography.h5.fontSize} !important;
-  font-weight: ${typography.h5.fontWeight} !important;
-  color: ${COLORS.NEUTRAL.N0} !important;
 `;
 
 export const EmptyCartTextSC = styled(Typography)`

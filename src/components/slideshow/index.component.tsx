@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 import { useNavigate } from "react-router-dom";
 
 import SlideshowSkeleton from "./slideshow-skeleton.component";
-import Button from "../button/index.component";
+import Button from "../button/button.component";
 import SlideShowInterface from "./index.interface";
 import SlideShowItemInterface from "../../interfaces/slideshow-item.interface";
 import COLORS from "../../styles/colors";
@@ -14,14 +14,12 @@ import {
   NextButtonSC,
   PrevButtonSC,
   SkeletonContainerSC,
-  SlideShowCardSC,
-  SlideShowMediaSC,
-  SlideShowPaginationActiveIndicatorSC,
-  SlideShowPaginationIndicatorSC,
-  SlideShowPaginationIndicatorStackSC,
-  SlideShowPaginationNextButtonSC,
-  SlideShowPaginationPrevButtonSC,
-  SlideShowPaginationSC,
+  CardSC,
+  MediaSC,
+  PaginationActiveIndicatorSC,
+  PaginationIndicatorSC,
+  PaginationIndicatorStackSC,
+  PaginationSC,
   SlideShowSC,
 } from "./index.styles";
 import { adjustCloudinaryImgSize } from "../../utils/helpers";
@@ -103,14 +101,15 @@ const SlideShow: FC<SlideShowInterface> = ({
           <SlideshowSkeleton />
         </SkeletonContainerSC>
       )}
-      <SlideShowCardSC>
+      <CardSC>
         {!_.isEmpty(data) &&
           data.map((item: SlideShowItemInterface, index: number) => {
             return (
-              <SlideShowMediaSC
+              <MediaSC
                 key={`slide-media-${item?._id ?? index}`}
                 image={imgUrls[index]}
                 sx={{
+                  top: `${index * 100}%`,
                   transform: `translateY(-${activeItemIndex * 100}%)`,
                   "&:hover": {
                     cursor: `${redirectOnClick ? "pointer" : "auto"}`,
@@ -120,39 +119,39 @@ const SlideShow: FC<SlideShowInterface> = ({
               />
             );
           })}
-      </SlideShowCardSC>
+      </CardSC>
       {data.length > 1 && (
-        <SlideShowPaginationSC>
+        <PaginationSC>
           <PrevButtonSC>
             <Button
-              width="120px"
-              height="36px"
-              styleType="rounded"
-              actionType="button"
-              label="Prev"
+              styleType="secondary"
               clickHandler={prevButtonHandler}
-            />
+              rounded
+              disabled={activeItemIndex === 0}
+            >
+              Prev
+            </Button>
           </PrevButtonSC>
           {indicatorType === "dot" && (
-            <SlideShowPaginationIndicatorStackSC direction="row" spacing={1}>
+            <PaginationIndicatorStackSC direction="row" spacing={1}>
               {!_.isEmpty(data) &&
                 data.map((item: SlideShowItemInterface, index: number) => {
                   if (index === activeItemIndex) {
                     return (
-                      <SlideShowPaginationActiveIndicatorSC
+                      <PaginationActiveIndicatorSC
                         key={`slide-pagination-active-indicator-${item._id}`}
                         onClick={() => paginationIndicatorHandler(index)}
-                      ></SlideShowPaginationActiveIndicatorSC>
+                      ></PaginationActiveIndicatorSC>
                     );
                   }
                   return (
-                    <SlideShowPaginationIndicatorSC
+                    <PaginationIndicatorSC
                       key={`slide-pagination-active-indicator-${item._id}`}
                       onClick={() => paginationIndicatorHandler(index)}
-                    ></SlideShowPaginationIndicatorSC>
+                    ></PaginationIndicatorSC>
                   );
                 })}
-            </SlideShowPaginationIndicatorStackSC>
+            </PaginationIndicatorStackSC>
           )}
           {indicatorType === "number" && (
             <IndicatorTextSC variant="h5">
@@ -161,15 +160,15 @@ const SlideShow: FC<SlideShowInterface> = ({
           )}
           <NextButtonSC>
             <Button
-              width="120px"
-              height="36px"
-              styleType="rounded"
-              actionType="button"
-              label="Next"
+              styleType="secondary"
               clickHandler={nextButtonHandler}
-            />
+              rounded
+              disabled={activeItemIndex === data.length - 1}
+            >
+              Next
+            </Button>
           </NextButtonSC>
-        </SlideShowPaginationSC>
+        </PaginationSC>
       )}
     </SlideShowSC>
   );

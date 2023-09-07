@@ -5,10 +5,14 @@ export default interface AlertProps {
   type: "success" | "error" | "info";
   alertVisible: boolean;
   setAlertVisible: (value: boolean) => void;
+  hideCloseButton?: boolean;
 }
 
 export interface AlertConfig {
   icon: React.ReactElement;
-  color: string;
+  iconColor: string;
+  textColor: string;
+  backgroundColor: string;
+  borderColor: string;
   severity: 'info' | 'success' | 'error';
 }

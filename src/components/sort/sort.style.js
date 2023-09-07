@@ -40,6 +40,7 @@ export const LabelIconSC = styled(Icon)`
 `;
 
 export const LabelSC = styled(Typography)`
+  width: fit-content !important;
   text-wrap: nowrap;
   font-size: ${typography.body1.fontSize} !important;
   font-weight: ${typography.body1.fontWeight} !important;
@@ -47,7 +48,7 @@ export const LabelSC = styled(Typography)`
 `;
 
 export const SelectContainerSC = styled(Box)`
-  width: clamp(100%, 100%, 100%) !important;
+  width: fit-content !important;
 `;
 
 export const SelectSC = styled(Select)`

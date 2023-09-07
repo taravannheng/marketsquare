@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
-import { Box, Button } from "@mui/material";
+import { Box } from "@mui/material";
 
-import { COLORS, typography, space, borderRadius, shadows } from "../../styles/styles";
+import { space, shadows } from "../../styles/styles";
 
 export const AuthBlockSC = styled(Box)`
   display: flex;
@@ -11,33 +11,8 @@ export const AuthBlockSC = styled(Box)`
   width: clamp(100%, 100%, 100%) !important;
   padding: ${space.m} ${space.l} ${space.xxl} ${space.l};
   box-shadow: ${shadows.small.up};
-`;
 
-export const SignUpButtonSC = styled(Button)`
-  width: 100% !important;
-  height: clamp(48px, 48px, 48px) !important;
-  margin-bottom: ${space.m} !important;
-  border-radius: ${borderRadius.s} !important;
-  font-size: ${typography.body1.fontSize} !important;
-  font-weight: ${typography.body1.fontWeight} !important;
-  background-color: ${COLORS.PRIMARY.P500} !important;
-  text-transform: none !important;
-  color: ${COLORS.NEUTRAL.N0} !important;
-`;
-
-export const SignInButtonSC = styled(Button)`
-  width: 100% !important;
-  height: clamp(48px, 48px, 48px) !important;
-  border-radius: ${borderRadius.s} !important;
-  font-size: ${typography.body1.fontSize} !important;
-  font-weight: ${typography.body1.fontWeight} !important;
-  background-color: ${COLORS.NEUTRAL.N50} !important;
-  text-transform: none !important;
-  color: ${COLORS.NEUTRAL.N900} !important;
-  transition: background-color 0.2s ease-in-out !important;
-
-  &:hover {
-    color: ${COLORS.NEUTRAL.N0} !important;
-    background-color: ${COLORS.PRIMARY.P500} !important;
+  & a:first-of-type {
+    margin-bottom: ${space.m};
   }
 `;

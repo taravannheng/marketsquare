@@ -1,15 +1,12 @@
 import styled from "styled-components";
 import { Box, Button, Typography, Link } from "@mui/material";
 
-import COLORS from "../../styles/colors";
-import typography from "../../styles/typography";
-import space from "../../styles/spacing";
-import borderRadius from "../../styles/border-radius";
+import { COLORS, typography, space, borderRadius } from "../../styles/styles";
 
 export const SignUpFormSC = styled.form`
   width: 480px !important;
   max-width: 100vw !important;
-  padding: 0 ${space.l} !important; 
+  padding: 0 ${space.l} !important;
 
   @media only screen and (min-width: 1080px) {
     max-width: 480px !important;
@@ -39,60 +36,10 @@ export const InputContainerSC = styled(Box)`
   }
 `;
 
-export const SignUpButtonSC = styled(Button)`
-  width: 100% !important;
-  height: clamp(48px, 48px, 48px) !important;
-  margin-top: ${space.l} !important;
-  margin-bottom: ${space.l} !important;
-  border-radius: ${borderRadius.s} !important;
-  font-size: ${typography.body1.fontSize} !important;
-  font-weight: ${typography.body1.fontWeight} !important;
-  background-color: ${COLORS.PRIMARY.P500} !important;
-  text-transform: none !important;
-  color: ${COLORS.NEUTRAL.N0} !important;
-`;
-
-export const SignUpWithGoogleButtonSC = styled(Button)`
-  width: 100% !important;
-  height: clamp(48px, 48px, 48px) !important;
-  margin-top: ${space.xl} !important;
-  margin-bottom: ${space.m} !important;
-  border-radius: ${borderRadius.s} !important;
-  font-size: ${typography.body1.fontSize} !important;
-  font-weight: ${typography.body1.fontWeight} !important;
-  background-color: ${COLORS.NEUTRAL.N50} !important;
-  color: ${COLORS.NEUTRAL.N900} !important;
-  text-transform: none !important;
-  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-
-  &:hover {
-    background-color: ${COLORS.PRIMARY.P500} !important;
-    color: ${COLORS.NEUTRAL.N0} !important;
-  }
-`;
-
 export const SocialLogoSC = styled.img`
   width: 24px !important;
   height: 24px !important;
   margin-right: ${space.xs};
-`;
-
-export const SignUpWithFacebookButtonSC = styled(Button)`
-  width: 100% !important;
-  height: clamp(48px, 48px, 48px) !important;
-  margin-bottom: ${space.xl} !important;
-  border-radius: ${borderRadius.s} !important;
-  font-size: ${typography.body1.fontSize} !important;
-  font-weight: ${typography.body1.fontWeight} !important;
-  background-color: ${COLORS.NEUTRAL.N50} !important;
-  color: ${COLORS.NEUTRAL.N900} !important;
-  text-transform: none !important;
-  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-
-  &:hover {
-    background-color: ${COLORS.PRIMARY.P500} !important;
-    color: ${COLORS.NEUTRAL.N0} !important;
-  }
 `;
 
 export const SignInSC = styled(Typography)`
@@ -100,14 +47,3 @@ export const SignInSC = styled(Typography)`
   font-size: ${typography.body1.fontSize} !important;
   font-weight: ${typography.body1.fontWeight} !important;
 `;
-
-export const SignInLinkSC = styled(Link)`
-  color: ${COLORS.PRIMARY.P500} !important;
-  font-size: inherit !important;
-  font-weight: inherit !important;
-
-  &:hover {
-    cursor: pointer;
-  }
-`;
-

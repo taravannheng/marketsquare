@@ -11,5 +11,6 @@ export const SignInPageSC = styled(Box)`
 `;
 
 export const SignInFormContainerSC = styled(Box)`
-  margin: ${space.xxxl} auto;
+  margin: ${space.xxxl} auto 0 auto;
+  height: calc(100vh - 244px); /* to push footer below the fold */
 `;
