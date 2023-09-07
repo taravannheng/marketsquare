@@ -23,12 +23,13 @@ import {
 } from "./index.styles";
 import { adjustCloudinaryImgSize, formatPrice } from "../../utils/helpers";
 import { selectCart } from "../../store/cart/cart.selector";
-import { COLORS } from "../../styles/styles";
+import { COLORS, BREAKPOINTS } from "../../styles/styles";
 
 const ProductDetailsDisplay: FC<ProductDetailsDisplayInterface> = ({
   product,
 }) => {
   const isSmallScreen = useMediaQuery("(max-width: 1080px)");
+  const addToCartButtonWidth = useMediaQuery(`(min-width: ${BREAKPOINTS.sm}px)`) ? 'auto' : 'full';
   const navigate = useNavigate();
   const cart = useSelector(selectCart);
   const dispatch = useDispatch();
@@ -122,7 +123,7 @@ const ProductDetailsDisplay: FC<ProductDetailsDisplayInterface> = ({
                 <Button
                   styleType="primary"
                   clickHandler={addToCartHandler}
-                  width="auto"
+                  width={addToCartButtonWidth}
                 >
                   {isAddedToCart ? "Added to Cart" : "Add to Cart"}
                 </Button>

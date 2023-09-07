@@ -14,12 +14,12 @@ import {
   NextButtonSC,
   PrevButtonSC,
   SkeletonContainerSC,
-  SlideShowCardSC,
-  SlideShowMediaSC,
-  SlideShowPaginationActiveIndicatorSC,
-  SlideShowPaginationIndicatorSC,
-  SlideShowPaginationIndicatorStackSC,
-  SlideShowPaginationSC,
+  CardSC,
+  MediaSC,
+  PaginationActiveIndicatorSC,
+  PaginationIndicatorSC,
+  PaginationIndicatorStackSC,
+  PaginationSC,
   SlideShowSC,
 } from "./index.styles";
 import { adjustCloudinaryImgSize } from "../../utils/helpers";
@@ -101,14 +101,15 @@ const SlideShow: FC<SlideShowInterface> = ({
           <SlideshowSkeleton />
         </SkeletonContainerSC>
       )}
-      <SlideShowCardSC>
+      <CardSC>
         {!_.isEmpty(data) &&
           data.map((item: SlideShowItemInterface, index: number) => {
             return (
-              <SlideShowMediaSC
+              <MediaSC
                 key={`slide-media-${item?._id ?? index}`}
                 image={imgUrls[index]}
                 sx={{
+                  top: `${index * 100}%`,
                   transform: `translateY(-${activeItemIndex * 100}%)`,
                   "&:hover": {
                     cursor: `${redirectOnClick ? "pointer" : "auto"}`,
@@ -118,9 +119,9 @@ const SlideShow: FC<SlideShowInterface> = ({
               />
             );
           })}
-      </SlideShowCardSC>
+      </CardSC>
       {data.length > 1 && (
-        <SlideShowPaginationSC>
+        <PaginationSC>
           <PrevButtonSC>
             <Button
               styleType="secondary"
@@ -132,25 +133,25 @@ const SlideShow: FC<SlideShowInterface> = ({
             </Button>
           </PrevButtonSC>
           {indicatorType === "dot" && (
-            <SlideShowPaginationIndicatorStackSC direction="row" spacing={1}>
+            <PaginationIndicatorStackSC direction="row" spacing={1}>
               {!_.isEmpty(data) &&
                 data.map((item: SlideShowItemInterface, index: number) => {
                   if (index === activeItemIndex) {
                     return (
-                      <SlideShowPaginationActiveIndicatorSC
+                      <PaginationActiveIndicatorSC
                         key={`slide-pagination-active-indicator-${item._id}`}
                         onClick={() => paginationIndicatorHandler(index)}
-                      ></SlideShowPaginationActiveIndicatorSC>
+                      ></PaginationActiveIndicatorSC>
                     );
                   }
                   return (
-                    <SlideShowPaginationIndicatorSC
+                    <PaginationIndicatorSC
                       key={`slide-pagination-active-indicator-${item._id}`}
                       onClick={() => paginationIndicatorHandler(index)}
-                    ></SlideShowPaginationIndicatorSC>
+                    ></PaginationIndicatorSC>
                   );
                 })}
-            </SlideShowPaginationIndicatorStackSC>
+            </PaginationIndicatorStackSC>
           )}
           {indicatorType === "number" && (
             <IndicatorTextSC variant="h5">
@@ -167,7 +168,7 @@ const SlideShow: FC<SlideShowInterface> = ({
               Next
             </Button>
           </NextButtonSC>
-        </SlideShowPaginationSC>
+        </PaginationSC>
       )}
     </SlideShowSC>
   );
