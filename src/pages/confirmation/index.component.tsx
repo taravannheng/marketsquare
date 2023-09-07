@@ -10,7 +10,7 @@ import OrderSummaryDisplay from "../../components/order-summary-display/index.co
 import Header from "../../components/header/index.component";
 import footerUtilityLinksSample from "../../sample/footer/utility-links-sample";
 import Footer from "../../components/footer/index.component";
-import { ConfirmationPageSC, ContainerSC } from "./index.styles";
+import { ConfirmationPageSC } from "./index.styles";
 import OrderInterface from "../../interfaces/order.interface";
 import { selectOrder } from "../../store/order/order.selector";
 
@@ -42,7 +42,7 @@ const ConfirmationPage = () => {
       {!_.isEmpty(order) && (
         <ConfirmationPageSC>
           <Header />
-          <ContainerSC>{<OrderSummaryDisplay {...order} />}</ContainerSC>
+          {<OrderSummaryDisplay {...order} />}
           <Footer footerItems={footerUtilityLinksSample} />
         </ConfirmationPageSC>
       )}

@@ -12,5 +12,9 @@ export const PageSC = styled(Box)`
 
 export const FormContainerSC = styled(Box)`
   margin: ${space.xxxl} auto ${space.xxxxl} auto};
-  height: calc(100vh - 244px); /* to push footer below the fold */
+  height: calc(100vh - 56px); /* to push footer below the fold */
+  
+  @media only screen and (min-width: 1080px) {
+    height: calc(100vh - 244px); /* to push footer below the fold */
+  }
 `;
