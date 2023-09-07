@@ -1,15 +1,18 @@
-import { FC, useState } from 'react';
+import { FC, useState } from "react";
 
-import EmailInput from '../email-input/email-input.component';
-import Alert from '../alert/alert.component';
-import ProgressIndicator from '../progress-indicator/index.component';
-import ResetPasswordRequestFormI from './reset-password-request-form.interface';
-import EmailInterface from '../../interfaces/email.interface';
-import { checkEmail } from '../../utils/helpers';
-import { AlertContainerSC, ButtonContainerSC, FormSC, TitleSC } from './reset-password-request-form.styles';
-import { requestPasswordReset } from '../../apis/passwords/password.api';
-import Button from '../button/index.component';
-import COLORS from '../../styles/colors';
+import EmailInput from "../email-input/email-input.component";
+import Alert from "../alert/alert.component";
+import ResetPasswordRequestFormI from "./reset-password-request-form.interface";
+import EmailInterface from "../../interfaces/email.interface";
+import { checkEmail } from "../../utils/helpers";
+import {
+  AlertContainerSC,
+  ButtonContainerSC,
+  FormSC,
+  TitleSC,
+} from "./reset-password-request-form.styles";
+import { requestPasswordReset } from "../../apis/passwords/password.api";
+import Button from "../button/button.component";
 
 const ResetPasswordRequestForm: FC<ResetPasswordRequestFormI> = () => {
   const [isButtonLoading, setIsButtonLoading] = useState<boolean>(false);
@@ -18,7 +21,8 @@ const ResetPasswordRequestForm: FC<ResetPasswordRequestFormI> = () => {
     message: string;
   }>({
     type: "info",
-    message: "Please enter your email address to get a 4-digit code to reset your password.",
+    message:
+      "Please enter your email address to get a 4-digit code to reset your password.",
   });
   const [alertVisible, setAlertVisible] = useState<boolean>(true);
 
@@ -90,8 +94,8 @@ const ResetPasswordRequestForm: FC<ResetPasswordRequestFormI> = () => {
     }
 
     setIsButtonLoading(false);
-  }
-  
+  };
+
   return (
     <FormSC onSubmit={formHandler}>
       <TitleSC variant="h1">Forgotten Password?</TitleSC>
@@ -108,14 +112,9 @@ const ResetPasswordRequestForm: FC<ResetPasswordRequestFormI> = () => {
       </AlertContainerSC>
       <EmailInput email={email} onChange={emailChangeHandler} />
       <ButtonContainerSC>
-      <Button
-        labelColor={`${COLORS.NEUTRAL.N0}`}
-        backgroundColor={`${COLORS.PRIMARY.P500}`}
-        label="Send Code"
-        styleType="default"
-        actionType='submit'
-        isLoading={isButtonLoading}
-      />
+        <Button actionType="submit" isLoading={isButtonLoading} width="full">
+          Send Code
+        </Button>
       </ButtonContainerSC>
     </FormSC>
   );

@@ -28,8 +28,9 @@ const EmailInput: FC<EmailInputProps> = ({
   const { value, isValid } = email;
   const [hasBeenFocused, setHasBeenFocused] = useState(false);
   const [isFocus, setIsFocus] = useState(false);
-  const isInvalid = !isValid && hasBeenFocused && !isFocus;
-  const isInvalidFormat = !isFocus && showTooltip && !isValid && hasBeenFocused;
+  const showStatusIcon = hasBeenFocused && value.length > 0;
+  const isInvalid = !isValid && hasBeenFocused && !isFocus && value.length > 0;
+  const isInvalidFormat = isFocus && showTooltip && !isValid && hasBeenFocused && value.length > 0;
   const errorMessage = 'Please enter a valid email!';
   const tooltipMessage = 'Email should have the following format: username@example.com';
 
@@ -49,7 +50,7 @@ const EmailInput: FC<EmailInputProps> = ({
     <EmailInputSC>
       <LabelContainerSC>
         <LabelSC>{label}</LabelSC>
-        {hasBeenFocused && (
+        {showStatusIcon && (
           <StatusIconSC sx={{ opacity: `${!isFocus ? "1" : "0"}` }}>
             {!isValid ? (
               <Cancel sx={{ color: `${COLORS.RED.R500}` }} />
@@ -72,6 +73,7 @@ const EmailInput: FC<EmailInputProps> = ({
         type="email"
         required={isRequired}
       />
+      {isInvalid && <StatusTextSC>{errorMessage}</StatusTextSC>}
       {isInvalidFormat && (
         <TooltipSC>
           <TooltipTextSC>
@@ -79,7 +81,6 @@ const EmailInput: FC<EmailInputProps> = ({
           </TooltipTextSC>
         </TooltipSC>
       )}
-      {isInvalid && <StatusTextSC>{errorMessage}</StatusTextSC>}
     </EmailInputSC>
   );
 };

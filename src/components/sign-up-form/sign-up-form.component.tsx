@@ -10,24 +10,22 @@ import SignUpFormInterface from "./sign-up-form.interface";
 import {
   AlertContainerSC,
   InputContainerSC,
-  SignInLinkSC,
   SignInSC,
-  SignUpButtonSC,
   SignUpFormSC,
-  SignUpWithFacebookButtonSC,
-  SignUpWithGoogleButtonSC,
   SocialLogoSC,
   TitleSC,
 } from "./sign-up-form.style";
 import { checkEmail, checkPassword, checkUsername } from "../../utils/helpers";
 import { ROUTES } from "../../utils/constants";
 import GoogleLogo from "../../assets/socials/social-google.png";
-import FacebookLogo from "../../assets/socials/social-facebook.png";
 import { createUser, getUserByEmail } from "../../apis/users/users.api";
 import UsernameInterface from "../../interfaces/username.interface";
 import EmailInterface from "../../interfaces/email.interface";
 import PasswordInterface from "../../interfaces/password.interface";
 import Alert from "../alert/alert.component";
+import Button from "../button/button.component";
+import { Box } from "@mui/material";
+import space from "../../styles/spacing";
 
 const SignUpForm: FC<SignUpFormInterface> = () => {
   const navigate = useNavigate();
@@ -166,7 +164,7 @@ const SignUpForm: FC<SignUpFormInterface> = () => {
           });
           return setAlertVisible(true);
         }
-        
+
         setAlert({
           type: "error",
           message: "Internal Server Error! Please try again later.",
@@ -200,7 +198,11 @@ const SignUpForm: FC<SignUpFormInterface> = () => {
       <TitleSC variant="h1">Sign Up</TitleSC>
       <AlertContainerSC>
         {alertVisible && (
-          <Alert alertVisible setAlertVisible={setAlertVisible} type={alert.type}>
+          <Alert
+            alertVisible
+            setAlertVisible={setAlertVisible}
+            type={alert.type}
+          >
             {alert.message}
           </Alert>
         )}
@@ -215,19 +217,28 @@ const SignUpForm: FC<SignUpFormInterface> = () => {
         />
         <PasswordInput password={password} onChange={passwordChangeHandler} />
       </InputContainerSC>
-      <SignUpButtonSC type="submit">Sign Up</SignUpButtonSC>
+      <Box sx={{ marginTop: `${space.xl}`, marginBottom: `${space.l}` }}>
+        <Button actionType="submit" width="full">
+          Sign Up
+        </Button>
+      </Box>
       <Divider />
-      <SignUpWithGoogleButtonSC href={`${ROUTES.AUTH_GOOGLE}`}>
-        <SocialLogoSC src={GoogleLogo} alt="social logo" />
-        Sign Up with Google
-      </SignUpWithGoogleButtonSC>
-      {/* <SignUpWithFacebookButtonSC href={`${ROUTES.AUTH_FACEBOOK}`}>
-        <SocialLogoSC src={FacebookLogo} alt="social logo" />
-        Sign Up with Facebook
-      </SignUpWithFacebookButtonSC> */}
+      <Box sx={{ marginTop: `${space.xl}`, marginBottom: `${space.l}` }}>
+        <Button
+          styleType="secondary"
+          actionType="submit"
+          width="full"
+          href={`${ROUTES.AUTH_GOOGLE}`}
+          icon={<SocialLogoSC src={GoogleLogo} alt="social logo" />}
+        >
+          Sign Up with Google
+        </Button>
+      </Box>
       <SignInSC>
         Already a user?{" "}
-        <SignInLinkSC href={`${ROUTES.SIGN_IN}`}>Sign In</SignInLinkSC>
+        <Button styleType="tertiary" href={`${ROUTES.SIGN_IN}`} underlineLabel>
+          Sign In
+        </Button>
       </SignInSC>
     </SignUpFormSC>
   );

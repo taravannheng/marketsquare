@@ -10,13 +10,16 @@ const theme = createTheme({
     primary: {
       main: `${COLORS.PRIMARY.P500}`,
     },
+    secondary: {
+      main: `${COLORS.NEUTRAL.N0}`,
+    }
   },
 });
 
-const ProgressIndicator: FC<ProgressIndicatorInterface> = ({ size = 40 }) => {
+const ProgressIndicator: FC<ProgressIndicatorInterface> = ({ size = 40, color = "primary" }) => {
   return (
     <ThemeProvider theme={theme}>
-      <CircularProgress color='primary' size={ size } />
+      <CircularProgress color={color} size={ size } />
     </ThemeProvider>
   )
 }

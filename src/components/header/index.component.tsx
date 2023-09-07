@@ -8,6 +8,7 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import SearchIcon from '@mui/icons-material/Search';
 import { AccountCircle, ArrowBackIos, Login } from "@mui/icons-material";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -34,12 +35,17 @@ import {
   SignOutSC,
   MobileDrawerSC,
   MobileDrawerContentSC,
-  NavigationContainerSC,
+  ButtonContainerSC,
   MobileDrawerHeadSC,
   LogoContainerSC,
   MobileDrawerBodySC,
   MobileDrawerBottomSC,
   MobileSignOutContainerSC,
+  ToolbarContainerSC,
+  SearchContainerSC,
+  BackIconSC,
+  SearchIconSC,
+  BigSearchContainerSC,
 } from "./index.styles";
 import navMenuList from "../../sample/navigation-menu/navigationMenuSample";
 import { LOGO_URLS, ROUTES } from "../../utils/constants";
@@ -50,6 +56,7 @@ import COLORS from "../../styles/colors";
 import AuthBlock from "../auth-block/auth-block.component";
 
 const Header: FC<HeaderProps> = () => {
+  const [showMobileSearch, setShowMobileSearch] = useState(false);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [isMobileDrawerOpen, setIsMobileDrawerOpen] = useState(false);
   const user = useSelector(selectUser);
@@ -58,12 +65,11 @@ const Header: FC<HeaderProps> = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const dispatch = useDispatch();
-
+  
   // DETERMINE LOGO SIZE
-  const smallLogoSize = "48";
-  const bigLogoSize = "64";
+  const smallLogoSize = "32";
+  const bigLogoSize = "44";
   const logoSize = isBigScreen ? bigLogoSize : smallLogoSize;
-
 
   // HANDLERS
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -87,6 +93,10 @@ const Header: FC<HeaderProps> = () => {
 
   const mobileDrawerCloseHandler = () => {
     setIsMobileDrawerOpen(false);
+  };
+
+  const mobileSearchHandler = () => {
+    setShowMobileSearch(prevState => !prevState);
   };
 
   const signOutHandler = () => {
@@ -126,6 +136,7 @@ const Header: FC<HeaderProps> = () => {
     <>
       <AppBar position="static" sx={{ boxShadow: "none" }}>
         <ToolbarPlaceholderSC></ToolbarPlaceholderSC>
+        <ToolbarContainerSC sx={{ transform: `${showMobileSearch ? 'translateX(-100%)' : 'translateX(0%)'}` }}>
         <ToolbarSC>
           <Link to={ROUTES.LANDING}>
             <img
@@ -135,8 +146,11 @@ const Header: FC<HeaderProps> = () => {
               height={logoSize}
             />
           </Link>
-          {isBigScreen && <Search />}
-          <NavigationContainerSC>
+          {isBigScreen && <BigSearchContainerSC><Search /></BigSearchContainerSC>}
+          <ButtonContainerSC>
+            {!isBigScreen && <SearchIconSC onClick={mobileSearchHandler}>
+              <SearchIcon />
+            </SearchIconSC>}
             <Cart />
             {/* MENU ICON FOR MOBILE */}
             {!isBigScreen && (
@@ -150,19 +164,10 @@ const Header: FC<HeaderProps> = () => {
                 <MenuIcon />
               </MenuIconSC>
             )}
-          </NavigationContainerSC>
           {/* MENU ICON FOR DESKTOP */}
           {isBigScreen && _.isEmpty(user) && (
             <MenuIconSC
               onClick={handleClick}
-              sx={{
-                backgroundColor: `${
-                  !_.isEmpty(anchorEl) ? COLORS.PRIMARY.P500 : COLORS.NEUTRAL.N50
-                } !important`,
-                color: `${
-                  !_.isEmpty(anchorEl) ? COLORS.NEUTRAL.N0 : COLORS.NEUTRAL.N300
-                } !important`,
-              }}
             >
               <MenuIcon />
             </MenuIconSC>
@@ -176,7 +181,15 @@ const Header: FC<HeaderProps> = () => {
               />
             </AvatarContainerSC>
           )}
+          </ButtonContainerSC>
         </ToolbarSC>
+            {!isBigScreen && <SearchContainerSC>
+              <BackIconSC onClick={mobileSearchHandler}>
+                <ArrowBackIos />
+              </BackIconSC>
+              <Search />
+            </SearchContainerSC>}
+        </ToolbarContainerSC>
         <NavigationMenu menuList={navMenuList} />
         <Menu
           menuList={menuList}
@@ -220,8 +233,8 @@ const Header: FC<HeaderProps> = () => {
                 <img
                   src={LOGO_URLS.TRANSPARENT}
                   alt="logo"
-                  width={bigLogoSize}
-                  height={bigLogoSize}
+                  width={64}
+                  height={64}
                 />
               </LogoContainerSC>
             </MobileDrawerHeadSC>

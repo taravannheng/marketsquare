@@ -38,13 +38,23 @@ const PasswordInput: FC<PasswordInputInterface> = ({
   showTooltip = true,
 }) => {
   const { value, isValid, validityDetails } = password;
-  const [isInitialFocus, setIsInitialFocus] = useState(false);
+  const [hasBeenFocused, setHasBeenFocused] = useState(false);
   const [isFocus, setIsFocus] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
+  // ---
+
+  const showStatusIcon = hasBeenFocused && value.length > 0;
+  const isInvalid = !isValid && hasBeenFocused && !isFocus && value.length > 0;
+  const isInvalidFormat = isFocus && showTooltip && !isValid && hasBeenFocused && value.length > 0;
+  const errorMessage = 'Please enter a valid email!';
+  const tooltipMessage = 'Email should have the following format: username@example.com';
+
+  // ---
+
   const focusHandler = () => {
-    if (!isInitialFocus) {
-      setIsInitialFocus(true);
+    if (!hasBeenFocused) {
+      setHasBeenFocused(true);
     }
 
     setIsFocus(true);
@@ -62,7 +72,7 @@ const PasswordInput: FC<PasswordInputInterface> = ({
     <PasswordInputSC>
       <LabelContainerSC>
         <LabelSC>{label}</LabelSC>
-        {isInitialFocus && (
+        {showStatusIcon && (
           <StatusIconSC sx={{ opacity: `${!isFocus ? "1" : "0"}` }}>
             {!isValid ? (
               <Cancel sx={{ color: `${COLORS.RED.R500}` }} />
@@ -100,7 +110,10 @@ const PasswordInput: FC<PasswordInputInterface> = ({
           )}
         </ShowPasswordIconSC>
       </InputContainerSC>
-      {isFocus && showTooltip && (
+      {isInvalid && (
+        <StatusTextSC>Please enter a valid password!</StatusTextSC>
+      )}
+      {isInvalidFormat && (
         <TooltipSC>
           <TooltipTextSC>Password should include:</TooltipTextSC>
           <TooltipListSC>
@@ -292,9 +305,6 @@ const PasswordInput: FC<PasswordInputInterface> = ({
             </TooltipItemSC>
           </TooltipListSC>
         </TooltipSC>
-      )}
-      {!isValid && isInitialFocus && !isFocus && (
-        <StatusTextSC>Please enter a valid password!</StatusTextSC>
       )}
     </PasswordInputSC>
   );
