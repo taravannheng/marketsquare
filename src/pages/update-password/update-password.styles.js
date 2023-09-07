@@ -12,5 +12,4 @@ export const PageSC = styled(Box)`
 
 export const FormContainerSC = styled(Box)`
   margin: ${space.xxxl} auto ${space.xxxxl} auto};
-  height: calc(100vh - 244px); /* to push footer below the fold */
 `;

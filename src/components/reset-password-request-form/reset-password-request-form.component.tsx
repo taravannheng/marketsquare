@@ -15,7 +15,7 @@ import { requestPasswordReset } from "../../apis/passwords/password.api";
 import Button from "../button/button.component";
 
 const ResetPasswordRequestForm: FC<ResetPasswordRequestFormI> = () => {
-  const [isButtonLoading, setIsButtonLoading] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [alert, setAlert] = useState<{
     type: "info" | "success" | "error";
     message: string;
@@ -57,7 +57,7 @@ const ResetPasswordRequestForm: FC<ResetPasswordRequestFormI> = () => {
   const formHandler = async (event: any) => {
     event.preventDefault();
 
-    setIsButtonLoading(true);
+    setIsLoading(true);
 
     // if the email is valid, send the request to the server
     if (email.isValid) {
@@ -93,7 +93,7 @@ const ResetPasswordRequestForm: FC<ResetPasswordRequestFormI> = () => {
       }
     }
 
-    setIsButtonLoading(false);
+    setIsLoading(false);
   };
 
   return (
@@ -112,8 +112,8 @@ const ResetPasswordRequestForm: FC<ResetPasswordRequestFormI> = () => {
       </AlertContainerSC>
       <EmailInput email={email} onChange={emailChangeHandler} />
       <ButtonContainerSC>
-        <Button actionType="submit" isLoading={isButtonLoading} width="full">
-          Send Code
+        <Button actionType="submit" isLoading={isLoading} width="full" disabled={isLoading}>
+          {isLoading ? "Sending Code" : "Send Code"}
         </Button>
       </ButtonContainerSC>
     </FormSC>
