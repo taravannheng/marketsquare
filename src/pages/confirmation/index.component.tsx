@@ -1,6 +1,7 @@
 import { FC, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import { Box } from "@mui/material";
 import _ from "lodash";
 
 import { createOrder } from "../../apis/orders/order.api";
@@ -9,7 +10,7 @@ import OrderSummaryDisplay from "../../components/order-summary-display/index.co
 import Header from "../../components/header/index.component";
 import footerUtilityLinksSample from "../../sample/footer/utility-links-sample";
 import Footer from "../../components/footer/index.component";
-import { ConfirmationPageSC } from "./index.styles";
+import { ConfirmationPageSC, ContainerSC } from "./index.styles";
 import OrderInterface from "../../interfaces/order.interface";
 import { selectOrder } from "../../store/order/order.selector";
 
@@ -41,7 +42,7 @@ const ConfirmationPage = () => {
       {!_.isEmpty(order) && (
         <ConfirmationPageSC>
           <Header />
-          {<OrderSummaryDisplay {...order} />}
+          <ContainerSC>{<OrderSummaryDisplay {...order} />}</ContainerSC>
           <Footer footerItems={footerUtilityLinksSample} />
         </ConfirmationPageSC>
       )}
