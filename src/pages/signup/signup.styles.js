@@ -12,9 +12,5 @@ export const SignUpPageSC = styled(Box)`
 
 export const SignUpFormContainerSC = styled(Box)`
   margin: ${space.xxxl} auto 0 auto;
-  height: calc(100vh - 56px); /* to push footer below the fold */
-  
-  @media only screen and (min-width: 1080px) {
-    height: calc(100vh - 244px); /* to push footer below the fold */
-  }
+  height: calc(100vh - 244px); /* to push footer below the fold */
 `;
