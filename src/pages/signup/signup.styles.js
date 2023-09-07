@@ -11,6 +11,5 @@ export const SignUpPageSC = styled(Box)`
 `;
 
 export const SignUpFormContainerSC = styled(Box)`
-  margin: ${space.xxxl} auto 0 auto;
-  height: calc(100vh - 244px); /* to push footer below the fold */
+  margin: ${space.xxxl} auto;
 `;
