@@ -9,6 +9,7 @@ import {
   AlertContainerSC,
   ButtonContainerSC,
   FormSC,
+  PasswordInputContainerSC,
   TitleSC,
 } from "./update-password-form.styles";
 import { updatePassword } from "../../apis/users/users.api";
@@ -22,7 +23,7 @@ const UpdatePasswordForm: FC<UpdatePasswordFormI> = () => {
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   const email = params.get("email");
-  const [isButtonLoading, setIsButtonLoading] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [alert, setAlert] = useState<{
     type: "info" | "success" | "error";
     message: string;
@@ -113,7 +114,7 @@ const UpdatePasswordForm: FC<UpdatePasswordFormI> = () => {
   };
 
   const formHandler = async () => {
-    setIsButtonLoading(true);
+    setIsLoading(true);
 
     // check the password then send to the server if it's valid
     if (password.isValid && confirmPassword.isValid) {
@@ -169,7 +170,7 @@ const UpdatePasswordForm: FC<UpdatePasswordFormI> = () => {
       }
     }
 
-    setIsButtonLoading(false);
+    setIsLoading(false);
   };
 
   return (
@@ -186,24 +187,29 @@ const UpdatePasswordForm: FC<UpdatePasswordFormI> = () => {
           </Alert>
         )}
       </AlertContainerSC>
-      <PasswordInput
-        password={password}
-        onChange={passwordChangeHandler}
-        showTooltip={false}
-      />
-      <PasswordInput
-        label="Confirm Password"
-        password={confirmPassword}
-        onChange={confirmPasswordChangeHandler}
-        showTooltip={false}
-      />
+      <PasswordInputContainerSC>
+        <PasswordInput
+          password={password}
+          onChange={passwordChangeHandler}
+          isRequired
+        />
+        <PasswordInput
+          label="Confirm Password"
+          password={confirmPassword}
+          onChange={confirmPasswordChangeHandler}
+          showTooltip={false}
+          isRequired
+        />
+      </PasswordInputContainerSC>
+
       <ButtonContainerSC>
         <Button
           clickHandler={formHandler}
-          isLoading={isButtonLoading}
+          isLoading={isLoading}
           width="full"
+          disabled={isLoading}
         >
-          Update Password
+          {isLoading ? "Updating Password" : "Update Password"}
         </Button>
       </ButtonContainerSC>
     </FormSC>

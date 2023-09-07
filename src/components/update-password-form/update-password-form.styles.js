@@ -33,6 +33,12 @@ export const AlertContainerSC = styled(Box)`
   margin-bottom: ${space.l} !important;
 `;
 
+export const PasswordInputContainerSC = styled(Box)`
+  & > div:first-child {
+    margin-bottom: ${space.s} !important;
+  }
+`;
+
 export const ButtonContainerSC = styled(Box)`
   margin-top: ${space.xxl} !important;
 `;

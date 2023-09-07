@@ -33,8 +33,9 @@ const SignInForm: FC<SignInFormInterface> = () => {
   const params = new URLSearchParams(location.search);
   const isNewUser = params.get("newUser");
   const updatedPassword = params.get("updatedPassword");
-
   const dispatch = useDispatch();
+
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const [email, setEmail] = useState<EmailInterface>({
     value: "",
@@ -117,6 +118,8 @@ const SignInForm: FC<SignInFormInterface> = () => {
   const formHandler = async (event: any) => {
     event.preventDefault();
 
+    setIsLoading(true);
+
     const isValidForm = email.isValid && password.isValid;
     let user;
 
@@ -130,6 +133,9 @@ const SignInForm: FC<SignInFormInterface> = () => {
         const response = await signIn(user);
 
         if (response.status === 200) {
+          // change loading state
+          setIsLoading(false);
+
           // set cookie to expire in 1hr
           Cookies.set("jwt", response.data.token, { expires: 1 / 24 });
 
@@ -139,6 +145,10 @@ const SignInForm: FC<SignInFormInterface> = () => {
           navigate(`${ROUTES.LANDING}?signedIn=true`);
         }
       } catch (error: any) {
+        // change loading state
+        setIsLoading(false);
+
+        // display error message
         if (error.response.status === 401) {
           setAlert({
             type: "error",
@@ -151,6 +161,7 @@ const SignInForm: FC<SignInFormInterface> = () => {
           type: "error",
           message: "Internal Server Error! Please try again later.",
         });
+
         setAlertVisible(true);
       }
     }
@@ -198,8 +209,8 @@ const SignInForm: FC<SignInFormInterface> = () => {
         />
       </InputContainerSC>
       <Box sx={{ marginTop: `${space.xl}`, marginBottom: `${space.l}` }}>
-        <Button actionType="submit" width="full">
-          Sign In
+        <Button actionType="submit" width="full" isLoading={isLoading} disabled={isLoading}>
+          {isLoading ? "Signing In" : "Sign In"}
         </Button>
       </Box>
       <Box sx={{ marginBottom: `${space.l}` }}>
