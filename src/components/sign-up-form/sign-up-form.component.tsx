@@ -30,6 +30,8 @@ import space from "../../styles/spacing";
 const SignUpForm: FC<SignUpFormInterface> = () => {
   const navigate = useNavigate();
 
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
   const [username, setUsername] = useState<UsernameInterface>({
     value: "",
     isValid: false,
@@ -138,6 +140,8 @@ const SignUpForm: FC<SignUpFormInterface> = () => {
   const formHandler = async (event: any) => {
     event.preventDefault();
 
+    setIsLoading(true);
+
     const isValidForm =
       username.isValid && email.isValid && password.isValid && isUniqueEmail;
     let user;
@@ -154,9 +158,16 @@ const SignUpForm: FC<SignUpFormInterface> = () => {
         const statusCode = response?.status ?? null;
 
         if (statusCode === 200) {
+          // change loading state
+          setIsLoading(false);
+
           navigate(`${ROUTES.SIGN_IN}?newUser=true`);
         }
       } catch (error: any) {
+        // change loading state
+        setIsLoading(false);
+
+        // display error message
         if (error.response.status === 409) {
           setAlert({
             type: "error",
@@ -218,8 +229,8 @@ const SignUpForm: FC<SignUpFormInterface> = () => {
         <PasswordInput password={password} onChange={passwordChangeHandler} />
       </InputContainerSC>
       <Box sx={{ marginTop: `${space.xl}`, marginBottom: `${space.l}` }}>
-        <Button actionType="submit" width="full">
-          Sign Up
+        <Button actionType="submit" width="full" isLoading={isLoading} disabled={isLoading}>
+          {isLoading ? "Signing Up" : "Sign Up"}
         </Button>
       </Box>
       <Divider />

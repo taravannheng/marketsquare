@@ -140,6 +140,7 @@ const Cart: FC<CartProps> = () => {
                 clickHandler={checkoutHandler}
                 isLoading={checkoutButtonIsLoading}
                 width="full"
+                disabled={checkoutButtonIsLoading}
               >
                 {!checkoutButtonIsLoading ? `Checkout` : `Checking Out`}
               </Button>
