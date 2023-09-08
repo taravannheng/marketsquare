@@ -34,5 +34,8 @@ export const AlertContainerSC = styled(Box)`
 `;
 
 export const ButtonContainerSC = styled(Box)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-top: ${space.xxl} !important;
 `;

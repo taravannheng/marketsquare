@@ -1,37 +1,18 @@
 import styled from "@emotion/styled";
-
-import COLORS from "../../styles/colors";
-import typography from "../../styles/typography";
 import { Box, Typography } from "@mui/material";
 
+import { COLORS, typography, space } from '../../styles/styles';
+
 export const ProductDetailsDisplaySC = styled(Box)`
-  padding: 24px 24px !important;
+  padding: ${space.l} !important;
   
   @media only screen and (min-width: 1080px) {
-    padding: 48px 56px !important;
+    padding: ${space.xxl} !important;
   }
 `
 
 export const BackNavSC = styled(Box)`
-  margin-bottom: 32px !important;
-`
-
-export const SlideShowContainerSC = styled(Box)`  
-  width: clamp(100%, 100%, 100%);
-  height: clamp(320px, 320px, 320px);
-  margin-bottom: 32px;
-  overflow: hidden;
-
-  @media only screen and (min-width: 520px) {
-    height: clamp(360px, 360px, 360px);
-  }
-
-  
-  @media only screen and (min-width: 1080px) {
-    width: clamp(400px, 400px, 400px);
-    height: clamp(420px, 420px, 420px);
-    margin-bottom: 0;
-  }
+  margin-bottom: ${space.xl} !important;
 `
 
 export const BodySC = styled(Box)`
@@ -43,32 +24,37 @@ export const BodySC = styled(Box)`
   }
 `
 
+export const SlideShowContainerSC = styled(Box)`  
+  width: clamp(100%, 100%, 100%);
+  margin-bottom: ${space.xl};
+  overflow: hidden;
+`
+
 export const DetailsContainerSC = styled(Box)`
   width: 100%;
 
   @media only screen and (min-width: 1080px) {
-    width: calc(100% - 400px);
-    padding-left: 80px !important;
+    padding-left: ${space.xxxl} !important;
   }
 `
 
 export const ProductNameSC = styled(Typography)`
-  margin-bottom: 8px !important;
+  margin-bottom: ${space.xs} !important;
   color: ${COLORS.NEUTRAL.N500} !important;
   font-size: ${typography.h5.fontSize} !important;
   font-weight: ${typography.h5.fontWeight} !important;
 `
 
 export const ProductPriceSC = styled(Typography)`
-  margin-bottom: 24px !important;
+  margin-bottom: ${space.l} !important;
   color: ${COLORS.NEUTRAL.N900} !important;
   font-size: ${typography.h1.fontSize} !important;
   font-weight: ${typography.h1.fontWeight} !important;
 `
 
 export const ProductDescriptionSC = styled(Typography)`
-  margin-top: 24px !important;
-  margin-bottom: 48px !important;
+  margin-top: ${space.l} !important;
+  margin-bottom: ${space.xxl} !important;
   width: auto;
   max-width: 486px;
   height: auto;

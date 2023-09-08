@@ -8,7 +8,7 @@ import _ from "lodash";
 import SlideShow from "../slideshow/index.component";
 import SeeMoreText from "../see-more-text/see-more-text.component";
 import Rating from "../rating/index.component";
-import Button from "../button/index.component";
+import Button from "../button/button.component";
 import ProductDetailsDisplayInterface from "./index.interface";
 import ProductInterface from "../../interfaces/product-interface";
 import {
@@ -23,12 +23,13 @@ import {
 } from "./index.styles";
 import { adjustCloudinaryImgSize, formatPrice } from "../../utils/helpers";
 import { selectCart } from "../../store/cart/cart.selector";
-import { COLORS } from "../../styles/styles";
+import { COLORS, BREAKPOINTS } from "../../styles/styles";
 
 const ProductDetailsDisplay: FC<ProductDetailsDisplayInterface> = ({
   product,
 }) => {
   const isSmallScreen = useMediaQuery("(max-width: 1080px)");
+  const addToCartButtonWidth = useMediaQuery(`(min-width: ${BREAKPOINTS.sm}px)`) ? 'auto' : 'full';
   const navigate = useNavigate();
   const cart = useSelector(selectCart);
   const dispatch = useDispatch();
@@ -93,14 +94,12 @@ const ProductDetailsDisplay: FC<ProductDetailsDisplayInterface> = ({
         <ProductDetailsDisplaySC>
           <BackNavSC>
             <Button
-              width="102px"
-              height="40px"
-              styleType="icon"
-              actionType="button"
+              styleType="tertiary"
               icon={<ArrowBackIosRounded />}
-              label="Back"
               clickHandler={goBack}
-            />
+            >
+              Back
+            </Button>
           </BackNavSC>
           {!_.isEmpty(product) && (
             <BodySC>
@@ -117,18 +116,17 @@ const ProductDetailsDisplay: FC<ProductDetailsDisplayInterface> = ({
                 <ProductPriceSC>${formatPrice(product.price)}</ProductPriceSC>
                 <Rating type="long" showLabel rating={product.rating} />
                 <ProductDescriptionSC>
-                  <SeeMoreText defaultTextLength={250}>{product.description}</SeeMoreText>
+                  <SeeMoreText defaultTextLength={250}>
+                    {product.description}
+                  </SeeMoreText>
                 </ProductDescriptionSC>
                 <Button
-                  width="200px"
-                  styleType="default"
-                  actionType="button"
-                  label={isAddedToCart ? "Remove from Cart" : "Add to Cart"}
+                  styleType="primary"
                   clickHandler={addToCartHandler}
-                  backgroundColor={COLORS.PRIMARY.P500}
-                  labelColor={COLORS.NEUTRAL.N0}
-                  boldLabel
-                />
+                  width={addToCartButtonWidth}
+                >
+                  {isAddedToCart ? "Added to Cart" : "Add to Cart"}
+                </Button>
               </DetailsContainerSC>
             </BodySC>
           )}

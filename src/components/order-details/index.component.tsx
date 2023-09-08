@@ -25,7 +25,7 @@ import {
 import OrderInterface from "../../interfaces/order.interface";
 import { getCardLogo } from "../../utils/helpers";
 import { ROUTES } from "../../utils/constants";
-import Button from "../button/index.component";
+import Button from "../button/button.component";
 
 const OrderDetails: FC<OrderInterface> = ({
   orderID,
@@ -84,14 +84,7 @@ const OrderDetails: FC<OrderInterface> = ({
             </ShippingMethodSC>
           </ShippingSC>
           <ButtonContainerSC>
-            <Button
-              label="Continue Shopping"
-              styleType="default"
-              actionType="button"
-              width="200px"
-              height="40px"
-              clickHandler={redirectToHomepage}
-            />
+            <Button clickHandler={redirectToHomepage}>Continue Shopping</Button>
           </ButtonContainerSC>
         </ContentSC>
       )}
