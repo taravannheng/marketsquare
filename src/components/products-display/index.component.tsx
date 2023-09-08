@@ -119,7 +119,6 @@ const ProductsDisplay: FC<ProductsDisplayInterface> = ({ title, products }) => {
 
   return (
     <ProductsDisplaySC>
-      {isSmallScreen && <Search />}
       <SlideShowContainerSC>
         <SlideShow
           indicatorType="dot"

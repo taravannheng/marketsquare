@@ -13,10 +13,37 @@ import {
 
 import { COLORS, typography, space, borderRadius, BREAKPOINTS } from "../../styles/styles";
 
-export const AppBarSC = styled(AppBar)``;
+// SHARED STYLES -------------------------------------
+
+const iconStyle = `
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  width: clamp(44px, 44px, 44px) !important;
+  height: clamp(44px, 44px, 44px) !important;
+  color: ${COLORS.NEUTRAL.N300};
+  cursor: pointer;
+
+  &:hover {
+    color: ${COLORS.PRIMARY.P500} !important;
+  }
+
+  &:focus {
+    color: ${COLORS.PRIMARY.P500} !important;
+  }
+
+  &:active {
+    color: ${COLORS.PRIMARY.P500} !important;
+  }
+`;
+
+// COMPONENT STYLES -------------------------------------
+
+export const AppBarSC = styled(AppBar)`
+`;
 
 export const ToolbarPlaceholderSC = styled(Box)`
-  width: 100%;
+  width: 100% !important;
   height: clamp(56px, 56px, 56px) !important;
   background-color: ${COLORS.NEUTRAL.N0} !important;
 
@@ -25,17 +52,27 @@ export const ToolbarPlaceholderSC = styled(Box)`
   }
 `;
 
-export const ToolbarSC = styled(Toolbar)`
+export const ToolbarContainerSC = styled(Box)`
   position: fixed !important;
   top: 0;
   z-index: 1;
   box-sizing: border-box;
+  display: flex !important;
+  flex-direction: row !important;
+  width: 100% !important;
+  max-width: ${BREAKPOINTS.xxl}px !important;
+  background-color: ${COLORS.NEUTRAL.N0} !important;
+  transition: transform 0.3s ease-in-out;
+`;
+
+export const ToolbarSC = styled(Toolbar)`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  min-width: 100% !important;
   width: 100% !important;
   max-width: ${BREAKPOINTS.xxl}px !important;
-  height: clamp(56px, 56px, 56px) !important;
+  height: clamp(64px, 64px, 64px) !important;
   border-bottom: 1px solid ${COLORS.NEUTRAL.N50};
   padding: 0 24px !important;
   background-color: ${COLORS.NEUTRAL.N0};
@@ -50,9 +87,32 @@ export const ToolbarSC = styled(Toolbar)`
   }
 `;
 
-export const NavigationContainerSC = styled(Box)`
+export const BigSearchContainerSC = styled(Box)`
+  width: 100% !important;
+  max-width: 400px !important;
+`;
+
+export const SearchContainerSC = styled(Box)`
   display: flex;
   flex-direction: row;
+  align-items: center;
+  min-width: 100% !important;
+  height: clamp(64px, 64px, 64px) !important;
+  padding: 0 24px;
+  border-bottom: 1px solid ${COLORS.NEUTRAL.N50};
+`;
+
+export const BackIconSC = styled(Icon)`
+  ${iconStyle};
+`;
+
+export const ButtonContainerSC = styled(Box)`
+  display: flex;
+  flex-direction: row;
+`;
+
+export const SearchIconSC = styled(Icon)`
+  ${iconStyle};
 `;
 
 export const LogoContainerSC = styled(Box)`
@@ -65,28 +125,7 @@ export const LogoContainerSC = styled(Box)`
 `;
 
 export const MenuIconSC = styled(Icon)`
-  display: flex !important;
-  justify-content: center;
-  align-items: center;
-  width: clamp(40px, 40px, 40px) !important;
-  height: clamp(40px, 40px, 40px) !important;
-  border-radius: ${borderRadius.s} !important;
-  margin-left: 24px;
-  cursor: pointer;
-  color: ${COLORS.NEUTRAL.N500};
-  transition: background-color 0.3s ease-in-out;
-  background-color: ${COLORS.NEUTRAL.N50} !important;
-
-  &:hover {
-    color: ${COLORS.PRIMARY.P500} !important;
-  }
-
-  @media only screen and (min-width: 640px) {
-    &:hover {
-      background-color: ${COLORS.PRIMARY.P500} !important;
-      color: ${COLORS.NEUTRAL.N0} !important;
-    }
-  }
+  ${iconStyle};
 `;
 
 export const AvatarContainerSC = styled(Box)`

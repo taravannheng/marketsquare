@@ -22,10 +22,10 @@ border: 0px !important;
 
 & input {
   padding: ${space.xs} ${space.m} !important;
-  border: 0px !important;
+  border: 1px solid ${COLORS.NEUTRAL.N100} !important;
   border-radius: ${borderRadius.s} !important;
   color: ${COLORS.NEUTRAL.N900} !important;
-  background-color: ${COLORS.NEUTRAL.N50} !important;
+  background-color: ${COLORS.NEUTRAL.N0} !important;
   transition: border 0.1s ease-in-out;
 
   &:focus {

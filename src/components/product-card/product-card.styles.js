@@ -26,15 +26,18 @@ export const ProductCardSC = styled(Card)`
 
   @media only screen and (min-width: 640px) {
     min-width: 276px;
-    flex: 1;
   }
 `;
 
 export const CardMediaContainerSC = styled(Box)`
+  position: relative;
+  width: 100%;
   max-height: 124px;
+  padding-bottom: 66.67%; /* 3:2 aspect ratio */
   border-radius: ${borderRadius.s} !important;
   margin-bottom: ${space.xs} !important;
   overflow: hidden;
+
 
   @media only screen and (min-width: 640px) {
     max-height: 200px;
@@ -42,9 +45,14 @@ export const CardMediaContainerSC = styled(Box)`
 `;
 
 export const CardMediaSC = styled(CardMedia)`
-  width: clamp(100%, 100%, 100%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
   min-height: 124px;
-  height: 124px;
   transition: transform 0.3s ease-in-out !important;
 
   @media only screen and (min-width: 640px) {

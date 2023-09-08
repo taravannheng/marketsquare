@@ -21,11 +21,11 @@ import {
   SocialContainerSC,
   SocialLogoContainerSC,
   SocialLogoSC,
-  SmallFooterLogoSC,
   AccordionSC,
   AccordionSummarySC,
   AccordionDetailsSC,
   UtilityLinkAccordionContainerSC,
+  SiteDescriptionSC,
 } from "./index.styles";
 import FacebookLogo from "../../assets/socials/social-facebook.png";
 import InstagramLogo from "../../assets/socials/social-instagram.png";
@@ -37,49 +37,78 @@ import { LOGO_URLS, ROUTES } from "../../utils/constants";
 const Footer: FC<FooterProps> = ({ footerItems }) => {
   const isEmptyFooterItems = footerItems && footerItems.length === 0;
   const SOCIAL_LOGOS = [
-    { id: 'sl_fb', href: '/', image: FacebookLogo, title: 'social facebook logo' },
-    { id: 'sl_ig', href: '/', image: InstagramLogo, title: 'social instagram logo' },
-    { id: 'sl_li', href: '/', image: LinkedinLogo, title: 'social linkedin logo' },
-    { id: 'sl_twt', href: '/', image: TwitterLogo, title: 'social twitter logo' },
-    { id: 'sl_yt', href: '/', image: YoutubeLogo, title: 'social youtube logo' },
+    {
+      id: "sl_fb",
+      href: "/",
+      image: FacebookLogo,
+      title: "social facebook logo",
+    },
+    {
+      id: "sl_ig",
+      href: "/",
+      image: InstagramLogo,
+      title: "social instagram logo",
+    },
+    {
+      id: "sl_li",
+      href: "/",
+      image: LinkedinLogo,
+      title: "social linkedin logo",
+    },
+    {
+      id: "sl_twt",
+      href: "/",
+      image: TwitterLogo,
+      title: "social twitter logo",
+    },
+    {
+      id: "sl_yt",
+      href: "/",
+      image: YoutubeLogo,
+      title: "social youtube logo",
+    },
   ];
 
   return (
     <FooterSC>
       <SmallFooterSC>
         <Link href={ROUTES.LANDING}>
-          <SmallFooterLogoSC
-            image={LOGO_URLS.VERTICAL_WHITE}
+          <FooterLogoSC
+            image={LOGO_URLS.TRANSPARENT_WHITE}
             title="logo"
-            sx={{ maxHeight: 80 }}
+            sx={{ maxHeight: 56 }}
           />
         </Link>
+        <SiteDescriptionSC>
+          Marketsquare is a fictitious e-commerce website built with MERN stack.
+        </SiteDescriptionSC>
         <UtilityLinkAccordionContainerSC>
-          {!isEmptyFooterItems && footerItems.map((utilityLink: any) => {
-            return (
-              <AccordionSC disableGutters key={`accordion-${utilityLink.id}`}>
-                <AccordionSummarySC expandIcon={<ExpandCircleDown />}>
-                  <UtilityLinkTitleSC>{utilityLink.title}</UtilityLinkTitleSC>
-                </AccordionSummarySC>
-                <AccordionDetailsSC>
-                  <UtilityLinkContainerSC>
-                    <UtilityLinkStackSC direction="column" spacing={1}>
-                      {utilityLink.links.map((link: any) => {
-                        return (
-                          <UtilityLinkSC
-                            href={link.route}
-                            key={`accordion-${link.id}`}
-                          >
-                            {link.text}
-                          </UtilityLinkSC>
-                        );
-                      })}
-                    </UtilityLinkStackSC>
-                  </UtilityLinkContainerSC>
-                </AccordionDetailsSC>
-              </AccordionSC>
-            );
-          })}
+          {!isEmptyFooterItems &&
+            footerItems.map((utilityLink: any) => {
+              return (
+                <AccordionSC disableGutters key={`accordion-${utilityLink.id}`}>
+                  <AccordionSummarySC expandIcon={<ExpandCircleDown />}>
+                    <UtilityLinkTitleSC>{utilityLink.title}</UtilityLinkTitleSC>
+                  </AccordionSummarySC>
+                  <AccordionDetailsSC>
+                    <UtilityLinkContainerSC>
+                      <UtilityLinkStackSC direction="column" spacing={1}>
+                        {utilityLink.links.map((link: any) => {
+                          return (
+                            <UtilityLinkSC
+                              href={link.route}
+                              key={`accordion-${link.id}`}
+                            >
+                              {link.text}
+                            </UtilityLinkSC>
+                          );
+                        })}
+                      </UtilityLinkStackSC>
+                    </UtilityLinkContainerSC>
+                  </AccordionDetailsSC>
+                </AccordionSC>
+              );
+            })}
         </UtilityLinkAccordionContainerSC>
         <SocialContainerSC>
           <SocialStackSC direction="row" spacing={4}>
@@ -94,8 +123,7 @@ const Footer: FC<FooterProps> = ({ footerItems }) => {
                   </SocialLogoContainerSC>
                 </Link>
               );
-            })
-            }
+            })}
           </SocialStackSC>
         </SocialContainerSC>
         <FooterCopyright variant="body1">
@@ -107,12 +135,31 @@ const Footer: FC<FooterProps> = ({ footerItems }) => {
         <FooterLeftContainerSC>
           <Link href={ROUTES.LANDING}>
             <FooterLogoSC
-              image={LOGO_URLS.FILLED}
+              image={LOGO_URLS.TRANSPARENT_WHITE}
               title="logo"
-              sx={{ maxHeight: 240 }}
+              sx={{ maxHeight: 56 }}
             />
           </Link>
           <FooterLeftContent>
+          <SiteDescriptionSC>
+            Marketsquare is a fictitious ecommerce website built with MERN stack.
+          </SiteDescriptionSC>
+          <SocialContainerSC>
+            <SocialStackSC direction="row" spacing={4}>
+              {SOCIAL_LOGOS.map((socialLogo) => {
+                return (
+                  <Link href={socialLogo.href} key={socialLogo.id}>
+                    <SocialLogoContainerSC>
+                      <SocialLogoSC
+                        image={socialLogo.image}
+                        title={socialLogo.title}
+                      />
+                    </SocialLogoContainerSC>
+                  </Link>
+                );
+              })}
+            </SocialStackSC>
+          </SocialContainerSC>
             <FooterCopyright variant="body1">
               Copyright &copy; {new Date().getFullYear()} &middot; All Rights
               Reserved{" "}
@@ -129,7 +176,7 @@ const Footer: FC<FooterProps> = ({ footerItems }) => {
                       <UtilityLinkTitleSC>
                         {utilityLink.title}
                       </UtilityLinkTitleSC>
-                      <UtilityLinkStackSC direction="column" spacing={1}>
+                      <UtilityLinkStackSC direction="column" spacing={2}>
                         {utilityLink.links.map((link: any) => {
                           return (
                             <UtilityLinkSC
@@ -146,22 +193,6 @@ const Footer: FC<FooterProps> = ({ footerItems }) => {
                 );
               })}
           </Grid>
-          <SocialContainerSC>
-            <SocialStackSC direction="row" spacing={4}>
-              {SOCIAL_LOGOS.map(socialLogo => {
-                return (
-                  <Link href={socialLogo.href} key={socialLogo.id}>
-                    <SocialLogoContainerSC>
-                      <SocialLogoSC
-                        image={socialLogo.image}
-                        title={socialLogo.title}
-                      />
-                    </SocialLogoContainerSC>
-                  </Link>
-                );
-              })}
-            </SocialStackSC>
-          </SocialContainerSC>
         </FooterRightContainerSC>
       </LargeFooterSC>
     </FooterSC>

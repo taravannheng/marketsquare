@@ -1,24 +1,33 @@
-import { FC, useRef, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { FC, useRef, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
-import Alert from '../alert/alert.component';
-import FourDigitInput from '../four-digit-input/four-digit-input.component';
-import ResetPasswordVerifyFormI from './reset-password-verify-form.interface';
-import { AlertContainerSC, ButtonContainerSC, FormSC, TitleSC } from './reset-password-verify-form.styles';
-import { verifyPasswordReset } from '../../apis/passwords/password.api';
-import Button from '../button/index.component';
-import COLORS from '../../styles/colors';
-import { checkFourDigits } from '../../utils/helpers';
-import { ROUTES } from '../../utils/constants';
+import Alert from "../alert/alert.component";
+import FourDigitInput from "../four-digit-input/four-digit-input.component";
+import ResetPasswordVerifyFormI from "./reset-password-verify-form.interface";
+import {
+  AlertContainerSC,
+  ButtonContainerSC,
+  FormSC,
+  TitleSC,
+} from "./reset-password-verify-form.styles";
+import { verifyPasswordReset } from "../../apis/passwords/password.api";
+import Button from "../button/button.component";
+import { checkFourDigits } from "../../utils/helpers";
+import { ROUTES } from "../../utils/constants";
 
 const ResetPasswordVerifyForm: FC<ResetPasswordVerifyFormI> = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   const email = params.get("email");
-  const [fourDigits, setFourDigits] = useState(['', '', '', '']);
-  const refs = [useRef<HTMLInputElement>(null), useRef<HTMLInputElement>(null), useRef<HTMLInputElement>(null), useRef<HTMLInputElement>(null)];
-  const [isButtonLoading, setIsButtonLoading] = useState<boolean>(false);
+  const [fourDigits, setFourDigits] = useState(["", "", "", ""]);
+  const refs = [
+    useRef<HTMLInputElement>(null),
+    useRef<HTMLInputElement>(null),
+    useRef<HTMLInputElement>(null),
+    useRef<HTMLInputElement>(null),
+  ];
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [alert, setAlert] = useState<{
     type: "info" | "success" | "error";
     message: string;
@@ -29,7 +38,7 @@ const ResetPasswordVerifyForm: FC<ResetPasswordVerifyFormI> = () => {
   const [alertVisible, setAlertVisible] = useState<boolean>(true);
 
   const formHandler = async () => {
-    setIsButtonLoading(true);
+    setIsLoading(true);
 
     // convert the four digits to number
     const fourDigitsAsNumber = fourDigits.map((digit) => Number(digit));
@@ -40,7 +49,7 @@ const ResetPasswordVerifyForm: FC<ResetPasswordVerifyFormI> = () => {
     if (isValidFourDigits) {
       // send the code to the server
       try {
-        const response = await verifyPasswordReset(email, fourDigits.join(''));
+        const response = await verifyPasswordReset(email, fourDigits.join(""));
 
         if (response.status === 200) {
           // redirect to update password page
@@ -85,8 +94,8 @@ const ResetPasswordVerifyForm: FC<ResetPasswordVerifyFormI> = () => {
       setAlertVisible(true);
     }
 
-    setIsButtonLoading(false);
-  }
+    setIsLoading(false);
+  };
 
   const digitChangeHandler = (index: number, value: string) => {
     setFourDigits((prevValues) => {
@@ -110,7 +119,7 @@ const ResetPasswordVerifyForm: FC<ResetPasswordVerifyFormI> = () => {
       }
     }
   };
-  
+
   return (
     <FormSC>
       <TitleSC variant="h1">Enter Code</TitleSC>
@@ -125,17 +134,20 @@ const ResetPasswordVerifyForm: FC<ResetPasswordVerifyFormI> = () => {
           </Alert>
         )}
       </AlertContainerSC>
-      <FourDigitInput values={fourDigits} onChange={digitChangeHandler} refs={refs} />
-      <ButtonContainerSC>
-      <Button
-        labelColor={`${COLORS.NEUTRAL.N0}`}
-        backgroundColor={`${COLORS.PRIMARY.P500}`}
-        label="Submit Code"
-        styleType="default"
-        actionType='button'
-        clickHandler={formHandler}
-        isLoading={isButtonLoading}
+      <FourDigitInput
+        values={fourDigits}
+        onChange={digitChangeHandler}
+        refs={refs}
       />
+      <ButtonContainerSC>
+        <Button
+          clickHandler={formHandler}
+          isLoading={isLoading}
+          width="full"
+          disabled={isLoading}
+        >
+          {isLoading ? "Verifying Code" : "Verify Code"}
+        </Button>
       </ButtonContainerSC>
     </FormSC>
   );

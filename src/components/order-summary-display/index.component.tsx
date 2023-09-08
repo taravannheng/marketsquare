@@ -10,7 +10,7 @@ import {
   OrderSummaryDisplaySC,
   TitleSC,
 } from "./index.styles";
-import Button from "../button/index.component";
+import Button from "../button/button.component";
 import { ROUTES } from "../../utils/constants";
 import OrderSummary from "../order-summary/index.component";
 import OrderDetails from "../order-details/index.component";
@@ -24,7 +24,7 @@ const OrderSummaryDisplay: FC<OrderSummaryDisplayInterface> = ({
   products,
   shipping,
 }) => {
-  const order = {orderID, cartID, customer, payment, products, shipping};
+  const order = { orderID, cartID, customer, payment, products, shipping };
   const redirectToHomepage = () => {
     window.location.href = ROUTES.LANDING;
   };
@@ -32,15 +32,9 @@ const OrderSummaryDisplay: FC<OrderSummaryDisplayInterface> = ({
   return (
     <OrderSummaryDisplaySC>
       <BackNavSC>
-        <Button
-          height="40px"
-          width="112px"
-          icon={<ArrowBackRounded />}
-          label="Home"
-          styleType="icon"
-          actionType="button"
-          clickHandler={redirectToHomepage}
-        />
+        <Button styleType="tertiary" icon={<ArrowBackRounded />} clickHandler={redirectToHomepage}>
+          Home
+        </Button>
       </BackNavSC>
       <TitleSC variant="h5">Order Summary</TitleSC>
       {!_.isEmpty(orderID) && (

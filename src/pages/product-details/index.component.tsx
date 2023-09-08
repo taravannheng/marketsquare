@@ -29,7 +29,7 @@ import {
   getProduct,
 } from "../../apis/products/products.api";
 import { RelatedProductDisplaySC } from "../../components/related-product-display/index.styles";
-import Button from "../../components/button/index.component";
+import Button from "../../components/button/button.component";
 import { ArrowBackIosRounded } from "@mui/icons-material";
 import { ROUTES } from "../../utils/constants";
 import ProgressIndicator from "../../components/progress-indicator/index.component";
@@ -60,10 +60,10 @@ const ProductDetailsPage: FC = () => {
 
     if (_.isEmpty(products)) {
       fetchProduct()
-      .then((result) => {
-        setProduct(result);
-      })
-      .catch((error) => console.error(error));
+        .then((result) => {
+          setProduct(result);
+        })
+        .catch((error) => console.error(error));
     }
 
     if (!_.isEmpty(products)) {
@@ -77,10 +77,10 @@ const ProductDetailsPage: FC = () => {
 
       if (!product) {
         fetchProduct()
-        .then((result) => {
-          setProduct(result);
-        })
-        .catch((error) => console.error(error));
+          .then((result) => {
+            setProduct(result);
+          })
+          .catch((error) => console.error(error));
       }
     }
 
@@ -143,14 +143,12 @@ const ProductDetailsPage: FC = () => {
         <EmptyContentSC>
           <BackNavSC>
             <Button
-              width="102px"
-              height="40px"
-              styleType="icon"
-              actionType="button"
+              styleType="tertiary"
               icon={<ArrowBackIosRounded />}
-              label="Back"
               clickHandler={redirectToHomepage}
-            />
+            >
+              Back
+            </Button>
           </BackNavSC>
           <EmptyBodySC>
             <ProgressIndicator />
