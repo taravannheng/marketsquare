@@ -129,7 +129,11 @@ export const MenuIconSC = styled(Icon)`
 `;
 
 export const AvatarContainerSC = styled(Box)`
-  margin-left: ${space.l};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: clamp(44px, 44px, 44px) !important;
+  height: clamp(44px, 44px, 44px) !important;
 `;
 
 export const DrawerSC = styled(Drawer)`

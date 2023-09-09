@@ -15,6 +15,8 @@ import Cart from "../cart/cart.component";
 // import NavigationMenu from "../navigation-menu/index.component";   DISABLE MENU TEMPORARILY
 import Search from "../search/search.component";
 import Avatar from "../avatar/avatar.component";
+import Menu from "../../components/menu/menu.component";
+import AuthBlock from "../auth-block/auth-block.component";
 import HeaderProps from "./index.interface";
 import {
   ToolbarPlaceholderSC,
@@ -44,12 +46,10 @@ import {
   BigSearchContainerSC,
 } from "./index.styles";
 // import navMenuList from "../../sample/navigation-menu/navigationMenuSample"; DISABLE MENU TEMPORARILY
-import { LOGO_URLS, ROUTES } from "../../utils/constants";
-import Menu from "../../components/menu/menu.component";
 // import menuListSample from "../../sample/menu/menu"; DISABLE MENU TEMPORARILY
+import { LOGO_URLS, ROUTES } from "../../utils/constants";
 import { selectUser } from "../../store/user/user.selector";
-import COLORS from "../../styles/colors";
-import AuthBlock from "../auth-block/auth-block.component";
+import { COLORS, space } from "../../styles/styles";
 
 const Header: FC<HeaderProps> = () => {
   const [showMobileSearch, setShowMobileSearch] = useState(false);
@@ -152,7 +152,7 @@ const Header: FC<HeaderProps> = () => {
             </SearchIconSC>}
             <Cart />
             {/* MENU ICON FOR MOBILE */}
-            {!isBigScreen && (
+            {!isBigScreen && _.isEmpty(user) && (
               <MenuIconSC
                 onClick={mobileDrawerOpenHandler}
                 sx={{
@@ -171,12 +171,12 @@ const Header: FC<HeaderProps> = () => {
               <MenuIcon />
             </MenuIconSC>
           )}
-          {isBigScreen && !_.isEmpty(user) && (
-            <AvatarContainerSC>
+          {!_.isEmpty(user) && (
+            <AvatarContainerSC sx={{ marginLeft: isBigScreen ? `${space.m} !important` : `0` }}>
               <Avatar
                 src={user?.profileUrl}
                 clickHandler={handleDrawerOpen}
-                size="small"
+                size={isBigScreen ? "medium" : "small"}
               />
             </AvatarContainerSC>
           )}

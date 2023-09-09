@@ -5,12 +5,12 @@ import { AvatarSC } from "./avatar.style";
 
 const getSize = (size: string): string => {
   const sizes: Record<string, string> = {
-    small: "40px",
-    medium: "48px",
-    large: "56px"
+    small: "28px",
+    medium: "32px",
+    large: "44px"
   };
   
-  return sizes[size] || "30px";
+  return sizes[size] || "32px";
 };
 
 const Avatar: FC<AvatarInterface> = ({
