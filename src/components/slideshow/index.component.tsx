@@ -1,14 +1,12 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import _ from "lodash";
-import { v4 as uuidv4 } from "uuid";
 import { useNavigate } from "react-router-dom";
+import { useMediaQuery } from "@mui/material";
 
 import SlideshowSkeleton from "./slideshow-skeleton.component";
 import Button from "../button/button.component";
 import SlideShowInterface from "./index.interface";
 import SlideShowItemInterface from "../../interfaces/slideshow-item.interface";
-import COLORS from "../../styles/colors";
-import { Box, useMediaQuery } from "@mui/material";
 import {
   IndicatorTextSC,
   NextButtonSC,
@@ -32,6 +30,7 @@ const SlideShow: FC<SlideShowInterface> = ({
 }) => {
   const navigate = useNavigate();
   const [activeItemIndex, setActiveItemIndex] = useState(0);
+  const touchStartX = useRef(0);
 
   // ADJUST IMAGE SIZE
   const DEFAULT_IMG_SIZE = 1024;
@@ -75,9 +74,9 @@ const SlideShow: FC<SlideShowInterface> = ({
   }, [data.length, autoSlide]);
 
   const prevButtonHandler = () => {
-    if (activeItemIndex !== 0) {
-      setActiveItemIndex((prevIndex) => (prevIndex - 1) % data.length);
-    }
+    setActiveItemIndex(
+      (prevIndex) => (prevIndex - 1 + data.length) % data.length
+    );
   };
 
   const paginationIndicatorHandler = (index: number) => {
@@ -94,6 +93,25 @@ const SlideShow: FC<SlideShowInterface> = ({
     }
   };
 
+  const handleTouchStart = (e: any) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: any) => {
+    const touchEndX = e.changedTouches[0].clientX;
+    const diffX = touchStartX.current - touchEndX;
+    const swipeThreshold = 50;
+
+    if (diffX > swipeThreshold) {
+      // swipe left
+      nextButtonHandler();
+    }
+    if (diffX < -swipeThreshold) {
+      // swipe right
+      prevButtonHandler();
+    }
+  };
+
   return (
     <SlideShowSC>
       {_.isEmpty(data) && (
@@ -101,7 +119,7 @@ const SlideShow: FC<SlideShowInterface> = ({
           <SlideshowSkeleton />
         </SkeletonContainerSC>
       )}
-      <CardSC>
+      <CardSC onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
         {!_.isEmpty(data) &&
           data.map((item: SlideShowItemInterface, index: number) => {
             return (
@@ -109,8 +127,8 @@ const SlideShow: FC<SlideShowInterface> = ({
                 key={`slide-media-${item?._id ?? index}`}
                 image={imgUrls[index]}
                 sx={{
-                  top: `${index * 100}%`,
-                  transform: `translateY(-${activeItemIndex * 100}%)`,
+                  left: `${index * 100}%`,
+                  transform: `translateX(-${activeItemIndex * 100}%)`,
                   "&:hover": {
                     cursor: `${redirectOnClick ? "pointer" : "auto"}`,
                   },
@@ -127,7 +145,6 @@ const SlideShow: FC<SlideShowInterface> = ({
               styleType="secondary"
               clickHandler={prevButtonHandler}
               rounded
-              disabled={activeItemIndex === 0}
             >
               Prev
             </Button>
@@ -163,7 +180,6 @@ const SlideShow: FC<SlideShowInterface> = ({
               styleType="secondary"
               clickHandler={nextButtonHandler}
               rounded
-              disabled={activeItemIndex === data.length - 1}
             >
               Next
             </Button>
