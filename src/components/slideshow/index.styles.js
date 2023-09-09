@@ -29,7 +29,7 @@ export const CardSC = styled(Card)`
 
 export const MediaSC = styled(CardMedia)`
   position: absolute;
-  left: 0;
+  top: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
