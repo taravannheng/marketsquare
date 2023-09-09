@@ -27,6 +27,7 @@ const SlideShow: FC<SlideShowInterface> = ({
   indicatorType,
   autoSlide = false,
   redirectOnClick = false,
+  aspectRatio = "16:9",
 }) => {
   const navigate = useNavigate();
   const [activeItemIndex, setActiveItemIndex] = useState(0);
@@ -40,6 +41,27 @@ const SlideShow: FC<SlideShowInterface> = ({
   const isMediumScreen = useMediaQuery("(max-width: 768px)");
   const isLargeScreen = useMediaQuery("(max-width: 1024px)");
   const isExtraLargeScreen = useMediaQuery("(min-width: 1024px)");
+
+  // DETERMINE ASPECT RATIO
+  let paddingBottom = '56.25%'; // 16:9 Default Aspect Ratio
+
+  switch (aspectRatio) {
+    case "1:1":
+      paddingBottom = "100%";
+      break;
+    case "4:3":
+      paddingBottom = "75%";
+      break;
+    case "16:9":
+      paddingBottom = "56.25%";
+      break;
+    case "21:9":
+      paddingBottom = "42.86%";
+      break;
+    default:
+      paddingBottom = "56.25%";
+      break;
+  }
 
   // DETERMINE IMAGE SIZE
   if (isExtraLargeScreen) {
@@ -119,7 +141,7 @@ const SlideShow: FC<SlideShowInterface> = ({
           <SlideshowSkeleton />
         </SkeletonContainerSC>
       )}
-      <CardSC onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
+      <CardSC onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd} sx={{ paddingBottom }}>
         {!_.isEmpty(data) &&
           data.map((item: SlideShowItemInterface, index: number) => {
             return (

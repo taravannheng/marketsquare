@@ -3,6 +3,7 @@ import { Box, Container, Grid, Typography } from "@mui/material";
 import _ from "lodash";
 import { v4 as uuidv4 } from "uuid";
 import { useMediaQuery } from "@mui/material";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 import Sort from "../sort/sort.component";
 import ProductCard from "../product-card/product-card.component";
@@ -22,13 +23,12 @@ import {
 } from "./index.styles";
 import slideShowSample from "../../sample/slideshow/slideshow-sample";
 import { Pagination, Stack } from "@mui/material";
-import COLORS from "../../styles/colors";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { getSlideshow } from "../../apis/slideshows/slideshow.api";
 import SlideShowItemInterface from "../../interfaces/slideshow-item.interface";
 import { SLIDESHOWIDS } from "../../utils/constants";
 import { getProductsPerPage } from "../../utils/helpers";
 import ProductCardSkeleton from "../product-card/product-card-skeleton.component";
+import { COLORS, BREAKPOINTS } from '../../styles/styles';
 
 const theme = createTheme({
   palette: {
@@ -62,7 +62,7 @@ const ProductsDisplay: FC<ProductsDisplayInterface> = ({ title, products }) => {
     {_id: 'product-skeleton-7'},
     {_id: 'product-skeleton-8'},
   ];
-  const isSmallScreen = useMediaQuery("(max-width: 639px)");
+  const isLargeScreen = useMediaQuery(`(min-width: ${BREAKPOINTS.lg}px)`);
 
   useEffect(() => {
     if (!_.isEmpty(products) || products === null) {
@@ -125,6 +125,7 @@ const ProductsDisplay: FC<ProductsDisplayInterface> = ({ title, products }) => {
           data={!_.isEmpty(slideshow) ? slideshow : []}
           autoSlide
           redirectOnClick
+          aspectRatio={isLargeScreen ? '21:9' : '16:9'}
         />
       </SlideShowContainerSC>
       <TitleContainerSC>
