@@ -99,6 +99,9 @@ const Header: FC<HeaderProps> = () => {
     // close drawer
     handleDrawerClose();
 
+    // close mobile drawer
+    mobileDrawerCloseHandler();
+
     // remove jwt token
     Cookies.remove("jwt");
 
