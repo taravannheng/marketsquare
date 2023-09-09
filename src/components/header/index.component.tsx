@@ -1,10 +1,6 @@
-import { FC, ReactNode, useState } from "react";
+import { FC, useState } from "react";
 import {
   AppBar,
-  Box,
-  Toolbar,
-  Typography,
-  Icon,
   useMediaQuery,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -16,7 +12,7 @@ import _ from "lodash";
 import Cookies from "js-cookie";
 
 import Cart from "../cart/cart.component";
-import NavigationMenu from "../navigation-menu/index.component";
+// import NavigationMenu from "../navigation-menu/index.component";   DISABLE MENU TEMPORARILY
 import Search from "../search/search.component";
 import Avatar from "../avatar/avatar.component";
 import HeaderProps from "./index.interface";
@@ -47,10 +43,10 @@ import {
   SearchIconSC,
   BigSearchContainerSC,
 } from "./index.styles";
-import navMenuList from "../../sample/navigation-menu/navigationMenuSample";
+// import navMenuList from "../../sample/navigation-menu/navigationMenuSample"; DISABLE MENU TEMPORARILY
 import { LOGO_URLS, ROUTES } from "../../utils/constants";
 import Menu from "../../components/menu/menu.component";
-import menuListSample from "../../sample/menu/menu";
+// import menuListSample from "../../sample/menu/menu"; DISABLE MENU TEMPORARILY
 import { selectUser } from "../../store/user/user.selector";
 import COLORS from "../../styles/colors";
 import AuthBlock from "../auth-block/auth-block.component";
@@ -190,7 +186,7 @@ const Header: FC<HeaderProps> = () => {
               <Search />
             </SearchContainerSC>}
         </ToolbarContainerSC>
-        <NavigationMenu menuList={navMenuList} />
+        {/* <NavigationMenu menuList={navMenuList} /> */}
         <Menu
           menuList={menuList}
           anchorEl={anchorEl}
