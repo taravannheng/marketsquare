@@ -15,7 +15,7 @@ const RelatedProductDisplay: FC<RelatedProductDisplayInterface> = ({
       <TitleSC>Related Products</TitleSC>
       <StackSC direction="column" spacing={2}>
         {!_.isEmpty(products) &&
-          products.map((product: ProductInterface) => {
+          products!.map((product: ProductInterface) => {
             return <RelatedProductCard key={`related-product-card-${product?._id ?? ''}`} product={product} />;
           })}
       </StackSC>

@@ -18,7 +18,7 @@ const ReviewDisplay: FC<ReviewDisplayInterface> = ({ reviews }) => {
       <TitleSC>Reviews</TitleSC>
       <ReviewStackSC direction="column" spacing={4}>
         {!_.isEmpty(reviews) &&
-          reviews.map((review: ReviewInterface) => {
+          reviews!.map((review: ReviewInterface) => {
             return <Review key={`review-${review?._id ?? ''}`} {...review} />;
           })}
       </ReviewStackSC>
