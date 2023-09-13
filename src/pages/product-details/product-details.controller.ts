@@ -61,20 +61,17 @@ const fetchData = async (
   products: ProductInterface[] | null,
   relatedProducts: ProductInterface[] | null,
   reviews: ReviewInterface[] | null,
-  product: ProductInterface | null,
-  currentRelatedProducts: ProductInterface[] | null,
-  currentProductReviews: ReviewInterface[] | null
 ) => {
   let productData: ProductInterface | null = {} as ProductInterface;
   let relatedProductsData: ProductInterface[] | null = [] as ProductInterface[];
   let reviewsData: ReviewInterface[] | null = [] as ReviewInterface[];
 
   // get product data
-  if (_.isEmpty(products) && _.isEmpty(product)) {
+  if (_.isEmpty(products)) {
     productData = await fetchProduct(productID);
   }
 
-  if (!_.isEmpty(products) && _.isEmpty(product)) {
+  if (!_.isEmpty(products)) {
     const product = products!.find(
       (item: ProductInterface) => item._id === productID
     );
@@ -89,7 +86,7 @@ const fetchData = async (
   }
 
   // get related products data
-  if (_.isEmpty(relatedProducts) && _.isEmpty(currentRelatedProducts)) {
+  if (_.isEmpty(relatedProducts)) {
       const relatedProductIDs = await fetchRelatedProductIDs(productID);
 
       if (!_.isEmpty(relatedProductIDs)) {
@@ -100,7 +97,7 @@ const fetchData = async (
       }
   }
 
-  if (!_.isEmpty(relatedProducts) && _.isEmpty(currentRelatedProducts)) {
+  if (!_.isEmpty(relatedProducts)) {
     // @ts-ignore
     const result = relatedProducts[`${productID}`];
 
@@ -121,11 +118,11 @@ const fetchData = async (
   }
 
   // get reviews data
-  if (_.isEmpty(reviews) && _.isEmpty(currentProductReviews)) {
+  if (_.isEmpty(reviews)) {
     reviewsData = await fetchReviews(productID);
   }
 
-  if (!_.isEmpty(reviews) && _.isEmpty(currentProductReviews)) {
+  if (!_.isEmpty(reviews)) {
     // @ts-ignore
     const result = reviews[`${productID}`];
 

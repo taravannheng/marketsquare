@@ -48,16 +48,12 @@ const ProductDetailsPage: FC = () => {
 
   useEffect(() => {
     const getData = async () => {
-      if (productID) {
         const { productData, relatedProductsData, reviewsData } =
           await fetchData(
-            productID,
+            productID!,
             products,
             relatedProducts,
             reviews,
-            product,
-            currentRelatedProducts,
-            currentProductReviews
           );
 
         // dispatch to product reducer
@@ -87,10 +83,9 @@ const ProductDetailsPage: FC = () => {
           type: REVIEW_ACTION_TYPES.ADD_REVIEWS,
           payload: reviewsPayload,
         });
-      }
     };
 
-    getData();
+    productID && getData();
   }, [productID]);
 
   return (
