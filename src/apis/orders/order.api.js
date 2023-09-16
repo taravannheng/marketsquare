@@ -5,3 +5,4 @@ const api = axios.create({
 });
 
 export const createOrder = (cartID) => api.post(`/api/orders?cartID=${cartID}`);
+export const getOrdersByUserIDAndProductID = (userID, productID) => api.get(`/api/orders/users/${userID}/products/${productID}`);
