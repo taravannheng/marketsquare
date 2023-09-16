@@ -1,6 +1,8 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect, useReducer } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import _ from "lodash";
+import { ArrowBackIosRounded } from "@mui/icons-material";
 
 import Header from "../../components/header/index.component";
 import ProductDetailsDisplay from "../../components/product-details-display/index.component";
@@ -8,116 +10,82 @@ import Divider from "../../components/divider/divider.component";
 import ReviewDisplay from "../../components/review-display/index.component";
 import RelatedProductDisplay from "../../components/related-product-display/index.component";
 import Footer from "../../components/footer/index.component";
+import Button from "../../components/button/button.component";
+import ProgressIndicator from "../../components/progress-indicator/index.component";
 import footerUtilityLinksSample from "../../sample/footer/utility-links-sample";
+import { ROUTES } from "../../utils/constants";
 import {
   BackNavSC,
   BottomContentContainerSC,
   DividerContainerSC,
   EmptyBodySC,
   EmptyContentSC,
-  EmptyTextSC,
   ProductDetailsPageSC,
   ReviewDisplayContainerSC,
 } from "./index.style";
-import ProductInterface from "../../interfaces/product-interface";
-import _ from "lodash";
-import { getRelatedProducts } from "../../apis/products/related-products.api";
-import RelatedProductInterface from "../../interfaces/related-product-interface";
-import {
-  getProducts,
-  getMultipleProducts,
-  getProduct,
-} from "../../apis/products/products.api";
 import { RelatedProductDisplaySC } from "../../components/related-product-display/index.styles";
-import Button from "../../components/button/button.component";
-import { ArrowBackIosRounded } from "@mui/icons-material";
-import { ROUTES } from "../../utils/constants";
-import ProgressIndicator from "../../components/progress-indicator/index.component";
 import { selectProducts } from "../../store/product/product.selector";
+import { selectReviews } from "../../store/review/review.selector";
+import { selectRelatedProducts } from "../../store/related-product/related-product.selector";
+import REVIEW_ACTION_TYPES from "../../store/review/review.types";
+import RELATED_PRODUCTS_ACTION_TYPES from "../../store/related-product/related-product.types";
+import fetchData from "./product-details.controller";
+import { initialState, productReducer } from "./product-details.reducer";
 
 const ProductDetailsPage: FC = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const { productID } = useParams();
-  const [product, setProduct] = useState<ProductInterface>(
-    {} as ProductInterface
-  );
-  const [relatedProducts, setRelatedProducts] = useState<ProductInterface[]>(
-    [] as ProductInterface[]
-  );
+  const [state, productDispatch] = useReducer(productReducer, initialState);
+  const { product, currentProductReviews, currentRelatedProducts } = state;
   const products = useSelector(selectProducts);
+  const reviews = useSelector(selectReviews);
+  const relatedProducts = useSelector(selectRelatedProducts);
 
   const redirectToHomepage = () => {
     navigate(ROUTES.LANDING);
   };
 
   useEffect(() => {
-    // get product data
-    const fetchProduct = async () => {
-      const response = await getProduct(productID);
-
-      return response?.data[0] ?? null;
-    };
-
-    if (_.isEmpty(products)) {
-      fetchProduct()
-        .then((result) => {
-          setProduct(result);
-        })
-        .catch((error) => console.error(error));
-    }
-
-    if (!_.isEmpty(products)) {
-      const product = products.find(
-        (item: ProductInterface) => item._id === productID
-      );
-
-      if (product) {
-        setProduct(product);
-      }
-
-      if (!product) {
-        fetchProduct()
-          .then((result) => {
-            setProduct(result);
-          })
-          .catch((error) => console.error(error));
-      }
-    }
-
-    // get related products
-    const fetchRelatedProductIDs = async () => {
-      const response = await getRelatedProducts(productID);
-
-      const relatedProductIDs = response?.data[0]?.products ?? null;
-
-      return relatedProductIDs;
-    };
-
-    fetchRelatedProductIDs()
-      .then((result) => {
-        const fetchMultipleProducts = async () => {
-          const response = await getMultipleProducts(result);
-
-          const responseData = response.data;
-
-          const convertedResponse = responseData.map((obj: any) => {
-            const price = parseFloat(obj.price);
-            return { ...obj, price };
-          });
-
-          //  remove if related product has the same id
-          const relatedProducts = convertedResponse.filter(
-            (item: ProductInterface) => item._id !== productID
+    const getData = async () => {
+        const { productData, relatedProductsData, reviewsData } =
+          await fetchData(
+            productID!,
+            products,
+            relatedProducts,
+            reviews,
           );
 
-          setRelatedProducts(relatedProducts);
+        // dispatch to product reducer
+        productDispatch({ type: "SET_PRODUCT", payload: productData });
+        productDispatch({
+          type: "SET_RELATED_PRODUCTS",
+          payload: relatedProductsData,
+        });
+        productDispatch({ type: "SET_REVIEWS", payload: reviewsData });
+
+        // update related products state
+        const relatedProductsPayload = {
+          [`${productID}`]: relatedProductsData,
         };
 
-        if (!_.isEmpty(result)) {
-          fetchMultipleProducts();
-        }
-      })
-      .catch((error) => console.error(error));
+        dispatch({
+          type: RELATED_PRODUCTS_ACTION_TYPES.ADD_RELATED_PRODUCTS,
+          payload: relatedProductsPayload,
+        });
+
+        // update review state
+        const reviewsPayload = {
+          [`${productID}`]: reviewsData,
+        };
+
+        dispatch({
+          type: REVIEW_ACTION_TYPES.ADD_REVIEWS,
+          payload: reviewsPayload,
+        });
+    };
+
+    productID && getData();
   }, [productID]);
 
   return (
@@ -131,10 +99,10 @@ const ProductDetailsPage: FC = () => {
           </DividerContainerSC>
           <BottomContentContainerSC>
             <ReviewDisplayContainerSC>
-              <ReviewDisplay reviews={product.reviews} />
+              <ReviewDisplay reviews={currentProductReviews} productID={productID!} />
             </ReviewDisplayContainerSC>
             <RelatedProductDisplaySC>
-              <RelatedProductDisplay products={relatedProducts} />
+              <RelatedProductDisplay products={currentRelatedProducts} />
             </RelatedProductDisplaySC>
           </BottomContentContainerSC>
         </>

@@ -5,7 +5,7 @@ import { ButtonSC, SeeMoreTextSC } from './see-more-text.styles';
 
 const SeeMoreText: FC<SeeMoreTextI> = ({ children, defaultTextLength = 100 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
-  const shortenedText = children!.slice(0, defaultTextLength) + '...';
+  const shortenedText = children && children.slice(0, defaultTextLength) + '...';
 
   const clickHandler = () => {
     setIsExpanded(!isExpanded);

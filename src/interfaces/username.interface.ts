@@ -4,7 +4,6 @@ interface UsernameInterface {
   validityDetails: {
     isValidLength: boolean;
     isValidCharacters: boolean;
-    hasNoSpaces: boolean;
   };
 }
 

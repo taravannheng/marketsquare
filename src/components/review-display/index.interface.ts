@@ -4,5 +4,6 @@ import ReviewInterface from "../review/index.interface";
 
 export default interface ReviewDisplayInterface {
   children?: ReactNode;
-  reviews: ReviewInterface[];
+  reviews: ReviewInterface[] | null;
+  productID: string;
 }
