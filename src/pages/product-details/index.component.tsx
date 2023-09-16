@@ -99,7 +99,7 @@ const ProductDetailsPage: FC = () => {
           </DividerContainerSC>
           <BottomContentContainerSC>
             <ReviewDisplayContainerSC>
-              <ReviewDisplay reviews={currentProductReviews} />
+              <ReviewDisplay reviews={currentProductReviews} productID={productID!} />
             </ReviewDisplayContainerSC>
             <RelatedProductDisplaySC>
               <RelatedProductDisplay products={currentRelatedProducts} />
