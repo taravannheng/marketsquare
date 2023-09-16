@@ -14,10 +14,10 @@ import SeeMoreText from "../see-more-text/see-more-text.component";
 const Review: FC<ReviewInterface> = ({
   width,
   height,
-  reviewer,
+  username,
   comment,
   rating,
-  avatarUrl,
+  profileUrl,
 }) => {
   return (
     <ReviewSC
@@ -26,9 +26,9 @@ const Review: FC<ReviewInterface> = ({
         height: `${height && height} !important`,
       }}
     >
-      <MediaSC image={avatarUrl} />
+      <MediaSC image={profileUrl} />
       <ContentSC>
-        <ReviewerSC>{reviewer}</ReviewerSC>
+        <ReviewerSC>{username}</ReviewerSC>
         <Rating type="long" rating={rating} showLabel={false} />
         <CommentSC><SeeMoreText defaultTextLength={250}>{comment}</SeeMoreText></CommentSC>
       </ContentSC>
