@@ -10,7 +10,6 @@ const Rating: FC<RatingInterface> = ({
   showLabel = true,
   rating = 0,
 }) => {
-  const [ratingNumber, setRatingNumber] = useState(rating);
   const totalStars = 5;
 
   return (
@@ -32,10 +31,7 @@ const Rating: FC<RatingInterface> = ({
             icon={<StarRounded />}
             emptyIcon={<StarOutlineRounded />}
             max={totalStars}
-            value={ratingNumber}
-            onChange={(event: any, newValue: any) => {
-              setRatingNumber(newValue);
-            }}
+            value={rating}
           />
         </RatingSC>
       )}
