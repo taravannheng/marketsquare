@@ -7,7 +7,8 @@ import space from "../../styles/spacing";
 import borderRadius from "../../styles/border-radius";
 
 export const SeeMoreTextSC = styled(Typography)`
-  
+  font-size: ${typography.body1.fontSize} !important;
+  font-weight: ${typography.body1.fontWeight} !important;
 `;
 
 export const ButtonSC = styled(Button)`
