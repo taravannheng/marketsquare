@@ -35,7 +35,7 @@ const ReviewDisplay: FC<ReviewDisplayInterface> = ({ reviews, productID }) => {
     if (user) {
       // @ts-ignore
       userReview = allReviews[`${productID}`]?.find(
-        (review: ReviewInterface) => review.userID === user?.id
+        (review: ReviewInterface) => review.userID === user?._id
       );
       
       if (userReview) {
@@ -59,7 +59,7 @@ const ReviewDisplay: FC<ReviewDisplayInterface> = ({ reviews, productID }) => {
       <ReviewStackSC direction="column" spacing={4}>
         {!_.isEmpty(reviews) &&
           reviews!.map((review: ReviewInterface) => {
-            if (review.userID !== user?.id) {
+            if (review.userID !== user?._id) {
               return <Review key={`review-${review?._id ?? ''}`} {...review} />;
             }
           })}

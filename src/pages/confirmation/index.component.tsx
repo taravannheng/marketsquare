@@ -32,7 +32,7 @@ const ConfirmationPage = () => {
 
     // send order to server
     const sendOrder = async () => {
-      const response = await createOrder({ userID: user?.id, cartID });
+      const response = await createOrder({ userID: user?._id, cartID });
       if (!_.isEmpty(response.data)) {
         dispatch({ type: "SET_ORDER", payload: response.data.order });
 
@@ -56,8 +56,9 @@ const ConfirmationPage = () => {
       }
     };
     
-
-    sendOrder();
+    if (order.cartID !== cartID) {
+      sendOrder();
+    }
   }, []);
 
   return (
