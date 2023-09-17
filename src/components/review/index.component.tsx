@@ -30,7 +30,13 @@ const Review: FC<ReviewInterface> = ({
       <ContentSC>
         <ReviewerSC>{username}</ReviewerSC>
         <Rating type="long" rating={rating} showLabel={false} />
-        <CommentSC><SeeMoreText defaultTextLength={250}>{comment}</SeeMoreText></CommentSC>
+        <CommentSC>
+          {comment.length >= 250 ? (
+            <SeeMoreText defaultTextLength={250}>{comment}</SeeMoreText>
+          ) : (
+            comment
+          )}
+        </CommentSC>
       </ContentSC>
     </ReviewSC>
   );

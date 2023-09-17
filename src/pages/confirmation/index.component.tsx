@@ -11,14 +11,19 @@ import footerUtilityLinksSample from "../../sample/footer/utility-links-sample";
 import Footer from "../../components/footer/index.component";
 import { ConfirmationPageSC } from "./index.styles";
 import OrderInterface from "../../interfaces/order.interface";
+import ProductInterface from "../../interfaces/product-interface";
+import { selectUser } from '../../store/user/user.selector';
 import { selectOrder } from "../../store/order/order.selector";
+import { selectReviews } from "../../store/review/review.selector";
 
 const ConfirmationPage = () => {
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   const success = params.get("success");
   const cartID = params.get("cartID");
+  const user = useSelector(selectUser);
   const order = useSelector(selectOrder);
+  const reviews = useSelector(selectReviews);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -27,11 +32,30 @@ const ConfirmationPage = () => {
 
     // send order to server
     const sendOrder = async () => {
-      const response = await createOrder(cartID);
+      const response = await createOrder({ userID: user?.id, cartID });
       if (!_.isEmpty(response.data)) {
         dispatch({ type: "SET_ORDER", payload: response.data.order });
+
+        // remove products reviews from state
+        // extract product ids from order
+        const productIDs = response.data.order.products.map(
+          (product: ProductInterface) => product._id
+        );
+
+        // filter reviews
+        productIDs.map((productID: string) => {
+          // @ts-ignore
+          return delete reviews[`${productID}`];
+        });
+
+        // update reviews state
+        dispatch({
+          type: "ADD_REVIEWS",
+          payload: reviews,
+        });
       }
     };
+    
 
     sendOrder();
   }, []);

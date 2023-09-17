@@ -44,7 +44,7 @@ export const TextFieldSC = styled(TextField)`
   border: none;
 
   & .MuiOutlinedInput-root {
-    font-size: ${typography.body1.fontSize} !important;
+    font-size: ${typography.h5.fontSize} !important;
     font-weight: ${typography.body1.fontWeight} !important;
     color: ${COLORS.NEUTRAL.N900} !important;
     border-radius: ${borderRadius.s} !important;
