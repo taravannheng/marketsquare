@@ -25,6 +25,7 @@ const LandingPage: FC = () => {
   const isSignedIn = params.get("signedIn");
   const jwtToken = params.get("token");
   const isSignedOut = params.get("signedOut");
+  const user = useSelector(selectUser);
 
   const [snackbar, setSnackbar] = useState<{
     open: boolean;
@@ -71,36 +72,43 @@ const LandingPage: FC = () => {
       // set user state
       dispatch({ type: "SET_USER", payload: {...response.data} });
 
+      setSnackbar({
+        open: true,
+        message: "You have successfully signed in!",
+        type: "success",
+      });
+
       // navigate to home page
       navigate(`${ROUTES.LANDING}`);
     };
 
-    if (!_.isEmpty(products) || products === null) {
-      if (isSignedIn) {
-        setSnackbar({
-          open: true,
-          message: "You have successfully signed in!",
-          type: "success",
-        });
-
-        // set cookie to expire in 1hr
-        if (!_.isEmpty(jwtToken)) {
-          Cookies.set("jwt", jwtToken!, { expires: 1 / 24 });
-        }
-
-        // get user details
-        fetchUser();
-      }
-
-      if (isSignedOut) {
-        setSnackbar({
-          open: true,
-          message: "You have successfully signed out!",
-          type: "success",
-        });
-      }
+    // for local strategy
+    if (isSignedIn && user) {
+      setSnackbar({
+        open: true,
+        message: "You have successfully signed in!",
+        type: "success",
+      });
     }
-  }, [products, isSignedIn, isSignedOut, jwtToken]);
+
+    // for oauth strategy
+    if (isSignedIn && _.isEmpty(user)) {
+      // set cookie to expire in 1hr
+      if (!_.isEmpty(jwtToken)) {
+        Cookies.set("jwt", jwtToken!, { expires: 1 / 24 });
+      }
+
+      fetchUser();
+    }
+
+    if (isSignedOut && _.isEmpty(user)) {
+      setSnackbar({
+        open: true,
+        message: "You have successfully signed out!",
+        type: "success",
+      });
+    }
+  }, [isSignedIn, isSignedOut]);
 
   const snackbarCloseHandler = () => {
     setSnackbar({

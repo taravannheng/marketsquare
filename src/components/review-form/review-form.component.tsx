@@ -170,7 +170,7 @@ const ReviewForm: FC<ReviewFormProps> = ({ productID }) => {
           // send review data to the backend
           const reviewData = {
             productID,
-            userID: user?.id,
+            userID: user?._id,
             rating,
             comment: review,
           };
@@ -254,7 +254,7 @@ const ReviewForm: FC<ReviewFormProps> = ({ productID }) => {
             // @ts-ignore
             const currentProductReviews = reviews[`${productID}`];
             const prevUserReview = currentProductReviews.find(
-              (review: ReviewInterface) => review.userID === user?.id
+              (review: ReviewInterface) => review.userID === user?._id
             );
 
             // send data to server
@@ -287,7 +287,7 @@ const ReviewForm: FC<ReviewFormProps> = ({ productID }) => {
                 [`${productID}`]: [
                   // @ts-ignore
                   ...reviews[`${productID}`].filter(
-                    (review: ReviewInterface) => review.userID !== user?.id
+                    (review: ReviewInterface) => review.userID !== user?._id
                   ),
                   newUserReview,
                 ],
@@ -323,7 +323,7 @@ const ReviewForm: FC<ReviewFormProps> = ({ productID }) => {
       // @ts-ignore
       const currentProductReviews = reviews[`${productID}`];
       const userReview = currentProductReviews.find(
-        (review: ReviewInterface) => review.userID === user?.id
+        (review: ReviewInterface) => review.userID === user?._id
       );
 
       // send delete request to backend
@@ -343,7 +343,7 @@ const ReviewForm: FC<ReviewFormProps> = ({ productID }) => {
           [`${productID}`]: [
             // @ts-ignore
             ...reviews[`${productID}`].filter(
-              (review: ReviewInterface) => review.userID !== user?.id
+              (review: ReviewInterface) => review.userID !== user?._id
             ),
           ],
         };
@@ -369,7 +369,7 @@ const ReviewForm: FC<ReviewFormProps> = ({ productID }) => {
   useEffect(() => {
     const checkIfUserHasOrdered = async () => {
       const response = await getOrdersByUserIDAndProductID(
-        user?.id!,
+        user?._id!,
         productID!
       );
       const orders = response.data;
@@ -386,7 +386,7 @@ const ReviewForm: FC<ReviewFormProps> = ({ productID }) => {
 
       if (userReviews) {
         const userReview = userReviews.find(
-          (review: ReviewInterface) => review.userID === user?.id
+          (review: ReviewInterface) => review.userID === user?._id
         );
 
         if (userReview) {
@@ -460,7 +460,7 @@ const ReviewForm: FC<ReviewFormProps> = ({ productID }) => {
                 <EditIcon />
               </EditIconSC>
               <Review
-                userID={user.id}
+                userID={user._id}
                 username={user.username}
                 comment={review}
                 rating={rating}
