@@ -67,7 +67,6 @@ export const FormCardBodySC = styled(Box)`
   min-width: 100%;
   width: 100%;
   transition: transform 0.3s ease-in-out;
-  // box-shadow: ${shadows.large.rounded} !important;
 `;
 
 export const FormCardRatingSC = styled(Box)`
@@ -206,7 +205,7 @@ export const ReviewContainerSC = styled(Box)`
   // delete button
 
   & > button {
-    margin-left: calc(${space.xxxl} - 8px) !important;
+    margin-left: calc(${space.xxl} + 2px) !important;
     margin-top: ${space.xs} !important;
     color: ${COLORS.NEUTRAL.N500} !important;
 
