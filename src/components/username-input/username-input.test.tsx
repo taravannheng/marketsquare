@@ -19,7 +19,6 @@ describe("UsernameInput", () => {
       validityDetails: {
         isValidLength: true,
         isValidCharacters: true,
-        hasNoSpaces: true,
       },
     };
   })
@@ -103,7 +102,6 @@ describe("UsernameInput", () => {
       validityDetails: {
         isValidLength: false,
         isValidCharacters: true,
-        hasNoSpaces: true,
       },
     };
     
@@ -131,7 +129,6 @@ describe("UsernameInput", () => {
       validityDetails: {
         isValidLength: false,
         isValidCharacters: true,
-        hasNoSpaces: true,
       },
     };
     

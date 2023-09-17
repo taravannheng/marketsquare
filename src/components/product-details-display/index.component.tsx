@@ -29,7 +29,9 @@ const ProductDetailsDisplay: FC<ProductDetailsDisplayInterface> = ({
   product,
 }) => {
   const isSmallScreen = useMediaQuery("(max-width: 1080px)");
-  const addToCartButtonWidth = useMediaQuery(`(min-width: ${BREAKPOINTS.sm}px)`) ? 'auto' : 'full';
+  const addToCartButtonWidth = useMediaQuery(`(min-width: ${BREAKPOINTS.sm}px)`)
+    ? "auto"
+    : "full";
   const navigate = useNavigate();
   const cart = useSelector(selectCart);
   const dispatch = useDispatch();
@@ -116,9 +118,13 @@ const ProductDetailsDisplay: FC<ProductDetailsDisplayInterface> = ({
                 <ProductPriceSC>${formatPrice(product.price)}</ProductPriceSC>
                 <Rating type="long" showLabel rating={product.rating} />
                 <ProductDescriptionSC>
-                  <SeeMoreText defaultTextLength={250}>
-                    {product.description}
-                  </SeeMoreText>
+                  {product.description.length >= 250 ? (
+                    <SeeMoreText defaultTextLength={250}>
+                      {product.description}
+                    </SeeMoreText>
+                  ) : (
+                    product.description
+                  )}
                 </ProductDescriptionSC>
                 <Button
                   styleType="primary"

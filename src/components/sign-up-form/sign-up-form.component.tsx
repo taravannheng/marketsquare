@@ -38,7 +38,6 @@ const SignUpForm: FC<SignUpFormInterface> = () => {
     validityDetails: {
       isValidLength: false,
       isValidCharacters: false,
-      hasNoSpaces: false,
     },
   });
 
@@ -81,13 +80,14 @@ const SignUpForm: FC<SignUpFormInterface> = () => {
 
     const usernameStatus = checkUsername(username);
 
+    console.log(usernameStatus);
+
     setUsername({
       value: username,
       isValid: usernameStatus.isValid,
       validityDetails: {
         isValidLength: usernameStatus.validityDetails.isValidLength,
         isValidCharacters: usernameStatus.validityDetails.isValidCharacters,
-        hasNoSpaces: usernameStatus.validityDetails.hasNoSpaces,
       },
     });
   };

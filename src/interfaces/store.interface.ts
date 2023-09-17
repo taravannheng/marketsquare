@@ -1,6 +1,7 @@
 import ProductInterface from "./product-interface";
 import OrderInterface from "./order.interface";
 import UserInterface from "./user.interface";
+import ReviewInterface from "./review-interface";
 
 interface StoreStateInterface {
   product: {
@@ -14,6 +15,12 @@ interface StoreStateInterface {
   };
   user: {
     user: UserInterface;
+  };
+  review: {
+    reviews: ReviewInterface[];
+  };
+  relatedProduct: {
+    relatedProducts: ProductInterface[];
   };
 }
 
