@@ -7,6 +7,7 @@ interface SlideShowInterface  {
   indicatorType: 'dot' | 'number';
   autoSlide?: boolean;
   redirectOnClick?: boolean;
+  aspectRatio?: '16:9' | '4:3' | '1:1'  | '21:9';
 }
 
 export default SlideShowInterface;

@@ -1,0 +1,5 @@
+const REVIEW_ACTION_TYPES = {
+  ADD_REVIEWS: "ADD_REVIEWS",
+};
+
+export default REVIEW_ACTION_TYPES;

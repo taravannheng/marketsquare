@@ -68,7 +68,7 @@ export const checkUsernameLength = (username) => {
 };
 
 export const checkUsernameCharacters = (username) => {
-  const regex = /^[a-zA-Z0-9_]+$/;
+  const regex = /^[a-zA-Z0-9_ ]+$/;
   return regex.test(username);
 };
 
@@ -81,14 +81,12 @@ export const checkUsernameSpaces = (username) => {
 export const checkUsername = (username) => {
   const isValidLength = checkUsernameLength(username);
   const isValidCharacters = checkUsernameCharacters(username);
-  const hasNoSpaces = checkUsernameSpaces(username);
 
   const usernameStatus = {
-    isValid: isValidLength && isValidCharacters && hasNoSpaces,
+    isValid: isValidLength && isValidCharacters,
     validityDetails: {
       isValidLength,
       isValidCharacters,
-      hasNoSpaces,
     },
   };
 

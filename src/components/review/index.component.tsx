@@ -10,14 +10,15 @@ import {
 import ReviewInterface from "./index.interface";
 import Rating from "../rating/index.component";
 import SeeMoreText from "../see-more-text/see-more-text.component";
+import Avatar from "../avatar/avatar.component";
 
 const Review: FC<ReviewInterface> = ({
   width,
   height,
-  reviewer,
+  username,
   comment,
   rating,
-  avatarUrl,
+  profileUrl,
 }) => {
   return (
     <ReviewSC
@@ -26,11 +27,21 @@ const Review: FC<ReviewInterface> = ({
         height: `${height && height} !important`,
       }}
     >
-      <MediaSC image={avatarUrl} />
+      <Avatar
+        size="large"
+        alt={username ? username : undefined}
+        src={profileUrl ? profileUrl : undefined}
+      />
       <ContentSC>
-        <ReviewerSC>{reviewer}</ReviewerSC>
+        <ReviewerSC>{username}</ReviewerSC>
         <Rating type="long" rating={rating} showLabel={false} />
-        <CommentSC><SeeMoreText defaultTextLength={250}>{comment}</SeeMoreText></CommentSC>
+        <CommentSC>
+          {comment.length >= 250 ? (
+            <SeeMoreText defaultTextLength={250}>{comment}</SeeMoreText>
+          ) : (
+            comment
+          )}
+        </CommentSC>
       </ContentSC>
     </ReviewSC>
   );
