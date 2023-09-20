@@ -172,6 +172,8 @@ const SignInForm: FC<SignInFormInterface> = () => {
         setAlertVisible(true);
       }
     }
+
+    !isValidForm && setIsLoading(false);
   };
 
   useEffect(() => {
