@@ -50,6 +50,7 @@ import {
 import { LOGO_URLS, ROUTES } from "../../utils/constants";
 import { selectUser } from "../../store/user/user.selector";
 import { COLORS, space } from "../../styles/styles";
+import WISHLIST_ACTION_TYPES from "../../store/wishlist/wishlist.types";
 
 const Header: FC<HeaderProps> = () => {
   const [showMobileSearch, setShowMobileSearch] = useState(false);
@@ -104,6 +105,10 @@ const Header: FC<HeaderProps> = () => {
 
     // remove jwt token
     Cookies.remove("jwt");
+
+    // reset wishlist state
+    dispatch({ type: WISHLIST_ACTION_TYPES.RESET_WISHLISTS });
+
 
     // set user state to null
     dispatch({ type: "SET_USER", payload: null });

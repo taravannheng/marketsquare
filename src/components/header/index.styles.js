@@ -55,7 +55,7 @@ export const ToolbarPlaceholderSC = styled(Box)`
 export const ToolbarContainerSC = styled(Box)`
   position: fixed !important;
   top: 0;
-  z-index: 1;
+  z-index: 2;
   box-sizing: border-box;
   display: flex !important;
   flex-direction: row !important;

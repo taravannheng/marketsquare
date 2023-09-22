@@ -1,16 +1,14 @@
 import { FC, useEffect, useState } from "react";
-import { Box, Container, Grid, Typography } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import _ from "lodash";
-import { v4 as uuidv4 } from "uuid";
 import { useMediaQuery } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import Cookies from "js-cookie";
+import { useSelector, useDispatch } from "react-redux";
 
 import Sort from "../sort/sort.component";
 import ProductCard from "../product-card/product-card.component";
-import Search from "../search/search.component";
 import SlideShow from "../slideshow/index.component";
-import ProductCategory from "../product-category/index.component";
-import ProgressIndicator from "../progress-indicator/index.component";
 import ProductsDisplayInterface from "./index.interface";
 import ProductInterface from "../../interfaces/product-interface";
 import {
@@ -29,6 +27,10 @@ import { SLIDESHOWIDS } from "../../utils/constants";
 import { getProductsPerPage } from "../../utils/helpers";
 import ProductCardSkeleton from "../product-card/product-card-skeleton.component";
 import { COLORS, BREAKPOINTS } from '../../styles/styles';
+import { selectUser } from "../../store/user/user.selector";
+import { selectWishlists } from "../../store/wishlist/wishlist.selector";
+import { getWishlistsByUserID } from "../../apis/wishlists/wishlists.api";
+import WISHLIST_ACTION_TYPES from "../../store/wishlist/wishlist.types";
 
 const theme = createTheme({
   palette: {
@@ -39,6 +41,10 @@ const theme = createTheme({
 });
 
 const ProductsDisplay: FC<ProductsDisplayInterface> = ({ title, products }) => {
+  const token = Cookies.get('jwt');
+  const dispatch = useDispatch();
+  const user = useSelector(selectUser);
+  const wishlists = useSelector(selectWishlists);
   const [loading, setLoading] = useState(true);
   const [sortMenuItem, setSortMenuItem] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
@@ -85,6 +91,30 @@ const ProductsDisplay: FC<ProductsDisplayInterface> = ({ title, products }) => {
 
     fetchSlideshow();
   }, []);
+
+  useEffect(() => {
+    const fetchWishlists = async () => {
+      try {
+        const response = await getWishlistsByUserID(user?._id, token);
+
+        const userWishlists = response.data ?? [];
+
+        // update state
+        dispatch(
+          {
+            type: WISHLIST_ACTION_TYPES.ADD_WISHLISTS,
+            payload: userWishlists,
+          }
+        );
+      } catch (error: any) {
+        console.log(error);
+      }
+    }
+
+    if (token && user?._id) {
+        fetchWishlists();
+    }
+  }, [user?._id]);
 
   useEffect(() => {
     if (sortMenuItem === 0) {
