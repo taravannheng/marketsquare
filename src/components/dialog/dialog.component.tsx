@@ -15,6 +15,7 @@ const Dialog: FC<DialogProps> = ({
   description,
   primaryButtonLabel,
   primaryButtonHandler,
+  primaryHref,
   secondaryButtonLabel,
   secondaryButtonHandler,
   open,
@@ -26,24 +27,28 @@ const Dialog: FC<DialogProps> = ({
       <DescriptionSC>{description}</DescriptionSC>
       <ButtonContainerSC
         sx={{
-          "& > button:first-of-type": {
+          "& > button:first-child": {
             backgroundColor: isDeleteOperation
               ? `${COLORS.RED.R500} !important`
               : `${COLORS.PRIMARY.P500} !important`,
           },
-          "& > button:first-of-type:hover": {
+          "& > button:first-child:hover": {
             backgroundColor: isDeleteOperation
               ? `${COLORS.RED.R600} !important`
               : `${COLORS.PRIMARY.P600} !important`,
           },
-          "& > button:first-of-type:active": {
+          "& > button:first-child:active": {
             backgroundColor: isDeleteOperation
               ? `${COLORS.RED.R700} !important`
               : `${COLORS.PRIMARY.P700} !important`,
           },
         }}
       >
-        <Button clickHandler={primaryButtonHandler} width="full">
+        <Button
+          clickHandler={primaryButtonHandler ? primaryButtonHandler : undefined}
+          href={primaryHref ? primaryHref : undefined}
+          width="full"
+        >
           {primaryButtonLabel}
         </Button>
         {secondaryButtonLabel && (

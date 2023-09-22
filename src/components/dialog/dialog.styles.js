@@ -37,7 +37,7 @@ export const DescriptionSC = styled(Typography)`
 `;
 
 export const ButtonContainerSC = styled(Box)`
-  & > button:first-child {
+  & > button:first-child, & > a:first-child {
     margin-bottom: ${space.m} !important;
   }
 
