@@ -70,7 +70,7 @@ const LandingPage: FC = () => {
       const response = await getUser(token);
 
       // set user state
-      dispatch({ type: "SET_USER", payload: {...response.data} });
+      dispatch({ type: "SET_USER", payload: { ...response.data } });
 
       setSnackbar({
         open: true,
@@ -78,7 +78,7 @@ const LandingPage: FC = () => {
         type: "success",
       });
 
-      // navigate to home page
+      // navigate to home page to reset the url to prevent the snackbar from appearing again
       navigate(`${ROUTES.LANDING}`);
     };
 
@@ -89,6 +89,9 @@ const LandingPage: FC = () => {
         message: "You have successfully signed in!",
         type: "success",
       });
+
+      // navigate to home page to reset the url to prevent the snackbar from appearing again
+      navigate(`${ROUTES.LANDING}`);
     }
 
     // for oauth strategy
@@ -107,6 +110,9 @@ const LandingPage: FC = () => {
         message: "You have successfully signed out!",
         type: "success",
       });
+
+      // navigate to home page to reset the url to prevent the snackbar from appearing again
+      navigate(`${ROUTES.LANDING}`);
     }
   }, [isSignedIn, isSignedOut]);
 
@@ -120,17 +126,17 @@ const LandingPage: FC = () => {
 
   return (
     <LandingPageSC>
-        <>
-          <Header />
-          <ProductsDisplay title="Trending Products" products={products} />
-          <Footer footerItems={footerItemsSample} />
-          <SnackBar
-            type={snackbar.type}
-            message={snackbar.message}
-            onClose={snackbarCloseHandler}
-            open={snackbar.open}
-          />
-        </>
+      <>
+        <Header />
+        <ProductsDisplay title="Trending Products" products={products} />
+        <Footer footerItems={footerItemsSample} />
+        <SnackBar
+          type={snackbar.type}
+          message={snackbar.message}
+          onClose={snackbarCloseHandler}
+          open={snackbar.open}
+        />
+      </>
     </LandingPageSC>
   );
 };
