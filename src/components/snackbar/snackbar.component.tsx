@@ -57,7 +57,7 @@ const SnackBar: FC<SnackbarInterface> = ({
               backgroundColor: theme.palette["info"].main,
             }}
             open={open}
-            autoHideDuration={6000}
+            autoHideDuration={3000}
             onClose={onClose}
             message={message}
             action={action}
@@ -70,7 +70,7 @@ const SnackBar: FC<SnackbarInterface> = ({
               backgroundColor: theme.palette["success"].main,
             }}
             open={open}
-            autoHideDuration={6000}
+            autoHideDuration={3000}
             onClose={onClose}
             message={message}
             action={action}
@@ -83,7 +83,7 @@ const SnackBar: FC<SnackbarInterface> = ({
               backgroundColor: theme.palette["error"].main,
             }}
             open={open}
-            autoHideDuration={6000}
+            autoHideDuration={3000}
             onClose={onClose}
             message={message}
             action={action}
