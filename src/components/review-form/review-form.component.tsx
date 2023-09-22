@@ -7,6 +7,7 @@ import Fade from "@mui/material/Fade";
 import Grow from "@mui/material/Grow";
 import EditIcon from "@mui/icons-material/Edit";
 import CloseIcon from "@mui/icons-material/Close";
+import { useLocation } from "react-router-dom";
 
 import ReviewFormProps from "./review-form.interface";
 import {
@@ -56,6 +57,7 @@ import BREAKPOINTS from "../../styles/breakpoints";
 import ReviewInterface from "../review/index.interface";
 
 const ReviewForm: FC<ReviewFormProps> = ({ productID }) => {
+  const location = useLocation();
   const dispatch = useDispatch();
   const isLargeScreen = useMediaQuery(`(min-width: ${BREAKPOINTS.sm}px)`);
   const user = useSelector(selectUser);
@@ -420,7 +422,11 @@ const ReviewForm: FC<ReviewFormProps> = ({ productID }) => {
         {!user && (
           <SignInTextSC>
             Want to add a review?{" "}
-            <Button styleType="tertiary" href={ROUTES.SIGN_IN} underlineLabel>
+            <Button
+              styleType="tertiary"
+              href={`${ROUTES.SIGN_IN}?redirectUrl=${location.pathname}`}
+              underlineLabel
+            >
               Sign In
             </Button>
           </SignInTextSC>
