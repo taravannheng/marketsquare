@@ -5,6 +5,7 @@ import {
   ButtonContainerSC,
   DescriptionSC,
   DialogSC,
+  IconSC,
   TitleSC,
 } from "./dialog.styles";
 import Button from "../button/button.component";
@@ -20,9 +21,11 @@ const Dialog: FC<DialogProps> = ({
   secondaryButtonHandler,
   open,
   isDeleteOperation,
+  icon,
 }) => {
   return (
     <DialogSC open={open}>
+      {icon && <IconSC>{icon}</IconSC>}
       <TitleSC>{title}</TitleSC>
       <DescriptionSC>{description}</DescriptionSC>
       <ButtonContainerSC
