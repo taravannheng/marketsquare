@@ -32,7 +32,8 @@ export const TitleContainerSC = styled(Box)`
   justify-content: space-between; 
   align-items: center !important;
   padding: 0 ${space.l} !important;
-  margin-bottom: ${space.xl} !important;
+  margin-top: ${space.xxl} !important;
+  margin-bottom: ${space.m} !important;
 `;
 
 export const ProductsDisplayTitleSC = styled(Typography)`
@@ -42,14 +43,8 @@ export const ProductsDisplayTitleSC = styled(Typography)`
   font-weight: ${typography.h5.fontWeight} !important;
 
   @media only screen and (min-width: 640px) {
-    font-size: ${typography.h2.fontSize} !important;
-    font-weight: ${typography.h2.fontWeight} !important;
-  }
-
-  @media only screen and (min-width: 960px) {
-    margin-bottom: 0px !important;
-    font-size: ${typography.h1.fontSize} !important;
-    font-weight: ${typography.h1.fontWeight} !important;
+    font-size: ${typography.h3.fontSize} !important;
+    font-weight: ${typography.h3.fontWeight} !important;
   }
 `
 
