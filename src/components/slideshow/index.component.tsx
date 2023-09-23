@@ -141,7 +141,7 @@ const SlideShow: FC<SlideShowInterface> = ({
           <SlideshowSkeleton />
         </SkeletonContainerSC>
       )}
-      <CardSC onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd} sx={{ paddingBottom }}>
+      {!_.isEmpty(data) && <CardSC onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd} sx={{ paddingBottom }}>
         {!_.isEmpty(data) &&
           data.map((item: SlideShowItemInterface, index: number) => {
             return (
@@ -159,7 +159,7 @@ const SlideShow: FC<SlideShowInterface> = ({
               />
             );
           })}
-      </CardSC>
+      </CardSC>}
       {data.length > 1 && (
         <PaginationSC>
           <PrevButtonSC>
