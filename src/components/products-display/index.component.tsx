@@ -26,7 +26,7 @@ import SlideShowItemInterface from "../../interfaces/slideshow-item.interface";
 import { SLIDESHOWIDS } from "../../utils/constants";
 import { getProductsPerPage } from "../../utils/helpers";
 import ProductCardSkeleton from "../product-card/product-card-skeleton.component";
-import { COLORS, BREAKPOINTS } from '../../styles/styles';
+import { COLORS, BREAKPOINTS, space } from '../../styles/styles';
 import { selectUser } from "../../store/user/user.selector";
 import { selectWishlists } from "../../store/wishlist/wishlist.selector";
 import { getWishlistsByUserID } from "../../apis/wishlists/wishlists.api";
@@ -166,7 +166,7 @@ const ProductsDisplay: FC<ProductsDisplayInterface> = ({ title, products }) => {
       </TitleContainerSC>
       {(
         <ThemeProvider theme={theme}>
-          <Grid container spacing={3} sx={{ marginBottom: "40px" }}>
+          <Grid container spacing={3} sx={{ paddingLeft: `${space.l}`, paddingRight: `${space.l}`, marginBottom: "40px" }}>
             {!_.isEmpty(products) &&
               displayedProducts.map(
                 (product: ProductInterface, index: number) => {

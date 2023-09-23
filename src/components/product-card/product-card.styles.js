@@ -127,7 +127,7 @@ export const CardMediaSC = styled(CardMedia)`
   width: 100%;
   height: 100%;
   object-fit: cover;
-
+  border-radius: ${borderRadius.s} !important;
   min-height: 124px;
   transition: transform 0.3s ease-in-out !important;
 

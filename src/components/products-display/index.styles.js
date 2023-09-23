@@ -6,21 +6,16 @@ import { COLORS, typography, space } from "../../styles/styles";
 export const ProductsDisplaySC = styled(Box)`
   width: clamp(100%, 100%, 100%);
   flex: 1;
-  padding: ${space.l} ${space.l} ${space.xxxl} ${space.l} !important;
+  padding: 0 0 ${space.xxxl} 0 !important;
   margin: 0 !important;
 
   @media only screen and (min-width: 1080px) {
-    padding: ${space.xxl} ${space.xxl} !important;
+    padding: 0 ${space.xxl} ${space.xxl} ${space.xxl} !important;
   }
 `
 
 export const SlideShowContainerSC = styled(Box)`
-  margin-top: ${space.l} !important;
   margin-bottom: ${space.l} !important;
-
-  @media only screen and (min-width: 640px) {
-    margin-top: 0px !important;
-  }
 
   @media only screen and (min-width: 624px) {
     margin-bottom: ${space.xxl} !important;
@@ -36,7 +31,9 @@ export const TitleContainerSC = styled(Box)`
   flex-direction: row; 
   justify-content: space-between; 
   align-items: center !important;
-  margin-bottom: ${space.xl} !important;
+  padding: 0 ${space.l} !important;
+  margin-top: ${space.xxl} !important;
+  margin-bottom: ${space.m} !important;
 `;
 
 export const ProductsDisplayTitleSC = styled(Typography)`
@@ -46,14 +43,8 @@ export const ProductsDisplayTitleSC = styled(Typography)`
   font-weight: ${typography.h5.fontWeight} !important;
 
   @media only screen and (min-width: 640px) {
-    font-size: ${typography.h2.fontSize} !important;
-    font-weight: ${typography.h2.fontWeight} !important;
-  }
-
-  @media only screen and (min-width: 960px) {
-    margin-bottom: 0px !important;
-    font-size: ${typography.h1.fontSize} !important;
-    font-weight: ${typography.h1.fontWeight} !important;
+    font-size: ${typography.h3.fontSize} !important;
+    font-weight: ${typography.h3.fontWeight} !important;
   }
 `
 

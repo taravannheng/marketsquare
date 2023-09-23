@@ -3,13 +3,35 @@ import { Box, Button, ButtonGroup, Card, CardMedia, Stack, Typography } from "@m
 
 import { COLORS, typography, borderRadius, space, BREAKPOINTS } from "../../styles/styles";
 
+// SHARED STYLES -------------------------------------
+
+const indicatorStyle = `
+  width: clamp(8px, 8px, 8px) !important;
+  height: clamp(8px, 8px, 8px) !important;
+
+  @media only screen and (min-width: ${BREAKPOINTS.md}px) {
+    width: clamp(12px, 12px, 12px) !important;
+    height: clamp(12px, 12px, 12px) !important;
+  }
+`;
+
+const glassStyle = `
+  background: rgba(255, 255, 255, 0.09);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(12.1px);
+  -webkit-backdrop-filter: blur(12.1px);
+`;
+
+// COMPONENT STYLES -------------------------------------
+
 export const SlideShowSC = styled(Box)`
+  position: relative;
   width: 100%;
 `
 
 export const SkeletonContainerSC = styled(Box)`
   width: clamp(100%, 100%, 100%) !important;
-  height: clamp(100%, 100%, 100%) !important;
   border-radius: ${borderRadius.m} !important;
   overflow: hidden !important;
 `;
@@ -20,7 +42,7 @@ export const CardSC = styled(Card)`
   padding-bottom: 56.25%; /* 16:9 aspect ratio */
   overflow: hidden;
   box-shadow: none !important;
-  margin-bottom: ${space.m} !important;
+  border-radius: 0 !important;
 
   @media only screen and (min-width: ${BREAKPOINTS.lg}px) {
     padding-bottom: 42.86%;  /* 21:9 aspect ratio */
@@ -34,14 +56,24 @@ export const MediaSC = styled(CardMedia)`
   height: 100%;
   object-fit: cover;
   transition: transform 0.3s ease-in-out;
-  border-radius: ${borderRadius.m} !important;
+  border-radius: 0 !important;
 `
 
-export const PaginationSC = styled(ButtonGroup)`
+export const ControlSC = styled(ButtonGroup)`
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   width: clamp(100%, 100%, 100%);
+  padding: ${space.xs} ${space.l} !important;
+  background-color: ${COLORS.NEUTRAL.N50} !important;
+
+  @media only screen and (min-width: ${BREAKPOINTS.md}px) {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: transparent !important;
+    padding: ${space.m} ${space.l} !important;
+  }
 `
 
 export const PaginationIndicatorStackSC = styled(Stack)`
@@ -49,16 +81,14 @@ export const PaginationIndicatorStackSC = styled(Stack)`
 `
 
 export const PaginationIndicatorSC = styled(Box)`
-  width: clamp(14px, 14px, 14px) !important;
-  height: clamp(14px, 14px, 14px) !important;
+  ${indicatorStyle};
   border-radius: ${borderRadius.rounded} !important;
-  background-color: ${COLORS.NEUTRAL.N50};
+  background-color: ${COLORS.PRIMARY.P100};
   cursor: pointer;
   transition: all 0.3s ease;
 
   &:hover {
     background-color: ${COLORS.PRIMARY.P500};
-    border: 1px solid ${COLORS.PRIMARY.P500};
   }
 `
 
@@ -69,39 +99,35 @@ export const IndicatorTextSC = styled(Typography)`
 `
 
 export const PaginationActiveIndicatorSC = styled(Box)`
-  width: clamp(14px, 14px, 14px) !important;
-  height: clamp(14px, 14px, 14px) !important;
+  ${indicatorStyle};
   border-radius: ${borderRadius.rounded} !important;
-  border: 1px solid ${COLORS.PRIMARY.P500};
-  background-color: ${COLORS.PRIMARY.P500};
+  background-color: ${COLORS.PRIMARY.P500} !important;
   cursor: pointer;
 `
 
+export const ControlButtonContainerSC = styled(Box)`
+  display: flex !important;
+  flex-direction: row !important;
+`;
+
 export const PrevButtonSC = styled(Box)`
-  margin-right: ${space.l};
+  margin-right: ${space.m};
+  border-radius: ${borderRadius.rounded} !important;
+  ${glassStyle};
   
   & > button {
-    background-color: ${COLORS.NEUTRAL.N50} !important;
     border: 0 !important;
     color: ${COLORS.NEUTRAL.N500} !important;
-  }
-
-  @media only screen and (max-width: 800px) {
-    display: none
   }
 `
 
 export const NextButtonSC = styled(Box)`
-  margin-left: ${space.l};
-  
+  border-radius: ${borderRadius.rounded} !important;
+  ${glassStyle};
+
   & > button {
-    background-color: ${COLORS.NEUTRAL.N50} !important;
     border: 0 !important;
     color: ${COLORS.NEUTRAL.N500} !important;
-  }
-
-  @media only screen and (max-width: 800px) {
-    display: none
   }
 `
 
