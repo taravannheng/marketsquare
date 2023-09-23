@@ -11,8 +11,10 @@ import UpdatePasswordPage from "./pages/update-password/update-password.page";
 import { ROUTES } from "./utils/constants";
 import GlobalStyle from "./styles/globalstyles";
 import PrivateConfirmationRoute from "./pages/confirmation/index.private";
+import PrivateWishlistRoute from "./pages/wishlist/wishlist.private";
 
 const ConfirmationPage = React.lazy(() => import("./pages/confirmation/index.component"));
+const WishlistPage = React.lazy(() => import("./pages/wishlist/wishlist.page"));
 const NotFoundPage = React.lazy(
   () => import("./pages/notfound/notfound.component")
 );
@@ -47,6 +49,16 @@ const App: FC = () => {
                   element={
                     <Suspense fallback={'loading...'}>
                       <ConfirmationPage />
+                    </Suspense>
+                  }
+                />
+              </Route>
+              <Route path={ROUTES.WISHLIST} element={<PrivateWishlistRoute />}>
+                <Route
+                  path={ROUTES.WISHLIST}
+                  element={
+                    <Suspense fallback={'loading...'}>
+                      <WishlistPage />
                     </Suspense>
                   }
                 />

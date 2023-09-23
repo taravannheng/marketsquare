@@ -154,7 +154,10 @@ export const DrawerHeadSC = styled(Box)`
   align-items: center;
 `;
 
-export const DrawerBodySC = styled(Box)``;
+export const DrawerBodySC = styled(Box)`
+  padding-top: ${space.xl} !important;
+  padding-bottom: ${space.xl} !important;
+`;
 
 export const DrawerBottomSC = styled(Box)`
   position: fixed;

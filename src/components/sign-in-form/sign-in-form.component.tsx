@@ -33,6 +33,7 @@ const SignInForm: FC<SignInFormInterface> = () => {
   const params = new URLSearchParams(location.search);
   const isNewUser = params.get("newUser");
   const updatedPassword = params.get("updatedPassword");
+  const wishlist = params.get("wishlist");
   const redirectUrl = params.get("redirectUrl");
   const dispatch = useDispatch();
 
@@ -181,6 +182,14 @@ const SignInForm: FC<SignInFormInterface> = () => {
       setAlert({
         type: "success",
         message: "You have successfully created an account! Please sign in.",
+      });
+      setAlertVisible(true);
+    }
+
+    if (wishlist) {
+      setAlert({
+        type: "info",
+        message: "Please sign in to view your wishlist!",
       });
       setAlertVisible(true);
     }
