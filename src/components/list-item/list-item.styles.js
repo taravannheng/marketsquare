@@ -35,7 +35,7 @@ export const ListItemIconSC = styled(ListItemIcon)`
 `;
 
 export const ListItemTextSC = styled(ListItemText)`
-  margin-left: ${space.s} !important;
+  margin-left: -${space.m} !important;
   font-size: ${typography.body1.fontSize} !important;
   font-weight: ${typography.body1.fontWeight} !important;
   color: ${COLORS.NEUTRAL.N500} !important;
