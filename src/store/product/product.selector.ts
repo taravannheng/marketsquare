@@ -8,3 +8,8 @@ export const selectProducts = createSelector(
   [selectProductSlice],
   (product) => product.products
 );
+
+export const selectProduct = (productId: string) =>
+  createSelector([selectProducts], (products) =>
+    products.find((product) => product._id === productId)
+  );

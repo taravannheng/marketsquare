@@ -35,7 +35,7 @@ export const TitleSC = styled(DialogTitle)`
 `;
 
 export const DescriptionSC = styled(Typography)`
-  text-align: left !important;
+  text-align: center !important;
   font-size: ${typography.body1.fontSize} !important;
   font-weight: ${typography.body1.fontWeight} !important;
   color: ${COLORS.NEUTRAL.N500} !important;
