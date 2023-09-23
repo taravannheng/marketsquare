@@ -25,9 +25,11 @@ const WishlistDisplay: FC = () => {
   let wishlists = useSelector(selectWishlists);
 
   // filter items that are not in wishlist
-  wishlists = wishlists.filter(
-    (wishlist: WishlistInterface) => wishlist.isInWishlist
-  );
+  if (wishlists) {
+    wishlists = wishlists.filter(
+      (wishlist: WishlistInterface) => wishlist.isInWishlist
+    );
+  }
 
   return (
     <WishlistDisplaySC>
