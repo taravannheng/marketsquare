@@ -18,7 +18,6 @@ import {
 
 export const WishlistDisplaySC = styled(Box)`
   width: 100% !important;
-  min-height: 60vh !important;
   padding: ${space.xxl} ${space.l} ${space.xxxxl} ${space.l} !important;
   margin: 0 auto;
 

@@ -55,7 +55,6 @@ const WishlistPage: FC = () => {
       <PageSC>
         <Header />
         <WishlistDisplay />
-        <Footer footerItems={footerItemsSample} />
       </PageSC>
       <SnackBar
           type={snackbar.type}
