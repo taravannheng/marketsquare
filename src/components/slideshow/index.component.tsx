@@ -2,6 +2,8 @@ import { FC, useEffect, useRef, useState } from "react";
 import _ from "lodash";
 import { useNavigate } from "react-router-dom";
 import { useMediaQuery } from "@mui/material";
+import ChevronLeftRoundedIcon from "@mui/icons-material/ChevronLeftRounded";
+import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
 
 import SlideshowSkeleton from "./slideshow-skeleton.component";
 import Button from "../button/button.component";
@@ -17,10 +19,12 @@ import {
   PaginationActiveIndicatorSC,
   PaginationIndicatorSC,
   PaginationIndicatorStackSC,
-  PaginationSC,
   SlideShowSC,
+  ControlSC,
+  ControlButtonContainerSC,
 } from "./index.styles";
 import { adjustCloudinaryImgSize } from "../../utils/helpers";
+import IconButton from "../icon-button/icon-button.component";
 
 const SlideShow: FC<SlideShowInterface> = ({
   data,
@@ -43,7 +47,7 @@ const SlideShow: FC<SlideShowInterface> = ({
   const isExtraLargeScreen = useMediaQuery("(min-width: 1024px)");
 
   // DETERMINE ASPECT RATIO
-  let paddingBottom = '56.25%'; // 16:9 Default Aspect Ratio
+  let paddingBottom = "56.25%"; // 16:9 Default Aspect Ratio
 
   switch (aspectRatio) {
     case "1:1":
@@ -141,36 +145,33 @@ const SlideShow: FC<SlideShowInterface> = ({
           <SlideshowSkeleton />
         </SkeletonContainerSC>
       )}
-      <CardSC onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd} sx={{ paddingBottom }}>
-        {!_.isEmpty(data) &&
-          data.map((item: SlideShowItemInterface, index: number) => {
-            return (
-              <MediaSC
-                key={`slide-media-${item?._id ?? index}`}
-                image={imgUrls[index]}
-                sx={{
-                  left: `${index * 100}%`,
-                  transform: `translateX(-${activeItemIndex * 100}%)`,
-                  "&:hover": {
-                    cursor: `${redirectOnClick ? "pointer" : "auto"}`,
-                  },
-                }}
-                onClick={() => redirectHandler(item?._id ?? "")}
-              />
-            );
-          })}
-      </CardSC>
+      {!_.isEmpty(data) && (
+        <CardSC
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+          sx={{ paddingBottom }}
+        >
+          {!_.isEmpty(data) &&
+            data.map((item: SlideShowItemInterface, index: number) => {
+              return (
+                <MediaSC
+                  key={`slide-media-${item?._id ?? index}`}
+                  image={imgUrls[index]}
+                  sx={{
+                    left: `${index * 100}%`,
+                    transform: `translateX(-${activeItemIndex * 100}%)`,
+                    "&:hover": {
+                      cursor: `${redirectOnClick ? "pointer" : "auto"}`,
+                    },
+                  }}
+                  onClick={() => redirectHandler(item?._id ?? "")}
+                />
+              );
+            })}
+        </CardSC>
+      )}
       {data.length > 1 && (
-        <PaginationSC>
-          <PrevButtonSC>
-            <Button
-              styleType="secondary"
-              clickHandler={prevButtonHandler}
-              rounded
-            >
-              Prev
-            </Button>
-          </PrevButtonSC>
+        <ControlSC>
           {indicatorType === "dot" && (
             <PaginationIndicatorStackSC direction="row" spacing={1}>
               {!_.isEmpty(data) &&
@@ -192,21 +193,23 @@ const SlideShow: FC<SlideShowInterface> = ({
                 })}
             </PaginationIndicatorStackSC>
           )}
-          {indicatorType === "number" && (
-            <IndicatorTextSC variant="h5">
-              {activeItemIndex + 1}/{data.length}
-            </IndicatorTextSC>
-          )}
-          <NextButtonSC>
-            <Button
-              styleType="secondary"
-              clickHandler={nextButtonHandler}
-              rounded
-            >
-              Next
-            </Button>
-          </NextButtonSC>
-        </PaginationSC>
+          <ControlButtonContainerSC>
+            <PrevButtonSC>
+              <IconButton
+                size="medium"
+                clickHandler={prevButtonHandler}
+                icon={<ChevronLeftRoundedIcon />}
+              />
+            </PrevButtonSC>
+            <NextButtonSC>
+              <IconButton
+                size="medium"
+                clickHandler={nextButtonHandler}
+                icon={<ChevronRightRoundedIcon />}
+              />
+            </NextButtonSC>
+          </ControlButtonContainerSC>
+        </ControlSC>
       )}
     </SlideShowSC>
   );
