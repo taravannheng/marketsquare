@@ -9,8 +9,12 @@ export const selectReviews = createSelector(
   (review) => review.reviews
 );
 
-// select reviews using productID
 export const selectProductReviews = (productID: string) =>
   createSelector([selectReviews], (reviews) =>
     reviews.filter((review) => review.productID === productID)
+  );
+
+export const selectReviewsByUserID = (userID: string) =>
+  createSelector([selectReviews], (reviews) =>
+    reviews.filter((review) => review.userID === userID)
   );
