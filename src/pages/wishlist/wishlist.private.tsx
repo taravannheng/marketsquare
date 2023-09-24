@@ -12,7 +12,7 @@ const PrivateWishlistRoute: FC = () => {
   return (!_.isEmpty(user)) ? (
     <Outlet />
   ) : (
-    <Navigate to={`${ROUTES.SIGN_IN}?wishlist=true&redirectUrl=/wishlist`} />
+    <Navigate to={`${ROUTES.SIGN_IN}?wishlist=true&redirectUrl=${ROUTES.WISHLIST}`} />
   );
 };
 
