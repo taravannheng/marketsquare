@@ -95,13 +95,10 @@ const ProductDetailsPage: FC = () => {
       });
 
       // update review state
-      const reviewsPayload = {
-        [`${productID}`]: reviewsData,
-      };
 
       dispatch({
         type: REVIEW_ACTION_TYPES.ADD_REVIEWS,
-        payload: reviewsPayload,
+        payload: reviewsData,
       });
     };
 

@@ -34,6 +34,7 @@ const SignInForm: FC<SignInFormInterface> = () => {
   const isNewUser = params.get("newUser");
   const updatedPassword = params.get("updatedPassword");
   const wishlist = params.get("wishlist");
+  const reviews = params.get("reviews");
   const redirectUrl = params.get("redirectUrl");
   const dispatch = useDispatch();
 
@@ -190,6 +191,14 @@ const SignInForm: FC<SignInFormInterface> = () => {
       setAlert({
         type: "info",
         message: "Please sign in to view your wishlist!",
+      });
+      setAlertVisible(true);
+    }
+
+    if (reviews) {
+      setAlert({
+        type: "info",
+        message: "Please sign in to view your reviews!",
       });
       setAlertVisible(true);
     }
