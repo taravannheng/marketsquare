@@ -21,6 +21,7 @@ export const WishlistItemSC = styled(Card)`
   display: flex !important;
   flex-direction: row !important;
   justify-content: space-between !important;
+  border-radius: 0 !important;
   box-shadow: none !important;
   cursor: pointer;
 `;
@@ -28,7 +29,7 @@ export const WishlistItemSC = styled(Card)`
 export const MediaSC = styled(CardMedia)`
   width: clamp(120px, 120px, 120px) !important;
   height: clamp(80px, 80px, 80px) !important;
-  border-radius: ${borderRadius.s} !important;
+  border-radius: 0 !important;
   transition: transform 0.3s ease-in-out;
 
   ${WishlistItemSC}:hover & {
