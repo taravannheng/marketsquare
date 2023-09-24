@@ -19,6 +19,7 @@ export const ProductCardSC = styled(Card)`
   flex: 1;
   padding-bottom: ${space.m} !important;
   background-color: ${COLORS.NEUTRAL.N0};
+  border-radius: 0 !important;
   box-shadow: none !important;
   overflow: hidden;
   cursor: pointer;
@@ -111,7 +112,7 @@ export const CardMediaContainerSC = styled(Box)`
   width: 100%;
   max-height: 124px;
   padding-bottom: 66.67%; /* 3:2 aspect ratio */
-  border-radius: ${borderRadius.s} !important;
+  border-radius: 0 !important;
   margin-bottom: ${space.xs} !important;
   overflow: hidden;
 
@@ -127,7 +128,7 @@ export const CardMediaSC = styled(CardMedia)`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: ${borderRadius.s} !important;
+  border-radius: 0 !important;
   min-height: 124px;
   transition: transform 0.3s ease-in-out !important;
 

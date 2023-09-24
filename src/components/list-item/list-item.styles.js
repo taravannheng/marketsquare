@@ -23,7 +23,7 @@ export const ListItemSC = styled(ListItem)`
 `;
 
 export const ListItemButtonSC = styled(ListItemButton)`
-  
+  padding-left: 0 !important;
 `;
 
 export const ListItemIconSC = styled(ListItemIcon)`
