@@ -20,6 +20,9 @@ interface StoreStateInterface {
   review: {
     reviews: ReviewInterface[];
   };
+  userReview: {
+    userReviews: ReviewInterface[];
+  };
   wishlist: {
     wishlists: WishlistInterface[];
   };
