@@ -39,7 +39,9 @@ import {
   SignInTextSC,
 } from "./review-form.styles";
 import { selectUser } from "../../store/user/user.selector";
+import { selectUserReview } from "../../store/user-review/user-review.selector";
 import REVIEW_ACTION_TYPES from "../../store/review/review.types";
+import USER_REVIEW_ACTION_TYPES from "../../store/user-review/user-review.types";
 import Button from "../button/button.component";
 import RatingSelect from "../rating-select/rating-select.component";
 import ReviewTextArea from "../review-textarea/review-textarea.component";
@@ -61,6 +63,7 @@ const ReviewForm: FC<ReviewFormProps> = ({ productID, userReview }) => {
   const dispatch = useDispatch();
   const isLargeScreen = useMediaQuery(`(min-width: ${BREAKPOINTS.sm}px)`);
   const user = useSelector(selectUser);
+  const userReviewFromState = useSelector(selectUserReview(userReview?._id!));
   const [hasOrdered, setHasOrdered] = useState(false);
   const [showFormCard, setShowFormCard] = useState(false);
   const [showDeleteReviewDialog, setShowDeleteReviewDialog] = useState(false);
@@ -271,6 +274,14 @@ const ReviewForm: FC<ReviewFormProps> = ({ productID, userReview }) => {
                 type: REVIEW_ACTION_TYPES.UPDATE_REVIEW,
                 payload: newUserReview,
               });
+
+              // update user review state if exists
+              if (userReviewFromState) {
+                dispatch({
+                  type: USER_REVIEW_ACTION_TYPES.UPDATE_USER_REVIEW,
+                  payload: newUserReview,
+                });
+              }
             }
           } catch (error) {
             console.log(error);
@@ -309,6 +320,14 @@ const ReviewForm: FC<ReviewFormProps> = ({ productID, userReview }) => {
           type: REVIEW_ACTION_TYPES.DELETE_REVIEW,
           payload: userReview,
         });
+
+        // delete user review state if exists
+        if (userReviewFromState) {
+          dispatch({
+            type: USER_REVIEW_ACTION_TYPES.DELETE_USER_REVIEW,
+            payload: userReview,
+          });
+        }
       }
     } catch (error) {
       console.log(error);
