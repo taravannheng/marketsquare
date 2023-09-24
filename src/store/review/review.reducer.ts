@@ -1,5 +1,6 @@
 import REVIEW_ACTION_TYPES from "./review.types";
 import ReviewInterface from "../../interfaces/review-interface";
+import _ from "lodash";
 
 export const REVIEWS_INITIAL_STATE = {
   reviews: [] as ReviewInterface[],
@@ -18,7 +19,8 @@ export const reviewReducer = (
 
   switch (type) {
     case REVIEW_ACTION_TYPES.ADD_REVIEWS:
-      return { ...state, reviews: payload as ReviewInterface[] };
+      const uniqueReviews = _.differenceBy(payload as ReviewInterface[], state.reviews, "_id");
+      return { ...state, reviews: [...state.reviews, ...uniqueReviews]};
     case REVIEW_ACTION_TYPES.ADD_REVIEW:
       return {
         ...state,
