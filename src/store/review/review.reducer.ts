@@ -1,8 +1,6 @@
 import REVIEW_ACTION_TYPES from "./review.types";
-import {
-  addReviews,
-} from "./review.action";
 import ReviewInterface from "../../interfaces/review-interface";
+import _ from "lodash";
 
 export const REVIEWS_INITIAL_STATE = {
   reviews: [] as ReviewInterface[],
@@ -10,7 +8,7 @@ export const REVIEWS_INITIAL_STATE = {
 
 export interface ReviewActionInterface {
   type: string;
-  payload: Record<string, ReviewInterface[]>;
+  payload: ReviewInterface[] | ReviewInterface;
 }
 
 export const reviewReducer = (
@@ -21,7 +19,29 @@ export const reviewReducer = (
 
   switch (type) {
     case REVIEW_ACTION_TYPES.ADD_REVIEWS:
-      return { ...state, reviews: addReviews(state.reviews, payload) };
+      const uniqueReviews = _.differenceBy(payload as ReviewInterface[], state.reviews, "_id");
+      return { ...state, reviews: [...state.reviews, ...uniqueReviews]};
+    case REVIEW_ACTION_TYPES.ADD_REVIEW:
+      return {
+        ...state,
+        reviews: [...state.reviews, payload as ReviewInterface],
+      };
+    case REVIEW_ACTION_TYPES.UPDATE_REVIEW:
+      return {
+        ...state,
+        reviews: state.reviews.map((review) =>
+          review._id === (payload as ReviewInterface)._id ? payload : review
+        ),
+      };
+    case REVIEW_ACTION_TYPES.DELETE_REVIEW:
+      return {
+        ...state,
+        reviews: state.reviews.filter(
+          (review) => review._id !== (payload as ReviewInterface)._id
+        ),
+      };
+    case REVIEW_ACTION_TYPES.CLEAR_REVIEWS:
+      return { ...state, reviews: [] };
     default:
       return state;
   }

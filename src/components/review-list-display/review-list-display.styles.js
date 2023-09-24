@@ -16,7 +16,7 @@ import {
 
 // COMPONENT STYLES ---------------------------------------------------------------
 
-export const WishlistDisplaySC = styled(Box)`
+export const ReviewListDisplaySC = styled(Box)`
   width: 100% !important;
   padding: ${space.xxl} ${space.l} ${space.xxxxl} ${space.l} !important;
   margin: 0 auto;
@@ -38,14 +38,20 @@ export const TitleSC = styled(Typography)`
   }
 `;
 
-export const WishlistEmptySC = styled(Box)`
+export const ProgressIndicatorContainerSC = styled(Box)`
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+`;
+
+export const ReviewListEmptySC = styled(Box)`
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
   margin-top: ${space.xxl} !important;
 `;
 
-export const WishlistEmptyIconSC = styled(Icon)`
+export const ReviewListEmptyIconSC = styled(Icon)`
   color: ${COLORS.NEUTRAL.N200} !important;
   width: clamp(80px, 80px, 80px) !important;
   height: clamp(80px, 80px, 80px) !important;
@@ -57,8 +63,10 @@ export const WishlistEmptyIconSC = styled(Icon)`
   }
 `;
 
-export const WishlistEmptyDescriptionSC = styled(Typography)`
+export const ReviewListEmptyDescriptionSC = styled(Typography)`
+  width: 50% !important;
   color: ${COLORS.NEUTRAL.N500} !important;
+  text-align: center;
   font-size: ${typography.body1.fontSize} !important;
   font-weight: ${typography.body1.fontWeight} !important;
   margin-bottom: ${space.xl} !important;

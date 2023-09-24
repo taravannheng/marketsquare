@@ -74,28 +74,28 @@ const Header: FC<HeaderProps> = () => {
   // LIST ITEMS
   const listItems = [
     {
-      id: 'list-item-1',
+      id: 'list-item-profile',
       text: 'Profile',
       icon: <AccountCircleIcon />,
       href: `${ROUTES.LANDING}`,
     },
     {
-      id: 'list-item-2',
+      id: 'list-item-wishlist',
       text: 'Wishlist',
       icon: <FavoriteIcon />,
       href: `${ROUTES.WISHLIST}`,
     },
     {
-      id: 'list-item-3',
+      id: 'list-item-order-history',
       text: 'Order History',
       icon: <ShoppingBagIcon />,
       href: `${ROUTES.LANDING}`,
     },
     {
-      id: 'list-item-4',
+      id: 'list-item-reviews',
       text: 'Reviews',
       icon: <ReviewsIcon />,
-      href: `${ROUTES.LANDING}`,
+      href: `${ROUTES.REVIEWS}`,
     },
   ];
   

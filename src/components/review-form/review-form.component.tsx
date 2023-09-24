@@ -39,7 +39,7 @@ import {
   SignInTextSC,
 } from "./review-form.styles";
 import { selectUser } from "../../store/user/user.selector";
-import { selectReviews } from "../../store/review/review.selector";
+import REVIEW_ACTION_TYPES from "../../store/review/review.types";
 import Button from "../button/button.component";
 import RatingSelect from "../rating-select/rating-select.component";
 import ReviewTextArea from "../review-textarea/review-textarea.component";
@@ -56,12 +56,11 @@ import {
 import BREAKPOINTS from "../../styles/breakpoints";
 import ReviewInterface from "../review/index.interface";
 
-const ReviewForm: FC<ReviewFormProps> = ({ productID }) => {
+const ReviewForm: FC<ReviewFormProps> = ({ productID, userReview }) => {
   const location = useLocation();
   const dispatch = useDispatch();
   const isLargeScreen = useMediaQuery(`(min-width: ${BREAKPOINTS.sm}px)`);
   const user = useSelector(selectUser);
-  const reviews = useSelector(selectReviews);
   const [hasOrdered, setHasOrdered] = useState(false);
   const [showFormCard, setShowFormCard] = useState(false);
   const [showDeleteReviewDialog, setShowDeleteReviewDialog] = useState(false);
@@ -71,13 +70,12 @@ const ReviewForm: FC<ReviewFormProps> = ({ productID }) => {
     useState(false);
   const [isUpdateReviewBottomSheetOpen, setIsUpdateReviewBottomSheetOpen] =
     useState(false);
-  const [rating, setRating] = useState(0);
-  const [review, setReview] = useState("");
+  const [rating, setRating] = useState(userReview?.rating ?? 0);
+  const [review, setReview] = useState(userReview?.comment ?? "");
   const [showReviewForm, setShowReviewForm] = useState(false);
   const [showRatingErrorText, setShowRatingErrorText] = useState(false);
   const [showReviewErrorText, setShowReviewErrorText] = useState(false);
   const [isUndoClicked, setIsUndoClicked] = useState(false);
-  const [hasReviewed, setHasReviewed] = useState(false);
   const [snackbar, setSnackbar] = useState<{
     open: boolean;
     message: string;
@@ -187,7 +185,6 @@ const ReviewForm: FC<ReviewFormProps> = ({ productID }) => {
                 message: "Your review has been added.",
                 type: "success",
               });
-              setHasReviewed(true);
 
               // add user review to review state
               let reviewFromServer = response.data;
@@ -199,17 +196,9 @@ const ReviewForm: FC<ReviewFormProps> = ({ productID }) => {
                 profileUrl: user?.profileUrl ?? null,
               };
 
-              const reviewsPayload = {
-                [`${productID}`]: [
-                  // @ts-ignore
-                  ...reviews[`${productID}`],
-                  reviewFromServer,
-                ],
-              };
-
               dispatch({
-                type: "ADD_REVIEWS",
-                payload: reviewsPayload,
+                type: REVIEW_ACTION_TYPES.ADD_REVIEW,
+                payload: reviewFromServer,
               });
             }
           } catch (error) {
@@ -252,22 +241,15 @@ const ReviewForm: FC<ReviewFormProps> = ({ productID }) => {
       snackbarTimeout = setTimeout(async () => {
         if (!isUndoClicked) {
           try {
-            // find prev user review data from state
-            // @ts-ignore
-            const currentProductReviews = reviews[`${productID}`];
-            const prevUserReview = currentProductReviews.find(
-              (review: ReviewInterface) => review.userID === user?._id
-            );
-
             // send data to server
             const response = await updateReview(
               {
-                productID: prevUserReview.productID,
-                userID: prevUserReview.userID,
+                productID: productID,
+                userID: userReview!.userID,
                 rating,
                 comment: review,
               },
-              prevUserReview._id
+              userReview!._id
             );
 
             // update state
@@ -280,24 +262,14 @@ const ReviewForm: FC<ReviewFormProps> = ({ productID }) => {
 
               // update review state
               const newUserReview = {
-                ...prevUserReview,
+                ...userReview!,
                 rating,
                 comment: review,
               };
 
-              const reviewsPayload = {
-                [`${productID}`]: [
-                  // @ts-ignore
-                  ...reviews[`${productID}`].filter(
-                    (review: ReviewInterface) => review.userID !== user?._id
-                  ),
-                  newUserReview,
-                ],
-              };
-
               dispatch({
-                type: "ADD_REVIEWS",
-                payload: reviewsPayload,
+                type: REVIEW_ACTION_TYPES.UPDATE_REVIEW,
+                payload: newUserReview,
               });
             }
           } catch (error) {
@@ -321,15 +293,8 @@ const ReviewForm: FC<ReviewFormProps> = ({ productID }) => {
     setShowDeleteReviewDialog(false);
 
     try {
-      // find user review _id from review state
-      // @ts-ignore
-      const currentProductReviews = reviews[`${productID}`];
-      const userReview = currentProductReviews.find(
-        (review: ReviewInterface) => review.userID === user?._id
-      );
-
       // send delete request to backend
-      const response = await deleteReview(userReview._id);
+      const response = await deleteReview(userReview!._id);
 
       // if status is 200 then display a snackbar with success message
       if (response.status === 200) {
@@ -338,22 +303,11 @@ const ReviewForm: FC<ReviewFormProps> = ({ productID }) => {
           message: "Your review has been deleted.",
           type: "success",
         });
-        setHasReviewed(false);
-
-        // remove user review from review state
-        const reviewsPayload = {
-          [`${productID}`]: [
-            // @ts-ignore
-            ...reviews[`${productID}`].filter(
-              (review: ReviewInterface) => review.userID !== user?._id
-            ),
-          ],
-        };
 
         // update state
         dispatch({
-          type: "ADD_REVIEWS",
-          payload: reviewsPayload,
+          type: REVIEW_ACTION_TYPES.DELETE_REVIEW,
+          payload: userReview,
         });
       }
     } catch (error) {
@@ -381,31 +335,8 @@ const ReviewForm: FC<ReviewFormProps> = ({ productID }) => {
       }
     };
 
-    // create a function that checks if user has reviewed the product
-    const checkIfUserHasReviewed = () => {
-      // @ts-ignore
-      const userReviews = reviews[`${productID}`];
-
-      if (userReviews) {
-        const userReview = userReviews.find(
-          (review: ReviewInterface) => review.userID === user?._id
-        );
-
-        if (userReview) {
-          setHasReviewed(true);
-          setRating(userReview.rating);
-          setReview(userReview.comment);
-        }
-
-        if (!userReview) {
-          setHasReviewed(false);
-        }
-      }
-    };
-
     if (user) {
       checkIfUserHasOrdered();
-      checkIfUserHasReviewed();
     }
 
     return () => {
@@ -431,7 +362,7 @@ const ReviewForm: FC<ReviewFormProps> = ({ productID }) => {
             </Button>
           </SignInTextSC>
         )}
-        {user && !hasOrdered && (
+        {user && !hasOrdered && !userReview && (
           <PurchaseProductTextSC>
             <Button styleType="tertiary" disabled underlineLabel>
               Add Review
@@ -440,7 +371,7 @@ const ReviewForm: FC<ReviewFormProps> = ({ productID }) => {
             To add review, please purchase the product first
           </PurchaseProductTextSC>
         )}
-        {user && hasOrdered && !hasReviewed && !showFormCard && (
+        {user && hasOrdered && !userReview && !showFormCard && (
           <AddReviewTextSC>
             Want to share your thoughts?{" "}
             <Button
@@ -452,7 +383,7 @@ const ReviewForm: FC<ReviewFormProps> = ({ productID }) => {
             </Button>
           </AddReviewTextSC>
         )}
-        {user && hasReviewed && !showFormCard && (
+        {user && userReview && !showFormCard && (
           <Grow in>
             <ReviewContainerSC>
               <ReviewTitleSC>Your Review</ReviewTitleSC>
@@ -468,8 +399,8 @@ const ReviewForm: FC<ReviewFormProps> = ({ productID }) => {
               <Review
                 userID={user._id}
                 username={user.username}
-                comment={review}
-                rating={rating}
+                comment={userReview.comment}
+                rating={userReview.rating}
                 profileUrl={user?.profileUrl ?? null}
               />
               <Button
@@ -539,10 +470,10 @@ const ReviewForm: FC<ReviewFormProps> = ({ productID }) => {
                     <Button
                       width="auto"
                       clickHandler={
-                        hasReviewed ? updateReviewHandler : addReviewHandler
+                        userReview ? updateReviewHandler : addReviewHandler
                       }
                     >
-                      {hasReviewed ? "Update Review" : "Submit Review"}
+                      {userReview ? "Update Review" : "Submit Review"}
                     </Button>
                   </FormCardReviewButtonContainerSC>
                 </FormCardReviewSC>
