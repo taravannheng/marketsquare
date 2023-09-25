@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
-import { Box, Typography } from "@mui/material";
+import { Box, Icon, Typography } from "@mui/material";
 
-import { COLORS, typography, space, borderRadius } from '../../styles/styles';
+import { COLORS, typography, space, borderRadius, BREAKPOINTS } from '../../styles/styles';
 
 // SHARED STYLES -------------------------------------
 
@@ -69,6 +69,15 @@ export const DetailsContainerSC = styled(Box)`
   }
 `
 
+export const ProductNameContainerSC = styled(Box)`
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  height: clamp(24px, 24px, 24px) !important;\
+  padding-right: ${space.m} !important;
+`;
+
 export const ProductNameSC = styled(Typography)`
   ${pagePadding};
   margin-bottom: ${space.xs} !important;
@@ -76,6 +85,67 @@ export const ProductNameSC = styled(Typography)`
   font-size: ${typography.h5.fontSize} !important;
   font-weight: ${typography.h5.fontWeight} !important;
 `
+
+export const WishlistIconContainerSC = styled(Box)`
+  display: flex !important;
+  flex-direction: column !important;
+  width: clamp(44px, 44px, 44px) !important;
+  height: clamp(44px, 44px, 44px) !important;
+  overflow: hidden;
+  cursor: pointer;
+`;
+
+export const WishlistBorderIconSC = styled(Icon)`
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: clamp(44px, 44px, 44px) !important;
+  height: clamp(44px, 44px, 44px) !important;
+  border-radius: ${borderRadius.rounded} !important;
+  color: ${COLORS.NEUTRAL.N300} !important;
+  transition-property: color, transform !important;
+  transition-duration: 0.3s !important;
+  transition-timing-function: ease-in-out !important;
+
+  & > svg {
+    background-color: ${COLORS.NEUTRAL.N0} !important;
+    border-radius: ${borderRadius.rounded} !important;
+  }
+
+  &:hover {
+    color: ${COLORS.PRIMARY.P500} !important;
+  }
+
+  &:active {
+    color: ${COLORS.PRIMARY.P600} !important;
+  }
+}`;
+
+export const WishlistFilledIconSC = styled(Icon)`
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: clamp(44px, 44px, 44px) !important;
+  height: clamp(44px, 44px, 44px) !important;
+  border-radius: ${borderRadius.rounded} !important;
+  color: ${COLORS.PRIMARY.P500} !important;
+  transition-property: color, transform !important;
+  transition-duration: 0.3s !important;
+  transition-timing-function: ease-in-out !important;
+
+  & > svg {
+    background-color: ${COLORS.NEUTRAL.N0} !important;
+    border-radius: ${borderRadius.rounded} !important;
+  }
+
+  &:hover {
+    color: ${COLORS.PRIMARY.P600} !important;
+  }
+
+  &:active {
+    color: ${COLORS.PRIMARY.P700} !important;
+  }
+}`;
 
 export const ProductPriceSC = styled(Typography)`
   ${pagePadding};  
@@ -106,4 +176,8 @@ export const ProductDescriptionSC = styled(Typography)`
 
 export const AddToCartButtonSC = styled(Box)`
   ${pagePadding};
+
+  & > button:first-of-type {
+    margin-right: ${space.m} !important;
+  }
 `;
