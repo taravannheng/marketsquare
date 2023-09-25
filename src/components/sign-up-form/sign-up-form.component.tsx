@@ -183,6 +183,8 @@ const SignUpForm: FC<SignUpFormInterface> = () => {
         setAlertVisible(true);
       }
     }
+
+    !isValidForm && setIsLoading(false);
   };
 
   useEffect(() => {

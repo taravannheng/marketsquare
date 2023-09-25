@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 import {
   Box,
-  Dialog, DialogTitle, Typography,
+  Dialog, DialogTitle, Icon, Typography,
 } from "@mui/material";
 
 import { COLORS, typography, borderRadius, space } from "../../styles/styles";
@@ -15,8 +15,14 @@ import { COLORS, typography, borderRadius, space } from "../../styles/styles";
 export const DialogSC = styled(Dialog)`
   & .MuiDialog-paper {
     border-radius: ${borderRadius.s} !important;
-    padding: ${space.l} ${space.m} !important;
+    padding: ${space.l} !important;
   }
+`;
+
+export const IconSC = styled(Icon)`
+  margin: ${space.s} auto ${space.xl} auto ;
+  color: ${COLORS.NEUTRAL.N200} !important;
+  transform: scale(2) !important;
 `;
 
 export const TitleSC = styled(DialogTitle)`
@@ -29,7 +35,7 @@ export const TitleSC = styled(DialogTitle)`
 `;
 
 export const DescriptionSC = styled(Typography)`
-  text-align: left !important;
+  text-align: center !important;
   font-size: ${typography.body1.fontSize} !important;
   font-weight: ${typography.body1.fontWeight} !important;
   color: ${COLORS.NEUTRAL.N500} !important;
@@ -37,7 +43,7 @@ export const DescriptionSC = styled(Typography)`
 `;
 
 export const ButtonContainerSC = styled(Box)`
-  & > button:first-child {
+  & > button:first-child, & > a:first-child {
     margin-bottom: ${space.m} !important;
   }
 

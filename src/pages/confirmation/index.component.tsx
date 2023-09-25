@@ -15,6 +15,7 @@ import ProductInterface from "../../interfaces/product-interface";
 import { selectUser } from '../../store/user/user.selector';
 import { selectOrder } from "../../store/order/order.selector";
 import { selectReviews } from "../../store/review/review.selector";
+import REVIEW_ACTION_TYPES from "../../store/review/review.types";
 
 const ConfirmationPage = () => {
   const location = useLocation();
@@ -36,22 +37,9 @@ const ConfirmationPage = () => {
       if (!_.isEmpty(response.data)) {
         dispatch({ type: "SET_ORDER", payload: response.data.order });
 
-        // remove products reviews from state
-        // extract product ids from order
-        const productIDs = response.data.order.products.map(
-          (product: ProductInterface) => product._id
-        );
-
-        // filter reviews
-        productIDs.map((productID: string) => {
-          // @ts-ignore
-          return delete reviews[`${productID}`];
-        });
-
-        // update reviews state
+        // clear reviews
         dispatch({
-          type: "ADD_REVIEWS",
-          payload: reviews,
+          type: REVIEW_ACTION_TYPES.CLEAR_REVIEWS,
         });
       }
     };

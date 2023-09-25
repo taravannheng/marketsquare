@@ -55,7 +55,7 @@ export const ToolbarPlaceholderSC = styled(Box)`
 export const ToolbarContainerSC = styled(Box)`
   position: fixed !important;
   top: 0;
-  z-index: 1;
+  z-index: 2;
   box-sizing: border-box;
   display: flex !important;
   flex-direction: row !important;
@@ -154,7 +154,10 @@ export const DrawerHeadSC = styled(Box)`
   align-items: center;
 `;
 
-export const DrawerBodySC = styled(Box)``;
+export const DrawerBodySC = styled(Box)`
+  padding-top: ${space.xl} !important;
+  padding-bottom: ${space.xl} !important;
+`;
 
 export const DrawerBottomSC = styled(Box)`
   position: fixed;

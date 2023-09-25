@@ -33,6 +33,9 @@ const SignInForm: FC<SignInFormInterface> = () => {
   const params = new URLSearchParams(location.search);
   const isNewUser = params.get("newUser");
   const updatedPassword = params.get("updatedPassword");
+  const wishlist = params.get("wishlist");
+  const reviews = params.get("reviews");
+  const redirectUrl = params.get("redirectUrl");
   const dispatch = useDispatch();
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -142,6 +145,12 @@ const SignInForm: FC<SignInFormInterface> = () => {
           // set user state
           dispatch({ type: "SET_USER", payload: response.data.user });
 
+          // if redirectUrl is provided, redirect to that url
+          if (redirectUrl) {
+            navigate(`${redirectUrl}?signedIn=true`);
+            return;
+          }
+
           navigate(`${ROUTES.LANDING}?signedIn=true`);
         }
       } catch (error: any) {
@@ -165,6 +174,8 @@ const SignInForm: FC<SignInFormInterface> = () => {
         setAlertVisible(true);
       }
     }
+
+    !isValidForm && setIsLoading(false);
   };
 
   useEffect(() => {
@@ -172,6 +183,22 @@ const SignInForm: FC<SignInFormInterface> = () => {
       setAlert({
         type: "success",
         message: "You have successfully created an account! Please sign in.",
+      });
+      setAlertVisible(true);
+    }
+
+    if (wishlist) {
+      setAlert({
+        type: "info",
+        message: "Please sign in to view your wishlist!",
+      });
+      setAlertVisible(true);
+    }
+
+    if (reviews) {
+      setAlert({
+        type: "info",
+        message: "Please sign in to view your reviews!",
       });
       setAlertVisible(true);
     }
@@ -209,7 +236,12 @@ const SignInForm: FC<SignInFormInterface> = () => {
         />
       </InputContainerSC>
       <Box sx={{ marginTop: `${space.xl}`, marginBottom: `${space.l}` }}>
-        <Button actionType="submit" width="full" isLoading={isLoading} disabled={isLoading}>
+        <Button
+          actionType="submit"
+          width="full"
+          isLoading={isLoading}
+          disabled={isLoading}
+        >
           {isLoading ? "Signing In" : "Sign In"}
         </Button>
       </Box>

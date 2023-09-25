@@ -1,11 +1,25 @@
 import { FC } from "react";
 import _ from "lodash";
 import CloseIcon from "@mui/icons-material/Close";
-import { IconButton } from "@mui/material";
+import { IconButton, ThemeProvider, createTheme } from "@mui/material";
 
 import SnackbarInterface from "./snackbar.interface";
 import { SnackbarSC, UndoButtonSC } from "./snackbar.style";
 import COLORS from "../../styles/colors";
+
+const theme = createTheme({
+  palette: {
+    info: {
+      main: `${COLORS.PRIMARY.P500}`,
+    },
+    error: {
+      main: `${COLORS.RED.R500}`,
+    },
+    success: {
+      main: `${COLORS.GREEN.G500}`,
+    },
+  },
+});
 
 const SnackBar: FC<SnackbarInterface> = ({
   onClose,
@@ -15,23 +29,6 @@ const SnackBar: FC<SnackbarInterface> = ({
   message,
   onUndo,
 }) => {
-  let backgroundColor = "";
-
-  switch (type) {
-    case "info":
-      backgroundColor = COLORS.PRIMARY.P500;
-      break;
-    case "error":
-      backgroundColor = COLORS.RED.R500;
-      break;
-    case "success":
-      backgroundColor = COLORS.GREEN.G500;
-      break;
-    default:
-      backgroundColor = COLORS.PRIMARY.P500;
-      break;
-  }
-
   const action = (
     <>
       {onUndo && (
@@ -52,17 +49,47 @@ const SnackBar: FC<SnackbarInterface> = ({
 
   return (
     <>
-      <SnackbarSC
-        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
-        sx={{
-          backgroundColor: `${backgroundColor} !important`,
-        }}
-        open={open}
-        autoHideDuration={3000}
-        onClose={onClose}
-        message={message}
-        action={action}
-      />
+      <ThemeProvider theme={theme}>
+        {type === "info" && (
+          <SnackbarSC
+            anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+            sx={{
+              backgroundColor: theme.palette["info"].main,
+            }}
+            open={open}
+            autoHideDuration={3000}
+            onClose={onClose}
+            message={message}
+            action={action}
+          />
+        )}
+        {type === "success" && (
+          <SnackbarSC
+            anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+            sx={{
+              backgroundColor: theme.palette["success"].main,
+            }}
+            open={open}
+            autoHideDuration={3000}
+            onClose={onClose}
+            message={message}
+            action={action}
+          />
+        )}
+        {type === "error" && (
+          <SnackbarSC
+            anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+            sx={{
+              backgroundColor: theme.palette["error"].main,
+            }}
+            open={open}
+            autoHideDuration={3000}
+            onClose={onClose}
+            message={message}
+            action={action}
+          />
+        )}
+      </ThemeProvider>
     </>
   );
 };

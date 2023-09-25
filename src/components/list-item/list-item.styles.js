@@ -11,7 +11,6 @@ export const ListItemSC = styled(ListItem)`
   height: clamp(40px, 40px, 40px) !important;
   background-color: ${COLORS.NEUTRAL.N0} !important;
   border-radius: ${borderRadius.s} !important;
-  transition: background-color 0.2s ease-in-out !important;
   color: ${COLORS.NEUTRAL.N500} !important;
 
   &:hover {
@@ -24,7 +23,7 @@ export const ListItemSC = styled(ListItem)`
 `;
 
 export const ListItemButtonSC = styled(ListItemButton)`
-  
+  padding-left: 0 !important;
 `;
 
 export const ListItemIconSC = styled(ListItemIcon)`
@@ -36,10 +35,10 @@ export const ListItemIconSC = styled(ListItemIcon)`
 `;
 
 export const ListItemTextSC = styled(ListItemText)`
+  margin-left: -${space.m} !important;
   font-size: ${typography.body1.fontSize} !important;
   font-weight: ${typography.body1.fontWeight} !important;
-  color: ${COLORS.NEUTRAL.N900} !important;
-  transition: color 0.2s ease-in-out !important;
+  color: ${COLORS.NEUTRAL.N500} !important;
 
   ${ListItemSC}:hover & {
     color: ${COLORS.NEUTRAL.N0} !important;

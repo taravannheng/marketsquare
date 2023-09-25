@@ -20,6 +20,8 @@ import {
   ProductPriceSC,
   ProductNameSC,
   SlideShowContainerSC,
+  RatingContainerSC,
+  AddToCartButtonSC,
 } from "./index.styles";
 import { adjustCloudinaryImgSize, formatPrice } from "../../utils/helpers";
 import { selectCart } from "../../store/cart/cart.selector";
@@ -106,17 +108,12 @@ const ProductDetailsDisplay: FC<ProductDetailsDisplayInterface> = ({
           {!_.isEmpty(product) && (
             <BodySC>
               <SlideShowContainerSC>
-                {isSmallScreen && (
-                  <SlideShow indicatorType="dot" data={imgUrls} />
-                )}
-                {!isSmallScreen && (
-                  <SlideShow indicatorType="number" data={imgUrls} />
-                )}
+              <SlideShow indicatorType="dot" data={imgUrls} />
               </SlideShowContainerSC>
               <DetailsContainerSC>
                 <ProductNameSC>{product.name}</ProductNameSC>
                 <ProductPriceSC>${formatPrice(product.price)}</ProductPriceSC>
-                <Rating type="long" showLabel rating={product.rating} />
+                <RatingContainerSC><Rating type="long" showLabel rating={product.rating} /></RatingContainerSC>
                 <ProductDescriptionSC>
                   {product.description.length >= 250 ? (
                     <SeeMoreText defaultTextLength={250}>
@@ -126,13 +123,15 @@ const ProductDetailsDisplay: FC<ProductDetailsDisplayInterface> = ({
                     product.description
                   )}
                 </ProductDescriptionSC>
-                <Button
-                  styleType="primary"
-                  clickHandler={addToCartHandler}
-                  width={addToCartButtonWidth}
-                >
-                  {isAddedToCart ? "Added to Cart" : "Add to Cart"}
-                </Button>
+                <AddToCartButtonSC>
+                  <Button
+                    styleType="primary"
+                    clickHandler={addToCartHandler}
+                    width={addToCartButtonWidth}
+                  >
+                    {isAddedToCart ? "Added to Cart" : "Add to Cart"}
+                  </Button>
+                </AddToCartButtonSC>
               </DetailsContainerSC>
             </BodySC>
           )}

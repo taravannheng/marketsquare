@@ -14,6 +14,8 @@ export const ROUTES = {
   CONFIRMATION: '/confirmation',
   SIGN_IN: '/sign-in',
   SIGN_UP: '/sign-up',
+  WISHLIST: '/wishlist',
+  REVIEWS: '/reviews',
   AUTH_GOOGLE: `${process.env.REACT_APP_BASE_URL}/api/auth/google`,
   // AUTH_FACEBOOK: `${process.env.REACT_APP_BASE_URL}/api/auth/facebook/callback`,
   RESET_PASSWORD_REQUEST: '/reset-password/request',

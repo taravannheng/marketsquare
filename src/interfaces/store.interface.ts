@@ -2,6 +2,7 @@ import ProductInterface from "./product-interface";
 import OrderInterface from "./order.interface";
 import UserInterface from "./user.interface";
 import ReviewInterface from "./review-interface";
+import WishlistInterface from "./wishlist.interface";
 
 interface StoreStateInterface {
   product: {
@@ -18,6 +19,12 @@ interface StoreStateInterface {
   };
   review: {
     reviews: ReviewInterface[];
+  };
+  userReview: {
+    userReviews: ReviewInterface[];
+  };
+  wishlist: {
+    wishlists: WishlistInterface[];
   };
   relatedProduct: {
     relatedProducts: ProductInterface[];

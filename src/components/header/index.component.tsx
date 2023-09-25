@@ -3,6 +3,10 @@ import {
   AppBar,
   useMediaQuery,
 } from "@mui/material";
+import ReviewsIcon from '@mui/icons-material/Reviews';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from '@mui/icons-material/Search';
 import { AccountCircle, ArrowBackIos, Login } from "@mui/icons-material";
@@ -11,13 +15,6 @@ import { useSelector, useDispatch } from "react-redux";
 import _ from "lodash";
 import Cookies from "js-cookie";
 
-import Cart from "../cart/cart.component";
-// import NavigationMenu from "../navigation-menu/index.component";   DISABLE MENU TEMPORARILY
-import Search from "../search/search.component";
-import Avatar from "../avatar/avatar.component";
-import Menu from "../../components/menu/menu.component";
-import AuthBlock from "../auth-block/auth-block.component";
-import HeaderProps from "./index.interface";
 import {
   ToolbarPlaceholderSC,
   ToolbarSC,
@@ -45,11 +42,23 @@ import {
   SearchIconSC,
   BigSearchContainerSC,
 } from "./index.styles";
+
+import Cart from "../cart/cart.component";
+// import NavigationMenu from "../navigation-menu/index.component";   DISABLE MENU TEMPORARILY
+import Search from "../search/search.component";
+import Avatar from "../avatar/avatar.component";
+import Menu from "../../components/menu/menu.component";
+import AuthBlock from "../auth-block/auth-block.component";
+import List from "../list/list.component";
+
+import HeaderProps from "./index.interface";
 // import navMenuList from "../../sample/navigation-menu/navigationMenuSample"; DISABLE MENU TEMPORARILY
 // import menuListSample from "../../sample/menu/menu"; DISABLE MENU TEMPORARILY
 import { LOGO_URLS, ROUTES } from "../../utils/constants";
 import { selectUser } from "../../store/user/user.selector";
 import { COLORS, space } from "../../styles/styles";
+import WISHLIST_ACTION_TYPES from "../../store/wishlist/wishlist.types";
+import listSample from "../../sample/list/list.sample";
 
 const Header: FC<HeaderProps> = () => {
   const [showMobileSearch, setShowMobileSearch] = useState(false);
@@ -61,6 +70,34 @@ const Header: FC<HeaderProps> = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const dispatch = useDispatch();
+
+  // LIST ITEMS
+  const listItems = [
+    {
+      id: 'list-item-profile',
+      text: 'Profile',
+      icon: <AccountCircleIcon />,
+      href: `${ROUTES.LANDING}`,
+    },
+    {
+      id: 'list-item-wishlist',
+      text: 'Wishlist',
+      icon: <FavoriteIcon />,
+      href: `${ROUTES.WISHLIST}`,
+    },
+    {
+      id: 'list-item-order-history',
+      text: 'Order History',
+      icon: <ShoppingBagIcon />,
+      href: `${ROUTES.LANDING}`,
+    },
+    {
+      id: 'list-item-reviews',
+      text: 'Reviews',
+      icon: <ReviewsIcon />,
+      href: `${ROUTES.REVIEWS}`,
+    },
+  ];
   
   // DETERMINE LOGO SIZE
   const smallLogoSize = "32";
@@ -104,6 +141,10 @@ const Header: FC<HeaderProps> = () => {
 
     // remove jwt token
     Cookies.remove("jwt");
+
+    // reset wishlist state
+    dispatch({ type: WISHLIST_ACTION_TYPES.RESET_WISHLISTS });
+
 
     // set user state to null
     dispatch({ type: "SET_USER", payload: null });
@@ -203,14 +244,15 @@ const Header: FC<HeaderProps> = () => {
             {!_.isEmpty(user) && <UsernameSC>{user.username}</UsernameSC>}
             {!_.isEmpty(user) && <EmailSC>{user.email}</EmailSC>}
           </DrawerHeadSC>
-          <DrawerBodySC></DrawerBodySC>
+          <DrawerBodySC>
+            <List items={listItems} />
+          </DrawerBodySC>
           <DrawerBottomSC>
             <SignOutSC onClick={signOutHandler}>Sign Out</SignOutSC>
           </DrawerBottomSC>
         </DrawerContentSC>
       </DrawerSC>
       {/* MOBILE DRAWER */}
-
       <MobileDrawerSC
         anchor="right"
         open={isMobileDrawerOpen}
@@ -238,7 +280,8 @@ const Header: FC<HeaderProps> = () => {
               </LogoContainerSC>
             </MobileDrawerHeadSC>
           )}
-          <MobileDrawerBodySC></MobileDrawerBodySC>
+          <MobileDrawerBodySC>
+          </MobileDrawerBodySC>
           {_.isEmpty(user) && (
             <MobileDrawerBottomSC>
               <AuthBlock />
