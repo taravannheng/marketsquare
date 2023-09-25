@@ -1,10 +1,7 @@
-import { FC, useEffect, useState } from "react";
+import { FC } from "react";
 import _ from "lodash";
-import { v4 as uuidv4 } from 'uuid';
 import { useSelector } from "react-redux";
 
-import ReviewDisplayInterface from "./index.interface";
-import ReviewInterface from "../review/index.interface";
 import {
   EmptyTextSC,
   ReviewDisplaySC,
@@ -12,56 +9,49 @@ import {
   ReviewTitleSC,
   TitleSC,
 } from "./index.styles";
+
 import Review from "../review/index.component";
 import ReviewForm from "../review-form/review-form.component";
+
+import ReviewDisplayInterface from "./index.interface";
+import ReviewInterface from "../review/index.interface";
 import { selectUser } from "../../store/user/user.selector";
-import { selectReviews } from "../../store/review/review.selector";
+import { selectProductReviews } from "../../store/review/review.selector";
 
 const ReviewDisplay: FC<ReviewDisplayInterface> = ({ reviews, productID }) => {
   const user = useSelector(selectUser);
-  const allReviews = useSelector(selectReviews);
-  const [currentProductReviews, setCurrentProductReviews] = useState<ReviewInterface[] | null>([]);
-  const [userHasReviewed, setUserHasReviewed] = useState(false);
+  const productReviews = useSelector(selectProductReviews(productID));
+  let otherReviews: ReviewInterface[] = productReviews;
+  let userReview = null;
 
-  useEffect(() => {
-    // if all reviews has changed, get the reviews for this product
-    let userReview: ReviewInterface | undefined = undefined;
-
-    if (allReviews) {
-      // @ts-ignore
-      setCurrentProductReviews(allReviews[`${productID}`]);
-    }
-
-    if (user) {
-      // @ts-ignore
-      userReview = allReviews[`${productID}`]?.find(
-        (review: ReviewInterface) => review.userID === user?._id
-      );
+  // filter out user's review
+  if (user) {
+    productReviews.map((review: ReviewInterface) => {
+      if (review.userID === user._id) {
+        userReview = review;
+      }
       
-      if (userReview) {
-        setUserHasReviewed(true);
-      }
+      return;
+    });
 
-      if (!userReview) {
-        setUserHasReviewed(false);
-      }
-    }
+    otherReviews = productReviews.filter(
+      (review: ReviewInterface) => review.userID !== user._id
+    );
   }
-  , [user, allReviews]);
 
   return (
     <ReviewDisplaySC>
-      <TitleSC>{`Reviews ${currentProductReviews ? `(${currentProductReviews.length})`  : ''}`}</TitleSC>
-      <ReviewForm productID={productID} />
-      {user && userHasReviewed  && (
+      <TitleSC>{`Reviews ${
+        productReviews ? `(${productReviews.length})` : ""
+      }`}</TitleSC>
+      <ReviewForm productID={productID} userReview={userReview} />
+      {user && userReview  && (
         <ReviewTitleSC>Others' Reviews</ReviewTitleSC> 
       )}
       <ReviewStackSC direction="column" spacing={4}>
-        {!_.isEmpty(reviews) &&
-          reviews!.map((review: ReviewInterface) => {
-            if (review.userID !== user?._id) {
-              return <Review key={`review-${review?._id ?? ''}`} {...review} />;
-            }
+        {!_.isEmpty(otherReviews) &&
+          otherReviews?.map((review: ReviewInterface) => {
+            return <Review key={review._id} {...review} />;
           })}
       </ReviewStackSC>
       {_.isEmpty(reviews) && <EmptyTextSC>No Reviews...</EmptyTextSC>}

@@ -8,3 +8,13 @@ export const selectReviews = createSelector(
   [selectReviewSlice],
   (review) => review.reviews
 );
+
+export const selectProductReviews = (productID: string) =>
+  createSelector([selectReviews], (reviews) =>
+    reviews.filter((review) => review.productID === productID)
+  );
+
+export const selectReviewsByUserID = (userID: string) =>
+  createSelector([selectReviews], (reviews) =>
+    reviews.filter((review) => review.userID === userID)
+  );
