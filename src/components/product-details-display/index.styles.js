@@ -26,16 +26,23 @@ export const BackNavSC = styled(Box)`
   top: ${space.l};
   left: ${space.m};
   z-index: 1;
+  transition: color 0.3s ease-in-out !important;
+
+  &:hover * {
+    color: ${COLORS.PRIMARY.P500} !important;
+  }
 
   & svg {
     font-size: ${typography.h5.fontSize} !important;
     font-weight: ${typography.h5.fontWeight} !important;
+    color: ${COLORS.NEUTRAL.N300} !important;
   }
 
   & > button {
     padding-right: ${space.m} !important;
     border-radius: ${borderRadius.rounded} !important;
     background-color: ${COLORS.NEUTRAL.N0} !important;
+    color: ${COLORS.NEUTRAL.N400} !important;
   }
 
   @media only screen and (min-width: 1080px) {
