@@ -4,7 +4,7 @@ import { useMediaQuery } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
 import { ArrowBackIosRounded } from "@mui/icons-material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import _ from "lodash";
 import Cookies from "js-cookie";
 
@@ -34,11 +34,15 @@ import { adjustCloudinaryImgSize, formatPrice } from "../../utils/helpers";
 import { selectCart } from "../../store/cart/cart.selector";
 import { selectUser } from "../../store/user/user.selector";
 import { selectWishlist } from "../../store/wishlist/wishlist.selector";
-import { createWishlist, updateWishlist } from "../../apis/wishlists/wishlists.api";
+import {
+  createWishlist,
+  updateWishlist,
+} from "../../apis/wishlists/wishlists.api";
 import { COLORS, BREAKPOINTS } from "../../styles/styles";
 import Dialog from "../dialog/dialog.component";
 import { ROUTES } from "../../utils/constants";
 import WISHLIST_ACTION_TYPES from "../../store/wishlist/wishlist.types";
+import SnackBar from "../snackbar/snackbar.component";
 
 const ProductDetailsDisplay: FC<ProductDetailsDisplayInterface> = ({
   product,
@@ -49,7 +53,6 @@ const ProductDetailsDisplay: FC<ProductDetailsDisplayInterface> = ({
     : "full";
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const token = Cookies.get("jwt");
   const cart = useSelector(selectCart);
   const user = useSelector(selectUser);
   const wishlist = useSelector(selectWishlist(product._id));
@@ -59,6 +62,15 @@ const ProductDetailsDisplay: FC<ProductDetailsDisplayInterface> = ({
     : [];
   const [showLoginDialog, setShowLoginDialog] = useState(false);
   const [isAddedToWishlist, setIsAddedToWishlist] = useState(false);
+  const [snackbar, setSnackbar] = useState<{
+    open: boolean;
+    message: string;
+    type: "info" | "success" | "error";
+  }>({
+    open: false,
+    message: "",
+    type: "info",
+  });
 
   // ADJUST SLIDESHOW IMAGE SIZE
   const DEFAULT_IMG_SIZE = 800;
@@ -74,7 +86,30 @@ const ProductDetailsDisplay: FC<ProductDetailsDisplayInterface> = ({
   const wishlistHandler = async (e: any) => {
     e.stopPropagation();
 
-    if (!user) {
+    // check if session is expired
+    const token = Cookies.get("jwt");
+
+    if (user && !token) {
+      // reset user state to null
+      dispatch({
+        type: "SET_USER",
+        payload: null,
+      });
+
+      // reset isAddedToWishlist state to false
+      setIsAddedToWishlist(false);
+
+      // display snackbar
+      setSnackbar({
+        open: true,
+        message: "Your session has expired. Please sign in again.",
+        type: "error",
+      });
+
+      return;
+    }
+
+    if (!user && !token) {
       setShowLoginDialog(true);
       return;
     }
@@ -101,7 +136,7 @@ const ProductDetailsDisplay: FC<ProductDetailsDisplayInterface> = ({
       try {
         const response = await createWishlist(product._id, token);
 
-        const {wishlist: createdWishlist} = response.data;
+        const { wishlist: createdWishlist } = response.data;
 
         dispatch({
           type: WISHLIST_ACTION_TYPES.ADD_WISHLIST,
@@ -109,7 +144,7 @@ const ProductDetailsDisplay: FC<ProductDetailsDisplayInterface> = ({
         });
       } catch (error: any) {
         console.log(error);
-      }    
+      }
     }
   };
 
@@ -133,6 +168,14 @@ const ProductDetailsDisplay: FC<ProductDetailsDisplayInterface> = ({
         },
       });
     }
+  };
+
+  const snackbarCloseHandler = () => {
+    setSnackbar({
+      open: false,
+      message: "",
+      type: "info",
+    });
   };
 
   useEffect(() => {
@@ -185,29 +228,29 @@ const ProductDetailsDisplay: FC<ProductDetailsDisplayInterface> = ({
                   <ProductNameSC>{product.name}</ProductNameSC>
                   {!isBigScreen && (
                     <WishlistIconContainerSC onClick={wishlistHandler}>
-                    <WishlistBorderIconSC
-                      sx={{
-                        transform: `${
-                          isAddedToWishlist
-                            ? "translateY(-100%)"
-                            : "translateY(0%)"
-                        } !important`,
-                      }}
-                    >
-                      <FavoriteBorderIcon />
-                    </WishlistBorderIconSC>
-                    <WishlistFilledIconSC
-                      sx={{
-                        transform: `${
-                          isAddedToWishlist
-                            ? "translateY(-100%)"
-                            : "translateY(0%)"
-                        } !important`,
-                      }}
-                    >
-                      <FavoriteIcon />
-                    </WishlistFilledIconSC>
-                  </WishlistIconContainerSC>
+                      <WishlistBorderIconSC
+                        sx={{
+                          transform: `${
+                            isAddedToWishlist
+                              ? "translateY(-100%)"
+                              : "translateY(0%)"
+                          } !important`,
+                        }}
+                      >
+                        <FavoriteBorderIcon />
+                      </WishlistBorderIconSC>
+                      <WishlistFilledIconSC
+                        sx={{
+                          transform: `${
+                            isAddedToWishlist
+                              ? "translateY(-100%)"
+                              : "translateY(0%)"
+                          } !important`,
+                        }}
+                      >
+                        <FavoriteIcon />
+                      </WishlistFilledIconSC>
+                    </WishlistIconContainerSC>
                   )}
                 </ProductNameContainerSC>
                 <ProductPriceSC>${formatPrice(product.price)}</ProductPriceSC>
@@ -233,12 +276,14 @@ const ProductDetailsDisplay: FC<ProductDetailsDisplayInterface> = ({
                   </Button>
                   {isBigScreen && (
                     <Button
-                    styleType="secondary"
-                    clickHandler={wishlistHandler}
-                    width={buttonWidth}
-                  >
-                    {isAddedToWishlist ? "Added to Wishlist" : "Add to Wishlist"}
-                  </Button>
+                      styleType="secondary"
+                      clickHandler={wishlistHandler}
+                      width={buttonWidth}
+                    >
+                      {isAddedToWishlist
+                        ? "Added to Wishlist"
+                        : "Add to Wishlist"}
+                    </Button>
                   )}
                 </AddToCartButtonSC>
               </DetailsContainerSC>
@@ -255,6 +300,12 @@ const ProductDetailsDisplay: FC<ProductDetailsDisplayInterface> = ({
         secondaryButtonHandler={() => setShowLoginDialog(false)}
         open={showLoginDialog}
         icon={<FavoriteIcon />}
+      />
+      <SnackBar
+        type={snackbar.type}
+        message={snackbar.message}
+        onClose={snackbarCloseHandler}
+        open={snackbar.open}
       />
     </>
   );
