@@ -3,6 +3,7 @@ import OrderInterface from "./order.interface";
 import UserInterface from "./user.interface";
 import ReviewInterface from "./review-interface";
 import WishlistInterface from "./wishlist.interface";
+import OrderListItemInterface from "./order-list-item.interface";
 
 interface StoreStateInterface {
   product: {
@@ -14,6 +15,9 @@ interface StoreStateInterface {
   order: {
     order: OrderInterface;
   };
+  orderList: {
+    orderList: OrderListItemInterface[];
+  },
   user: {
     user: UserInterface;
   };

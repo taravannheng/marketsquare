@@ -13,9 +13,11 @@ import GlobalStyle from "./styles/globalstyles";
 import PrivateConfirmationRoute from "./pages/confirmation/index.private";
 import PrivateWishlistRoute from "./pages/wishlist/wishlist.private";
 import PrivateReviewRoute from "./pages/review/review.private";
+import PrivateOrderHistoryRoute from "./pages/order/order.private";
 
 const ConfirmationPage = React.lazy(() => import("./pages/confirmation/index.component"));
 const WishlistPage = React.lazy(() => import("./pages/wishlist/wishlist.page"));
+const OrderHistoryPage = React.lazy(() => import("./pages/order/order.page"));
 const ReviewPage = React.lazy(() => import("./pages/review/review.page"));
 const NotFoundPage = React.lazy(
   () => import("./pages/notfound/notfound.component")
@@ -61,6 +63,16 @@ const App: FC = () => {
                   element={
                     <Suspense fallback={'loading...'}>
                       <ReviewPage />
+                    </Suspense>
+                  }
+                />
+              </Route>
+              <Route path={ROUTES.ORDER_HISTORY} element={<PrivateOrderHistoryRoute />}>
+                <Route
+                  path={ROUTES.ORDER_HISTORY}
+                  element={
+                    <Suspense fallback={'loading...'}>
+                      <OrderHistoryPage />
                     </Suspense>
                   }
                 />
