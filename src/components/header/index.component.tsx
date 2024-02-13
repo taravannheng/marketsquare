@@ -89,7 +89,7 @@ const Header: FC<HeaderProps> = () => {
       id: 'list-item-order-history',
       text: 'Order History',
       icon: <ShoppingBagIcon />,
-      href: `${ROUTES.LANDING}`,
+      href: `${ROUTES.ORDER_HISTORY}`,
     },
     {
       id: 'list-item-reviews',

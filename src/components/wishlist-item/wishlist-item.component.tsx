@@ -4,7 +4,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import RemoveShoppingCartIcon from "@mui/icons-material/RemoveShoppingCart";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import _, { remove } from "lodash";
+import _ from "lodash";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 
@@ -19,15 +19,18 @@ import {
 } from "./wishlist-item.styles";
 
 import IconButton from "../icon-button/icon-button.component";
+import Dialog from "../dialog/dialog.component";
+import SnackBar from "../snackbar/snackbar.component";
 
 import WishlistInterface from "../../interfaces/wishlist.interface";
 import ProductInterface from "../../interfaces/product-interface";
 import { selectProduct } from "../../store/product/product.selector";
+import { selectUser } from "../../store/user/user.selector";
 import { selectCart } from "../../store/cart/cart.selector";
 import { selectWishlist } from "../../store/wishlist/wishlist.selector";
 import WISHLIST_ACTION_TYPES from "../../store/wishlist/wishlist.types";
+import USER_ACTION_TYPES from "../../store/user/user.types";
 import { updateWishlist } from "../../apis/wishlists/wishlists.api";
-import Dialog from "../dialog/dialog.component";
 
 const WishlistItem: FC<WishlistInterface> = ({
   _id,
@@ -41,17 +44,56 @@ const WishlistItem: FC<WishlistInterface> = ({
   const dispatch = useDispatch();
   const product = useSelector(selectProduct(productID));
   const cart = useSelector(selectCart);
+  const user = useSelector(selectUser);
   const wishlist = useSelector(selectWishlist(productID));
   const [isAddedToCart, setIsAddedToCart] = useState(false);
   const [showDialog, setShowDialog] = useState(false);
-  const token = Cookies.get("jwt");
+  const [snackbar, setSnackbar] = useState<{
+    open: boolean;
+    message: string;
+    type: "info" | "success" | "error";
+  }>({
+    open: false,
+    message: "",
+    type: "info",
+  });
 
   const redirectHandler = () => {
     navigate(`/product/${productID}`);
   };
 
+  const snackbarCloseHandler = () => {
+    setSnackbar({
+      open: false,
+      message: "",
+      type: "info",
+    });
+  };
+
   const deleteHandler = async (e: any) => {
     e.stopPropagation();
+
+    // check if session is expired
+    const token = Cookies.get("jwt");
+
+    if (!token && user) {
+      // display snackbar
+      setSnackbar({
+        open: true,
+        message: "Your session has expired. Please sign in again.",
+        type: "error",
+      });
+
+      // reset user state to null
+      setTimeout(() => {
+        dispatch({
+          type: USER_ACTION_TYPES.SET_USER,
+          payload: null,
+        });
+      }, 2000);
+
+      return;
+    }
 
     setShowDialog(true);
   };
@@ -90,6 +132,7 @@ const WishlistItem: FC<WishlistInterface> = ({
     });
 
     try {
+      const token = Cookies.get("jwt");
       await updateWishlist(wishlist!, token);
     } catch (error: any) {
       console.log(error);
@@ -164,6 +207,12 @@ const WishlistItem: FC<WishlistInterface> = ({
         open={showDialog}
         icon={<FavoriteIcon />}
         isDeleteOperation
+      />
+      <SnackBar
+        type={snackbar.type}
+        message={snackbar.message}
+        onClose={snackbarCloseHandler}
+        open={snackbar.open}
       />
     </>
   );
