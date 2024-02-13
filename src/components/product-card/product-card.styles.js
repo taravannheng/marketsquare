@@ -29,84 +29,6 @@ export const ProductCardSC = styled(Card)`
   }
 `;
 
-export const WishlistIconContainerSC = styled(Box)`
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 1;
-  display: flex !important;
-  flex-direction: column !important;
-  width: clamp(44px, 44px, 44px) !important;
-  height: clamp(44px, 44px, 44px) !important;
-  overflow: hidden;
-
-  @media only screen and (min-width: ${BREAKPOINTS.sm}px) {
-    position: static;
-  }
-`;
-
-export const WishlistBorderIconSC = styled(Icon)`
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  width: clamp(44px, 44px, 44px) !important;
-  height: clamp(44px, 44px, 44px) !important;
-  border-radius: ${borderRadius.rounded} !important;
-  color: ${COLORS.NEUTRAL.N300} !important;
-  transition-property: color, transform !important;
-  transition-duration: 0.3s !important;
-  transition-timing-function: ease-in-out !important;
-
-  & > svg {
-    padding: ${space.xxs} !important;
-    background-color: ${COLORS.NEUTRAL.N0} !important;
-    border-radius: ${borderRadius.rounded} !important;
-
-    @media only screen and (min-width: ${BREAKPOINTS.sm}px) {
-      padding: 0 !important;
-    }
-  }
-
-  &:hover {
-    color: ${COLORS.PRIMARY.P500} !important;
-  }
-
-  &:active {
-    color: ${COLORS.PRIMARY.P600} !important;
-  }
-}`;
-
-export const WishlistFilledIconSC = styled(Icon)`
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  width: clamp(44px, 44px, 44px) !important;
-  height: clamp(44px, 44px, 44px) !important;
-  border-radius: ${borderRadius.rounded} !important;
-  color: ${COLORS.PRIMARY.P500} !important;
-  transition-property: color, transform !important;
-  transition-duration: 0.3s !important;
-  transition-timing-function: ease-in-out !important;
-
-  & > svg {
-    padding: ${space.xxs} !important;
-    background-color: ${COLORS.NEUTRAL.N0} !important;
-    border-radius: ${borderRadius.rounded} !important;
-
-    @media only screen and (min-width: ${BREAKPOINTS.sm}px) {
-      padding: 0 !important;
-    }
-  }
-
-  &:hover {
-    color: ${COLORS.PRIMARY.P600} !important;
-  }
-
-  &:active {
-    color: ${COLORS.PRIMARY.P700} !important;
-  }
-}`;
-
 export const CardMediaContainerSC = styled(Box)`
   position: relative;
   width: 100%;
@@ -144,14 +66,6 @@ export const CardMediaSC = styled(CardMedia)`
 export const CardContentSC = styled(CardContent)`
   width: clamp(100%, 100%, 100%);
   padding: 0px !important;
-`;
-
-export const ProductNameContainerSC = styled(Box)`
-  display: flex !important;
-  justify-content: space-between !important;
-  align-items: center !important;
-  width: 100% !important;
-  height: 24px !important;
 `;
 
 export const ProductNameSC = styled(Typography)`

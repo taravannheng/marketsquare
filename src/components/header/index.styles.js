@@ -44,7 +44,7 @@ export const AppBarSC = styled(AppBar)`
 
 export const ToolbarPlaceholderSC = styled(Box)`
   width: 100% !important;
-  height: clamp(56px, 56px, 56px) !important;
+  height: clamp(64px, 64px, 64px) !important;
   background-color: ${COLORS.NEUTRAL.N0} !important;
 
   @media only screen and (min-width: 640px) {
