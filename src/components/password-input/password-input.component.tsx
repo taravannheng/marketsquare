@@ -36,6 +36,7 @@ const PasswordInput: FC<PasswordInputInterface> = ({
   password,
   isRequired = true,
   showTooltip = true,
+  showIcon = true,
 }) => {
   const { value, isValid, validityDetails } = password;
   const [hasBeenFocused, setHasBeenFocused] = useState(false);
@@ -96,7 +97,8 @@ const PasswordInput: FC<PasswordInputInterface> = ({
           type={showPassword ? "text" : "password"}
           required={isRequired}
         />
-        <ShowPasswordIconSC>
+        {showIcon && (
+          <ShowPasswordIconSC>
           {showPassword ? (
             <Visibility
               sx={{ color: `${COLORS.NEUTRAL.N300}`, cursor: "pointer" }}
@@ -109,6 +111,8 @@ const PasswordInput: FC<PasswordInputInterface> = ({
             />
           )}
         </ShowPasswordIconSC>
+        )}
+        
       </InputContainerSC>
       {isInvalid && (
         <StatusTextSC>Please enter a valid password!</StatusTextSC>
