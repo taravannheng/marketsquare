@@ -1,4 +1,5 @@
 import { FC, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 import EmailInput from "../email-input/email-input.component";
 import Alert from "../alert/alert.component";
@@ -15,6 +16,9 @@ import { requestPasswordReset } from "../../apis/passwords/password.api";
 import Button from "../button/button.component";
 
 const ResetPasswordRequestForm: FC<ResetPasswordRequestFormI> = () => {
+  const location = useLocation();
+  const params = new URLSearchParams(location.search);
+  const forgottenPassword = params.get("forgotten-password");
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [alert, setAlert] = useState<{
     type: "info" | "success" | "error";
@@ -82,6 +86,15 @@ const ResetPasswordRequestForm: FC<ResetPasswordRequestFormI> = () => {
           setAlertVisible(true);
         }
 
+        // if status code is 403
+        if (error.response.status === 403) {
+          setAlert({
+            type: "error",
+            message: error.response.data.message,
+          });
+          setAlertVisible(true);
+        }
+
         // if status code is 500
         if (error.response.status === 500) {
           setAlert({
@@ -98,7 +111,7 @@ const ResetPasswordRequestForm: FC<ResetPasswordRequestFormI> = () => {
 
   return (
     <FormSC onSubmit={formHandler}>
-      <TitleSC variant="h1">Forgotten Password?</TitleSC>
+      <TitleSC variant="h1">{forgottenPassword ? 'Forgotten Password?' : 'Reset Password'}</TitleSC>
       <AlertContainerSC>
         {alertVisible && (
           <Alert

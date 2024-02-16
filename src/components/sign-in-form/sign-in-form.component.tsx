@@ -257,7 +257,7 @@ const SignInForm: FC<SignInFormInterface> = () => {
       <Box sx={{ marginBottom: `${space.l}` }}>
         <Button
           styleType="tertiary"
-          href={`${ROUTES.RESET_PASSWORD_REQUEST}`}
+          href={`${ROUTES.RESET_PASSWORD_REQUEST}?forgotten-password=true`}
           underlineLabel
           width="full"
         >

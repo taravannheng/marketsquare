@@ -77,7 +77,7 @@ const Header: FC<HeaderProps> = () => {
       id: 'list-item-profile',
       text: 'Profile',
       icon: <AccountCircleIcon />,
-      href: `${ROUTES.LANDING}`,
+      href: `${ROUTES.PROFILE}`,
     },
     {
       id: 'list-item-wishlist',
