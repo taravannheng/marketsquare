@@ -14,6 +14,7 @@ export const ROUTES = {
   CONFIRMATION: '/confirmation',
   SIGN_IN: '/sign-in',
   SIGN_UP: '/sign-up',
+  PROFILE: '/profile',
   WISHLIST: '/wishlist',
   ORDER_HISTORY: '/orders',
   REVIEWS: '/reviews',
