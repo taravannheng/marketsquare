@@ -14,8 +14,10 @@ import PrivateConfirmationRoute from "./pages/confirmation/index.private";
 import PrivateWishlistRoute from "./pages/wishlist/wishlist.private";
 import PrivateReviewRoute from "./pages/review/review.private";
 import PrivateOrderHistoryRoute from "./pages/order/order.private";
+import PrivateProfileRoute from "./pages/profile/profile.private";
 
 const ConfirmationPage = React.lazy(() => import("./pages/confirmation/index.component"));
+const ProfilePage = React.lazy(() => import("./pages/profile/profile.page"));
 const WishlistPage = React.lazy(() => import("./pages/wishlist/wishlist.page"));
 const OrderHistoryPage = React.lazy(() => import("./pages/order/order.page"));
 const ReviewPage = React.lazy(() => import("./pages/review/review.page"));
@@ -53,6 +55,16 @@ const App: FC = () => {
                   element={
                     <Suspense fallback={'loading...'}>
                       <ConfirmationPage />
+                    </Suspense>
+                  }
+                />
+              </Route>
+              <Route path={ROUTES.PROFILE} element={<PrivateProfileRoute />}>
+                <Route
+                  path={ROUTES.PROFILE}
+                  element={
+                    <Suspense fallback={'loading...'}>
+                      <ProfilePage />
                     </Suspense>
                   }
                 />
