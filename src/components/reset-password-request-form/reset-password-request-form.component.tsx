@@ -86,6 +86,15 @@ const ResetPasswordRequestForm: FC<ResetPasswordRequestFormI> = () => {
           setAlertVisible(true);
         }
 
+        // if status code is 403
+        if (error.response.status === 403) {
+          setAlert({
+            type: "error",
+            message: error.response.data.message,
+          });
+          setAlertVisible(true);
+        }
+
         // if status code is 500
         if (error.response.status === 500) {
           setAlert({
