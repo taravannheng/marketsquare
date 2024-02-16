@@ -1,31 +1,41 @@
-import React, { FC, useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { FC, useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { Box } from "@mui/material";
 import _ from "lodash";
 
-import ProfileFormProps, { ChangePasswordButtonProps } from './profile-form.interface';
-import { AlertContainerSC, ChangePasswordButtonContainerSC, PasswordContainerSC, ProfileFormSC } from './profile-form.styles';
+import ProfileFormProps, {
+  ChangePasswordButtonProps,
+} from "./profile-form.interface";
+import {
+  AlertContainerSC,
+  ChangePasswordButtonContainerSC,
+  PasswordContainerSC,
+  ProfileFormSC,
+} from "./profile-form.styles";
 
-import Alert from '../alert/alert.component';
-import UsernameInput from '../username-input/username-input.component';
-import PasswordInput from '../password-input/password-input.component';
-import EmailInput from '../email-input/email-input.component';
-import Button from '../button/button.component';
+import Alert from "../alert/alert.component";
+import UsernameInput from "../username-input/username-input.component";
+import PasswordInput from "../password-input/password-input.component";
+import EmailInput from "../email-input/email-input.component";
+import Button from "../button/button.component";
 import { selectUser } from "../../store/user/user.selector";
-import UsernameInterface from '../../interfaces/username.interface';
-import EmailInterface from '../../interfaces/email.interface';
-import PasswordInterface from '../../interfaces/password.interface';
+import UsernameInterface from "../../interfaces/username.interface";
+import EmailInterface from "../../interfaces/email.interface";
+import PasswordInterface from "../../interfaces/password.interface";
 import { checkEmail, checkUsername } from "../../utils/helpers";
-import { space } from '../../styles/styles';
-import { getUserByEmail, updateUsername, updateEmail } from '../../apis/users/users.api';
-import USER_ACTION_TYPES from '../../store/user/user.types';
-import { ROUTES } from '../../utils/constants';
+import { space } from "../../styles/styles";
+import {
+  getUserByEmail,
+  updateUsername,
+  updateEmail,
+} from "../../apis/users/users.api";
+import USER_ACTION_TYPES from "../../store/user/user.types";
+import { ROUTES } from "../../utils/constants";
 
 const ChangePasswordButton: FC<ChangePasswordButtonProps> = () => {
-
   return (
     <Button
-      styleType='tertiary'
+      styleType="tertiary"
       actionType="button"
       width="auto"
       href={ROUTES.RESET_PASSWORD_REQUEST}
@@ -34,8 +44,7 @@ const ChangePasswordButton: FC<ChangePasswordButtonProps> = () => {
       Change Password
     </Button>
   );
-}
-
+};
 
 const ProfileForm: FC<ProfileFormProps> = () => {
   const dispatch = useDispatch();
@@ -103,12 +112,24 @@ const ProfileForm: FC<ProfileFormProps> = () => {
     }
   }, [email.isValid]);
 
+  useEffect(() => {
+    if (user.provider !== "local") {
+      const provider = _.capitalize(user.provider);
+
+      setAlert({
+        type: "error",
+        message: `You are signed in using ${provider}. Please update your profile through ${provider}!`,
+      });
+      setAlertVisible(true);
+    }
+  }, []);
+
   // HANDLER FUNCTIONS
   const formHandler = async (event: any) => {
     event.preventDefault();
 
     const isValidForm = username.isValid && email.isValid;
-    
+
     if (isValidForm) {
       const usernameHasChanged = username.value !== user.username;
 
@@ -184,7 +205,7 @@ const ProfileForm: FC<ProfileFormProps> = () => {
         },
       });
     }
-  }
+  };
 
   const usernameChangeHandler = (event: any) => {
     const username = event.target.value;
@@ -231,26 +252,38 @@ const ProfileForm: FC<ProfileFormProps> = () => {
           </Alert>
         )}
       </AlertContainerSC>
-      <UsernameInput username={username} onChange={usernameChangeHandler} />
+      <UsernameInput
+        username={username}
+        onChange={usernameChangeHandler}
+        disabled={user.provider !== "local"}
+      />
       <EmailInput
-          email={email}
-          onChange={emailChangeHandler}
-          checkUniqueness={true}
-          isUnique={isUniqueEmail}
+        email={email}
+        onChange={emailChangeHandler}
+        checkUniqueness={true}
+        isUnique={isUniqueEmail}
+        disabled={user.provider !== "local"}
       />
       <PasswordContainerSC>
         <PasswordInput password={password} disabled showIcon={false} />
-        <ChangePasswordButtonContainerSC>
-          <ChangePasswordButton />
-        </ChangePasswordButtonContainerSC>
+        {user.provider === "local" && (
+          <ChangePasswordButtonContainerSC>
+            <ChangePasswordButton />
+          </ChangePasswordButtonContainerSC>
+        )}
       </PasswordContainerSC>
       <Box sx={{ marginTop: `${space.xl}`, marginBottom: `${space.l}` }}>
-        <Button actionType="submit" width="full" isLoading={isLoading} disabled={isLoading}>
+        <Button
+          actionType="submit"
+          width="full"
+          isLoading={isLoading}
+          disabled={isLoading || user.provider !== 'local'}
+        >
           {isLoading ? "Updating Profile" : "Update Profile"}
         </Button>
       </Box>
     </ProfileFormSC>
-  )
-}
+  );
+};
 
 export default ProfileForm;
