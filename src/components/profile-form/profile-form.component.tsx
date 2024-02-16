@@ -120,14 +120,6 @@ const ProfileForm: FC<ProfileFormProps> = () => {
           const statusCode = response?.status ?? null;
 
           if (statusCode === 200) {
-            dispatch({
-              type: USER_ACTION_TYPES.SET_USER,
-              payload: {
-                ...user,
-                username: username.value,
-              },
-            });
-
             setAlert({
               type: "success",
               message: "Profile updated successfully",
@@ -160,14 +152,6 @@ const ProfileForm: FC<ProfileFormProps> = () => {
           const statusCode = response?.status ?? null;
 
           if (statusCode === 200) {
-            dispatch({
-              type: USER_ACTION_TYPES.SET_USER,
-              payload: {
-                ...user,
-                email: email.value,
-              },
-            });
-
             setAlert({
               type: "success",
               message: "Profile updated successfully",
@@ -189,6 +173,16 @@ const ProfileForm: FC<ProfileFormProps> = () => {
           setAlertVisible(true);
         }
       }
+
+      // update state for both email and username
+      dispatch({
+        type: USER_ACTION_TYPES.SET_USER,
+        payload: {
+          ...user,
+          email: email.value,
+          username: username.value,
+        },
+      });
     }
   }
 
