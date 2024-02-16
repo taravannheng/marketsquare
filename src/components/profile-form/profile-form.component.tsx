@@ -117,7 +117,7 @@ const ProfileForm: FC<ProfileFormProps> = () => {
       const provider = _.capitalize(user.provider);
 
       setAlert({
-        type: "error",
+        type: "info",
         message: `You are signed in using ${provider}. Please update your profile through ${provider}!`,
       });
       setAlertVisible(true);
