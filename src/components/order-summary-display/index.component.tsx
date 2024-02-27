@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { ArrowBackRounded } from "@mui/icons-material";
 
-import OrderSummaryDisplayInterface from "./index.interface";
+import OrderSummaryDisplayProps from "./index.interface";
 import {
   BackNavSC,
   ContentSC,
@@ -16,7 +16,7 @@ import OrderSummary from "../order-summary/index.component";
 import OrderDetails from "../order-details/index.component";
 import _ from "lodash";
 
-const OrderSummaryDisplay: FC<OrderSummaryDisplayInterface> = ({
+const OrderSummaryDisplay: FC<OrderSummaryDisplayProps> = ({
   orderID,
   cartID,
   customer,
@@ -32,7 +32,11 @@ const OrderSummaryDisplay: FC<OrderSummaryDisplayInterface> = ({
   return (
     <OrderSummaryDisplaySC>
       <BackNavSC>
-        <Button styleType="tertiary" icon={<ArrowBackRounded />} clickHandler={redirectToHomepage}>
+        <Button
+          styleType="tertiary"
+          icon={<ArrowBackRounded />}
+          clickHandler={redirectToHomepage}
+        >
           Home
         </Button>
       </BackNavSC>
