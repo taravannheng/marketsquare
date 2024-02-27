@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
 
-export default interface SearchInterface {
+export default interface SearchProps {
   children?: ReactNode;
 }

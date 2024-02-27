@@ -2,7 +2,7 @@ import { FC } from "react";
 import { useNavigate } from "react-router-dom";
 
 import Rating from "../rating/index.component";
-import RelatedProductCardInterface from "./index.interface";
+import RelatedProductCardProps from "./index.interface";
 import {
   CardContentSC,
   CardMediaSC,
@@ -13,7 +13,7 @@ import {
 import _ from "lodash";
 import { adjustCloudinaryImgSize } from "../../utils/helpers";
 
-const RelatedProductCard: FC<RelatedProductCardInterface> = ({
+const RelatedProductCard: FC<RelatedProductCardProps> = ({
   product,
   width,
   height,

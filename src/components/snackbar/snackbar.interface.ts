@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-export default interface SnackbarInterface {
+export default interface SnackbarProps {
   children?: ReactNode;
   open: boolean;
   onClose: () => void;

@@ -12,7 +12,7 @@ import SlideShow from "../slideshow/index.component";
 import SeeMoreText from "../see-more-text/see-more-text.component";
 import Rating from "../rating/index.component";
 import Button from "../button/button.component";
-import ProductDetailsDisplayInterface from "./index.interface";
+import ProductDetailsDisplayProps from "./index.interface";
 import ProductInterface from "../../interfaces/product-interface";
 import {
   BackNavSC,
@@ -44,7 +44,7 @@ import { ROUTES } from "../../utils/constants";
 import WISHLIST_ACTION_TYPES from "../../store/wishlist/wishlist.types";
 import SnackBar from "../snackbar/snackbar.component";
 
-const ProductDetailsDisplay: FC<ProductDetailsDisplayInterface> = ({
+const ProductDetailsDisplay: FC<ProductDetailsDisplayProps> = ({
   product,
 }) => {
   const isBigScreen = useMediaQuery(`(min-width: ${BREAKPOINTS.sm}px)`);

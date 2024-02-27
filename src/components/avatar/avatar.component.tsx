@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import AvatarInterface from "./avatar.interface";
+import AvatarProps from "./avatar.interface";
 import { AvatarSC } from "./avatar.style";
 
 const getSize = (size: string): string => {
@@ -13,7 +13,7 @@ const getSize = (size: string): string => {
   return sizes[size] || "32px";
 };
 
-const Avatar: FC<AvatarInterface> = ({
+const Avatar: FC<AvatarProps> = ({
   size = "small",
   src,
   alt,

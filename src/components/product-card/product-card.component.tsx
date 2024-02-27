@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { useNavigate } from "react-router-dom";
 
-import ProductCardInterface from "./product-card.interface";
+import ProductCardProps from "./product-card.interface";
 import {
   ProductCardSC,
   CardContentSC,
@@ -12,7 +12,7 @@ import {
 } from "./product-card.styles";
 import { formatPrice, adjustCloudinaryImgSize } from "../../utils/helpers";
 
-const ProductCard: FC<ProductCardInterface> = ({
+const ProductCard: FC<ProductCardProps> = ({
   imgUrls,
   name,
   price,

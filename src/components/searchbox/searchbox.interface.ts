@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-export default interface SearchBoxInterface {
+export default interface SearchBoxProps {
   children?: ReactNode;
   searchTerm: string;
   setSearchTerm: (searchTerm: string) => void;

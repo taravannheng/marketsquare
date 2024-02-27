@@ -2,10 +2,10 @@ import { FC } from "react";
 
 import ListItem from "../list-item/list-item.component";
 import { ListContainerSC, ListSC, StackSC } from "./list.styles";
-import ListComponentInterface from "./list.interface";
+import ListComponentProps from "./list.interface";
 import ListItemInterface from "../../interfaces/list-item.interface";
 
-const List: FC<ListComponentInterface> = ({ items }) => {
+const List: FC<ListComponentProps> = ({ items }) => {
   return (
     <ListContainerSC>
       <nav>

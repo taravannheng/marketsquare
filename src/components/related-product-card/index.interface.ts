@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 
 import ProductInterface from "../../interfaces/product-interface";
 
-export default interface RelatedProductCardInterface {
+export default interface RelatedProductCardProps {
   children?: ReactNode;
   product: ProductInterface;
   width?: string;

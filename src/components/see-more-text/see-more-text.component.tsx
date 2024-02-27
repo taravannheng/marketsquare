@@ -1,9 +1,10 @@
 import { FC, useState } from "react";
 
-import SeeMoreTextI from "./see-more-text.interface";
+
+import SeeMoreTextProps from "./see-more-text.interface";
 import { ButtonSC, SeeMoreTextSC } from "./see-more-text.styles";
 
-const SeeMoreText: FC<SeeMoreTextI> = ({
+const SeeMoreText: FC<SeeMoreTextProps> = ({
   children,
   defaultTextLength = 100,
 }) => {

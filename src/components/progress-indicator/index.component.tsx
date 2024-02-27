@@ -2,7 +2,7 @@ import { FC } from 'react'
 import { CircularProgress } from '@mui/material'
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-import ProgressIndicatorInterface from './index.interface';
+import ProgressIndicatorProps from './index.interface';
 import COLORS from '../../styles/colors';
 
 const theme = createTheme({
@@ -16,7 +16,7 @@ const theme = createTheme({
   },
 });
 
-const ProgressIndicator: FC<ProgressIndicatorInterface> = ({ size = 40, color = "primary" }) => {
+const ProgressIndicator: FC<ProgressIndicatorProps> = ({ size = 40, color = "primary" }) => {
   return (
     <ThemeProvider theme={theme}>
       <CircularProgress color={color} size={ size } />

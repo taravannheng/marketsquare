@@ -7,7 +7,7 @@ import {
   VisibilityOff,
 } from "@mui/icons-material";
 
-import { PasswordInputInterface } from "./password-input.interface";
+import { PasswordInputProps } from "./password-input.interface";
 import {
   InputSC,
   LabelContainerSC,
@@ -26,7 +26,7 @@ import {
 } from "./password-input.style";
 import COLORS from "../../styles/colors";
 
-const PasswordInput: FC<PasswordInputInterface> = ({
+const PasswordInput: FC<PasswordInputProps> = ({
   disabled = false,
   id,
   label = "Password",

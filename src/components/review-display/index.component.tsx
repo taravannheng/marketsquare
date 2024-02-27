@@ -13,12 +13,12 @@ import {
 import Review from "../review/index.component";
 import ReviewForm from "../review-form/review-form.component";
 
-import ReviewDisplayInterface from "./index.interface";
+import ReviewDisplayProps from "./index.interface";
 import ReviewInterface from "../review/index.interface";
 import { selectUser } from "../../store/user/user.selector";
 import { selectProductReviews } from "../../store/review/review.selector";
 
-const ReviewDisplay: FC<ReviewDisplayInterface> = ({ reviews, productID }) => {
+const ReviewDisplay: FC<ReviewDisplayProps> = ({ reviews, productID }) => {
   const user = useSelector(selectUser);
   const productReviews = useSelector(selectProductReviews(productID));
   let otherReviews: ReviewInterface[] = productReviews;

@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 import { Cancel, CheckCircle } from "@mui/icons-material";
 
-import UsernameInputInterface from "./username-input.interface";
+import UsernameInputProps from "./username-input.interface";
 import {
   InputSC,
   LabelContainerSC,
@@ -14,7 +14,7 @@ import {
 } from "./username-input.style";
 import COLORS from "../../styles/colors";
 
-const UsernameInput: FC<UsernameInputInterface> = ({
+const UsernameInput: FC<UsernameInputProps> = ({
   disabled = false,
   id,
   label = "Username",

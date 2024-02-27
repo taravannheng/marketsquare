@@ -2,11 +2,11 @@ import { FC } from "react";
 import { useMediaQuery } from "@mui/material";
 
 import { BodySC, ButtonSC, NotFoundDisplaySC, SubtitleSC, TextSC, TitleSC } from "./notfound-display.styles";
-import { NotFoundI } from "./notfound-display.interface";
+import { NotFoundProps } from "./notfound-display.interface";
 import NotFoundIllustration from "../../assets/illustrations/notfound.png";
 import { ROUTES } from "../../utils/constants";
 
-const NotFoundDisplay: FC<NotFoundI> = () => {
+const NotFoundDisplay: FC<NotFoundProps> = () => {
   const isBigScreen = useMediaQuery("(min-width: 864px)");
 
   return (

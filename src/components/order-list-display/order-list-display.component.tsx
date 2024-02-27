@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import _ from "lodash";
 import { TransitionGroup } from "react-transition-group";
 import { Collapse } from "@mui/material";
-import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
+import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 
 import {
   TitleSC,
@@ -21,6 +21,7 @@ import Divider from "../divider/divider.component";
 
 import OrderListItemInterface from "../../interfaces/order-list-item.interface";
 import ProductInterface from "../../interfaces/product-interface";
+import OrderListDisplayProps from "./order-list-display.interface";
 import CartInterface from "../../interfaces/cart.interface";
 import { selectUser } from "../../store/user/user.selector";
 import { selectOrderList } from "../../store/order-list/order-list.selector";
@@ -34,12 +35,12 @@ import { getMultipleProducts } from "../../apis/products/products.api";
 const fetchOrdersByUserID = async (userID: string) => {
   try {
     const response = await getOrdersByUserID(userID);
-  
+
     return response.data ?? null;
   } catch (error: any) {
     console.log(error);
   }
-}
+};
 
 const fetchMultipleCarts = async (cartIDs: string[]) => {
   try {
@@ -49,7 +50,7 @@ const fetchMultipleCarts = async (cartIDs: string[]) => {
   } catch (error: any) {
     console.log(error);
   }
-}
+};
 
 const fetchMultipleProducts = async (productIDs: string[]) => {
   try {
@@ -59,9 +60,9 @@ const fetchMultipleProducts = async (productIDs: string[]) => {
   } catch (error: any) {
     console.log(error);
   }
-}
+};
 
-const OrderListDisplay: FC = () => {
+const OrderListDisplay: FC<OrderListDisplayProps> = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
   const orderList = useSelector(selectOrderList);
@@ -97,7 +98,7 @@ const OrderListDisplay: FC = () => {
 
           for (const product of products) {
             const { _id } = product;
-            
+
             if (!productIDs.includes(_id)) {
               productIDs.push(_id);
             }
@@ -109,7 +110,11 @@ const OrderListDisplay: FC = () => {
       }
 
       // add item into orders array
-      if (!_.isEmpty(orderData) && !_.isEmpty(cartData) && !_.isEmpty(productData)) {
+      if (
+        !_.isEmpty(orderData) &&
+        !_.isEmpty(cartData) &&
+        !_.isEmpty(productData)
+      ) {
         // loop through each order
         for (const order of orderData) {
           // extract orderID, orderDate and cartID
@@ -128,23 +133,25 @@ const OrderListDisplay: FC = () => {
               }
             }
           }
-  
-            // use _id to extract product data from productData 
-            for (const productID of productIDs) {
-              const matchedProduct = productData.filter((product: ProductInterface) => product._id === productID);
 
-              if (!_.isEmpty(matchedProduct)) {
-                products.push(matchedProduct[0]);
-              }
+          // use _id to extract product data from productData
+          for (const productID of productIDs) {
+            const matchedProduct = productData.filter(
+              (product: ProductInterface) => product._id === productID
+            );
+
+            if (!_.isEmpty(matchedProduct)) {
+              products.push(matchedProduct[0]);
             }
+          }
 
-            // put orderID, orderDate, cartID and products into an object -> push to orders array
-              // extract date from createdAt
-              const orderDate = createdAt.substring(0, 10).replace(/-/g, '/');
-            
-              if (!_.isEmpty(products)) {
-                orders.push({ orderID, orderDate, cartID, products })
-              }
+          // put orderID, orderDate, cartID and products into an object -> push to orders array
+          // extract date from createdAt
+          const orderDate = createdAt.substring(0, 10).replace(/-/g, "/");
+
+          if (!_.isEmpty(products)) {
+            orders.push({ orderID, orderDate, cartID, products });
+          }
         }
       }
 

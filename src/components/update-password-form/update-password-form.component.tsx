@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Alert from "../alert/alert.component";
 import Button from "../button/button.component";
 import PasswordInput from "../password-input/password-input.component";
-import UpdatePasswordFormI from "./update-password-form.interface";
+import UpdatePasswordFormProps from "./update-password-form.interface";
 import {
   AlertContainerSC,
   ButtonContainerSC,
@@ -18,7 +18,7 @@ import { ROUTES } from "../../utils/constants";
 import PasswordInterface from "../../interfaces/password.interface";
 import { checkPassword, checkPasswordMatch } from "../../utils/helpers";
 
-const UpdatePasswordForm: FC<UpdatePasswordFormI> = () => {
+const UpdatePasswordForm: FC<UpdatePasswordFormProps> = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const params = new URLSearchParams(location.search);

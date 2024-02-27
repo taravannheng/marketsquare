@@ -1,4 +1,4 @@
-export default interface SeeMoreTextI {
+export default interface SeeMoreTextProps {
   children: string;
   defaultTextLength: number;
 }

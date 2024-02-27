@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 import Alert from "../alert/alert.component";
 import FourDigitInput from "../four-digit-input/four-digit-input.component";
-import ResetPasswordVerifyFormI from "./reset-password-verify-form.interface";
+import ResetPasswordVerifyFormProps from "./reset-password-verify-form.interface";
 import {
   AlertContainerSC,
   ButtonContainerSC,
@@ -15,7 +15,7 @@ import Button from "../button/button.component";
 import { checkFourDigits } from "../../utils/helpers";
 import { ROUTES } from "../../utils/constants";
 
-const ResetPasswordVerifyForm: FC<ResetPasswordVerifyFormI> = () => {
+const ResetPasswordVerifyForm: FC<ResetPasswordVerifyFormProps> = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const params = new URLSearchParams(location.search);

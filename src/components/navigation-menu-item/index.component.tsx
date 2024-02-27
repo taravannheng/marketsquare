@@ -2,7 +2,7 @@ import { FC, useState } from "react";
 import _ from "lodash";
 import { v4 as uuidv4 } from "uuid";
 
-import NavigationMenuItemInterface from "./index.interface";
+import NavigationMenuItemProps from "./index.interface";
 import {
   CategoryContainerSC,
   CategoryItemSC,
@@ -17,7 +17,7 @@ import {
   SubMenuSC,
 } from "./index.styles";
 
-const NavigationMenuItem: FC<NavigationMenuItemInterface> = ({
+const NavigationMenuItem: FC<NavigationMenuItemProps> = ({
   imgUrl,
   categories,
   title,

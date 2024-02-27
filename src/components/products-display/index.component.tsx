@@ -9,7 +9,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Sort from "../sort/sort.component";
 import ProductCard from "../product-card/product-card.component";
 import SlideShow from "../slideshow/index.component";
-import ProductsDisplayInterface from "./index.interface";
+import ProductsDisplayProps from "./index.interface";
 import ProductInterface from "../../interfaces/product-interface";
 import {
   ProductsDisplaySC,
@@ -40,8 +40,9 @@ const theme = createTheme({
   },
 });
 
-const ProductsDisplay: FC<ProductsDisplayInterface> = ({ title, products }) => {
-  const token = Cookies.get("jwt");
+
+const ProductsDisplay: FC<ProductsDisplayProps> = ({ title, products }) => {
+  const token = Cookies.get('jwt');
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
   const wishlists = useSelector(selectWishlists);
