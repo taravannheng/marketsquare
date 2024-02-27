@@ -58,11 +58,11 @@ const WishlistItem: FC<WishlistInterface> = ({
     type: "info",
   });
 
-  const redirectHandler = () => {
+  const redirect = () => {
     navigate(`/product/${productID}`);
   };
 
-  const snackbarCloseHandler = () => {
+  const closeSnackbar = () => {
     setSnackbar({
       open: false,
       message: "",
@@ -70,7 +70,7 @@ const WishlistItem: FC<WishlistInterface> = ({
     });
   };
 
-  const deleteHandler = async (e: any) => {
+  const handleDeleteWishlistItem = async (e: any) => {
     e.stopPropagation();
 
     // check if session is expired
@@ -98,7 +98,7 @@ const WishlistItem: FC<WishlistInterface> = ({
     setShowDialog(true);
   };
 
-  const addToCartHandler = (e: any) => {
+  const handleAddToCart = (e: any) => {
     e.stopPropagation();
 
     setIsAddedToCart((prevState) => !prevState);
@@ -122,7 +122,7 @@ const WishlistItem: FC<WishlistInterface> = ({
     }
   };
 
-  const removeFromWishlistHandler = async () => {
+  const handleRemoveFromWishlist = async () => {
     // update state
     wishlist!.isInWishlist = false;
 
@@ -160,7 +160,7 @@ const WishlistItem: FC<WishlistInterface> = ({
   return (
     <>
       {!_.isEmpty(product) && (
-        <WishlistItemSC onClick={redirectHandler}>
+        <WishlistItemSC onClick={redirect}>
           <MediaSC image={product.imgUrls[0]} title={product.name} />
           <DetailsSC>
             <TitleSC>{product?.name}</TitleSC>
@@ -169,13 +169,13 @@ const WishlistItem: FC<WishlistInterface> = ({
           <ActionsSC>
             <IconButton
               icon={<DeleteIcon />}
-              onClick={deleteHandler}
+              onClick={handleDeleteWishlistItem}
               isDestructive
             />
             <CartIconButtonContainerSC>
               <IconButton
                 icon={<AddShoppingCartIcon />}
-                onClick={addToCartHandler}
+                onClick={handleAddToCart}
                 sx={{
                   transform: `${
                     isAddedToCart ? "translateY(-100%)" : "translateY(0%)"
@@ -185,7 +185,7 @@ const WishlistItem: FC<WishlistInterface> = ({
               />
               <IconButton
                 icon={<RemoveShoppingCartIcon />}
-                onClick={addToCartHandler}
+                onClick={handleAddToCart}
                 sx={{
                   transform: `${
                     isAddedToCart ? "translateY(-100%)" : "translateY(0%)"
@@ -201,7 +201,7 @@ const WishlistItem: FC<WishlistInterface> = ({
         title="Remove from Wishlist?"
         description="Are you sure you want to remove this item from Wishlist?"
         primaryButtonLabel="Remove"
-        onClickPrimaryButton={removeFromWishlistHandler}
+        onClickPrimaryButton={handleRemoveFromWishlist}
         secondaryButtonLabel="Cancel"
         onClickSecondaryButton={() => setShowDialog(false)}
         open={showDialog}
@@ -211,7 +211,7 @@ const WishlistItem: FC<WishlistInterface> = ({
       <SnackBar
         type={snackbar.type}
         message={snackbar.message}
-        onClose={snackbarCloseHandler}
+        onClose={closeSnackbar}
         open={snackbar.open}
       />
     </>
