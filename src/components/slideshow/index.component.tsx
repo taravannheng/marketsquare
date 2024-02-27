@@ -7,7 +7,7 @@ import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
 
 import SlideshowSkeleton from "./slideshow-skeleton.component";
 import Button from "../button/button.component";
-import SlideShowInterface from "./index.interface";
+import SlideShowProps from "./index.interface";
 import SlideShowItemInterface from "../../interfaces/slideshow-item.interface";
 import {
   IndicatorTextSC,
@@ -26,7 +26,7 @@ import {
 import { adjustCloudinaryImgSize } from "../../utils/helpers";
 import IconButton from "../icon-button/icon-button.component";
 
-const SlideShow: FC<SlideShowInterface> = ({
+const SlideShow: FC<SlideShowProps> = ({
   data,
   indicatorType,
   autoSlide = false,
