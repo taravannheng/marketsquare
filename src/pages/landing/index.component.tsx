@@ -116,7 +116,7 @@ const LandingPage: FC = () => {
     }
   }, [isSignedIn, isSignedOut]);
 
-  const snackbarCloseHandler = () => {
+  const closeSnackbar = () => {
     setSnackbar({
       open: false,
       message: "",
@@ -133,7 +133,7 @@ const LandingPage: FC = () => {
         <SnackBar
           type={snackbar.type}
           message={snackbar.message}
-          onClose={snackbarCloseHandler}
+          onClose={closeSnackbar}
           open={snackbar.open}
         />
       </>
