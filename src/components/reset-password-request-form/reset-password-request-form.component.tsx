@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 
 import EmailInput from "../email-input/email-input.component";
 import Alert from "../alert/alert.component";
-import ResetPasswordRequestFormI from "./reset-password-request-form.interface";
+import ResetPasswordRequestFormProps from "./reset-password-request-form.interface";
 import EmailInterface from "../../interfaces/email.interface";
 import { checkEmail } from "../../utils/helpers";
 import {
@@ -15,7 +15,7 @@ import {
 import { requestPasswordReset } from "../../apis/passwords/password.api";
 import Button from "../button/button.component";
 
-const ResetPasswordRequestForm: FC<ResetPasswordRequestFormI> = () => {
+const ResetPasswordRequestForm: FC<ResetPasswordRequestFormProps> = () => {
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   const forgottenPassword = params.get("forgotten-password");
