@@ -29,7 +29,7 @@ const WishlistPage: FC = () => {
     type: "info",
   });
 
-  const snackbarCloseHandler = () => {
+  const closeSnackbar = () => {
     setSnackbar({
       open: false,
       message: "",
@@ -59,7 +59,7 @@ const WishlistPage: FC = () => {
       <SnackBar
           type={snackbar.type}
           message={snackbar.message}
-          onClose={snackbarCloseHandler}
+          onClose={closeSnackbar}
           open={snackbar.open}
         />
     </>
