@@ -63,7 +63,7 @@ const ReviewListItem: FC<ReviewListItemProps> = ({ review }) => {
     productName = product?.name ?? '';
   }
 
-  const snackbarCloseHandler = () => {
+  const handleCloseSnackbar = () => {
     setSnackbar({
       open: false,
       message: "",
@@ -71,7 +71,7 @@ const ReviewListItem: FC<ReviewListItemProps> = ({ review }) => {
     });
   };
 
-  const redirectToProductDetailsHandler = () => {
+  const handleRedirectToProductDetails = () => {
     // check if session is expired
     const token = Cookies.get("jwt");
 
@@ -99,7 +99,7 @@ const ReviewListItem: FC<ReviewListItemProps> = ({ review }) => {
 
   return (
     <>
-    <ListItemSC onClick={redirectToProductDetailsHandler}>
+    <ListItemSC onClick={handleRedirectToProductDetails}>
       <MediaSC image={image} title={imageTitle} />
       <ContentSC>
         <ProductNameSC>{productName}</ProductNameSC>
@@ -110,7 +110,7 @@ const ReviewListItem: FC<ReviewListItemProps> = ({ review }) => {
       <SnackBar
         type={snackbar.type}
         message={snackbar.message}
-        onClose={snackbarCloseHandler}
+        onClose={handleCloseSnackbar}
         open={snackbar.open}
       />
     </>
