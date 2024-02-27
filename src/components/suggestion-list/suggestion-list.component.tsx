@@ -1,7 +1,7 @@
 import { FC } from "react";
 import _ from "lodash";
 
-import SuggestionListInterface from "./suggestion-list.interface";
+import SuggestionListProps from "./suggestion-list.interface";
 import {
   EmptyTextSC,
   ProgressIndicatorContainerSC,
@@ -12,7 +12,7 @@ import {
 import SuggestionItem from "../suggestion-item/suggestion-item.component";
 import ProgressIndicator from "../progress-indicator/index.component";
 
-const SuggestionList: FC<SuggestionListInterface> = ({
+const SuggestionList: FC<SuggestionListProps> = ({
   suggestions,
   correctedSearchTerm,
   setSearchTerm,
