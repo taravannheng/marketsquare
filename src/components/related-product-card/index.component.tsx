@@ -27,7 +27,7 @@ const RelatedProductCard: FC<RelatedProductCardInterface> = ({
   const imgUrl = adjustCloudinaryImgSize(product.imgUrls[0], DEFAULT_IMG_SIZE);
 
   // HANDLERS
-  const showDetailsHandler = () => {
+  const handleShowDetails = () => {
     navigate(`/product/${product._id}`);
   };
 
@@ -38,7 +38,7 @@ const RelatedProductCard: FC<RelatedProductCardInterface> = ({
         height: `${height && height} !important`,
         backgroundColor: `${backgroundColor && backgroundColor} !important`,
       }}
-      onClick={showDetailsHandler}
+      onClick={handleShowDetails}
     >
       {!_.isEmpty(product) && (
         <>
