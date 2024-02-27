@@ -57,7 +57,7 @@ const UpdatePasswordForm: FC<UpdatePasswordFormI> = () => {
     },
   });
 
-  const passwordChangeHandler = (event: any) => {
+  const handlePasswordChange = (event: any) => {
     const password = event.target.value;
 
     const passwordStatus = checkPassword(password);
@@ -85,7 +85,7 @@ const UpdatePasswordForm: FC<UpdatePasswordFormI> = () => {
     });
   };
 
-  const confirmPasswordChangeHandler = (event: any) => {
+  const handleConfirmPasswordChange = (event: any) => {
     const password = event.target.value;
 
     const passwordStatus = checkPassword(password);
@@ -113,7 +113,7 @@ const UpdatePasswordForm: FC<UpdatePasswordFormI> = () => {
     });
   };
 
-  const formHandler = async () => {
+  const handleFormSubmit = async () => {
     setIsLoading(true);
 
     // check the password then send to the server if it's valid
@@ -190,13 +190,13 @@ const UpdatePasswordForm: FC<UpdatePasswordFormI> = () => {
       <PasswordInputContainerSC>
         <PasswordInput
           password={password}
-          onChange={passwordChangeHandler}
+          onChange={handlePasswordChange}
           isRequired
         />
         <PasswordInput
           label="Confirm Password"
           password={confirmPassword}
-          onChange={confirmPasswordChangeHandler}
+          onChange={handleConfirmPasswordChange}
           showTooltip={false}
           isRequired
         />
@@ -204,7 +204,7 @@ const UpdatePasswordForm: FC<UpdatePasswordFormI> = () => {
 
       <ButtonContainerSC>
         <Button
-          onClick={formHandler}
+          onClick={handleFormSubmit}
           isLoading={isLoading}
           width="full"
           disabled={isLoading}
