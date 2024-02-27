@@ -74,7 +74,7 @@ const SignInForm: FC<SignInFormInterface> = () => {
   });
   const [alertVisible, setAlertVisible] = useState<boolean>(false);
 
-  const emailChangeHandler = async (event: any) => {
+  const handleEmailChange = async (event: any) => {
     const email = event.target.value;
 
     const { isValid, validityDetails } = checkEmail(email);
@@ -91,7 +91,7 @@ const SignInForm: FC<SignInFormInterface> = () => {
     });
   };
 
-  const passwordChangeHandler = (event: any) => {
+  const handlePasswordChange = (event: any) => {
     const password = event.target.value;
 
     const passwordStatus = checkPassword(password);
@@ -119,7 +119,7 @@ const SignInForm: FC<SignInFormInterface> = () => {
     });
   };
 
-  const formHandler = async (event: any) => {
+  const handleFormSubmit = async (event: any) => {
     event.preventDefault();
 
     setIsLoading(true);
@@ -222,7 +222,7 @@ const SignInForm: FC<SignInFormInterface> = () => {
   }, []);
 
   return (
-    <SignInFormSC onSubmit={formHandler}>
+    <SignInFormSC onSubmit={handleFormSubmit}>
       <TitleSC variant="h1">Sign In</TitleSC>
       <AlertContainerSC>
         {alertVisible && (
@@ -237,10 +237,10 @@ const SignInForm: FC<SignInFormInterface> = () => {
         )}
       </AlertContainerSC>
       <InputContainerSC>
-        <EmailInput email={email} onChange={emailChangeHandler} />
+        <EmailInput email={email} onChange={handleEmailChange} />
         <PasswordInput
           password={password}
-          onChange={passwordChangeHandler}
+          onChange={handlePasswordChange}
           showTooltip={false}
         />
       </InputContainerSC>
