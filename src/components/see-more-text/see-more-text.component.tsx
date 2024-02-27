@@ -11,7 +11,7 @@ const SeeMoreText: FC<SeeMoreTextI> = ({
   const shortenedText =
     children && children.slice(0, defaultTextLength) + "...";
 
-  const clickHandler = () => {
+  const handleClick = () => {
     setIsExpanded(!isExpanded);
   };
 
@@ -19,7 +19,7 @@ const SeeMoreText: FC<SeeMoreTextI> = ({
     <SeeMoreTextSC>
       {isExpanded ? children : shortenedText}
       <ButtonSC
-        onClick={clickHandler}
+        onClick={handleClick}
         disableRipple
         sx={{ display: isExpanded ? "block !important" : "inline !important" }}
       >
