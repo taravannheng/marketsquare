@@ -125,7 +125,7 @@ const ProfileForm: FC<ProfileFormProps> = () => {
   }, []);
 
   // HANDLER FUNCTIONS
-  const formHandler = async (event: any) => {
+  const handleFormSubmit = async (event: any) => {
     event.preventDefault();
 
     const isValidForm = username.isValid && email.isValid;
@@ -207,7 +207,7 @@ const ProfileForm: FC<ProfileFormProps> = () => {
     }
   };
 
-  const usernameChangeHandler = (event: any) => {
+  const handleChangeUsername = (event: any) => {
     const username = event.target.value;
 
     const usernameStatus = checkUsername(username);
@@ -222,7 +222,7 @@ const ProfileForm: FC<ProfileFormProps> = () => {
     });
   };
 
-  const emailChangeHandler = async (event: any) => {
+  const handleChangeEmail = async (event: any) => {
     const email = event.target.value;
 
     const { isValid, validityDetails } = checkEmail(email);
@@ -240,7 +240,7 @@ const ProfileForm: FC<ProfileFormProps> = () => {
   };
 
   return (
-    <ProfileFormSC onSubmit={formHandler}>
+    <ProfileFormSC onSubmit={handleFormSubmit}>
       <AlertContainerSC>
         {alertVisible && (
           <Alert
@@ -254,12 +254,12 @@ const ProfileForm: FC<ProfileFormProps> = () => {
       </AlertContainerSC>
       <UsernameInput
         username={username}
-        onChange={usernameChangeHandler}
+        onChange={handleChangeUsername}
         disabled={user.provider !== "local"}
       />
       <EmailInput
         email={email}
-        onChange={emailChangeHandler}
+        onChange={handleChangeEmail}
         checkUniqueness={true}
         isUnique={isUniqueEmail}
         disabled={user.provider !== "local"}
