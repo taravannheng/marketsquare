@@ -99,21 +99,21 @@ const SlideShow: FC<SlideShowInterface> = ({
     }
   }, [data.length, autoSlide]);
 
-  const prevButtonHandler = () => {
+  const handlePrevButtonClick = () => {
     setActiveItemIndex(
       (prevIndex) => (prevIndex - 1 + data.length) % data.length
     );
   };
 
-  const paginationIndicatorHandler = (index: number) => {
+  const handleSetActiveIndicator = (index: number) => {
     setActiveItemIndex(index);
   };
 
-  const nextButtonHandler = () => {
+  const handleNextButtonClick = () => {
     setActiveItemIndex((prevSlide) => (prevSlide + 1) % data.length);
   };
 
-  const redirectHandler = (productID: string) => {
+  const handleRedirect = (productID: string) => {
     if (!_.isEmpty(productID) && redirectOnClick) {
       navigate(`/product/${productID}`);
     }
@@ -130,11 +130,11 @@ const SlideShow: FC<SlideShowInterface> = ({
 
     if (diffX > swipeThreshold) {
       // swipe left
-      nextButtonHandler();
+      handleNextButtonClick();
     }
     if (diffX < -swipeThreshold) {
       // swipe right
-      prevButtonHandler();
+      handlePrevButtonClick();
     }
   };
 
@@ -164,7 +164,7 @@ const SlideShow: FC<SlideShowInterface> = ({
                       cursor: `${redirectOnClick ? "pointer" : "auto"}`,
                     },
                   }}
-                  onClick={() => redirectHandler(item?._id ?? "")}
+                  onClick={() => handleRedirect(item?._id ?? "")}
                 />
               );
             })}
@@ -180,14 +180,14 @@ const SlideShow: FC<SlideShowInterface> = ({
                     return (
                       <PaginationActiveIndicatorSC
                         key={`slide-pagination-active-indicator-${item._id}`}
-                        onClick={() => paginationIndicatorHandler(index)}
+                        onClick={() => handleSetActiveIndicator(index)}
                       ></PaginationActiveIndicatorSC>
                     );
                   }
                   return (
                     <PaginationIndicatorSC
                       key={`slide-pagination-active-indicator-${item._id}`}
-                      onClick={() => paginationIndicatorHandler(index)}
+                      onClick={() => handleSetActiveIndicator(index)}
                     ></PaginationIndicatorSC>
                   );
                 })}
@@ -197,14 +197,14 @@ const SlideShow: FC<SlideShowInterface> = ({
             <PrevButtonSC>
               <IconButton
                 size="medium"
-                onClick={prevButtonHandler}
+                onClick={handlePrevButtonClick}
                 icon={<ChevronLeftRoundedIcon />}
               />
             </PrevButtonSC>
             <NextButtonSC>
               <IconButton
                 size="medium"
-                onClick={nextButtonHandler}
+                onClick={handleNextButtonClick}
                 icon={<ChevronRightRoundedIcon />}
               />
             </NextButtonSC>
