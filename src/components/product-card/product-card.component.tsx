@@ -25,13 +25,13 @@ const ProductCard: FC<ProductCardInterface> = ({
   const firstImgUrl = imgUrls[0];
   const imgUrl = adjustCloudinaryImgSize(firstImgUrl, MAX_IMG_SIZE);
 
-  const showDetailsHandler = () => {
+  const handleShowDetails = () => {
     navigate(`/product/${_id}`);
   };
 
   return (
     <>
-      <ProductCardSC onClick={showDetailsHandler}>
+      <ProductCardSC onClick={handleShowDetails}>
         <CardMediaContainerSC>
           <CardMediaSC image={imgUrl} title={name} />
         </CardMediaContainerSC>
