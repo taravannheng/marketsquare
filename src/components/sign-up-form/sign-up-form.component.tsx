@@ -6,7 +6,7 @@ import UsernameInput from "../username-input/username-input.component";
 import PasswordInput from "../password-input/password-input.component";
 import EmailInput from "../email-input/email-input.component";
 import Divider from "../divider/divider.component";
-import SignUpFormInterface from "./sign-up-form.interface";
+import SignUpFormProps from "./sign-up-form.interface";
 import {
   AlertContainerSC,
   InputContainerSC,
@@ -27,7 +27,7 @@ import Button from "../button/button.component";
 import { Box } from "@mui/material";
 import space from "../../styles/spacing";
 
-const SignUpForm: FC<SignUpFormInterface> = () => {
+const SignUpForm: FC<SignUpFormProps> = () => {
   const navigate = useNavigate();
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
