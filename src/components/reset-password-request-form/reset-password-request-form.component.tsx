@@ -41,7 +41,7 @@ const ResetPasswordRequestForm: FC<ResetPasswordRequestFormI> = () => {
     },
   });
 
-  const emailChangeHandler = async (event: any) => {
+  const handleEmailChange = async (event: any) => {
     const email = event.target.value;
 
     const { isValid, validityDetails } = checkEmail(email);
@@ -58,7 +58,7 @@ const ResetPasswordRequestForm: FC<ResetPasswordRequestFormI> = () => {
     });
   };
 
-  const formHandler = async (event: any) => {
+  const handleFormSubmit = async (event: any) => {
     event.preventDefault();
 
     setIsLoading(true);
@@ -110,7 +110,7 @@ const ResetPasswordRequestForm: FC<ResetPasswordRequestFormI> = () => {
   };
 
   return (
-    <FormSC onSubmit={formHandler}>
+    <FormSC onSubmit={handleFormSubmit}>
       <TitleSC variant="h1">{forgottenPassword ? 'Forgotten Password?' : 'Reset Password'}</TitleSC>
       <AlertContainerSC>
         {alertVisible && (
@@ -123,7 +123,7 @@ const ResetPasswordRequestForm: FC<ResetPasswordRequestFormI> = () => {
           </Alert>
         )}
       </AlertContainerSC>
-      <EmailInput email={email} onChange={emailChangeHandler} />
+      <EmailInput email={email} onChange={handleEmailChange} />
       <ButtonContainerSC>
         <Button actionType="submit" isLoading={isLoading} width="full" disabled={isLoading}>
           {isLoading ? "Sending Code" : "Send Code"}
