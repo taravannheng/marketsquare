@@ -158,7 +158,7 @@ const Header: FC<HeaderProps> = () => {
       id: "a7B3nR9k",
       text: "Sign Up",
       icon: <AccountCircle />,
-      clickHandler: () => {
+      handleClick: () => {
         navigate(ROUTES.SIGN_UP);
       },
     },
@@ -166,7 +166,7 @@ const Header: FC<HeaderProps> = () => {
       id: "a7B3nR9j",
       text: "Sign In",
       icon: <Login />,
-      clickHandler: () => {
+      handleClick: () => {
         navigate(ROUTES.SIGN_IN);
       },
     },
@@ -234,7 +234,7 @@ const Header: FC<HeaderProps> = () => {
         <Menu
           menuList={menuList}
           anchorEl={anchorEl}
-          handleClose={handleClose}
+          onClose={handleClose}
         />
       </AppBar>
       <DrawerSC anchor="right" open={isDrawerOpen} onClose={handleDrawerClose}>
