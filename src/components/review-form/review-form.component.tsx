@@ -395,7 +395,7 @@ const ReviewForm: FC<ReviewFormProps> = ({ productID, userReview }) => {
             Want to share your thoughts?{" "}
             <Button
               styleType="tertiary"
-              clickHandler={handleAddReview}
+              onClick={handleAddReview}
               underlineLabel
             >
               Add Review
@@ -424,7 +424,7 @@ const ReviewForm: FC<ReviewFormProps> = ({ productID, userReview }) => {
               />
               <Button
                 styleType="tertiary"
-                clickHandler={() => {
+                onClick={() => {
                   isLargeScreen
                     ? setShowDeleteReviewDialog(true)
                     : setIsDeleteReviewBottomSheetOpen(true);
@@ -459,7 +459,7 @@ const ReviewForm: FC<ReviewFormProps> = ({ productID, userReview }) => {
                     </RatingErrorTextSC>
                   )}
                   <FormCardRatingButtonContainerSC>
-                    <Button width="auto" clickHandler={handleRatingSubmit}>
+                    <Button width="auto" onClick={handleRatingSubmit}>
                       Next
                     </Button>
                   </FormCardRatingButtonContainerSC>
@@ -480,7 +480,7 @@ const ReviewForm: FC<ReviewFormProps> = ({ productID, userReview }) => {
                     <Button
                       styleType="secondary"
                       width="auto"
-                      clickHandler={() => {
+                      onClick={() => {
                         setShowReviewForm(false);
                       }}
                     >
@@ -488,7 +488,7 @@ const ReviewForm: FC<ReviewFormProps> = ({ productID, userReview }) => {
                     </Button>
                     <Button
                       width="auto"
-                      clickHandler={
+                      onClick={
                         userReview ? updateReviewHandler : addReviewHandler
                       }
                     >
@@ -531,7 +531,7 @@ const ReviewForm: FC<ReviewFormProps> = ({ productID, userReview }) => {
               <RatingErrorTextSC>Please select a rating</RatingErrorTextSC>
             )}
             <RatingButtonContainerSC>
-              <Button width="full" clickHandler={handleRatingSubmit}>
+              <Button width="full" onClick={handleRatingSubmit}>
                 Next
               </Button>
             </RatingButtonContainerSC>
@@ -544,13 +544,13 @@ const ReviewForm: FC<ReviewFormProps> = ({ productID, userReview }) => {
               </ReviewErrorTextSC>
             )}
             <ReviewButtonContainerSC>
-              <Button width="full" clickHandler={addReviewHandler}>
+              <Button width="full" onClick={addReviewHandler}>
                 Submit Review
               </Button>
               <Button
                 width="full"
                 styleType="secondary"
-                clickHandler={() => {
+                onClick={() => {
                   setShowReviewForm(false);
                 }}
               >
@@ -579,7 +579,7 @@ const ReviewForm: FC<ReviewFormProps> = ({ productID, userReview }) => {
               <RatingErrorTextSC>Please select a rating</RatingErrorTextSC>
             )}
             <RatingButtonContainerSC>
-              <Button width="full" clickHandler={handleRatingSubmit}>
+              <Button width="full" onClick={handleRatingSubmit}>
                 Next
               </Button>
             </RatingButtonContainerSC>
@@ -592,13 +592,13 @@ const ReviewForm: FC<ReviewFormProps> = ({ productID, userReview }) => {
               </ReviewErrorTextSC>
             )}
             <ReviewButtonContainerSC>
-              <Button width="full" clickHandler={updateReviewHandler}>
+              <Button width="full" onClick={updateReviewHandler}>
                 Update Review
               </Button>
               <Button
                 width="full"
                 styleType="secondary"
-                clickHandler={() => {
+                onClick={() => {
                   setShowReviewForm(false);
                 }}
               >
@@ -620,14 +620,14 @@ const ReviewForm: FC<ReviewFormProps> = ({ productID, userReview }) => {
           </DeletePromptSC>
           <Button
             styleType="primary"
-            clickHandler={deleteReviewHandler}
+            onClick={deleteReviewHandler}
             width="full"
           >
             Delete Review
           </Button>
           <Button
             styleType="secondary"
-            clickHandler={closeBottomSheet}
+            onClick={closeBottomSheet}
             width="full"
           >
             Cancel

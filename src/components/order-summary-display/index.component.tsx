@@ -32,7 +32,7 @@ const OrderSummaryDisplay: FC<OrderSummaryDisplayInterface> = ({
   return (
     <OrderSummaryDisplaySC>
       <BackNavSC>
-        <Button styleType="tertiary" icon={<ArrowBackRounded />} clickHandler={redirectToHomepage}>
+        <Button styleType="tertiary" icon={<ArrowBackRounded />} onClick={redirectToHomepage}>
           Home
         </Button>
       </BackNavSC>

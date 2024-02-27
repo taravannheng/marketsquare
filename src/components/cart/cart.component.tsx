@@ -137,7 +137,7 @@ const Cart: FC<CartProps> = () => {
                 </TotalTextSC>
               </TotalContainerSC>
               <Button
-                clickHandler={checkoutHandler}
+                onClick={checkoutHandler}
                 isLoading={checkoutButtonIsLoading}
                 width="full"
                 disabled={checkoutButtonIsLoading}

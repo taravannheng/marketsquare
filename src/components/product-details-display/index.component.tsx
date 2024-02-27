@@ -213,7 +213,7 @@ const ProductDetailsDisplay: FC<ProductDetailsDisplayInterface> = ({
             <Button
               styleType="tertiary"
               icon={<ArrowBackIosRounded />}
-              clickHandler={goBack}
+              onClick={goBack}
             >
               Back
             </Button>
@@ -269,7 +269,7 @@ const ProductDetailsDisplay: FC<ProductDetailsDisplayInterface> = ({
                 <AddToCartButtonSC>
                   <Button
                     styleType="primary"
-                    clickHandler={addToCartHandler}
+                    onClick={addToCartHandler}
                     width={buttonWidth}
                   >
                     {isAddedToCart ? "Added to Cart" : "Add to Cart"}
@@ -277,7 +277,7 @@ const ProductDetailsDisplay: FC<ProductDetailsDisplayInterface> = ({
                   {isBigScreen && (
                     <Button
                       styleType="secondary"
-                      clickHandler={wishlistHandler}
+                      onClick={wishlistHandler}
                       width={buttonWidth}
                     >
                       {isAddedToWishlist

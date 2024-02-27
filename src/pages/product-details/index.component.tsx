@@ -143,7 +143,7 @@ const ProductDetailsPage: FC = () => {
               <Button
                 styleType="tertiary"
                 icon={<ArrowBackIosRounded />}
-                clickHandler={redirectToHomepage}
+                onClick={redirectToHomepage}
               >
                 Back
               </Button>

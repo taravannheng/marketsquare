@@ -16,7 +16,7 @@ const Button: FC<ButtonProps> = ({
   actionType = "button",
   styleType = "primary",
   children,
-  clickHandler,
+  onClick,
   disabled = false,
   icon,
   iconPosition = "left",
@@ -35,7 +35,7 @@ const Button: FC<ButtonProps> = ({
       {styleType === "primary" && (
         <PrimaryButtonSC
           type={actionType}
-          onClick={clickHandler}
+          onClick={onClick}
           href={href}
           disabled={disabled}
           sx={{
@@ -61,7 +61,7 @@ const Button: FC<ButtonProps> = ({
       {styleType === "secondary" && (
         <SecondaryButtonSC
           type={actionType}
-          onClick={clickHandler}
+          onClick={onClick}
           href={href}
           disabled={disabled}
           onMouseEnter={() => setIsHovered(true)}
@@ -90,7 +90,7 @@ const Button: FC<ButtonProps> = ({
       {styleType === "tertiary" && (
         <TertiaryButtonSC
           type={actionType}
-          onClick={clickHandler}
+          onClick={onClick}
           href={href}
           disabled={disabled}
           onMouseEnter={() => setIsHovered(true)}

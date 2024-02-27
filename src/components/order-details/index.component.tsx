@@ -84,7 +84,7 @@ const OrderDetails: FC<OrderInterface> = ({
             </ShippingMethodSC>
           </ShippingSC>
           <ButtonContainerSC>
-            <Button clickHandler={redirectToHomepage}>Continue Shopping</Button>
+            <Button onClick={redirectToHomepage}>Continue Shopping</Button>
           </ButtonContainerSC>
         </ContentSC>
       )}

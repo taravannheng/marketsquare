@@ -204,7 +204,7 @@ const UpdatePasswordForm: FC<UpdatePasswordFormI> = () => {
 
       <ButtonContainerSC>
         <Button
-          clickHandler={formHandler}
+          onClick={formHandler}
           isLoading={isLoading}
           width="full"
           disabled={isLoading}
