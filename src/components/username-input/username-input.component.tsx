@@ -35,7 +35,7 @@ const UsernameInput: FC<UsernameInputInterface> = ({
   const tooltipMessage =
     "Username must be 4-20 characters and include only letters, numbers, or underscores.";
 
-  const focusHandler = () => {
+  const handleFocus = () => {
     if (!hasBeenFocused) {
       setHasBeenFocused(true);
     }
@@ -43,7 +43,7 @@ const UsernameInput: FC<UsernameInputInterface> = ({
     setIsFocus(true);
   };
 
-  const blurHandler = () => {
+  const handleBlur = () => {
     setIsFocus(false);
   };
 
@@ -67,8 +67,8 @@ const UsernameInput: FC<UsernameInputInterface> = ({
         id={id}
         name={name}
         onChange={onChange}
-        onFocus={focusHandler}
-        onBlur={blurHandler}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
         placeholder={placeholder}
         value={value}
         type="text"
