@@ -53,7 +53,7 @@ const PasswordInput: FC<PasswordInputInterface> = ({
 
   // ---
 
-  const focusHandler = () => {
+  const handleFocus = () => {
     if (!hasBeenFocused) {
       setHasBeenFocused(true);
     }
@@ -61,11 +61,11 @@ const PasswordInput: FC<PasswordInputInterface> = ({
     setIsFocus(true);
   };
 
-  const blurHandler = () => {
+  const handleBlur = () => {
     setIsFocus(false);
   };
 
-  const showPasswordHandler = () => {
+  const handleShowPassword = () => {
     setShowPassword(!showPassword);
   };
 
@@ -90,8 +90,8 @@ const PasswordInput: FC<PasswordInputInterface> = ({
           id={id}
           name={name}
           onChange={onChange}
-          onFocus={focusHandler}
-          onBlur={blurHandler}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
           placeholder={placeholder}
           value={value}
           type={showPassword ? "text" : "password"}
@@ -102,12 +102,12 @@ const PasswordInput: FC<PasswordInputInterface> = ({
           {showPassword ? (
             <Visibility
               sx={{ color: `${COLORS.NEUTRAL.N300}`, cursor: "pointer" }}
-              onClick={showPasswordHandler}
+              onClick={handleShowPassword}
             />
           ) : (
             <VisibilityOff
               sx={{ color: `${COLORS.NEUTRAL.N300}`, cursor: "pointer" }}
-              onClick={showPasswordHandler}
+              onClick={handleShowPassword}
             />
           )}
         </ShowPasswordIconSC>
