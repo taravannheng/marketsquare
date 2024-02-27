@@ -43,7 +43,7 @@ const Alert: FC<AlertProps> = ({
   const { icon, iconColor, textColor, backgroundColor, borderColor, severity } =
     alertConfigs[type] || alertConfigs.info;
 
-  const closeHandler = () => {
+  const handleClose = () => {
     setAlertVisible(false);
   };
 
@@ -53,7 +53,7 @@ const Alert: FC<AlertProps> = ({
         icon={React.cloneElement(icon, {
           sx: { color: `${iconColor} !important` },
         })}
-        onClose={hideCloseButton ? undefined : closeHandler}
+        onClose={hideCloseButton ? undefined : handleClose}
         severity={severity}
         role="alert"
         sx={{
