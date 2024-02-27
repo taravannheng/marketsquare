@@ -506,9 +506,9 @@ const ReviewForm: FC<ReviewFormProps> = ({ productID, userReview }) => {
         title="Delete Review"
         description="Are you sure you want to delete this review?"
         primaryButtonLabel="Delete Review"
-        primaryButtonHandler={deleteReviewHandler}
+        onClickPrimaryButton={deleteReviewHandler}
         secondaryButtonLabel="Cancel"
-        secondaryButtonHandler={() => setShowDeleteReviewDialog(false)}
+        onClickSecondaryButton={() => setShowDeleteReviewDialog(false)}
         open={showDeleteReviewDialog}
         isDeleteOperation
       />

@@ -15,10 +15,10 @@ const Dialog: FC<DialogProps> = ({
   title,
   description,
   primaryButtonLabel,
-  primaryButtonHandler,
+  onClickPrimaryButton,
   primaryHref,
   secondaryButtonLabel,
-  secondaryButtonHandler,
+  onClickSecondaryButton,
   open,
   isDeleteOperation,
   icon,
@@ -48,7 +48,7 @@ const Dialog: FC<DialogProps> = ({
         }}
       >
         <Button
-          onClick={primaryButtonHandler ? primaryButtonHandler : undefined}
+          onClick={onClickPrimaryButton ? onClickPrimaryButton : undefined}
           href={primaryHref ? primaryHref : undefined}
           width="full"
         >
@@ -57,7 +57,7 @@ const Dialog: FC<DialogProps> = ({
         {secondaryButtonLabel && (
           <Button
             styleType="tertiary"
-            onClick={secondaryButtonHandler}
+            onClick={onClickSecondaryButton}
             width="full"
           >
             {secondaryButtonLabel}

@@ -201,9 +201,9 @@ const WishlistItem: FC<WishlistInterface> = ({
         title="Remove from Wishlist?"
         description="Are you sure you want to remove this item from Wishlist?"
         primaryButtonLabel="Remove"
-        primaryButtonHandler={removeFromWishlistHandler}
+        onClickPrimaryButton={removeFromWishlistHandler}
         secondaryButtonLabel="Cancel"
-        secondaryButtonHandler={() => setShowDialog(false)}
+        onClickSecondaryButton={() => setShowDialog(false)}
         open={showDialog}
         icon={<FavoriteIcon />}
         isDeleteOperation

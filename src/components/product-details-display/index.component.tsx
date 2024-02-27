@@ -297,7 +297,7 @@ const ProductDetailsDisplay: FC<ProductDetailsDisplayInterface> = ({
         primaryButtonLabel="Sign In"
         primaryHref={ROUTES.SIGN_IN}
         secondaryButtonLabel="Cancel"
-        secondaryButtonHandler={() => setShowLoginDialog(false)}
+        onClickSecondaryButton={() => setShowLoginDialog(false)}
         open={showLoginDialog}
         icon={<FavoriteIcon />}
       />
