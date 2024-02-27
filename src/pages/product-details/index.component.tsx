@@ -59,7 +59,7 @@ const ProductDetailsPage: FC = () => {
     navigate(ROUTES.LANDING);
   };
 
-  const snackbarCloseHandler = () => {
+  const closeSnackbar = () => {
     setSnackbar({
       open: false,
       message: "",
@@ -158,7 +158,7 @@ const ProductDetailsPage: FC = () => {
       <SnackBar
         type={snackbar.type}
         message={snackbar.message}
-        onClose={snackbarCloseHandler}
+        onClose={closeSnackbar}
         open={snackbar.open}
       />
     </>
