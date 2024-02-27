@@ -74,7 +74,7 @@ const OrderListItem: FC<OrderListItemProps> = ({ order }) => {
     type: "info",
   });
 
-  const snackbarCloseHandler = () => {
+  const handleCloseSnackbar = () => {
     setSnackbar({
       open: false,
       message: "",
@@ -92,7 +92,7 @@ const OrderListItem: FC<OrderListItemProps> = ({ order }) => {
     <SnackBar
       type={snackbar.type}
       message={snackbar.message}
-      onClose={snackbarCloseHandler}
+      onClose={handleCloseSnackbar}
       open={snackbar.open}
     />
     </>
