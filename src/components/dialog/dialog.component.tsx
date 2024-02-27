@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { createPortal } from "react-dom";
 
 import DialogProps from "./dialog.interface";
 import {
@@ -23,7 +24,12 @@ const Dialog: FC<DialogProps> = ({
   isDeleteOperation,
   icon,
 }) => {
-  return (
+  const rootElement = document.getElementById('root');
+  if (!rootElement) {
+    return null; // or handle the error
+  }
+
+  return createPortal(
     <DialogSC open={open}>
       {icon && <IconSC>{icon}</IconSC>}
       <TitleSC>{title}</TitleSC>
@@ -64,7 +70,7 @@ const Dialog: FC<DialogProps> = ({
           </Button>
         )}
       </ButtonContainerSC>
-    </DialogSC>
+    </DialogSC>, rootElement
   );
 };
 
