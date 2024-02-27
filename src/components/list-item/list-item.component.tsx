@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import ListItemComponentInterface from "./list-item.interface";
+import ListItemComponentProps from "./list-item.interface";
 import {
   ListItemSC,
   ListItemButtonSC,
@@ -8,7 +8,7 @@ import {
   ListItemTextSC,
 } from "./list-item.styles";
 
-const ListItem: FC<ListItemComponentInterface> = ({
+const ListItem: FC<ListItemComponentProps> = ({
   text,
   icon,
   href,
