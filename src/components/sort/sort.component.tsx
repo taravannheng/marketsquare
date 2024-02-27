@@ -65,7 +65,7 @@ const Sort: FC<SortInterface> = ({ sortMenuItem, setSortMenuItem }) => {
     closeBottomSheet();
   };
 
-  const handleChange = (event: any) => {
+  const handleSortChange = (event: any) => {
     setSortMenuItem(event.target.value);
   };
 
@@ -97,7 +97,7 @@ const Sort: FC<SortInterface> = ({ sortMenuItem, setSortMenuItem }) => {
                 id="demo-simple-select"
                 value={sortMenuItem}
                 label="sort"
-                onChange={handleChange}
+                onChange={handleSortChange}
                 input={<BootstrapInput />}
               >
                 <MenuItemSC
