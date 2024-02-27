@@ -5,5 +5,5 @@ export default interface AvatarInterface {
   size?: "small" | "medium" | "large";
   src?: string;
   alt?: string;
-  clickHandler?: () => void;
+  onClick?: () => void;
 }

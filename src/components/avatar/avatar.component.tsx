@@ -17,11 +17,11 @@ const Avatar: FC<AvatarInterface> = ({
   size = "small",
   src,
   alt,
-  clickHandler,
+  onClick,
   children,
 }) => {
   const commonProps = {
-    onClick: clickHandler,
+    onClick: onClick,
     sx: {
       width: getSize(size),
       height: getSize(size),

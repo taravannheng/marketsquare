@@ -216,7 +216,7 @@ const Header: FC<HeaderProps> = () => {
             <AvatarContainerSC sx={{ marginLeft: isBigScreen ? `${space.m} !important` : `0` }}>
               <Avatar
                 src={user?.profileUrl}
-                clickHandler={handleDrawerOpen}
+                onClick={handleDrawerOpen}
                 size={isBigScreen ? "medium" : "small"}
               />
             </AvatarContainerSC>
