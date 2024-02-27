@@ -7,12 +7,12 @@ import {
   ReviewerSC,
   CommentSC,
 } from "./index.styles";
-import ReviewInterface from "./index.interface";
+import ReviewProps from "./index.interface";
 import Rating from "../rating/index.component";
 import SeeMoreText from "../see-more-text/see-more-text.component";
 import Avatar from "../avatar/avatar.component";
 
-const Review: FC<ReviewInterface> = ({
+const Review: FC<ReviewProps> = ({
   width,
   height,
   username,

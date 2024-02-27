@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-export default interface ReviewInterface {
+export default interface ReviewProps {
   children?: ReactNode;
   _id?: string;
   profileUrl: string | null;
