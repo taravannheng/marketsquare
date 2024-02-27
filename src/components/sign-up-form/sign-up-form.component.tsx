@@ -75,7 +75,7 @@ const SignUpForm: FC<SignUpFormInterface> = () => {
   });
   const [alertVisible, setAlertVisible] = useState<boolean>(false);
 
-  const usernameChangeHandler = (event: any) => {
+  const handleUsernameChange = (event: any) => {
     const username = event.target.value;
 
     const usernameStatus = checkUsername(username);
@@ -92,7 +92,7 @@ const SignUpForm: FC<SignUpFormInterface> = () => {
     });
   };
 
-  const emailChangeHandler = async (event: any) => {
+  const handleEmailChange = async (event: any) => {
     const email = event.target.value;
 
     const { isValid, validityDetails } = checkEmail(email);
@@ -109,7 +109,7 @@ const SignUpForm: FC<SignUpFormInterface> = () => {
     });
   };
 
-  const passwordChangeHandler = (event: any) => {
+  const handlePasswordChange = (event: any) => {
     const password = event.target.value;
 
     const passwordStatus = checkPassword(password);
@@ -137,7 +137,7 @@ const SignUpForm: FC<SignUpFormInterface> = () => {
     });
   };
 
-  const formHandler = async (event: any) => {
+  const handleFormSubmit = async (event: any) => {
     event.preventDefault();
 
     setIsLoading(true);
@@ -207,7 +207,7 @@ const SignUpForm: FC<SignUpFormInterface> = () => {
   }, [email.isValid]);
 
   return (
-    <SignUpFormSC onSubmit={formHandler}>
+    <SignUpFormSC onSubmit={handleFormSubmit}>
       <TitleSC variant="h1">Sign Up</TitleSC>
       <AlertContainerSC>
         {alertVisible && (
@@ -221,14 +221,14 @@ const SignUpForm: FC<SignUpFormInterface> = () => {
         )}
       </AlertContainerSC>
       <InputContainerSC>
-        <UsernameInput username={username} onChange={usernameChangeHandler} />
+        <UsernameInput username={username} onChange={handleUsernameChange} />
         <EmailInput
           email={email}
-          onChange={emailChangeHandler}
+          onChange={handleEmailChange}
           checkUniqueness={true}
           isUnique={isUniqueEmail}
         />
-        <PasswordInput password={password} onChange={passwordChangeHandler} />
+        <PasswordInput password={password} onChange={handlePasswordChange} />
       </InputContainerSC>
       <Box sx={{ marginTop: `${space.xl}`, marginBottom: `${space.l}` }}>
         <Button actionType="submit" width="full" isLoading={isLoading} disabled={isLoading}>
