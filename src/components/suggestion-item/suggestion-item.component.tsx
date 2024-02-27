@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { ListItemButton, ListItemText } from "@mui/material";
 
-import SuggestionItemInterface from "./suggestion-item.interface";
+import SuggestionItemProps from "./suggestion-item.interface";
 import {
   MediaAvatarSC,
   MediaSC,
@@ -10,7 +10,7 @@ import {
 } from "./suggestion-item.style";
 import COLORS from "../../styles/colors";
 
-const SuggestionItem: FC<SuggestionItemInterface> = ({ suggestion }) => {
+const SuggestionItem: FC<SuggestionItemProps> = ({ suggestion }) => {
   return (
     <SuggestionItemSC>
       <MediaSC sx={{ minWidth: "40px !important" }}>
