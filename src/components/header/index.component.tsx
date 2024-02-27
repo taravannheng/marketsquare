@@ -120,24 +120,24 @@ const Header: FC<HeaderProps> = () => {
     setIsDrawerOpen(false);
   };
 
-  const mobileDrawerOpenHandler = () => {
+  const handleOpenMobileDrawer = () => {
     setIsMobileDrawerOpen(true);
   };
 
-  const mobileDrawerCloseHandler = () => {
+  const handleCloseMobileDrawer = () => {
     setIsMobileDrawerOpen(false);
   };
 
-  const mobileSearchHandler = () => {
+  const handleMobileSearch = () => {
     setShowMobileSearch(prevState => !prevState);
   };
 
-  const signOutHandler = () => {
+  const handleSignOut = () => {
     // close drawer
     handleDrawerClose();
 
     // close mobile drawer
-    mobileDrawerCloseHandler();
+    handleCloseMobileDrawer();
 
     // remove jwt token
     Cookies.remove("jwt");
@@ -188,14 +188,14 @@ const Header: FC<HeaderProps> = () => {
           </Link>
           {isBigScreen && <BigSearchContainerSC><Search /></BigSearchContainerSC>}
           <ButtonContainerSC>
-            {!isBigScreen && <SearchIconSC onClick={mobileSearchHandler}>
+            {!isBigScreen && <SearchIconSC onClick={handleMobileSearch}>
               <SearchIcon />
             </SearchIconSC>}
             <Cart />
             {/* MENU ICON FOR MOBILE */}
             {!isBigScreen && _.isEmpty(user) && (
               <MenuIconSC
-                onClick={mobileDrawerOpenHandler}
+                onClick={handleOpenMobileDrawer}
                 sx={{
                   backgroundColor: `${COLORS.NEUTRAL.N0} !important`,
                   color: `${COLORS.NEUTRAL.N300} !important`,
@@ -224,7 +224,7 @@ const Header: FC<HeaderProps> = () => {
           </ButtonContainerSC>
         </ToolbarSC>
             {!isBigScreen && <SearchContainerSC>
-              <BackIconSC onClick={mobileSearchHandler}>
+              <BackIconSC onClick={handleMobileSearch}>
                 <ArrowBackIos />
               </BackIconSC>
               <Search />
@@ -248,7 +248,7 @@ const Header: FC<HeaderProps> = () => {
             <List items={listItems} />
           </DrawerBodySC>
           <DrawerBottomSC>
-            <SignOutSC onClick={signOutHandler}>Sign Out</SignOutSC>
+            <SignOutSC onClick={handleSignOut}>Sign Out</SignOutSC>
           </DrawerBottomSC>
         </DrawerContentSC>
       </DrawerSC>
@@ -256,7 +256,7 @@ const Header: FC<HeaderProps> = () => {
       <MobileDrawerSC
         anchor="right"
         open={isMobileDrawerOpen}
-        onClose={mobileDrawerCloseHandler}
+        onClose={handleCloseMobileDrawer}
       >
         <MobileDrawerContentSC>
           {!_.isEmpty(user) && (
@@ -290,7 +290,7 @@ const Header: FC<HeaderProps> = () => {
           {!_.isEmpty(user) && (
             <MobileDrawerBottomSC>
               <MobileSignOutContainerSC>
-                <SignOutSC onClick={signOutHandler}>Sign Out</SignOutSC>
+                <SignOutSC onClick={handleSignOut}>Sign Out</SignOutSC>
               </MobileSignOutContainerSC>
             </MobileDrawerBottomSC>
           )}
