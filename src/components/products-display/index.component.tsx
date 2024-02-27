@@ -26,7 +26,7 @@ import SlideShowItemInterface from "../../interfaces/slideshow-item.interface";
 import { SLIDESHOWIDS } from "../../utils/constants";
 import { getProductsPerPage } from "../../utils/helpers";
 import ProductCardSkeleton from "../product-card/product-card-skeleton.component";
-import { COLORS, BREAKPOINTS, space } from '../../styles/styles';
+import { COLORS, BREAKPOINTS, space } from "../../styles/styles";
 import { selectUser } from "../../store/user/user.selector";
 import { selectWishlists } from "../../store/wishlist/wishlist.selector";
 import { getWishlistsByUserID } from "../../apis/wishlists/wishlists.api";
@@ -41,7 +41,7 @@ const theme = createTheme({
 });
 
 const ProductsDisplay: FC<ProductsDisplayInterface> = ({ title, products }) => {
-  const token = Cookies.get('jwt');
+  const token = Cookies.get("jwt");
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
   const wishlists = useSelector(selectWishlists);
@@ -59,14 +59,14 @@ const ProductsDisplay: FC<ProductsDisplayInterface> = ({ title, products }) => {
     ProductInterface[]
   >([]);
   const skeletonProducts = [
-    {_id: 'product-skeleton-1'},
-    {_id: 'product-skeleton-2'},
-    {_id: 'product-skeleton-3'},
-    {_id: 'product-skeleton-4'},
-    {_id: 'product-skeleton-5'},
-    {_id: 'product-skeleton-6'},
-    {_id: 'product-skeleton-7'},
-    {_id: 'product-skeleton-8'},
+    { _id: "product-skeleton-1" },
+    { _id: "product-skeleton-2" },
+    { _id: "product-skeleton-3" },
+    { _id: "product-skeleton-4" },
+    { _id: "product-skeleton-5" },
+    { _id: "product-skeleton-6" },
+    { _id: "product-skeleton-7" },
+    { _id: "product-skeleton-8" },
   ];
   const isLargeScreen = useMediaQuery(`(min-width: ${BREAKPOINTS.lg}px)`);
 
@@ -76,7 +76,7 @@ const ProductsDisplay: FC<ProductsDisplayInterface> = ({ title, products }) => {
     }
   }, [products]);
 
-  const pageChangeHandler = (event: any, value: number) => {
+  const handlePageChange = (event: any, value: number) => {
     setCurrentPage(value);
   };
 
@@ -100,19 +100,17 @@ const ProductsDisplay: FC<ProductsDisplayInterface> = ({ title, products }) => {
         const userWishlists = response.data ?? [];
 
         // update state
-        dispatch(
-          {
-            type: WISHLIST_ACTION_TYPES.ADD_WISHLISTS,
-            payload: userWishlists,
-          }
-        );
+        dispatch({
+          type: WISHLIST_ACTION_TYPES.ADD_WISHLISTS,
+          payload: userWishlists,
+        });
       } catch (error: any) {
         console.log(error);
       }
-    }
+    };
 
     if (token && user?._id) {
-        fetchWishlists();
+      fetchWishlists();
     }
   }, [user?._id]);
 
@@ -155,7 +153,7 @@ const ProductsDisplay: FC<ProductsDisplayInterface> = ({ title, products }) => {
           data={!_.isEmpty(slideshow) ? slideshow : []}
           autoSlide
           redirectOnClick
-          aspectRatio={isLargeScreen ? '21:9' : '16:9'}
+          aspectRatio={isLargeScreen ? "21:9" : "16:9"}
         />
       </SlideShowContainerSC>
       <TitleContainerSC>
@@ -164,9 +162,17 @@ const ProductsDisplay: FC<ProductsDisplayInterface> = ({ title, products }) => {
         )}
         <Sort sortMenuItem={sortMenuItem} setSortMenuItem={setSortMenuItem} />
       </TitleContainerSC>
-      {(
+      {
         <ThemeProvider theme={theme}>
-          <Grid container spacing={3} sx={{ paddingLeft: `${space.l}`, paddingRight: `${space.l}`, marginBottom: "40px" }}>
+          <Grid
+            container
+            spacing={3}
+            sx={{
+              paddingLeft: `${space.l}`,
+              paddingRight: `${space.l}`,
+              marginBottom: "40px",
+            }}
+          >
             {!_.isEmpty(products) &&
               displayedProducts.map(
                 (product: ProductInterface, index: number) => {
@@ -183,23 +189,22 @@ const ProductsDisplay: FC<ProductsDisplayInterface> = ({ title, products }) => {
                   );
                 }
               )}
-              {/* GENERATE SKELETONS */}
-              {_.isEmpty(products) && loading &&
-              skeletonProducts.map(
-                (product, index: number) => {
-                  return (
-                    <Grid
-                      item
-                      xs={6}
-                      lg={4}
-                      xl={3}
-                      key={`product-${product._id}`}
-                    >
-                      <ProductCardSkeleton />
-                    </Grid>
-                  );
-                }
-              )}
+            {/* GENERATE SKELETONS */}
+            {_.isEmpty(products) &&
+              loading &&
+              skeletonProducts.map((product, index: number) => {
+                return (
+                  <Grid
+                    item
+                    xs={6}
+                    lg={4}
+                    xl={3}
+                    key={`product-${product._id}`}
+                  >
+                    <ProductCardSkeleton />
+                  </Grid>
+                );
+              })}
           </Grid>
           {!_.isEmpty(products) && totalPages > 1 && (
             <PaginationStackSC>
@@ -207,12 +212,12 @@ const ProductsDisplay: FC<ProductsDisplayInterface> = ({ title, products }) => {
                 count={totalPages}
                 color="primary"
                 page={currentPage}
-                onChange={pageChangeHandler}
+                onChange={handlePageChange}
               />
             </PaginationStackSC>
           )}
         </ThemeProvider>
-      )}
+      }
 
       {_.isEmpty(products) && !loading && (
         <ProductsDisplayEmptyTextSC variant="body1">

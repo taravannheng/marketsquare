@@ -83,7 +83,7 @@ const ProductDetailsDisplay: FC<ProductDetailsDisplayInterface> = ({
     navigate(-1);
   };
 
-  const wishlistHandler = async (e: any) => {
+  const handleWishlist = async (e: any) => {
     e.stopPropagation();
 
     // check if session is expired
@@ -148,7 +148,7 @@ const ProductDetailsDisplay: FC<ProductDetailsDisplayInterface> = ({
     }
   };
 
-  const addToCartHandler = () => {
+  const handleAddToCart = () => {
     setIsAddedToCart((prevState) => !prevState);
 
     if (!isAddedToCart) {
@@ -170,7 +170,7 @@ const ProductDetailsDisplay: FC<ProductDetailsDisplayInterface> = ({
     }
   };
 
-  const snackbarCloseHandler = () => {
+  const handleCloseSnackbar = () => {
     setSnackbar({
       open: false,
       message: "",
@@ -227,7 +227,7 @@ const ProductDetailsDisplay: FC<ProductDetailsDisplayInterface> = ({
                 <ProductNameContainerSC>
                   <ProductNameSC>{product.name}</ProductNameSC>
                   {!isBigScreen && (
-                    <WishlistIconContainerSC onClick={wishlistHandler}>
+                    <WishlistIconContainerSC onClick={handleWishlist}>
                       <WishlistBorderIconSC
                         sx={{
                           transform: `${
@@ -269,7 +269,7 @@ const ProductDetailsDisplay: FC<ProductDetailsDisplayInterface> = ({
                 <AddToCartButtonSC>
                   <Button
                     styleType="primary"
-                    onClick={addToCartHandler}
+                    onClick={handleAddToCart}
                     width={buttonWidth}
                   >
                     {isAddedToCart ? "Added to Cart" : "Add to Cart"}
@@ -277,7 +277,7 @@ const ProductDetailsDisplay: FC<ProductDetailsDisplayInterface> = ({
                   {isBigScreen && (
                     <Button
                       styleType="secondary"
-                      onClick={wishlistHandler}
+                      onClick={handleWishlist}
                       width={buttonWidth}
                     >
                       {isAddedToWishlist
@@ -304,7 +304,7 @@ const ProductDetailsDisplay: FC<ProductDetailsDisplayInterface> = ({
       <SnackBar
         type={snackbar.type}
         message={snackbar.message}
-        onClose={snackbarCloseHandler}
+        onClose={handleCloseSnackbar}
         open={snackbar.open}
       />
     </>
