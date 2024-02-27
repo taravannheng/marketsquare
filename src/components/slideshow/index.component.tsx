@@ -197,14 +197,14 @@ const SlideShow: FC<SlideShowInterface> = ({
             <PrevButtonSC>
               <IconButton
                 size="medium"
-                clickHandler={prevButtonHandler}
+                onClick={prevButtonHandler}
                 icon={<ChevronLeftRoundedIcon />}
               />
             </PrevButtonSC>
             <NextButtonSC>
               <IconButton
                 size="medium"
-                clickHandler={nextButtonHandler}
+                onClick={nextButtonHandler}
                 icon={<ChevronRightRoundedIcon />}
               />
             </NextButtonSC>

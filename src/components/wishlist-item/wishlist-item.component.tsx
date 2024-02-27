@@ -169,13 +169,13 @@ const WishlistItem: FC<WishlistInterface> = ({
           <ActionsSC>
             <IconButton
               icon={<DeleteIcon />}
-              clickHandler={deleteHandler}
+              onClick={deleteHandler}
               isDestructive
             />
             <CartIconButtonContainerSC>
               <IconButton
                 icon={<AddShoppingCartIcon />}
-                clickHandler={addToCartHandler}
+                onClick={addToCartHandler}
                 sx={{
                   transform: `${
                     isAddedToCart ? "translateY(-100%)" : "translateY(0%)"
@@ -185,7 +185,7 @@ const WishlistItem: FC<WishlistInterface> = ({
               />
               <IconButton
                 icon={<RemoveShoppingCartIcon />}
-                clickHandler={addToCartHandler}
+                onClick={addToCartHandler}
                 sx={{
                   transform: `${
                     isAddedToCart ? "translateY(-100%)" : "translateY(0%)"

@@ -7,7 +7,7 @@ import { COLORS } from "../../styles/styles";
 
 const IconButton: FC<IconButtonProps> = ({
   icon,
-  clickHandler,
+  onClick,
   size = "large",
   isDestructive = false,
   sx,
@@ -35,7 +35,7 @@ const IconButton: FC<IconButtonProps> = ({
 
   return (
     <IconButtonSC
-      onClick={clickHandler}
+      onClick={onClick}
       sx={{
         ...sx,
         width,
