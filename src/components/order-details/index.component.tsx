@@ -22,12 +22,12 @@ import {
   ShippingSC,
   ShippingTitleSC,
 } from "./index.style";
-import OrderInterface from "../../interfaces/order.interface";
+import OrderDetailsProps from "../../interfaces/order.interface";
 import { getCardLogo } from "../../utils/helpers";
 import { ROUTES } from "../../utils/constants";
 import Button from "../button/button.component";
 
-const OrderDetails: FC<OrderInterface> = ({
+const OrderDetails: FC<OrderDetailsProps> = ({
   orderID,
   customer,
   payment,
