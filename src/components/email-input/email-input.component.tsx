@@ -34,7 +34,7 @@ const EmailInput: FC<EmailInputProps> = ({
   const errorMessage = 'Please enter a valid email!';
   const tooltipMessage = 'Email should have the following format: username@example.com';
 
-  const focusHandler = () => {
+  const handleFocus = () => {
     if (!hasBeenFocused) {
       setHasBeenFocused(true);
     }
@@ -42,7 +42,7 @@ const EmailInput: FC<EmailInputProps> = ({
     setIsFocus(true);
   };
 
-  const blurHandler = () => {
+  const handleBlur = () => {
     setIsFocus(false);
   };
 
@@ -66,8 +66,8 @@ const EmailInput: FC<EmailInputProps> = ({
         id={id}
         name={name}
         onChange={onChange}
-        onFocus={focusHandler}
-        onBlur={blurHandler}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
         placeholder={placeholder}
         value={value}
         type="email"
