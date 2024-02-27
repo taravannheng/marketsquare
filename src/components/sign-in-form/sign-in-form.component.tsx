@@ -8,7 +8,7 @@ import { Box } from "@mui/material";
 import PasswordInput from "../password-input/password-input.component";
 import EmailInput from "../email-input/email-input.component";
 import Divider from "../divider/divider.component";
-import SignInFormInterface from "./sign-in-form.interface";
+import SignInFormProps from "./sign-in-form.interface";
 import {
   AlertContainerSC,
   SignUpSC,
@@ -27,7 +27,7 @@ import Alert from "../alert/alert.component";
 import Button from "../button/button.component";
 import space from "../../styles/spacing";
 
-const SignInForm: FC<SignInFormInterface> = () => {
+const SignInForm: FC<SignInFormProps> = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const params = new URLSearchParams(location.search);
