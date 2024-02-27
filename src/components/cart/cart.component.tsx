@@ -56,7 +56,7 @@ const Cart: FC<CartProps> = () => {
   });
   const [alertVisible, setAlertVisible] = useState<boolean>(false);
 
-  const checkoutHandler = async () => {
+  const handleCheckout = async () => {
     try {
       // hide alert if it's visible
       if (alertVisible) {
@@ -137,7 +137,7 @@ const Cart: FC<CartProps> = () => {
                 </TotalTextSC>
               </TotalContainerSC>
               <Button
-                onClick={checkoutHandler}
+                onClick={handleCheckout}
                 isLoading={checkoutButtonIsLoading}
                 width="full"
                 disabled={checkoutButtonIsLoading}
