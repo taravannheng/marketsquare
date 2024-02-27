@@ -2,10 +2,10 @@ import { FC, useState } from "react";
 import { Icon } from "@mui/material";
 import { StarRounded, StarOutlineRounded } from "@mui/icons-material";
 
-import RatingInterface from "./index.interface";
+import RatingProps from "./index.interface";
 import { LabelSC, RatingSC, StarsSC, ShortRatingSC, ShortRatingLabelSC, ShortRatingNumberSC, ShortRatingIconSC } from "./index.styles";
 
-const Rating: FC<RatingInterface> = ({
+const Rating: FC<RatingProps> = ({
   type = "long",
   showLabel = true,
   rating = 0,
