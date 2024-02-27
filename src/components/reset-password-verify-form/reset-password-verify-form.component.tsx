@@ -37,7 +37,7 @@ const ResetPasswordVerifyForm: FC<ResetPasswordVerifyFormI> = () => {
   });
   const [alertVisible, setAlertVisible] = useState<boolean>(true);
 
-  const formHandler = async () => {
+  const handleFormSubmit = async () => {
     setIsLoading(true);
 
     // convert the four digits to number
@@ -97,7 +97,7 @@ const ResetPasswordVerifyForm: FC<ResetPasswordVerifyFormI> = () => {
     setIsLoading(false);
   };
 
-  const digitChangeHandler = (index: number, value: string) => {
+  const handleChangeDigit = (index: number, value: string) => {
     setFourDigits((prevValues) => {
       const newValues = [...prevValues];
       newValues[index] = value;
@@ -136,12 +136,12 @@ const ResetPasswordVerifyForm: FC<ResetPasswordVerifyFormI> = () => {
       </AlertContainerSC>
       <FourDigitInput
         values={fourDigits}
-        onChange={digitChangeHandler}
+        onChange={handleChangeDigit}
         refs={refs}
       />
       <ButtonContainerSC>
         <Button
-          onClick={formHandler}
+          onClick={handleFormSubmit}
           isLoading={isLoading}
           width="full"
           disabled={isLoading}
