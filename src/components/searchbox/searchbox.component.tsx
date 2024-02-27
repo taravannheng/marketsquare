@@ -2,7 +2,7 @@ import { FC } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import ClearIcon from "@mui/icons-material/Clear";
 
-import SearchBoxInterface from "./searchbox.interface";
+import SearchBoxProps from "./searchbox.interface";
 import {
   ClearIconSC,
   SearchIconSC,
@@ -11,7 +11,7 @@ import {
 } from "./searchbox.style";
 import _ from "lodash";
 
-const SearchBox: FC<SearchBoxInterface> = ({ searchTerm, setSearchTerm }) => {
+const SearchBox: FC<SearchBoxProps> = ({ searchTerm, setSearchTerm }) => {
   const handleSearchTermChange = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
