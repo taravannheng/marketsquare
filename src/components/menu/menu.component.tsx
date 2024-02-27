@@ -1,10 +1,10 @@
 import { FC } from "react";
 import _ from "lodash";
 
-import MenuInterface from "./menu.interface";
+import MenuProps from "./menu.interface";
 import { MenuSC, MenuItemSC } from "./menu.style.js";
 
-const Menu: FC<MenuInterface> = ({ anchorEl, handleClose, menuList }) => {
+const Menu: FC<MenuProps> = ({ anchorEl, handleClose, menuList }) => {
   return (
     <MenuSC anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleClose}>
       {menuList.map((menuItem, index) => {

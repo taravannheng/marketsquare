@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-export default interface MenuInterface {
+export default interface MenuProps {
   children?: ReactNode;
   anchorEl: null | HTMLElement;
   handleClose: () => void;
