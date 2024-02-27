@@ -124,7 +124,7 @@ const Cart: FC<CartProps> = () => {
                 <CartItem
                   item={item}
                   key={`cart-item-${item._id}`}
-                  closeCartHandler={handleDrawerClose}
+                  onCloseCart={handleDrawerClose}
                 />
               );
             })}

@@ -20,7 +20,7 @@ import {
 import { selectCart } from "../../store/cart/cart.selector";
 import CART_ACTION_TYPES from "../../store/cart/cart.types";
 
-const CartItem: FC<CartItemProps> = ({ item, closeCartHandler }) => {
+const CartItem: FC<CartItemProps> = ({ item, onCloseCart }) => {
   const { INCREASE_QUANTITY, DECREASE_QUANTITY, REMOVE_FROM_CART } = CART_ACTION_TYPES;
   const cart = useSelector(selectCart);
   const dispatch = useDispatch();
@@ -48,7 +48,7 @@ const CartItem: FC<CartItemProps> = ({ item, closeCartHandler }) => {
   const removeItem = () => {
     if (cart.length === 1) {
       setTimeout(() => {
-        closeCartHandler();
+        onCloseCart();
       }, 300);
     }
 
