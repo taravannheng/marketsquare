@@ -12,13 +12,13 @@ import {
 import _ from "lodash";
 
 const SearchBox: FC<SearchBoxInterface> = ({ searchTerm, setSearchTerm }) => {
-  const handleSearchTermChange = (
+  const handleChangeSearchTerm = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     setSearchTerm(event.target.value);
   };
 
-  const clearSearchTermHandler = () => {
+  const handleClearSearchTerm = () => {
     setSearchTerm("");
   };
 
@@ -34,10 +34,10 @@ const SearchBox: FC<SearchBoxInterface> = ({ searchTerm, setSearchTerm }) => {
         variant="filled"
         value={searchTerm}
         placeholder="Search products..."
-        onChange={handleSearchTermChange}
+        onChange={handleChangeSearchTerm}
       />
       {!_.isEmpty(searchTerm) && (
-        <ClearIconSC onClick={clearSearchTermHandler}>
+        <ClearIconSC onClick={handleClearSearchTerm}>
           <ClearIcon />
         </ClearIconSC>
       )}
