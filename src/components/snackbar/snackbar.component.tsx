@@ -3,7 +3,7 @@ import _ from "lodash";
 import CloseIcon from "@mui/icons-material/Close";
 import { IconButton, ThemeProvider, createTheme } from "@mui/material";
 
-import SnackbarInterface from "./snackbar.interface";
+import SnackbarProps from "./snackbar.interface";
 import { SnackbarSC, UndoButtonSC } from "./snackbar.style";
 import COLORS from "../../styles/colors";
 
@@ -21,7 +21,7 @@ const theme = createTheme({
   },
 });
 
-const SnackBar: FC<SnackbarInterface> = ({
+const SnackBar: FC<SnackbarProps> = ({
   onClose,
   open,
   type,
