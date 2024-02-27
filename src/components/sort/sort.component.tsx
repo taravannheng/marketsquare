@@ -14,7 +14,7 @@ import {
 import { BottomSheet } from "react-spring-bottom-sheet";
 import "react-spring-bottom-sheet/dist/style.css";
 
-import SortInterface from "./sort.interface";
+import SortProps from "./sort.interface";
 import {
   BottomSheetMenuItemSC,
   BottomSheetMenuListSC,
@@ -55,7 +55,7 @@ const BootstrapInput = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-const Sort: FC<SortInterface> = ({ sortMenuItem, setSortMenuItem }) => {
+const Sort: FC<SortProps> = ({ sortMenuItem, setSortMenuItem }) => {
   const isLargeScreen = useMediaQuery(`(min-width: ${BREAKPOINTS.sm}px)`);
   const label = isLargeScreen ? "Sort by: " : "Sort";
   const [isBottomSheetOpen, setIsBottomSheetOpen] = useState(false);
