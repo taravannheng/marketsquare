@@ -1,4 +1,7 @@
 import { FC, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+
+// 3rd-party dependencies imports
 import {
   AppBar,
   useMediaQuery,
@@ -10,11 +13,27 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from '@mui/icons-material/Search';
 import { AccountCircle, ArrowBackIos, Login } from "@mui/icons-material";
-import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import _ from "lodash";
 import Cookies from "js-cookie";
 
+// component imports
+import Cart from "../cart/cart.component";
+// import NavigationMenu from "../navigation-menu/index.component";   DISABLE MENU TEMPORARILY
+import Search from "../search/search.component";
+import Avatar from "../avatar/avatar.component";
+import Menu from "../../components/menu/menu.component";
+import AuthBlock from "../auth-block/auth-block.component";
+import List from "../list/list.component";
+
+// props or interfaces imports
+import HeaderProps from "./index.interface";
+
+// state management imports
+import { selectUser } from "../../store/user/user.selector";
+import WISHLIST_ACTION_TYPES from "../../store/wishlist/wishlist.types";
+
+// styling imports
 import {
   ToolbarPlaceholderSC,
   ToolbarSC,
@@ -42,23 +61,13 @@ import {
   SearchIconSC,
   BigSearchContainerSC,
 } from "./index.styles";
+import { COLORS, space } from "../../styles/styles";
 
-import Cart from "../cart/cart.component";
-// import NavigationMenu from "../navigation-menu/index.component";   DISABLE MENU TEMPORARILY
-import Search from "../search/search.component";
-import Avatar from "../avatar/avatar.component";
-import Menu from "../../components/menu/menu.component";
-import AuthBlock from "../auth-block/auth-block.component";
-import List from "../list/list.component";
-
-import HeaderProps from "./index.interface";
+// constants or helper function imports
 // import navMenuList from "../../sample/navigation-menu/navigationMenuSample"; DISABLE MENU TEMPORARILY
 // import menuListSample from "../../sample/menu/menu"; DISABLE MENU TEMPORARILY
+// import listSample from "../../sample/list/list.sample";
 import { LOGO_URLS, ROUTES } from "../../utils/constants";
-import { selectUser } from "../../store/user/user.selector";
-import { COLORS, space } from "../../styles/styles";
-import WISHLIST_ACTION_TYPES from "../../store/wishlist/wishlist.types";
-import listSample from "../../sample/list/list.sample";
 
 const Header: FC<HeaderProps> = () => {
   const [showMobileSearch, setShowMobileSearch] = useState(false);
