@@ -1,7 +1,12 @@
 import { FC } from "react";
+
+// 3rd-party dependencies imports
 import _ from "lodash";
 
+// props or interfaces imports
 import MenuInterface from "./menu.interface";
+
+// styling imports
 import { MenuSC, MenuItemSC } from "./menu.style.js";
 
 const Menu: FC<MenuInterface> = ({ anchorEl, handleClose, menuList }) => {
