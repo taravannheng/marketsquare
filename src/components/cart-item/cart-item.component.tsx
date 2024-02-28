@@ -1,9 +1,16 @@
 import { FC } from "react";
+
+// 3rd-party dependencies imports
 import { Add, Remove, Delete } from "@mui/icons-material";
 import { useSelector, useDispatch } from "react-redux";
 
+// props or interfaces imports
 import CartItemProps from "./cart-item.interface";
+
+// constants or helper functions imports
 import { adjustCloudinaryImgSize, formatPrice } from "../../utils/helpers";
+
+// styling imports
 import {
   CartItemRootSC,
   CartItemImageSC,
@@ -17,6 +24,8 @@ import {
   RemoveButtonSC,
   ControlContainerSC,
 } from "./cart-item.styles";
+
+// state management imports
 import { selectCart } from "../../store/cart/cart.selector";
 import CART_ACTION_TYPES from "../../store/cart/cart.types";
 
