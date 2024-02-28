@@ -1,9 +1,14 @@
 import { FC } from "react";
+
+// 3rd-party dependencies imports
 import { Grid, Link } from "@mui/material";
 import { ExpandCircleDown } from "@mui/icons-material";
 import _ from "lodash";
 
+// props or interfaces imports
 import FooterProps from "./index.interface";
+
+// styling imports
 import {
   FooterSC,
   SmallFooterSC,
@@ -27,12 +32,16 @@ import {
   UtilityLinkAccordionContainerSC,
   SiteDescriptionSC,
 } from "./index.styles";
+
+// constants or helper function imports
+import { LOGO_URLS, ROUTES } from "../../utils/constants";
+
+// asset imports
 import FacebookLogo from "../../assets/socials/social-facebook.png";
 import InstagramLogo from "../../assets/socials/social-instagram.png";
 import LinkedinLogo from "../../assets/socials/social-linkedin.png";
 import TwitterLogo from "../../assets/socials/social-twitter.png";
 import YoutubeLogo from "../../assets/socials/social-youtube.png";
-import { LOGO_URLS, ROUTES } from "../../utils/constants";
 
 const Footer: FC<FooterProps> = ({ footerItems }) => {
   const isEmptyFooterItems = footerItems && footerItems.length === 0;
