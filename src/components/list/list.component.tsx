@@ -1,9 +1,14 @@
 import { FC } from "react";
 
+// component imports
 import ListItem from "../list-item/list-item.component";
-import { ListContainerSC, ListSC, StackSC } from "./list.styles";
+
+// props or interfaces imports
 import ListComponentInterface from "./list.interface";
 import ListItemInterface from "../../interfaces/list-item.interface";
+
+// styling imports
+import { ListContainerSC, ListSC, StackSC } from "./list.styles";
 
 const List: FC<ListComponentInterface> = ({ items }) => {
   return (
