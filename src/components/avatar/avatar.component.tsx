@@ -1,6 +1,9 @@
 import { FC } from "react";
 
+// props or interfaces imports
 import AvatarInterface from "./avatar.interface";
+
+// styling imports
 import { AvatarSC } from "./avatar.style";
 
 const getSize = (size: string): string => {
