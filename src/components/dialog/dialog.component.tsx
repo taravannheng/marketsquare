@@ -1,6 +1,12 @@
 import { FC } from "react";
 
+// component imports
+import Button from "../button/button.component";
+
+// props or interfaces imports
 import DialogProps from "./dialog.interface";
+
+// styling imports
 import {
   ButtonContainerSC,
   DescriptionSC,
@@ -8,7 +14,6 @@ import {
   IconSC,
   TitleSC,
 } from "./dialog.styles";
-import Button from "../button/button.component";
 import { COLORS } from "../../styles/styles";
 
 const Dialog: FC<DialogProps> = ({
