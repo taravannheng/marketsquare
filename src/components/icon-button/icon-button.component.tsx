@@ -1,9 +1,12 @@
 import { FC } from "react";
 
-import { IconButtonSC } from "./icon-button.styles";
+// props or interfaces imports
 import IconButtonProps from "./icon-button.interface";
 
+// styling imports
+import { IconButtonSC } from "./icon-button.styles";
 import { COLORS } from "../../styles/styles";
+
 
 const IconButton: FC<IconButtonProps> = ({
   icon,
