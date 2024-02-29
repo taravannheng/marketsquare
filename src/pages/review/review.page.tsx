@@ -1,16 +1,22 @@
-import { FC, useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { FC, useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
+// 3rd-party dependencies imports
+import { useSelector } from "react-redux";
 
-import { PageSC } from './review.styles';
+// component imports
+import Header from "../../components/header/index.component";
+import ReviewListDisplay from "../../components/review-list-display/review-list-display.component";
+import SnackBar from "../../components/snackbar/snackbar.component";
 
-import Header from '../../components/header/index.component';
-import ReviewListDisplay from '../../components/review-list-display/review-list-display.component';
-import SnackBar from '../../components/snackbar/snackbar.component';
+// state management imports
+import { selectUser } from "../../store/user/user.selector";
 
-import { ROUTES } from '../../utils/constants';
-import { useSelector } from 'react-redux';
-import { selectUser } from '../../store/user/user.selector';
+// styling imports
+import { PageSC } from "./review.styles";
+
+// constants or helper functions imports
+import { ROUTES } from "../../utils/constants";
 
 const ReviewPage: FC = () => {
   const user = useSelector(selectUser);
@@ -51,19 +57,18 @@ const ReviewPage: FC = () => {
 
   return (
     <>
-    <PageSC>
-      <Header />
-      <ReviewListDisplay />
-    </PageSC>
+      <PageSC>
+        <Header />
+        <ReviewListDisplay />
+      </PageSC>
       <SnackBar
-          type={snackbar.type}
-          message={snackbar.message}
-          onClose={snackbarCloseHandler}
-          open={snackbar.open}
-        />
+        type={snackbar.type}
+        message={snackbar.message}
+        onClose={snackbarCloseHandler}
+        open={snackbar.open}
+      />
     </>
-    
-  )
-}
+  );
+};
 
 export default ReviewPage;
