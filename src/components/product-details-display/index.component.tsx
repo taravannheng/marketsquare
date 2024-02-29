@@ -1,19 +1,40 @@
 import { FC, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+
+// 3rd-party dependencies imports
 import { useMediaQuery } from "@mui/material";
-import { useSelector, useDispatch } from "react-redux";
 import { ArrowBackIosRounded } from "@mui/icons-material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import { useSelector, useDispatch } from "react-redux";
 import _ from "lodash";
 import Cookies from "js-cookie";
 
+// component imports
 import SlideShow from "../slideshow/index.component";
 import SeeMoreText from "../see-more-text/see-more-text.component";
 import Rating from "../rating/index.component";
 import Button from "../button/button.component";
+import Dialog from "../dialog/dialog.component";
+import SnackBar from "../snackbar/snackbar.component";
+
+// api imports
+import {
+  createWishlist,
+  updateWishlist,
+} from "../../apis/wishlists/wishlists.api";
+
+// state management imports
+import { selectCart } from "../../store/cart/cart.selector";
+import { selectUser } from "../../store/user/user.selector";
+import { selectWishlist } from "../../store/wishlist/wishlist.selector";
+import WISHLIST_ACTION_TYPES from "../../store/wishlist/wishlist.types";
+
+// props or interfaces imports
 import ProductDetailsDisplayInterface from "./index.interface";
 import ProductInterface from "../../interfaces/product-interface";
+
+// styling imports
 import {
   BackNavSC,
   BodySC,
@@ -30,19 +51,11 @@ import {
   WishlistBorderIconSC,
   WishlistFilledIconSC,
 } from "./index.styles";
-import { adjustCloudinaryImgSize, formatPrice } from "../../utils/helpers";
-import { selectCart } from "../../store/cart/cart.selector";
-import { selectUser } from "../../store/user/user.selector";
-import { selectWishlist } from "../../store/wishlist/wishlist.selector";
-import {
-  createWishlist,
-  updateWishlist,
-} from "../../apis/wishlists/wishlists.api";
 import { COLORS, BREAKPOINTS } from "../../styles/styles";
-import Dialog from "../dialog/dialog.component";
+
+// constants or helper function imports
+import { adjustCloudinaryImgSize, formatPrice } from "../../utils/helpers";
 import { ROUTES } from "../../utils/constants";
-import WISHLIST_ACTION_TYPES from "../../store/wishlist/wishlist.types";
-import SnackBar from "../snackbar/snackbar.component";
 
 const ProductDetailsDisplay: FC<ProductDetailsDisplayInterface> = ({
   product,
