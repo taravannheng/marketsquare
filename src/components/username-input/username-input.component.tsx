@@ -1,7 +1,12 @@
 import { FC, useState } from "react";
+
+// 3rd-party dependencies imports
 import { Cancel, CheckCircle } from "@mui/icons-material";
 
+// props or interfaces imports
 import UsernameInputProps from "./username-input.interface";
+
+// styling imports
 import {
   InputSC,
   LabelContainerSC,

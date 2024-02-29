@@ -1,12 +1,28 @@
 import { FC, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import _ from "lodash";
 
+// 3rd-party dependencies imports
+import _ from "lodash";
+import { Box } from "@mui/material";
+
+// component imports
 import UsernameInput from "../username-input/username-input.component";
 import PasswordInput from "../password-input/password-input.component";
 import EmailInput from "../email-input/email-input.component";
 import Divider from "../divider/divider.component";
+import Alert from "../alert/alert.component";
+import Button from "../button/button.component";
+
+// api imports
+import { createUser, getUserByEmail } from "../../apis/users/users.api";
+
+// props or interfaces imports
 import SignUpFormProps from "./sign-up-form.interface";
+import UsernameInterface from "../../interfaces/username.interface";
+import EmailInterface from "../../interfaces/email.interface";
+import PasswordInterface from "../../interfaces/password.interface";
+
+// styling imports
 import {
   AlertContainerSC,
   InputContainerSC,
@@ -15,17 +31,14 @@ import {
   SocialLogoSC,
   TitleSC,
 } from "./sign-up-form.style";
+import space from "../../styles/spacing";
+
+// constants or helper functions imports
 import { checkEmail, checkPassword, checkUsername } from "../../utils/helpers";
 import { ROUTES } from "../../utils/constants";
+
+// asset imports
 import GoogleLogo from "../../assets/socials/social-google.png";
-import { createUser, getUserByEmail } from "../../apis/users/users.api";
-import UsernameInterface from "../../interfaces/username.interface";
-import EmailInterface from "../../interfaces/email.interface";
-import PasswordInterface from "../../interfaces/password.interface";
-import Alert from "../alert/alert.component";
-import Button from "../button/button.component";
-import { Box } from "@mui/material";
-import space from "../../styles/spacing";
 
 const SignUpForm: FC<SignUpFormProps> = () => {
   const navigate = useNavigate();

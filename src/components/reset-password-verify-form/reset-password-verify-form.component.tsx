@@ -1,17 +1,26 @@
 import { FC, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
+// component imports
 import Alert from "../alert/alert.component";
 import FourDigitInput from "../four-digit-input/four-digit-input.component";
+import Button from "../button/button.component";
+
+// api imports
+import { verifyPasswordReset } from "../../apis/passwords/password.api";
+
+// props or interfaces imports
 import ResetPasswordVerifyFormProps from "./reset-password-verify-form.interface";
+
+// styling imports
 import {
   AlertContainerSC,
   ButtonContainerSC,
   FormSC,
   TitleSC,
 } from "./reset-password-verify-form.styles";
-import { verifyPasswordReset } from "../../apis/passwords/password.api";
-import Button from "../button/button.component";
+
+// constants or helper functions imports
 import { checkFourDigits } from "../../utils/helpers";
 import { ROUTES } from "../../utils/constants";
 

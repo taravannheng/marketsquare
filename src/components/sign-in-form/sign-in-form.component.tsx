@@ -1,14 +1,28 @@
 import { FC, useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+
+// 3rd-party dependencies imports
 import { useDispatch } from "react-redux";
 import _ from "lodash";
 import Cookies from "js-cookie";
 import { Box } from "@mui/material";
 
+// component imports
 import PasswordInput from "../password-input/password-input.component";
 import EmailInput from "../email-input/email-input.component";
 import Divider from "../divider/divider.component";
+import Alert from "../alert/alert.component";
+import Button from "../button/button.component";
+
+// api imports
+import { signIn } from "../../apis/signin/signin.api";
+
+// props or interfaces imports
 import SignInFormProps from "./sign-in-form.interface";
+import EmailInterface from "../../interfaces/email.interface";
+import PasswordInterface from "../../interfaces/password.interface";
+
+// styling imports
 import {
   AlertContainerSC,
   SignUpSC,
@@ -17,15 +31,14 @@ import {
   TitleSC,
   InputContainerSC,
 } from "./sign-in-form.style";
+import space from "../../styles/spacing";
+
+// constants or helper functions imports
 import { checkEmail, checkPassword } from "../../utils/helpers";
 import { ROUTES } from "../../utils/constants";
+
+// asset imports
 import GoogleLogo from "../../assets/socials/social-google.png";
-import { signIn } from "../../apis/signin/signin.api";
-import EmailInterface from "../../interfaces/email.interface";
-import PasswordInterface from "../../interfaces/password.interface";
-import Alert from "../alert/alert.component";
-import Button from "../button/button.component";
-import space from "../../styles/spacing";
 
 const SignInForm: FC<SignInFormProps> = () => {
   const navigate = useNavigate();

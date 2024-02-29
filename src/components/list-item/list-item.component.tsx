@@ -1,6 +1,9 @@
 import { FC } from "react";
 
+// props or interfaces imports
 import ListItemComponentProps from "./list-item.interface";
+
+// styling imports
 import {
   ListItemSC,
   ListItemButtonSC,

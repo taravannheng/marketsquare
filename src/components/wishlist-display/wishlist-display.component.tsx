@@ -1,10 +1,23 @@
 import { FC } from "react";
-import { useSelector } from "react-redux";
+
+// 3rd-party dependencies imports
 import _ from "lodash";
-import { TransitionGroup } from "react-transition-group";
+import { useSelector } from "react-redux";
 import { Collapse } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import { TransitionGroup } from "react-transition-group";
 
+// component imports
+import WishlistItem from "../wishlist-item/wishlist-item.component";
+import Button from "../button/button.component";
+
+// state management imports
+import { selectWishlists } from "../../store/wishlist/wishlist.selector";
+
+// props or interfaces imports
+import WishlistInterface from "../../interfaces/wishlist.interface";
+
+// styling imports
 import {
   TitleSC,
   WishlistDisplaySC,
@@ -12,13 +25,9 @@ import {
   WishlistEmptyIconSC,
   WishlistEmptySC,
 } from "./wishlist-display.styles";
-
-import WishlistItem from "../wishlist-item/wishlist-item.component";
-import Button from "../button/button.component";
-
-import WishlistInterface from "../../interfaces/wishlist.interface";
-import { selectWishlists } from "../../store/wishlist/wishlist.selector";
 import { space } from "../../styles/styles";
+
+// constants or helper function imports
 import { ROUTES } from "../../utils/constants";
 
 const WishlistDisplay: FC = () => {

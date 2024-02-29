@@ -1,10 +1,26 @@
 import { FC } from "react";
+
+// 3rd-party dependencies imports
 import { useMediaQuery } from "@mui/material";
 
-import { BodySC, ButtonSC, NotFoundDisplaySC, SubtitleSC, TextSC, TitleSC } from "./notfound-display.styles";
+// props or interfaces imports
 import { NotFoundProps } from "./notfound-display.interface";
-import NotFoundIllustration from "../../assets/illustrations/notfound.png";
+
+// styling imports
+import {
+  BodySC,
+  ButtonSC,
+  NotFoundDisplaySC,
+  SubtitleSC,
+  TextSC,
+  TitleSC,
+} from "./notfound-display.styles";
+
+// constants or helper functions imports
 import { ROUTES } from "../../utils/constants";
+
+// asset imports
+import NotFoundIllustration from "../../assets/illustrations/notfound.png";
 
 const NotFoundDisplay: FC<NotFoundProps> = () => {
   const isBigScreen = useMediaQuery("(min-width: 864px)");
@@ -21,9 +37,7 @@ const NotFoundDisplay: FC<NotFoundProps> = () => {
         <TitleSC>Oooops!</TitleSC>
         <SubtitleSC>This is embarrasing.</SubtitleSC>
         <TextSC>The page you are trying to visit is not available.</TextSC>
-        <ButtonSC href={`${ROUTES.LANDING}`}>
-          Back to Homepage
-        </ButtonSC>
+        <ButtonSC href={`${ROUTES.LANDING}`}>Back to Homepage</ButtonSC>
       </BodySC>
     </NotFoundDisplaySC>
   );

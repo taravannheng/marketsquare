@@ -1,10 +1,19 @@
-import { FC, useRef, useState } from "react";
+import { FC, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
+// component imports
 import Alert from "../alert/alert.component";
 import Button from "../button/button.component";
 import PasswordInput from "../password-input/password-input.component";
+
+// api imports
+import { updatePassword } from "../../apis/users/users.api";
+
+// props or interfaces imports
 import UpdatePasswordFormProps from "./update-password-form.interface";
+import PasswordInterface from "../../interfaces/password.interface";
+
+// styling imports
 import {
   AlertContainerSC,
   ButtonContainerSC,
@@ -12,10 +21,9 @@ import {
   PasswordInputContainerSC,
   TitleSC,
 } from "./update-password-form.styles";
-import { updatePassword } from "../../apis/users/users.api";
-import COLORS from "../../styles/colors";
+
+// constants or helper functions imports
 import { ROUTES } from "../../utils/constants";
-import PasswordInterface from "../../interfaces/password.interface";
 import { checkPassword, checkPasswordMatch } from "../../utils/helpers";
 
 const UpdatePasswordForm: FC<UpdatePasswordFormProps> = () => {

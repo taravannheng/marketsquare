@@ -1,7 +1,12 @@
 import { FC } from "react";
-import { ListItemButton, ListItemText } from "@mui/material";
 
+// 3rd-party dependencies imports
+import { ListItemButton } from "@mui/material";
+
+// props or interfaces imports
 import SuggestionItemProps from "./suggestion-item.interface";
+
+// styling imports
 import {
   MediaAvatarSC,
   MediaSC,

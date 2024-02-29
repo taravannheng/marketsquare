@@ -1,4 +1,6 @@
 import { FC, useState } from "react";
+
+// 3rd-party dependencies imports
 import _ from "lodash";
 import { Box } from "@mui/material";
 import { ArrowBackIos } from "@mui/icons-material";
@@ -6,9 +8,16 @@ import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import { useSelector } from "react-redux";
 
+// component imports
 import CartItem from "../cart-item/cart-item.component";
 import Button from "../button/button.component";
 import Alert from "../alert/alert.component";
+
+// props or interfaces imports
+import ProductInterface from "../../interfaces/product-interface";
+import CartProps from "./cart.interface";
+
+// styling imports
 import {
   CartTitleSC,
   TotalContainerSC,
@@ -27,17 +36,21 @@ import {
   BadgeSC,
   BadgeContainerSC,
 } from "./cart.styles";
-import CartProps from "./cart.interface";
-import ProductInterface from "../../interfaces/product-interface";
+import { COLORS } from "../../styles/styles";
+
+// api imports
 import { createCart } from "../../apis/carts/cart.api";
+
+// state management imports
 import {
   selectCart,
   selectCartTotal,
   selectCartLength,
 } from "../../store/cart/cart.selector";
+
+// constants and helper functions imports
 import { formatPrice } from "../../utils/helpers";
 import { ROUTES } from "../../utils/constants";
-import { COLORS } from "../../styles/styles";
 
 const Cart: FC<CartProps> = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);

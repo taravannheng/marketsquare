@@ -1,7 +1,22 @@
 import { FC } from "react";
+
+// 3rd-party dependencies imports
 import _ from "lodash";
 import { useSelector } from "react-redux";
 
+// component imports
+import Review from "../review/index.component";
+import ReviewForm from "../review-form/review-form.component";
+
+// state management imports
+import { selectUser } from "../../store/user/user.selector";
+import { selectProductReviews } from "../../store/review/review.selector";
+
+// props or interfaces imports
+import ReviewDisplayProps from "./index.interface";
+import ReviewInterface from "../review/index.interface";
+
+// styling imports
 import {
   EmptyTextSC,
   ReviewDisplaySC,
@@ -9,14 +24,6 @@ import {
   ReviewTitleSC,
   TitleSC,
 } from "./index.styles";
-
-import Review from "../review/index.component";
-import ReviewForm from "../review-form/review-form.component";
-
-import ReviewDisplayProps from "./index.interface";
-import ReviewInterface from "../review/index.interface";
-import { selectUser } from "../../store/user/user.selector";
-import { selectProductReviews } from "../../store/review/review.selector";
 
 const ReviewDisplay: FC<ReviewDisplayProps> = ({ reviews, productID }) => {
   const user = useSelector(selectUser);
@@ -30,7 +37,7 @@ const ReviewDisplay: FC<ReviewDisplayProps> = ({ reviews, productID }) => {
       if (review.userID === user._id) {
         userReview = review;
       }
-      
+
       return;
     });
 
@@ -45,9 +52,7 @@ const ReviewDisplay: FC<ReviewDisplayProps> = ({ reviews, productID }) => {
         productReviews ? `(${productReviews.length})` : ""
       }`}</TitleSC>
       <ReviewForm productID={productID} userReview={userReview} />
-      {user && userReview  && (
-        <ReviewTitleSC>Others' Reviews</ReviewTitleSC> 
-      )}
+      {user && userReview && <ReviewTitleSC>Others' Reviews</ReviewTitleSC>}
       <ReviewStackSC direction="column" spacing={4}>
         {!_.isEmpty(otherReviews) &&
           otherReviews?.map((review: ReviewInterface) => {

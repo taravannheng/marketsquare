@@ -1,6 +1,9 @@
 import { FC } from "react";
 
+// props or interfaces imports
 import DividerProps from "./divider.interface";
+
+// styling imports
 import { DividerSC } from "./divider.styles";
 import { COLORS } from '../../styles/styles';
 

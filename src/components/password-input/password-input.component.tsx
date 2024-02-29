@@ -1,4 +1,6 @@
 import { FC, useState } from "react";
+
+// 3rd-party dependencies imports
 import {
   Cancel,
   CheckCircle,
@@ -7,7 +9,10 @@ import {
   VisibilityOff,
 } from "@mui/icons-material";
 
+// props or interfaces imports
 import { PasswordInputProps } from "./password-input.interface";
+
+// styling imports
 import {
   InputSC,
   LabelContainerSC,

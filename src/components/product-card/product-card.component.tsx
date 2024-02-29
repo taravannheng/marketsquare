@@ -1,7 +1,10 @@
 import { FC } from "react";
 import { useNavigate } from "react-router-dom";
 
+// props or interfaces imports
 import ProductCardProps from "./product-card.interface";
+
+// styling imports
 import {
   ProductCardSC,
   CardContentSC,
@@ -10,6 +13,8 @@ import {
   ProductPriceSC,
   CardMediaContainerSC,
 } from "./product-card.styles";
+
+// constants or helper functions imports
 import { formatPrice, adjustCloudinaryImgSize } from "../../utils/helpers";
 
 const ProductCard: FC<ProductCardProps> = ({
@@ -36,9 +41,9 @@ const ProductCard: FC<ProductCardProps> = ({
           <CardMediaSC image={imgUrl} title={name} />
         </CardMediaContainerSC>
         <CardContentSC>
-            <ProductNameSC gutterBottom variant="body1">
-              {name}
-            </ProductNameSC>
+          <ProductNameSC gutterBottom variant="body1">
+            {name}
+          </ProductNameSC>
           <ProductPriceSC variant="body1" color="text.primary">
             ${formatPrice(price)}
           </ProductPriceSC>

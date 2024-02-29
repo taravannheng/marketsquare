@@ -1,7 +1,16 @@
 import { FC } from "react";
+
+// 3rd-party dependencies imports
 import _ from "lodash";
 import { CreditCard } from "@mui/icons-material";
 
+// component imports
+import Button from "../button/button.component";
+
+// props or interfaces imports
+import OrderDetailsProps from "../../interfaces/order.interface";
+
+// styling imports
 import {
   ButtonContainerSC,
   CardIconSC,
@@ -22,10 +31,10 @@ import {
   ShippingSC,
   ShippingTitleSC,
 } from "./index.style";
-import OrderDetailsProps from "../../interfaces/order.interface";
+
+// constants or helper functions imports
 import { getCardLogo } from "../../utils/helpers";
 import { ROUTES } from "../../utils/constants";
-import Button from "../button/button.component";
 
 const OrderDetails: FC<OrderDetailsProps> = ({
   orderID,

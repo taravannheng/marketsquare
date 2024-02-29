@@ -1,7 +1,9 @@
 import { FC, useState } from "react";
 
-
+// props or interfaces imports
 import SeeMoreTextProps from "./see-more-text.interface";
+
+// styling imports
 import { ButtonSC, SeeMoreTextSC } from "./see-more-text.styles";
 
 const SeeMoreText: FC<SeeMoreTextProps> = ({

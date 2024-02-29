@@ -1,15 +1,20 @@
 import { FC } from "react";
+
+// 3rd-party dependencies imports
+import _ from "lodash";
 import SearchIcon from "@mui/icons-material/Search";
 import ClearIcon from "@mui/icons-material/Clear";
 
+// props or interfaces imports
 import SearchBoxProps from "./searchbox.interface";
+
+// styling imports
 import {
   ClearIconSC,
   SearchIconSC,
   SearchBoxSC,
   TextFieldSC,
 } from "./searchbox.style";
-import _ from "lodash";
 
   
 const SearchBox: FC<SearchBoxProps> = ({ searchTerm, setSearchTerm }) => {

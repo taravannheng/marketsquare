@@ -1,7 +1,12 @@
 import { FC, useState } from "react";
-import { Box } from "@mui/material";
 
+// component imports
+import ProgressIndicator from "../progress-indicator/index.component";
+
+// props or interfaces imports 
 import ButtonProps from "./button.interface";
+
+// styling imports
 import {
   IconSC,
   PrimaryButtonSC,
@@ -9,7 +14,6 @@ import {
   SecondaryButtonSC,
   TertiaryButtonSC,
 } from "./button.styles";
-import ProgressIndicator from "../progress-indicator/index.component";
 import { space, borderRadius } from "../../styles/styles";
 
 const Button: FC<ButtonProps> = ({

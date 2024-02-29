@@ -1,20 +1,24 @@
 import { FC, useState } from "react";
-import _ from "lodash";
-import { v4 as uuidv4 } from "uuid";
 
+// 3rd-party dependencies imports
+import _ from "lodash";
+  
+// props or interfaces imports
 import NavigationMenuItemProps from "./index.interface";
+
+// styling imports
 import {
-  CategoryContainerSC,
-  CategoryItemSC,
-  CategoryItemStackSC,
-  CategoryItemTitleSC,
-  CategorySC,
-  LinkSC,
-  MenuSC,
-  MenuTextSC,
-  NavigationMenuItemSC,
-  SubMenuMediaSC,
-  SubMenuSC,
+CategoryContainerSC,
+CategoryItemSC,
+CategoryItemStackSC,
+CategoryItemTitleSC,
+CategorySC,
+LinkSC,
+MenuSC,
+MenuTextSC,
+NavigationMenuItemSC,
+SubMenuMediaSC,
+SubMenuSC,
 } from "./index.styles";
 
 const NavigationMenuItem: FC<NavigationMenuItemProps> = ({

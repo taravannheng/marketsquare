@@ -1,16 +1,33 @@
 import { FC, useEffect, useState } from "react";
-import { Box, Grid } from "@mui/material";
+
+// 3rd-party dependencies imports
 import _ from "lodash";
-import { useMediaQuery } from "@mui/material";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Cookies from "js-cookie";
 import { useSelector, useDispatch } from "react-redux";
+import { Grid, useMediaQuery, Pagination } from "@mui/material";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
+// component imports
 import Sort from "../sort/sort.component";
 import ProductCard from "../product-card/product-card.component";
 import SlideShow from "../slideshow/index.component";
+import ProductCardSkeleton from "../product-card/product-card-skeleton.component";
+
+// api imports
+import { getSlideshow } from "../../apis/slideshows/slideshow.api";
+import { getWishlistsByUserID } from "../../apis/wishlists/wishlists.api";
+
+// state management imports
+import { selectUser } from "../../store/user/user.selector";
+import { selectWishlists } from "../../store/wishlist/wishlist.selector";
+import WISHLIST_ACTION_TYPES from "../../store/wishlist/wishlist.types";
+
+// props or interfaces imports
 import ProductsDisplayProps from "./index.interface";
 import ProductInterface from "../../interfaces/product-interface";
+import SlideShowItemInterface from "../../interfaces/slideshow-item.interface";
+
+// styling imports
 import {
   ProductsDisplaySC,
   ProductsDisplayTitleSC,
@@ -19,18 +36,11 @@ import {
   SlideShowContainerSC,
   TitleContainerSC,
 } from "./index.styles";
-import slideShowSample from "../../sample/slideshow/slideshow-sample";
-import { Pagination, Stack } from "@mui/material";
-import { getSlideshow } from "../../apis/slideshows/slideshow.api";
-import SlideShowItemInterface from "../../interfaces/slideshow-item.interface";
+import { COLORS, BREAKPOINTS, space } from "../../styles/styles";
+
+// constants or helper functions imports
 import { SLIDESHOWIDS } from "../../utils/constants";
 import { getProductsPerPage } from "../../utils/helpers";
-import ProductCardSkeleton from "../product-card/product-card-skeleton.component";
-import { COLORS, BREAKPOINTS, space } from "../../styles/styles";
-import { selectUser } from "../../store/user/user.selector";
-import { selectWishlists } from "../../store/wishlist/wishlist.selector";
-import { getWishlistsByUserID } from "../../apis/wishlists/wishlists.api";
-import WISHLIST_ACTION_TYPES from "../../store/wishlist/wishlist.types";
 
 const theme = createTheme({
   palette: {
@@ -39,7 +49,6 @@ const theme = createTheme({
     },
   },
 });
-
 
 const ProductsDisplay: FC<ProductsDisplayProps> = ({ title, products }) => {
   const token = Cookies.get('jwt');

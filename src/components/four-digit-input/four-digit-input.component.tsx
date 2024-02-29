@@ -1,7 +1,10 @@
-import { FC, KeyboardEvent, useEffect, useRef } from "react";
+import { FC, KeyboardEvent, useEffect } from "react";
 
-import { DigitInputSC, FourDigitInputSC } from "./four-digit-input.styles";
+// props or interfaces imports
 import FourDigitInputProps from "./four-digit-input.interface";
+
+// styling imports
+import { DigitInputSC, FourDigitInputSC } from "./four-digit-input.styles";
 
 const FourDigitInput: FC<FourDigitInputProps> = ({
   values,

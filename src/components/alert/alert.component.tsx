@@ -1,8 +1,13 @@
 import React, { FC } from "react";
+
+// 3rd-party dependencies imports
 import { Collapse } from "@mui/material";
 import { CheckCircle, Info, Cancel } from "@mui/icons-material";
 
+// props or interfaces imports
 import AlertProps, { AlertConfig } from "./alert.interface";
+
+// styling imports
 import { AlertSC } from "./alert.style";
 import COLORS from "../../styles/colors";
 
