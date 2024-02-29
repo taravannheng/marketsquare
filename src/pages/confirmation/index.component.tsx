@@ -1,23 +1,31 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import _ from "lodash";
 
-import { createOrder } from "../../apis/orders/order.api";
-import orderSample from "../../sample/order/order.sample";
-import OrderSummaryDisplay from "../../components/order-summary-display/index.component";
+// 3rd-party dependencies imports
+import _ from "lodash";
+import { useSelector, useDispatch } from "react-redux";
+
+// component imports
 import Header from "../../components/header/index.component";
-import footerUtilityLinksSample from "../../sample/footer/utility-links-sample";
 import Footer from "../../components/footer/index.component";
-import { ConfirmationPageSC } from "./index.styles";
-import OrderInterface from "../../interfaces/order.interface";
-import ProductInterface from "../../interfaces/product-interface";
+import OrderSummaryDisplay from "../../components/order-summary-display/index.component";
+
+// state management imports
 import { selectUser } from '../../store/user/user.selector';
 import { selectOrder } from "../../store/order/order.selector";
 import { selectReviews } from "../../store/review/review.selector";
 import REVIEW_ACTION_TYPES from "../../store/review/review.types";
 
-const ConfirmationPage = () => {
+// api imports
+import { createOrder } from "../../apis/orders/order.api";
+
+// styling imports
+import { ConfirmationPageSC } from "./index.styles";
+
+// constants or helper functions imports
+import footerUtilityLinksSample from "../../sample/footer/utility-links-sample";
+
+const ConfirmationPage: FC = () => {
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   const success = params.get("success");
