@@ -1,10 +1,16 @@
 import { FC } from "react";
-import { v4 as uuidv4 } from "uuid";
+
+// 3rd-party dependencies imports
 import _ from "lodash";
 
+// component imports
 import RelatedProductCard from "../related-product-card/index.component";
+
+// props or interfaces imports
 import OrderSummaryInterface from "./index.interface";
 import ProductInterface from "../../interfaces/product-interface";
+
+// styling imports
 import {
   ContentSC,
   EmptyContentSC,
