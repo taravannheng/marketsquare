@@ -1,11 +1,17 @@
 import { FC } from "react";
-import { v4 as uuidv4 } from 'uuid';
+
+// 3rd-party dependencies imports
 import _ from "lodash";
 
-import RelatedProductDisplayInterface from "./index.interface";
+// component imports
 import RelatedProductCard from "../related-product-card/index.component";
-import { RelatedProductDisplaySC, StackSC, TitleSC, EmptyTextSC } from "./index.styles";
+
+// props or interfaces imports
+import RelatedProductDisplayInterface from "./index.interface";
 import ProductInterface from "../../interfaces/product-interface";
+
+// styling imports
+import { RelatedProductDisplaySC, StackSC, TitleSC, EmptyTextSC } from "./index.styles";
 
 const RelatedProductDisplay: FC<RelatedProductDisplayInterface> = ({
   products,
