@@ -1,9 +1,21 @@
-import { FC, useState } from "react";
-import { Icon } from "@mui/material";
+import { FC } from "react";
+
+// 3rd-party dependencies imports
 import { StarRounded, StarOutlineRounded } from "@mui/icons-material";
 
+// props or interfaces imports
 import RatingInterface from "./index.interface";
-import { LabelSC, RatingSC, StarsSC, ShortRatingSC, ShortRatingLabelSC, ShortRatingNumberSC, ShortRatingIconSC } from "./index.styles";
+
+// styling imports
+import {
+  LabelSC,
+  RatingSC,
+  StarsSC,
+  ShortRatingSC,
+  ShortRatingLabelSC,
+  ShortRatingNumberSC,
+  ShortRatingIconSC,
+} from "./index.styles";
 
 const Rating: FC<RatingInterface> = ({
   type = "long",
@@ -16,7 +28,9 @@ const Rating: FC<RatingInterface> = ({
     <>
       {type === "short" && (
         <ShortRatingSC>
-          {showLabel && <ShortRatingLabelSC variant="body1">Rating:</ShortRatingLabelSC>}
+          {showLabel && (
+            <ShortRatingLabelSC variant="body1">Rating:</ShortRatingLabelSC>
+          )}
           <ShortRatingNumberSC>{rating.toFixed(1)}</ShortRatingNumberSC>
           <ShortRatingIconSC fontSize="small">
             <StarRounded fontSize="small" />
