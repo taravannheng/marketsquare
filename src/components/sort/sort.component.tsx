@@ -1,20 +1,22 @@
 import { FC, useState } from "react";
+
+// 3rd-party dependencies imports
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import CheckIcon from "@mui/icons-material/Check";
 import { styled } from "@mui/material/styles";
 import {
   FormControl,
   InputBase,
-  InputLabel,
-  MenuItem,
-  MenuList,
   Icon,
   useMediaQuery,
 } from "@mui/material";
 import { BottomSheet } from "react-spring-bottom-sheet";
 import "react-spring-bottom-sheet/dist/style.css";
 
+// props or interfaces imports
 import SortInterface from "./sort.interface";
+
+// styling imports
 import {
   BottomSheetMenuItemSC,
   BottomSheetMenuListSC,
