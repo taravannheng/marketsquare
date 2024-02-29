@@ -1,19 +1,34 @@
 import { FC, useEffect, useReducer, useState } from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+
+// 3rd-party dependencies imports
 import _ from "lodash";
+import { useSelector, useDispatch } from "react-redux";
 import { ArrowBackIosRounded } from "@mui/icons-material";
 
+// component imports
 import Header from "../../components/header/index.component";
-import ProductDetailsDisplay from "../../components/product-details-display/index.component";
-import Divider from "../../components/divider/divider.component";
-import ReviewDisplay from "../../components/review-display/index.component";
-import RelatedProductDisplay from "../../components/related-product-display/index.component";
 import Footer from "../../components/footer/index.component";
 import Button from "../../components/button/button.component";
+import Divider from "../../components/divider/divider.component";
+import SnackBar from "../../components/snackbar/snackbar.component";
+import ReviewDisplay from "../../components/review-display/index.component";
 import ProgressIndicator from "../../components/progress-indicator/index.component";
-import footerUtilityLinksSample from "../../sample/footer/utility-links-sample";
-import { ROUTES } from "../../utils/constants";
+import ProductDetailsDisplay from "../../components/product-details-display/index.component";
+import RelatedProductDisplay from "../../components/related-product-display/index.component";
+
+// state management imports
+import REVIEW_ACTION_TYPES from "../../store/review/review.types";
+import { selectReviews } from "../../store/review/review.selector";
+import { selectProducts } from "../../store/product/product.selector";
+import { initialState, productReducer } from "./product-details.reducer";
+import { selectRelatedProducts } from "../../store/related-product/related-product.selector";
+import RELATED_PRODUCTS_ACTION_TYPES from "../../store/related-product/related-product.types";
+
+// controller imports
+import fetchData from "./product-details.controller";
+
+// styling imports
 import {
   BackNavSC,
   BottomContentContainerSC,
@@ -24,14 +39,10 @@ import {
   ReviewDisplayContainerSC,
 } from "./index.style";
 import { RelatedProductDisplaySC } from "../../components/related-product-display/index.styles";
-import { selectProducts } from "../../store/product/product.selector";
-import { selectReviews } from "../../store/review/review.selector";
-import { selectRelatedProducts } from "../../store/related-product/related-product.selector";
-import REVIEW_ACTION_TYPES from "../../store/review/review.types";
-import RELATED_PRODUCTS_ACTION_TYPES from "../../store/related-product/related-product.types";
-import fetchData from "./product-details.controller";
-import { initialState, productReducer } from "./product-details.reducer";
-import SnackBar from "../../components/snackbar/snackbar.component";
+
+// constants or helper functions imports
+import footerUtilityLinksSample from "../../sample/footer/utility-links-sample";
+import { ROUTES } from "../../utils/constants";
 
 const ProductDetailsPage: FC = () => {
   const location = useLocation();
