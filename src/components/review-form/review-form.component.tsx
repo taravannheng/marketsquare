@@ -1,15 +1,42 @@
 import { FC, useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+
+// 3rd-party dependencies imports
 import { useSelector, useDispatch } from "react-redux";
 import { BottomSheet } from "react-spring-bottom-sheet";
 import "react-spring-bottom-sheet/dist/style.css";
-import { Rating, useMediaQuery } from "@mui/material";
+import { useMediaQuery } from "@mui/material";
 import Fade from "@mui/material/Fade";
 import Grow from "@mui/material/Grow";
 import EditIcon from "@mui/icons-material/Edit";
 import CloseIcon from "@mui/icons-material/Close";
-import { useLocation } from "react-router-dom";
 
+// component imports
+import Button from "../button/button.component";
+import RatingSelect from "../rating-select/rating-select.component";
+import ReviewTextArea from "../review-textarea/review-textarea.component";
+import Review from "../review/index.component";
+import SnackBar from "../snackbar/snackbar.component";
+import Dialog from "../dialog/dialog.component";
+
+// api imports
+import { getOrdersByUserIDAndProductID } from "../../apis/orders/order.api";
+import {
+  createReview,
+  updateReview,
+  deleteReview,
+} from "../../apis/reviews/reviews.api";
+
+// state management imports
+import { selectUser } from "../../store/user/user.selector";
+import { selectUserReview } from "../../store/user-review/user-review.selector";
+import REVIEW_ACTION_TYPES from "../../store/review/review.types";
+import USER_REVIEW_ACTION_TYPES from "../../store/user-review/user-review.types";
+
+// props or interfaces imports
 import ReviewFormProps from "./review-form.interface";
+
+// styling imports
 import {
   AddReviewTextSC,
   BottomSheetBodySC,
@@ -38,25 +65,10 @@ import {
   ReviewTitleSC,
   SignInTextSC,
 } from "./review-form.styles";
-import { selectUser } from "../../store/user/user.selector";
-import { selectUserReview } from "../../store/user-review/user-review.selector";
-import REVIEW_ACTION_TYPES from "../../store/review/review.types";
-import USER_REVIEW_ACTION_TYPES from "../../store/user-review/user-review.types";
-import Button from "../button/button.component";
-import RatingSelect from "../rating-select/rating-select.component";
-import ReviewTextArea from "../review-textarea/review-textarea.component";
-import Review from "../review/index.component";
-import SnackBar from "../snackbar/snackbar.component";
-import Dialog from "../dialog/dialog.component";
-import { ROUTES } from "../../utils/constants";
-import { getOrdersByUserIDAndProductID } from "../../apis/orders/order.api";
-import {
-  createReview,
-  updateReview,
-  deleteReview,
-} from "../../apis/reviews/reviews.api";
 import BREAKPOINTS from "../../styles/breakpoints";
-import ReviewInterface from "../review/index.interface";
+
+// constants or helper function imports
+import { ROUTES } from "../../utils/constants";
 
 const ReviewForm: FC<ReviewFormProps> = ({ productID, userReview }) => {
   const location = useLocation();
