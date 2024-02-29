@@ -1,35 +1,47 @@
-import React, { FC, useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { Box } from "@mui/material";
-import _ from "lodash";
+import { FC, useEffect, useState } from "react";
 
+// 3rd-party dependencies imports
+import { useSelector, useDispatch } from "react-redux";
+import _ from "lodash";
+import { Box } from "@mui/material";
+
+// component imports
+import Alert from "../alert/alert.component";
+import UsernameInput from "../username-input/username-input.component";
+import PasswordInput from "../password-input/password-input.component";
+import EmailInput from "../email-input/email-input.component";
+import Button from "../button/button.component";
+
+// api imports
+import {
+  getUserByEmail,
+  updateUsername,
+  updateEmail,
+} from "../../apis/users/users.api";
+
+// state management imports
+import { selectUser } from "../../store/user/user.selector";
+import USER_ACTION_TYPES from "../../store/user/user.types";
+
+// props or interfaces imports
 import ProfileFormProps, {
   ChangePasswordButtonProps,
 } from "./profile-form.interface";
+import UsernameInterface from "../../interfaces/username.interface";
+import EmailInterface from "../../interfaces/email.interface";
+import PasswordInterface from "../../interfaces/password.interface";
+
+// styling imports
 import {
   AlertContainerSC,
   ChangePasswordButtonContainerSC,
   PasswordContainerSC,
   ProfileFormSC,
 } from "./profile-form.styles";
-
-import Alert from "../alert/alert.component";
-import UsernameInput from "../username-input/username-input.component";
-import PasswordInput from "../password-input/password-input.component";
-import EmailInput from "../email-input/email-input.component";
-import Button from "../button/button.component";
-import { selectUser } from "../../store/user/user.selector";
-import UsernameInterface from "../../interfaces/username.interface";
-import EmailInterface from "../../interfaces/email.interface";
-import PasswordInterface from "../../interfaces/password.interface";
-import { checkEmail, checkUsername } from "../../utils/helpers";
 import { space } from "../../styles/styles";
-import {
-  getUserByEmail,
-  updateUsername,
-  updateEmail,
-} from "../../apis/users/users.api";
-import USER_ACTION_TYPES from "../../store/user/user.types";
+
+// constants or helper functions imports
+import { checkEmail, checkUsername } from "../../utils/helpers";
 import { ROUTES } from "../../utils/constants";
 
 const ChangePasswordButton: FC<ChangePasswordButtonProps> = () => {
