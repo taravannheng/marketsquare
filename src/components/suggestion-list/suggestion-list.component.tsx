@@ -1,7 +1,16 @@
 import { FC } from "react";
+
+// 3rd-party dependencies imports
 import _ from "lodash";
 
+// component imports
+import SuggestionItem from "../suggestion-item/suggestion-item.component";
+import ProgressIndicator from "../progress-indicator/index.component";
+
+// props or interfaces imports
 import SuggestionListInterface from "./suggestion-list.interface";
+
+// styling imports
 import {
   EmptyTextSC,
   ProgressIndicatorContainerSC,
@@ -9,8 +18,6 @@ import {
   ValidationTextHighlightSC,
   ValidationTextSC,
 } from "./suggestion-list.style";
-import SuggestionItem from "../suggestion-item/suggestion-item.component";
-import ProgressIndicator from "../progress-indicator/index.component";
 
 const SuggestionList: FC<SuggestionListInterface> = ({
   suggestions,
