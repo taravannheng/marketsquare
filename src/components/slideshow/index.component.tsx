@@ -1,16 +1,22 @@
 import { FC, useEffect, useRef, useState } from "react";
-import _ from "lodash";
 import { useNavigate } from "react-router-dom";
+
+// 3rd-party dependencies imports
+import _ from "lodash";
 import { useMediaQuery } from "@mui/material";
 import ChevronLeftRoundedIcon from "@mui/icons-material/ChevronLeftRounded";
 import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
 
+// component imports
 import SlideshowSkeleton from "./slideshow-skeleton.component";
-import Button from "../button/button.component";
+import IconButton from "../icon-button/icon-button.component";
+
+// props or interfaces imports
 import SlideShowInterface from "./index.interface";
 import SlideShowItemInterface from "../../interfaces/slideshow-item.interface";
+
+// styling imports
 import {
-  IndicatorTextSC,
   NextButtonSC,
   PrevButtonSC,
   SkeletonContainerSC,
@@ -23,8 +29,9 @@ import {
   ControlSC,
   ControlButtonContainerSC,
 } from "./index.styles";
+
+// constants or helper functions imports
 import { adjustCloudinaryImgSize } from "../../utils/helpers";
-import IconButton from "../icon-button/icon-button.component";
 
 const SlideShow: FC<SlideShowInterface> = ({
   data,
