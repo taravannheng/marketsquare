@@ -1,8 +1,16 @@
 import { FC } from "react";
 import { useNavigate } from "react-router-dom";
 
+// 3rd-party dependencies imports
+import _ from "lodash";
+
+// component imports
 import Rating from "../rating/index.component";
+
+// props or interfaces imports
 import RelatedProductCardInterface from "./index.interface";
+
+// styling imports
 import {
   CardContentSC,
   CardMediaSC,
@@ -10,7 +18,8 @@ import {
   ProductPriceSC,
   RelatedProductCardSC,
 } from "./index.styles";
-import _ from "lodash";
+
+// constants or helper functions imports
 import { adjustCloudinaryImgSize } from "../../utils/helpers";
 
 const RelatedProductCard: FC<RelatedProductCardInterface> = ({
