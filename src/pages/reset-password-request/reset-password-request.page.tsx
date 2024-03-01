@@ -1,7 +1,10 @@
 import { FC } from 'react';
 
-import ResetPasswordRequestForm from '../../components/reset-password-request-form/reset-password-request-form.component';
+// component imports
 import Header from '../../components/header/index.component';
+import ResetPasswordRequestForm from '../../components/reset-password-request-form/reset-password-request-form.component';
+
+// styling imports
 import { FormContainerSC, PageSC } from './reset-password-request.styles';
 
 const ResetPasswordRequestPage: FC = () => {

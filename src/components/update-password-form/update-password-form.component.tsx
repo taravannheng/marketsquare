@@ -1,10 +1,19 @@
-import { FC, useRef, useState } from "react";
+import { FC, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
+// component imports
 import Alert from "../alert/alert.component";
 import Button from "../button/button.component";
 import PasswordInput from "../password-input/password-input.component";
-import UpdatePasswordFormI from "./update-password-form.interface";
+
+// api imports
+import { updatePassword } from "../../apis/users/users.api";
+
+// props or interfaces imports
+import UpdatePasswordFormProps from "./update-password-form.interface";
+import PasswordInterface from "../../interfaces/password.interface";
+
+// styling imports
 import {
   AlertContainerSC,
   ButtonContainerSC,
@@ -12,13 +21,12 @@ import {
   PasswordInputContainerSC,
   TitleSC,
 } from "./update-password-form.styles";
-import { updatePassword } from "../../apis/users/users.api";
-import COLORS from "../../styles/colors";
+
+// constants or helper functions imports
 import { ROUTES } from "../../utils/constants";
-import PasswordInterface from "../../interfaces/password.interface";
 import { checkPassword, checkPasswordMatch } from "../../utils/helpers";
 
-const UpdatePasswordForm: FC<UpdatePasswordFormI> = () => {
+const UpdatePasswordForm: FC<UpdatePasswordFormProps> = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const params = new URLSearchParams(location.search);
@@ -57,7 +65,7 @@ const UpdatePasswordForm: FC<UpdatePasswordFormI> = () => {
     },
   });
 
-  const passwordChangeHandler = (event: any) => {
+  const handlePasswordChange = (event: any) => {
     const password = event.target.value;
 
     const passwordStatus = checkPassword(password);
@@ -85,7 +93,7 @@ const UpdatePasswordForm: FC<UpdatePasswordFormI> = () => {
     });
   };
 
-  const confirmPasswordChangeHandler = (event: any) => {
+  const handleConfirmPasswordChange = (event: any) => {
     const password = event.target.value;
 
     const passwordStatus = checkPassword(password);
@@ -113,7 +121,7 @@ const UpdatePasswordForm: FC<UpdatePasswordFormI> = () => {
     });
   };
 
-  const formHandler = async () => {
+  const handleFormSubmit = async () => {
     setIsLoading(true);
 
     // check the password then send to the server if it's valid
@@ -190,13 +198,13 @@ const UpdatePasswordForm: FC<UpdatePasswordFormI> = () => {
       <PasswordInputContainerSC>
         <PasswordInput
           password={password}
-          onChange={passwordChangeHandler}
+          onChange={handlePasswordChange}
           isRequired
         />
         <PasswordInput
           label="Confirm Password"
           password={confirmPassword}
-          onChange={confirmPasswordChangeHandler}
+          onChange={handleConfirmPasswordChange}
           showTooltip={false}
           isRequired
         />
@@ -204,7 +212,7 @@ const UpdatePasswordForm: FC<UpdatePasswordFormI> = () => {
 
       <ButtonContainerSC>
         <Button
-          clickHandler={formHandler}
+          onClick={handleFormSubmit}
           isLoading={isLoading}
           width="full"
           disabled={isLoading}

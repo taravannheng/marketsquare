@@ -1,22 +1,31 @@
 import { FC, useEffect, useState } from "react";
-import _ from "lodash";
-import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
-import Cookies from "js-cookie";
 
+// 3rd-party dependencies imports
+import _ from "lodash";
+import Cookies from "js-cookie";
+import { useDispatch, useSelector } from "react-redux";
+
+// component imports
 import Header from "../../components/header/index.component";
 import ProductsDisplay from "../../components/products-display/index.component";
 import Footer from "../../components/footer/index.component";
-import LoadingScreen from "../../components/loading-screen/index.component";
 import SnackBar from "../../components/snackbar/snackbar.component";
-import generateProductsSample from "../../sample/products/product-sample";
-import footerItemsSample from "../../sample/footer/utility-links-sample";
-import { getProducts } from "../../apis/products/products.api";
-import { LandingPageSC } from "./index.styles";
+
+// state management imports
 import { selectProducts } from "../../store/product/product.selector";
-import { ROUTES } from "../../utils/constants";
 import { selectUser } from "../../store/user/user.selector";
-const { getUser } = require("../../apis/users/users.api");
+
+// api imports
+import { getProducts } from "../../apis/products/products.api";
+import { getUser } from "../../apis/users/users.api";
+
+// styling imports
+import { LandingPageSC } from "./index.styles";
+
+// constants or helper function imports
+import footerItemsSample from "../../sample/footer/utility-links-sample";
+import { ROUTES } from "../../utils/constants";
 
 const LandingPage: FC = () => {
   const navigate = useNavigate();
@@ -116,7 +125,7 @@ const LandingPage: FC = () => {
     }
   }, [isSignedIn, isSignedOut]);
 
-  const snackbarCloseHandler = () => {
+  const closeSnackbar = () => {
     setSnackbar({
       open: false,
       message: "",
@@ -133,7 +142,7 @@ const LandingPage: FC = () => {
         <SnackBar
           type={snackbar.type}
           message={snackbar.message}
-          onClose={snackbarCloseHandler}
+          onClose={closeSnackbar}
           open={snackbar.open}
         />
       </>

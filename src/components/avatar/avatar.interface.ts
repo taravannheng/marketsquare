@@ -1,9 +1,9 @@
 import { ReactNode } from "react";
 
-export default interface AvatarInterface {
+export default interface AvatarProps {
   children?: ReactNode;
   size?: "small" | "medium" | "large";
   src?: string;
   alt?: string;
-  clickHandler?: () => void;
+  onClick?: () => void;
 }

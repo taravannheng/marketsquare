@@ -4,10 +4,10 @@ interface DialogProps {
   title: string;
   description: string;
   primaryButtonLabel: string;
-  primaryButtonHandler?: () => void;
+  onClickPrimaryButton?: () => void;
   primaryHref?: string;
   secondaryButtonLabel?: string;
-  secondaryButtonHandler?: () => void;
+  onClickSecondaryButton?: () => void;
   open: boolean;
   icon?: ReactNode;
   isDeleteOperation?: boolean;

@@ -1,10 +1,34 @@
 import { FC, useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+
+// 3rd-party dependencies imports
 import _ from "lodash";
+import { useSelector, useDispatch } from "react-redux";
 import { TransitionGroup } from "react-transition-group";
 import { Collapse } from "@mui/material";
-import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
+import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 
+// api imports
+import { getOrdersByUserID } from "../../apis/orders/order.api";
+import { getMultipleCarts } from "../../apis/carts/cart.api";
+import { getMultipleProducts } from "../../apis/products/products.api";
+
+// component imports
+import Button from "../button/button.component";
+import ProgressIndicator from "../progress-indicator/index.component";
+import OrderListItem from "../order-list-item/order-list-item.component";
+import Divider from "../divider/divider.component";
+
+// props or interfaces imports
+import OrderListDisplayProps from "./order-list-display.interface";
+import ProductInterface from "../../interfaces/product-interface";
+import OrderListItemInterface from "../../interfaces/order-list-item.interface";
+
+// state management imports
+import { selectUser } from "../../store/user/user.selector";
+import { selectOrderList } from "../../store/order-list/order-list.selector";
+import ORDER_LIST_ACTION_TYPES from "../../store/order-list/order-list.types";
+
+// styling imports
 import {
   TitleSC,
   OrderListDisplaySC,
@@ -13,33 +37,20 @@ import {
   OrderListEmptySC,
   ProgressIndicatorContainerSC,
 } from "./order-list-display.styles";
-
-import Button from "../button/button.component";
-import ProgressIndicator from "../progress-indicator/index.component";
-import OrderListItem from "../order-list-item/order-list-item.component";
-import Divider from "../divider/divider.component";
-
-import OrderListItemInterface from "../../interfaces/order-list-item.interface";
-import ProductInterface from "../../interfaces/product-interface";
-import CartInterface from "../../interfaces/cart.interface";
-import { selectUser } from "../../store/user/user.selector";
-import { selectOrderList } from "../../store/order-list/order-list.selector";
-import ORDER_LIST_ACTION_TYPES from "../../store/order-list/order-list.types";
 import { space, COLORS } from "../../styles/styles";
+
+// constants or helper function imports
 import { ROUTES } from "../../utils/constants";
-import { getOrdersByUserID } from "../../apis/orders/order.api";
-import { getMultipleCarts } from "../../apis/carts/cart.api";
-import { getMultipleProducts } from "../../apis/products/products.api";
 
 const fetchOrdersByUserID = async (userID: string) => {
   try {
     const response = await getOrdersByUserID(userID);
-  
+
     return response.data ?? null;
   } catch (error: any) {
     console.log(error);
   }
-}
+};
 
 const fetchMultipleCarts = async (cartIDs: string[]) => {
   try {
@@ -49,7 +60,7 @@ const fetchMultipleCarts = async (cartIDs: string[]) => {
   } catch (error: any) {
     console.log(error);
   }
-}
+};
 
 const fetchMultipleProducts = async (productIDs: string[]) => {
   try {
@@ -59,9 +70,9 @@ const fetchMultipleProducts = async (productIDs: string[]) => {
   } catch (error: any) {
     console.log(error);
   }
-}
+};
 
-const OrderListDisplay: FC = () => {
+const OrderListDisplay: FC<OrderListDisplayProps> = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
   const orderList = useSelector(selectOrderList);
@@ -97,7 +108,7 @@ const OrderListDisplay: FC = () => {
 
           for (const product of products) {
             const { _id } = product;
-            
+
             if (!productIDs.includes(_id)) {
               productIDs.push(_id);
             }
@@ -109,7 +120,11 @@ const OrderListDisplay: FC = () => {
       }
 
       // add item into orders array
-      if (!_.isEmpty(orderData) && !_.isEmpty(cartData) && !_.isEmpty(productData)) {
+      if (
+        !_.isEmpty(orderData) &&
+        !_.isEmpty(cartData) &&
+        !_.isEmpty(productData)
+      ) {
         // loop through each order
         for (const order of orderData) {
           // extract orderID, orderDate and cartID
@@ -128,23 +143,25 @@ const OrderListDisplay: FC = () => {
               }
             }
           }
-  
-            // use _id to extract product data from productData 
-            for (const productID of productIDs) {
-              const matchedProduct = productData.filter((product: ProductInterface) => product._id === productID);
 
-              if (!_.isEmpty(matchedProduct)) {
-                products.push(matchedProduct[0]);
-              }
+          // use _id to extract product data from productData
+          for (const productID of productIDs) {
+            const matchedProduct = productData.filter(
+              (product: ProductInterface) => product._id === productID
+            );
+
+            if (!_.isEmpty(matchedProduct)) {
+              products.push(matchedProduct[0]);
             }
+          }
 
-            // put orderID, orderDate, cartID and products into an object -> push to orders array
-              // extract date from createdAt
-              const orderDate = createdAt.substring(0, 10).replace(/-/g, '/');
-            
-              if (!_.isEmpty(products)) {
-                orders.push({ orderID, orderDate, cartID, products })
-              }
+          // put orderID, orderDate, cartID and products into an object -> push to orders array
+          // extract date from createdAt
+          const orderDate = createdAt.substring(0, 10).replace(/-/g, "/");
+
+          if (!_.isEmpty(products)) {
+            orders.push({ orderID, orderDate, cartID, products });
+          }
         }
       }
 

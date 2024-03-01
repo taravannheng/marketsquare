@@ -1,4 +1,7 @@
 import { FC, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+
+// 3rd-party dependencies imports
 import {
   AppBar,
   useMediaQuery,
@@ -10,11 +13,27 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from '@mui/icons-material/Search';
 import { AccountCircle, ArrowBackIos, Login } from "@mui/icons-material";
-import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import _ from "lodash";
 import Cookies from "js-cookie";
 
+// component imports
+import Cart from "../cart/cart.component";
+// import NavigationMenu from "../navigation-menu/index.component";   DISABLE MENU TEMPORARILY
+import Search from "../search/search.component";
+import Avatar from "../avatar/avatar.component";
+import Menu from "../../components/menu/menu.component";
+import AuthBlock from "../auth-block/auth-block.component";
+import List from "../list/list.component";
+
+// props or interfaces imports
+import HeaderProps from "./index.interface";
+
+// state management imports
+import { selectUser } from "../../store/user/user.selector";
+import WISHLIST_ACTION_TYPES from "../../store/wishlist/wishlist.types";
+
+// styling imports
 import {
   ToolbarPlaceholderSC,
   ToolbarSC,
@@ -42,23 +61,13 @@ import {
   SearchIconSC,
   BigSearchContainerSC,
 } from "./index.styles";
+import { COLORS, space } from "../../styles/styles";
 
-import Cart from "../cart/cart.component";
-// import NavigationMenu from "../navigation-menu/index.component";   DISABLE MENU TEMPORARILY
-import Search from "../search/search.component";
-import Avatar from "../avatar/avatar.component";
-import Menu from "../../components/menu/menu.component";
-import AuthBlock from "../auth-block/auth-block.component";
-import List from "../list/list.component";
-
-import HeaderProps from "./index.interface";
+// constants or helper function imports
 // import navMenuList from "../../sample/navigation-menu/navigationMenuSample"; DISABLE MENU TEMPORARILY
 // import menuListSample from "../../sample/menu/menu"; DISABLE MENU TEMPORARILY
+// import listSample from "../../sample/list/list.sample";
 import { LOGO_URLS, ROUTES } from "../../utils/constants";
-import { selectUser } from "../../store/user/user.selector";
-import { COLORS, space } from "../../styles/styles";
-import WISHLIST_ACTION_TYPES from "../../store/wishlist/wishlist.types";
-import listSample from "../../sample/list/list.sample";
 
 const Header: FC<HeaderProps> = () => {
   const [showMobileSearch, setShowMobileSearch] = useState(false);
@@ -120,24 +129,24 @@ const Header: FC<HeaderProps> = () => {
     setIsDrawerOpen(false);
   };
 
-  const mobileDrawerOpenHandler = () => {
+  const handleOpenMobileDrawer = () => {
     setIsMobileDrawerOpen(true);
   };
 
-  const mobileDrawerCloseHandler = () => {
+  const handleCloseMobileDrawer = () => {
     setIsMobileDrawerOpen(false);
   };
 
-  const mobileSearchHandler = () => {
+  const handleMobileSearch = () => {
     setShowMobileSearch(prevState => !prevState);
   };
 
-  const signOutHandler = () => {
+  const handleSignOut = () => {
     // close drawer
     handleDrawerClose();
 
     // close mobile drawer
-    mobileDrawerCloseHandler();
+    handleCloseMobileDrawer();
 
     // remove jwt token
     Cookies.remove("jwt");
@@ -158,7 +167,7 @@ const Header: FC<HeaderProps> = () => {
       id: "a7B3nR9k",
       text: "Sign Up",
       icon: <AccountCircle />,
-      clickHandler: () => {
+      handleClick: () => {
         navigate(ROUTES.SIGN_UP);
       },
     },
@@ -166,7 +175,7 @@ const Header: FC<HeaderProps> = () => {
       id: "a7B3nR9j",
       text: "Sign In",
       icon: <Login />,
-      clickHandler: () => {
+      handleClick: () => {
         navigate(ROUTES.SIGN_IN);
       },
     },
@@ -188,14 +197,14 @@ const Header: FC<HeaderProps> = () => {
           </Link>
           {isBigScreen && <BigSearchContainerSC><Search /></BigSearchContainerSC>}
           <ButtonContainerSC>
-            {!isBigScreen && <SearchIconSC onClick={mobileSearchHandler}>
+            {!isBigScreen && <SearchIconSC onClick={handleMobileSearch}>
               <SearchIcon />
             </SearchIconSC>}
             <Cart />
             {/* MENU ICON FOR MOBILE */}
             {!isBigScreen && _.isEmpty(user) && (
               <MenuIconSC
-                onClick={mobileDrawerOpenHandler}
+                onClick={handleOpenMobileDrawer}
                 sx={{
                   backgroundColor: `${COLORS.NEUTRAL.N0} !important`,
                   color: `${COLORS.NEUTRAL.N300} !important`,
@@ -216,7 +225,7 @@ const Header: FC<HeaderProps> = () => {
             <AvatarContainerSC sx={{ marginLeft: isBigScreen ? `${space.m} !important` : `0` }}>
               <Avatar
                 src={user?.profileUrl}
-                clickHandler={handleDrawerOpen}
+                onClick={handleDrawerOpen}
                 size={isBigScreen ? "medium" : "small"}
               />
             </AvatarContainerSC>
@@ -224,7 +233,7 @@ const Header: FC<HeaderProps> = () => {
           </ButtonContainerSC>
         </ToolbarSC>
             {!isBigScreen && <SearchContainerSC>
-              <BackIconSC onClick={mobileSearchHandler}>
+              <BackIconSC onClick={handleMobileSearch}>
                 <ArrowBackIos />
               </BackIconSC>
               <Search />
@@ -234,7 +243,7 @@ const Header: FC<HeaderProps> = () => {
         <Menu
           menuList={menuList}
           anchorEl={anchorEl}
-          handleClose={handleClose}
+          onClose={handleClose}
         />
       </AppBar>
       <DrawerSC anchor="right" open={isDrawerOpen} onClose={handleDrawerClose}>
@@ -248,7 +257,7 @@ const Header: FC<HeaderProps> = () => {
             <List items={listItems} />
           </DrawerBodySC>
           <DrawerBottomSC>
-            <SignOutSC onClick={signOutHandler}>Sign Out</SignOutSC>
+            <SignOutSC onClick={handleSignOut}>Sign Out</SignOutSC>
           </DrawerBottomSC>
         </DrawerContentSC>
       </DrawerSC>
@@ -256,7 +265,7 @@ const Header: FC<HeaderProps> = () => {
       <MobileDrawerSC
         anchor="right"
         open={isMobileDrawerOpen}
-        onClose={mobileDrawerCloseHandler}
+        onClose={handleCloseMobileDrawer}
       >
         <MobileDrawerContentSC>
           {!_.isEmpty(user) && (
@@ -290,7 +299,7 @@ const Header: FC<HeaderProps> = () => {
           {!_.isEmpty(user) && (
             <MobileDrawerBottomSC>
               <MobileSignOutContainerSC>
-                <SignOutSC onClick={signOutHandler}>Sign Out</SignOutSC>
+                <SignOutSC onClick={handleSignOut}>Sign Out</SignOutSC>
               </MobileSignOutContainerSC>
             </MobileDrawerBottomSC>
           )}

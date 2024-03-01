@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-export default interface ProgressIndicatorInterface {
+export default interface ProgressIndicatorProps {
   children?: ReactNode;
   size?: number;
   color?: "primary" | "secondary";

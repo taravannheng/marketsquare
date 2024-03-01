@@ -1,17 +1,22 @@
 import { FC, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+
+// 3rd-party dependencies imports
 import { useSelector } from "react-redux";
 
-import { PageSC } from "./wishlist.styles";
-
+// component imports
 import Header from "../../components/header/index.component";
 import WishlistDisplay from "../../components/wishlist-display/wishlist-display.component";
-import Footer from "../../components/footer/index.component";
 import SnackBar from "../../components/snackbar/snackbar.component";
 
-import footerItemsSample from "../../sample/footer/utility-links-sample";
-import { ROUTES } from "../../utils/constants";
+// state management imports
 import { selectUser } from "../../store/user/user.selector";
+
+// styling imports
+import { PageSC } from "./wishlist.styles";
+
+// constants or helper functions imports
+import { ROUTES } from "../../utils/constants";
 
 const WishlistPage: FC = () => {
   const user = useSelector(selectUser);
@@ -29,7 +34,7 @@ const WishlistPage: FC = () => {
     type: "info",
   });
 
-  const snackbarCloseHandler = () => {
+  const closeSnackbar = () => {
     setSnackbar({
       open: false,
       message: "",
@@ -59,7 +64,7 @@ const WishlistPage: FC = () => {
       <SnackBar
           type={snackbar.type}
           message={snackbar.message}
-          onClose={snackbarCloseHandler}
+          onClose={closeSnackbar}
           open={snackbar.open}
         />
     </>

@@ -1,6 +1,13 @@
 import { FC } from "react";
+import { createPortal } from "react-dom";
 
+// component imports
+import Button from "../button/button.component";
+
+// props or interfaces imports
 import DialogProps from "./dialog.interface";
+
+// styling imports
 import {
   ButtonContainerSC,
   DescriptionSC,
@@ -8,22 +15,26 @@ import {
   IconSC,
   TitleSC,
 } from "./dialog.styles";
-import Button from "../button/button.component";
 import { COLORS } from "../../styles/styles";
 
 const Dialog: FC<DialogProps> = ({
   title,
   description,
   primaryButtonLabel,
-  primaryButtonHandler,
+  onClickPrimaryButton,
   primaryHref,
   secondaryButtonLabel,
-  secondaryButtonHandler,
+  onClickSecondaryButton,
   open,
   isDeleteOperation,
   icon,
 }) => {
-  return (
+  const rootElement = document.getElementById('root');
+  if (!rootElement) {
+    return null; // or handle the error
+  }
+
+  return createPortal(
     <DialogSC open={open}>
       {icon && <IconSC>{icon}</IconSC>}
       <TitleSC>{title}</TitleSC>
@@ -48,7 +59,7 @@ const Dialog: FC<DialogProps> = ({
         }}
       >
         <Button
-          clickHandler={primaryButtonHandler ? primaryButtonHandler : undefined}
+          onClick={onClickPrimaryButton ? onClickPrimaryButton : undefined}
           href={primaryHref ? primaryHref : undefined}
           width="full"
         >
@@ -57,14 +68,14 @@ const Dialog: FC<DialogProps> = ({
         {secondaryButtonLabel && (
           <Button
             styleType="tertiary"
-            clickHandler={secondaryButtonHandler}
+            onClick={onClickSecondaryButton}
             width="full"
           >
             {secondaryButtonLabel}
           </Button>
         )}
       </ButtonContainerSC>
-    </DialogSC>
+    </DialogSC>, rootElement
   );
 };
 
