@@ -1,8 +1,13 @@
 import React, { FC } from "react";
+
+// 3rd-party dependencies imports
 import { Collapse } from "@mui/material";
 import { CheckCircle, Info, Cancel } from "@mui/icons-material";
 
+// props or interfaces imports
 import AlertProps, { AlertConfig } from "./alert.interface";
+
+// styling imports
 import { AlertSC } from "./alert.style";
 import COLORS from "../../styles/colors";
 
@@ -43,7 +48,7 @@ const Alert: FC<AlertProps> = ({
   const { icon, iconColor, textColor, backgroundColor, borderColor, severity } =
     alertConfigs[type] || alertConfigs.info;
 
-  const closeHandler = () => {
+  const handleClose = () => {
     setAlertVisible(false);
   };
 
@@ -53,7 +58,7 @@ const Alert: FC<AlertProps> = ({
         icon={React.cloneElement(icon, {
           sx: { color: `${iconColor} !important` },
         })}
-        onClose={hideCloseButton ? undefined : closeHandler}
+        onClose={hideCloseButton ? undefined : handleClose}
         severity={severity}
         role="alert"
         sx={{

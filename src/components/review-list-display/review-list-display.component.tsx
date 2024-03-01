@@ -1,11 +1,31 @@
 import { FC, useEffect, useState } from "react";
+
+// 3rd-party dependencies imports
 import { useSelector, useDispatch } from "react-redux";
-import _ from "lodash";
 import { TransitionGroup } from "react-transition-group";
+import _ from "lodash";
+import Cookies from "js-cookie";
 import { Collapse } from "@mui/material";
 import ReviewsIcon from "@mui/icons-material/Reviews";
-import Cookies from "js-cookie";
 
+// component imports
+import Button from "../button/button.component";
+import ProgressIndicator from "../progress-indicator/index.component";
+import ReviewListItem from "../review-list-item/review-list-item.component";
+
+// api imports
+import { getReviewsByUserID } from "../../apis/reviews/reviews.api";
+
+// state management imports
+import { selectUser } from "../../store/user/user.selector";
+import { selectReviews } from "../../store/review/review.selector";
+import { selectUserReviews } from "../../store/user-review/user-review.selector";
+import USER_REVIEW_ACTION_TYPES from "../../store/user-review/user-review.types";
+
+// props or interfaces imports
+import ReviewInterface from "../../interfaces/review-interface";
+
+// styling imports
 import {
   TitleSC,
   ReviewListDisplaySC,
@@ -14,19 +34,10 @@ import {
   ReviewListEmptySC,
   ProgressIndicatorContainerSC,
 } from "./review-list-display.styles";
-
-import Button from "../button/button.component";
-import ProgressIndicator from "../progress-indicator/index.component";
-import ReviewListItem from "../review-list-item/review-list-item.component";
-
-import ReviewInterface from "../../interfaces/review-interface";
-import { selectUser } from "../../store/user/user.selector";
-import { selectReviews } from "../../store/review/review.selector";
-import { selectUserReviews } from "../../store/user-review/user-review.selector";
-import USER_REVIEW_ACTION_TYPES from "../../store/user-review/user-review.types";
 import { space } from "../../styles/styles";
+
+// constants or helper functions imports
 import { ROUTES } from "../../utils/constants";
-import { getReviewsByUserID } from "../../apis/reviews/reviews.api";
 
 const ReviewListDisplay: FC = () => {
   const dispatch = useDispatch();

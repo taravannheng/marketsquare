@@ -9,7 +9,7 @@ export default interface ButtonProps {
   icon?: ReactNode;
   iconPosition?: "left" | "right";
   width?: "full" | "auto";
-  clickHandler?: (() => void) | ((event: any) => Promise<void>);
+  onClick?: (() => void) | ((event: any) => Promise<void>);
   href?: string;
   underlineLabel?: boolean;
   rounded?: boolean;

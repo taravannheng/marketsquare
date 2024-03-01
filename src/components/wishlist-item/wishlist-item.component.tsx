@@ -1,13 +1,36 @@
 import { FC, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+// 3rd-party dependencies imports
+import _ from "lodash";
+import Cookies from "js-cookie";
 import { useSelector, useDispatch } from "react-redux";
 import DeleteIcon from "@mui/icons-material/Delete";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import RemoveShoppingCartIcon from "@mui/icons-material/RemoveShoppingCart";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import _ from "lodash";
-import { useNavigate } from "react-router-dom";
-import Cookies from "js-cookie";
 
+// component imports
+import IconButton from "../icon-button/icon-button.component";
+import Dialog from "../dialog/dialog.component";
+import SnackBar from "../snackbar/snackbar.component";
+
+// api imports
+import { updateWishlist } from "../../apis/wishlists/wishlists.api";
+
+// state management imports
+import { selectProduct } from "../../store/product/product.selector";
+import { selectUser } from "../../store/user/user.selector";
+import { selectCart } from "../../store/cart/cart.selector";
+import { selectWishlist } from "../../store/wishlist/wishlist.selector";
+import WISHLIST_ACTION_TYPES from "../../store/wishlist/wishlist.types";
+import USER_ACTION_TYPES from "../../store/user/user.types";
+
+// props or interfaces imports
+import WishlistInterface from "../../interfaces/wishlist.interface";
+import ProductInterface from "../../interfaces/product-interface";
+
+// styling imports
 import {
   ActionsSC,
   CartIconButtonContainerSC,
@@ -17,20 +40,6 @@ import {
   TitleSC,
   WishlistItemSC,
 } from "./wishlist-item.styles";
-
-import IconButton from "../icon-button/icon-button.component";
-import Dialog from "../dialog/dialog.component";
-import SnackBar from "../snackbar/snackbar.component";
-
-import WishlistInterface from "../../interfaces/wishlist.interface";
-import ProductInterface from "../../interfaces/product-interface";
-import { selectProduct } from "../../store/product/product.selector";
-import { selectUser } from "../../store/user/user.selector";
-import { selectCart } from "../../store/cart/cart.selector";
-import { selectWishlist } from "../../store/wishlist/wishlist.selector";
-import WISHLIST_ACTION_TYPES from "../../store/wishlist/wishlist.types";
-import USER_ACTION_TYPES from "../../store/user/user.types";
-import { updateWishlist } from "../../apis/wishlists/wishlists.api";
 
 const WishlistItem: FC<WishlistInterface> = ({
   _id,
@@ -58,11 +67,11 @@ const WishlistItem: FC<WishlistInterface> = ({
     type: "info",
   });
 
-  const redirectHandler = () => {
+  const redirect = () => {
     navigate(`/product/${productID}`);
   };
 
-  const snackbarCloseHandler = () => {
+  const closeSnackbar = () => {
     setSnackbar({
       open: false,
       message: "",
@@ -70,7 +79,7 @@ const WishlistItem: FC<WishlistInterface> = ({
     });
   };
 
-  const deleteHandler = async (e: any) => {
+  const handleDeleteWishlistItem = async (e: any) => {
     e.stopPropagation();
 
     // check if session is expired
@@ -98,7 +107,7 @@ const WishlistItem: FC<WishlistInterface> = ({
     setShowDialog(true);
   };
 
-  const addToCartHandler = (e: any) => {
+  const handleAddToCart = (e: any) => {
     e.stopPropagation();
 
     setIsAddedToCart((prevState) => !prevState);
@@ -122,7 +131,7 @@ const WishlistItem: FC<WishlistInterface> = ({
     }
   };
 
-  const removeFromWishlistHandler = async () => {
+  const handleRemoveFromWishlist = async () => {
     // update state
     wishlist!.isInWishlist = false;
 
@@ -160,7 +169,7 @@ const WishlistItem: FC<WishlistInterface> = ({
   return (
     <>
       {!_.isEmpty(product) && (
-        <WishlistItemSC onClick={redirectHandler}>
+        <WishlistItemSC onClick={redirect}>
           <MediaSC image={product.imgUrls[0]} title={product.name} />
           <DetailsSC>
             <TitleSC>{product?.name}</TitleSC>
@@ -169,13 +178,13 @@ const WishlistItem: FC<WishlistInterface> = ({
           <ActionsSC>
             <IconButton
               icon={<DeleteIcon />}
-              clickHandler={deleteHandler}
+              onClick={handleDeleteWishlistItem}
               isDestructive
             />
             <CartIconButtonContainerSC>
               <IconButton
                 icon={<AddShoppingCartIcon />}
-                clickHandler={addToCartHandler}
+                onClick={handleAddToCart}
                 sx={{
                   transform: `${
                     isAddedToCart ? "translateY(-100%)" : "translateY(0%)"
@@ -185,7 +194,7 @@ const WishlistItem: FC<WishlistInterface> = ({
               />
               <IconButton
                 icon={<RemoveShoppingCartIcon />}
-                clickHandler={addToCartHandler}
+                onClick={handleAddToCart}
                 sx={{
                   transform: `${
                     isAddedToCart ? "translateY(-100%)" : "translateY(0%)"
@@ -201,9 +210,9 @@ const WishlistItem: FC<WishlistInterface> = ({
         title="Remove from Wishlist?"
         description="Are you sure you want to remove this item from Wishlist?"
         primaryButtonLabel="Remove"
-        primaryButtonHandler={removeFromWishlistHandler}
+        onClickPrimaryButton={handleRemoveFromWishlist}
         secondaryButtonLabel="Cancel"
-        secondaryButtonHandler={() => setShowDialog(false)}
+        onClickSecondaryButton={() => setShowDialog(false)}
         open={showDialog}
         icon={<FavoriteIcon />}
         isDeleteOperation
@@ -211,7 +220,7 @@ const WishlistItem: FC<WishlistInterface> = ({
       <SnackBar
         type={snackbar.type}
         message={snackbar.message}
-        onClose={snackbarCloseHandler}
+        onClose={closeSnackbar}
         open={snackbar.open}
       />
     </>

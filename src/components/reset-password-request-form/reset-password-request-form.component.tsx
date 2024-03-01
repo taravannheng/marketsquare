@@ -1,21 +1,30 @@
 import { FC, useState } from "react";
 import { useLocation } from "react-router-dom";
 
+// component imports
 import EmailInput from "../email-input/email-input.component";
 import Alert from "../alert/alert.component";
-import ResetPasswordRequestFormI from "./reset-password-request-form.interface";
+import Button from "../button/button.component";
+
+// api imports
+import { requestPasswordReset } from "../../apis/passwords/password.api";
+
+// props or interfaces imports
+import ResetPasswordRequestFormProps from "./reset-password-request-form.interface";
 import EmailInterface from "../../interfaces/email.interface";
-import { checkEmail } from "../../utils/helpers";
+
+// styling imports
 import {
   AlertContainerSC,
   ButtonContainerSC,
   FormSC,
   TitleSC,
 } from "./reset-password-request-form.styles";
-import { requestPasswordReset } from "../../apis/passwords/password.api";
-import Button from "../button/button.component";
 
-const ResetPasswordRequestForm: FC<ResetPasswordRequestFormI> = () => {
+// constants or helper functions imports
+import { checkEmail } from "../../utils/helpers";
+
+const ResetPasswordRequestForm: FC<ResetPasswordRequestFormProps> = () => {
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   const forgottenPassword = params.get("forgotten-password");
@@ -41,7 +50,7 @@ const ResetPasswordRequestForm: FC<ResetPasswordRequestFormI> = () => {
     },
   });
 
-  const emailChangeHandler = async (event: any) => {
+  const handleEmailChange = async (event: any) => {
     const email = event.target.value;
 
     const { isValid, validityDetails } = checkEmail(email);
@@ -58,7 +67,7 @@ const ResetPasswordRequestForm: FC<ResetPasswordRequestFormI> = () => {
     });
   };
 
-  const formHandler = async (event: any) => {
+  const handleFormSubmit = async (event: any) => {
     event.preventDefault();
 
     setIsLoading(true);
@@ -110,8 +119,10 @@ const ResetPasswordRequestForm: FC<ResetPasswordRequestFormI> = () => {
   };
 
   return (
-    <FormSC onSubmit={formHandler}>
-      <TitleSC variant="h1">{forgottenPassword ? 'Forgotten Password?' : 'Reset Password'}</TitleSC>
+    <FormSC onSubmit={handleFormSubmit}>
+      <TitleSC variant="h1">
+        {forgottenPassword ? "Forgotten Password?" : "Reset Password"}
+      </TitleSC>
       <AlertContainerSC>
         {alertVisible && (
           <Alert
@@ -123,9 +134,14 @@ const ResetPasswordRequestForm: FC<ResetPasswordRequestFormI> = () => {
           </Alert>
         )}
       </AlertContainerSC>
-      <EmailInput email={email} onChange={emailChangeHandler} />
+      <EmailInput email={email} onChange={handleEmailChange} />
       <ButtonContainerSC>
-        <Button actionType="submit" isLoading={isLoading} width="full" disabled={isLoading}>
+        <Button
+          actionType="submit"
+          isLoading={isLoading}
+          width="full"
+          disabled={isLoading}
+        >
           {isLoading ? "Sending Code" : "Send Code"}
         </Button>
       </ButtonContainerSC>

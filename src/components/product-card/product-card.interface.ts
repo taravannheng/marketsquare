@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import ProductInterface from "../../interfaces/product-interface";
 
-export default interface ProductCardInterface extends ProductInterface {
+export default interface ProductCardProps extends ProductInterface {
   children?: ReactNode;
 }

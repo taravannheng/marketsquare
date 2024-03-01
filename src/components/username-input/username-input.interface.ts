@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 
 import UsernameInterface from "../../interfaces/username.interface";
 
-export default interface UsernameInputInterface {
+export default interface UsernameInputProps {
   children?: ReactNode;
   className?: string;
   disabled?: boolean;

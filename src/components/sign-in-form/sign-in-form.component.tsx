@@ -1,14 +1,28 @@
 import { FC, useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+
+// 3rd-party dependencies imports
 import { useDispatch } from "react-redux";
 import _ from "lodash";
 import Cookies from "js-cookie";
 import { Box } from "@mui/material";
 
+// component imports
 import PasswordInput from "../password-input/password-input.component";
 import EmailInput from "../email-input/email-input.component";
 import Divider from "../divider/divider.component";
-import SignInFormInterface from "./sign-in-form.interface";
+import Alert from "../alert/alert.component";
+import Button from "../button/button.component";
+
+// api imports
+import { signIn } from "../../apis/signin/signin.api";
+
+// props or interfaces imports
+import SignInFormProps from "./sign-in-form.interface";
+import EmailInterface from "../../interfaces/email.interface";
+import PasswordInterface from "../../interfaces/password.interface";
+
+// styling imports
 import {
   AlertContainerSC,
   SignUpSC,
@@ -17,17 +31,16 @@ import {
   TitleSC,
   InputContainerSC,
 } from "./sign-in-form.style";
-import { checkEmail, checkPassword } from "../../utils/helpers";
-import { ROUTES } from "../../utils/constants";
-import GoogleLogo from "../../assets/socials/social-google.png";
-import { signIn } from "../../apis/signin/signin.api";
-import EmailInterface from "../../interfaces/email.interface";
-import PasswordInterface from "../../interfaces/password.interface";
-import Alert from "../alert/alert.component";
-import Button from "../button/button.component";
 import space from "../../styles/spacing";
 
-const SignInForm: FC<SignInFormInterface> = () => {
+// constants or helper functions imports
+import { checkEmail, checkPassword } from "../../utils/helpers";
+import { ROUTES } from "../../utils/constants";
+
+// asset imports
+import GoogleLogo from "../../assets/socials/social-google.png";
+
+const SignInForm: FC<SignInFormProps> = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const params = new URLSearchParams(location.search);
@@ -74,7 +87,7 @@ const SignInForm: FC<SignInFormInterface> = () => {
   });
   const [alertVisible, setAlertVisible] = useState<boolean>(false);
 
-  const emailChangeHandler = async (event: any) => {
+  const handleEmailChange = async (event: any) => {
     const email = event.target.value;
 
     const { isValid, validityDetails } = checkEmail(email);
@@ -91,7 +104,7 @@ const SignInForm: FC<SignInFormInterface> = () => {
     });
   };
 
-  const passwordChangeHandler = (event: any) => {
+  const handlePasswordChange = (event: any) => {
     const password = event.target.value;
 
     const passwordStatus = checkPassword(password);
@@ -119,7 +132,7 @@ const SignInForm: FC<SignInFormInterface> = () => {
     });
   };
 
-  const formHandler = async (event: any) => {
+  const handleFormSubmit = async (event: any) => {
     event.preventDefault();
 
     setIsLoading(true);
@@ -222,7 +235,7 @@ const SignInForm: FC<SignInFormInterface> = () => {
   }, []);
 
   return (
-    <SignInFormSC onSubmit={formHandler}>
+    <SignInFormSC onSubmit={handleFormSubmit}>
       <TitleSC variant="h1">Sign In</TitleSC>
       <AlertContainerSC>
         {alertVisible && (
@@ -237,10 +250,10 @@ const SignInForm: FC<SignInFormInterface> = () => {
         )}
       </AlertContainerSC>
       <InputContainerSC>
-        <EmailInput email={email} onChange={emailChangeHandler} />
+        <EmailInput email={email} onChange={handleEmailChange} />
         <PasswordInput
           password={password}
-          onChange={passwordChangeHandler}
+          onChange={handlePasswordChange}
           showTooltip={false}
         />
       </InputContainerSC>

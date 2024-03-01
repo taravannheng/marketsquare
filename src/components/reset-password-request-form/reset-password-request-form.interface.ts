@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
 
-export default interface ResetPasswordRequestFormI {
+export default interface ResetPasswordRequestFormProps {
   children?: ReactNode;
 }

@@ -1,20 +1,22 @@
 import { FC, useState } from "react";
+
+// 3rd-party dependencies imports
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import CheckIcon from "@mui/icons-material/Check";
 import { styled } from "@mui/material/styles";
 import {
   FormControl,
   InputBase,
-  InputLabel,
-  MenuItem,
-  MenuList,
   Icon,
   useMediaQuery,
 } from "@mui/material";
 import { BottomSheet } from "react-spring-bottom-sheet";
 import "react-spring-bottom-sheet/dist/style.css";
 
-import SortInterface from "./sort.interface";
+// props or interfaces imports
+import SortProps from "./sort.interface";
+
+// styling imports
 import {
   BottomSheetMenuItemSC,
   BottomSheetMenuListSC,
@@ -55,7 +57,7 @@ const BootstrapInput = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-const Sort: FC<SortInterface> = ({ sortMenuItem, setSortMenuItem }) => {
+const Sort: FC<SortProps> = ({ sortMenuItem, setSortMenuItem }) => {
   const isLargeScreen = useMediaQuery(`(min-width: ${BREAKPOINTS.sm}px)`);
   const label = isLargeScreen ? "Sort by: " : "Sort";
   const [isBottomSheetOpen, setIsBottomSheetOpen] = useState(false);
@@ -65,7 +67,7 @@ const Sort: FC<SortInterface> = ({ sortMenuItem, setSortMenuItem }) => {
     closeBottomSheet();
   };
 
-  const handleChange = (event: any) => {
+  const handleSortChange = (event: any) => {
     setSortMenuItem(event.target.value);
   };
 
@@ -97,7 +99,7 @@ const Sort: FC<SortInterface> = ({ sortMenuItem, setSortMenuItem }) => {
                 id="demo-simple-select"
                 value={sortMenuItem}
                 label="sort"
-                onChange={handleChange}
+                onChange={handleSortChange}
                 input={<BootstrapInput />}
               >
                 <MenuItemSC

@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-interface NavigationMenuInterface {
+interface NavigationMenuProps {
   children?: ReactNode;
   menuList: MenuInterface[];
 }
@@ -24,5 +24,5 @@ interface CategoryListItemInterface {
   url: string;
 }
 
-export default NavigationMenuInterface;
+export default NavigationMenuProps;
 export type { MenuInterface, CategoryInterface, CategoryListItemInterface };

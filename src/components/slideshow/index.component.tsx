@@ -1,16 +1,22 @@
 import { FC, useEffect, useRef, useState } from "react";
-import _ from "lodash";
 import { useNavigate } from "react-router-dom";
+
+// 3rd-party dependencies imports
+import _ from "lodash";
 import { useMediaQuery } from "@mui/material";
 import ChevronLeftRoundedIcon from "@mui/icons-material/ChevronLeftRounded";
 import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
 
+// component imports
 import SlideshowSkeleton from "./slideshow-skeleton.component";
-import Button from "../button/button.component";
-import SlideShowInterface from "./index.interface";
+import IconButton from "../icon-button/icon-button.component";
+
+// props or interfaces imports
+import SlideShowProps from "./index.interface";
 import SlideShowItemInterface from "../../interfaces/slideshow-item.interface";
+
+// styling imports
 import {
-  IndicatorTextSC,
   NextButtonSC,
   PrevButtonSC,
   SkeletonContainerSC,
@@ -23,10 +29,11 @@ import {
   ControlSC,
   ControlButtonContainerSC,
 } from "./index.styles";
-import { adjustCloudinaryImgSize } from "../../utils/helpers";
-import IconButton from "../icon-button/icon-button.component";
 
-const SlideShow: FC<SlideShowInterface> = ({
+// constants or helper functions imports
+import { adjustCloudinaryImgSize } from "../../utils/helpers";
+
+const SlideShow: FC<SlideShowProps> = ({
   data,
   indicatorType,
   autoSlide = false,
@@ -99,21 +106,21 @@ const SlideShow: FC<SlideShowInterface> = ({
     }
   }, [data.length, autoSlide]);
 
-  const prevButtonHandler = () => {
+  const handlePrevButtonClick = () => {
     setActiveItemIndex(
       (prevIndex) => (prevIndex - 1 + data.length) % data.length
     );
   };
 
-  const paginationIndicatorHandler = (index: number) => {
+  const handleSetActiveIndicator = (index: number) => {
     setActiveItemIndex(index);
   };
 
-  const nextButtonHandler = () => {
+  const handleNextButtonClick = () => {
     setActiveItemIndex((prevSlide) => (prevSlide + 1) % data.length);
   };
 
-  const redirectHandler = (productID: string) => {
+  const handleRedirect = (productID: string) => {
     if (!_.isEmpty(productID) && redirectOnClick) {
       navigate(`/product/${productID}`);
     }
@@ -130,11 +137,11 @@ const SlideShow: FC<SlideShowInterface> = ({
 
     if (diffX > swipeThreshold) {
       // swipe left
-      nextButtonHandler();
+      handleNextButtonClick();
     }
     if (diffX < -swipeThreshold) {
       // swipe right
-      prevButtonHandler();
+      handlePrevButtonClick();
     }
   };
 
@@ -164,7 +171,7 @@ const SlideShow: FC<SlideShowInterface> = ({
                       cursor: `${redirectOnClick ? "pointer" : "auto"}`,
                     },
                   }}
-                  onClick={() => redirectHandler(item?._id ?? "")}
+                  onClick={() => handleRedirect(item?._id ?? "")}
                 />
               );
             })}
@@ -180,14 +187,14 @@ const SlideShow: FC<SlideShowInterface> = ({
                     return (
                       <PaginationActiveIndicatorSC
                         key={`slide-pagination-active-indicator-${item._id}`}
-                        onClick={() => paginationIndicatorHandler(index)}
+                        onClick={() => handleSetActiveIndicator(index)}
                       ></PaginationActiveIndicatorSC>
                     );
                   }
                   return (
                     <PaginationIndicatorSC
                       key={`slide-pagination-active-indicator-${item._id}`}
-                      onClick={() => paginationIndicatorHandler(index)}
+                      onClick={() => handleSetActiveIndicator(index)}
                     ></PaginationIndicatorSC>
                   );
                 })}
@@ -197,14 +204,14 @@ const SlideShow: FC<SlideShowInterface> = ({
             <PrevButtonSC>
               <IconButton
                 size="medium"
-                clickHandler={prevButtonHandler}
+                onClick={handlePrevButtonClick}
                 icon={<ChevronLeftRoundedIcon />}
               />
             </PrevButtonSC>
             <NextButtonSC>
               <IconButton
                 size="medium"
-                clickHandler={nextButtonHandler}
+                onClick={handleNextButtonClick}
                 icon={<ChevronRightRoundedIcon />}
               />
             </NextButtonSC>

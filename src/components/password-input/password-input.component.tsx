@@ -1,4 +1,6 @@
 import { FC, useState } from "react";
+
+// 3rd-party dependencies imports
 import {
   Cancel,
   CheckCircle,
@@ -7,7 +9,10 @@ import {
   VisibilityOff,
 } from "@mui/icons-material";
 
-import { PasswordInputInterface } from "./password-input.interface";
+// props or interfaces imports
+import { PasswordInputProps } from "./password-input.interface";
+
+// styling imports
 import {
   InputSC,
   LabelContainerSC,
@@ -26,7 +31,7 @@ import {
 } from "./password-input.style";
 import COLORS from "../../styles/colors";
 
-const PasswordInput: FC<PasswordInputInterface> = ({
+const PasswordInput: FC<PasswordInputProps> = ({
   disabled = false,
   id,
   label = "Password",
@@ -53,7 +58,7 @@ const PasswordInput: FC<PasswordInputInterface> = ({
 
   // ---
 
-  const focusHandler = () => {
+  const handleFocus = () => {
     if (!hasBeenFocused) {
       setHasBeenFocused(true);
     }
@@ -61,11 +66,11 @@ const PasswordInput: FC<PasswordInputInterface> = ({
     setIsFocus(true);
   };
 
-  const blurHandler = () => {
+  const handleBlur = () => {
     setIsFocus(false);
   };
 
-  const showPasswordHandler = () => {
+  const handleShowPassword = () => {
     setShowPassword(!showPassword);
   };
 
@@ -90,8 +95,8 @@ const PasswordInput: FC<PasswordInputInterface> = ({
           id={id}
           name={name}
           onChange={onChange}
-          onFocus={focusHandler}
-          onBlur={blurHandler}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
           placeholder={placeholder}
           value={value}
           type={showPassword ? "text" : "password"}
@@ -102,12 +107,12 @@ const PasswordInput: FC<PasswordInputInterface> = ({
           {showPassword ? (
             <Visibility
               sx={{ color: `${COLORS.NEUTRAL.N300}`, cursor: "pointer" }}
-              onClick={showPasswordHandler}
+              onClick={handleShowPassword}
             />
           ) : (
             <VisibilityOff
               sx={{ color: `${COLORS.NEUTRAL.N300}`, cursor: "pointer" }}
-              onClick={showPasswordHandler}
+              onClick={handleShowPassword}
             />
           )}
         </ShowPasswordIconSC>

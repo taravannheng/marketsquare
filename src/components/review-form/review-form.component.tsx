@@ -1,15 +1,42 @@
 import { FC, useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+
+// 3rd-party dependencies imports
 import { useSelector, useDispatch } from "react-redux";
 import { BottomSheet } from "react-spring-bottom-sheet";
 import "react-spring-bottom-sheet/dist/style.css";
-import { Rating, useMediaQuery } from "@mui/material";
+import { useMediaQuery } from "@mui/material";
 import Fade from "@mui/material/Fade";
 import Grow from "@mui/material/Grow";
 import EditIcon from "@mui/icons-material/Edit";
 import CloseIcon from "@mui/icons-material/Close";
-import { useLocation } from "react-router-dom";
 
+// component imports
+import Button from "../button/button.component";
+import RatingSelect from "../rating-select/rating-select.component";
+import ReviewTextArea from "../review-textarea/review-textarea.component";
+import Review from "../review/index.component";
+import SnackBar from "../snackbar/snackbar.component";
+import Dialog from "../dialog/dialog.component";
+
+// api imports
+import { getOrdersByUserIDAndProductID } from "../../apis/orders/order.api";
+import {
+  createReview,
+  updateReview,
+  deleteReview,
+} from "../../apis/reviews/reviews.api";
+
+// state management imports
+import { selectUser } from "../../store/user/user.selector";
+import { selectUserReview } from "../../store/user-review/user-review.selector";
+import REVIEW_ACTION_TYPES from "../../store/review/review.types";
+import USER_REVIEW_ACTION_TYPES from "../../store/user-review/user-review.types";
+
+// props or interfaces imports
 import ReviewFormProps from "./review-form.interface";
+
+// styling imports
 import {
   AddReviewTextSC,
   BottomSheetBodySC,
@@ -38,25 +65,10 @@ import {
   ReviewTitleSC,
   SignInTextSC,
 } from "./review-form.styles";
-import { selectUser } from "../../store/user/user.selector";
-import { selectUserReview } from "../../store/user-review/user-review.selector";
-import REVIEW_ACTION_TYPES from "../../store/review/review.types";
-import USER_REVIEW_ACTION_TYPES from "../../store/user-review/user-review.types";
-import Button from "../button/button.component";
-import RatingSelect from "../rating-select/rating-select.component";
-import ReviewTextArea from "../review-textarea/review-textarea.component";
-import Review from "../review/index.component";
-import SnackBar from "../snackbar/snackbar.component";
-import Dialog from "../dialog/dialog.component";
-import { ROUTES } from "../../utils/constants";
-import { getOrdersByUserIDAndProductID } from "../../apis/orders/order.api";
-import {
-  createReview,
-  updateReview,
-  deleteReview,
-} from "../../apis/reviews/reviews.api";
 import BREAKPOINTS from "../../styles/breakpoints";
-import ReviewInterface from "../review/index.interface";
+
+// constants or helper function imports
+import { ROUTES } from "../../utils/constants";
 
 const ReviewForm: FC<ReviewFormProps> = ({ productID, userReview }) => {
   const location = useLocation();
@@ -94,7 +106,7 @@ const ReviewForm: FC<ReviewFormProps> = ({ productID, userReview }) => {
   let snackbarTimeout: NodeJS.Timeout | undefined;
 
   // HANDLERS
-  const openBottomSheet = () => {
+  const handleOpenBottomSheet = () => {
     const isSmallScreen = !isLargeScreen;
 
     if (isSmallScreen) {
@@ -102,19 +114,19 @@ const ReviewForm: FC<ReviewFormProps> = ({ productID, userReview }) => {
     }
   };
 
-  const closeBottomSheet = () => {
+  const handleCloseBottomSheet = () => {
     setIsAddReviewBottomSheetOpen(false);
     setIsDeleteReviewBottomSheetOpen(false);
     setIsUpdateReviewBottomSheetOpen(false);
     setShowFormCard(false);
   };
 
-  const handleAddReview = () => {
-    openBottomSheet();
+  const handleShowFormCard = () => {
+    handleOpenBottomSheet();
     setShowFormCard(true);
   };
 
-  const snackbarCloseHandler = () => {
+  const handleCloseSnackbar = () => {
     setSnackbar({
       open: false,
       message: "",
@@ -122,7 +134,7 @@ const ReviewForm: FC<ReviewFormProps> = ({ productID, userReview }) => {
     });
   };
 
-  const handleRatingSubmit = () => {
+  const handleSubmitRating = () => {
     rating && setShowReviewForm(true);
 
     !rating && setShowRatingErrorText(true);
@@ -143,10 +155,10 @@ const ReviewForm: FC<ReviewFormProps> = ({ productID, userReview }) => {
     clearTimeout(snackbarTimeout);
 
     // close snackbar
-    snackbarCloseHandler();
+    handleCloseSnackbar();
   };
 
-  const addReviewHandler = () => {
+  const handleAddReview = () => {
     !review && setShowReviewErrorText(true);
 
     // after 5s set showReviewErrorText to false
@@ -158,7 +170,7 @@ const ReviewForm: FC<ReviewFormProps> = ({ productID, userReview }) => {
       setShowReviewForm(false);
 
       // close bottom sheet
-      closeBottomSheet();
+      handleCloseBottomSheet();
 
       // show snackbar
       setSnackbar({
@@ -219,7 +231,7 @@ const ReviewForm: FC<ReviewFormProps> = ({ productID, userReview }) => {
     }
   };
 
-  const updateReviewHandler = () => {
+  const handleUpdateReview = () => {
     !review && setShowReviewErrorText(true);
 
     // after 5s set showReviewErrorText to false
@@ -231,7 +243,7 @@ const ReviewForm: FC<ReviewFormProps> = ({ productID, userReview }) => {
       setShowReviewForm(false);
 
       // close bottom sheet
-      closeBottomSheet();
+      handleCloseBottomSheet();
 
       // show snackbar
       setSnackbar({
@@ -298,9 +310,9 @@ const ReviewForm: FC<ReviewFormProps> = ({ productID, userReview }) => {
     }
   };
 
-  const deleteReviewHandler = async () => {
+  const handleDeleteReview = async () => {
     // close bottom sheet
-    closeBottomSheet();
+    handleCloseBottomSheet();
     setShowDeleteReviewDialog(false);
 
     try {
@@ -395,7 +407,7 @@ const ReviewForm: FC<ReviewFormProps> = ({ productID, userReview }) => {
             Want to share your thoughts?{" "}
             <Button
               styleType="tertiary"
-              clickHandler={handleAddReview}
+              onClick={handleShowFormCard}
               underlineLabel
             >
               Add Review
@@ -424,7 +436,7 @@ const ReviewForm: FC<ReviewFormProps> = ({ productID, userReview }) => {
               />
               <Button
                 styleType="tertiary"
-                clickHandler={() => {
+                onClick={() => {
                   isLargeScreen
                     ? setShowDeleteReviewDialog(true)
                     : setIsDeleteReviewBottomSheetOpen(true);
@@ -459,7 +471,7 @@ const ReviewForm: FC<ReviewFormProps> = ({ productID, userReview }) => {
                     </RatingErrorTextSC>
                   )}
                   <FormCardRatingButtonContainerSC>
-                    <Button width="auto" clickHandler={handleRatingSubmit}>
+                    <Button width="auto" onClick={handleSubmitRating}>
                       Next
                     </Button>
                   </FormCardRatingButtonContainerSC>
@@ -480,7 +492,7 @@ const ReviewForm: FC<ReviewFormProps> = ({ productID, userReview }) => {
                     <Button
                       styleType="secondary"
                       width="auto"
-                      clickHandler={() => {
+                      onClick={() => {
                         setShowReviewForm(false);
                       }}
                     >
@@ -488,8 +500,8 @@ const ReviewForm: FC<ReviewFormProps> = ({ productID, userReview }) => {
                     </Button>
                     <Button
                       width="auto"
-                      clickHandler={
-                        userReview ? updateReviewHandler : addReviewHandler
+                      onClick={
+                        userReview ? handleUpdateReview : handleAddReview
                       }
                     >
                       {userReview ? "Update Review" : "Submit Review"}
@@ -506,16 +518,16 @@ const ReviewForm: FC<ReviewFormProps> = ({ productID, userReview }) => {
         title="Delete Review"
         description="Are you sure you want to delete this review?"
         primaryButtonLabel="Delete Review"
-        primaryButtonHandler={deleteReviewHandler}
+        onClickPrimaryButton={handleDeleteReview}
         secondaryButtonLabel="Cancel"
-        secondaryButtonHandler={() => setShowDeleteReviewDialog(false)}
+        onClickSecondaryButton={() => setShowDeleteReviewDialog(false)}
         open={showDeleteReviewDialog}
         isDeleteOperation
       />
       {/* ADD REVIEW BOTTOM SHEET */}
       <BottomSheet
         open={isAddReviewBottomSheetOpen}
-        onDismiss={closeBottomSheet}
+        onDismiss={handleCloseBottomSheet}
         header={<BottomSheetTitleSC>Add Review</BottomSheetTitleSC>}
       >
         <BottomSheetBodySC
@@ -531,7 +543,7 @@ const ReviewForm: FC<ReviewFormProps> = ({ productID, userReview }) => {
               <RatingErrorTextSC>Please select a rating</RatingErrorTextSC>
             )}
             <RatingButtonContainerSC>
-              <Button width="full" clickHandler={handleRatingSubmit}>
+              <Button width="full" onClick={handleSubmitRating}>
                 Next
               </Button>
             </RatingButtonContainerSC>
@@ -544,13 +556,13 @@ const ReviewForm: FC<ReviewFormProps> = ({ productID, userReview }) => {
               </ReviewErrorTextSC>
             )}
             <ReviewButtonContainerSC>
-              <Button width="full" clickHandler={addReviewHandler}>
+              <Button width="full" onClick={handleAddReview}>
                 Submit Review
               </Button>
               <Button
                 width="full"
                 styleType="secondary"
-                clickHandler={() => {
+                onClick={() => {
                   setShowReviewForm(false);
                 }}
               >
@@ -563,7 +575,7 @@ const ReviewForm: FC<ReviewFormProps> = ({ productID, userReview }) => {
       {/* UPDATE REVIEW BOTTOM SHEET */}
       <BottomSheet
         open={isUpdateReviewBottomSheetOpen}
-        onDismiss={closeBottomSheet}
+        onDismiss={handleCloseBottomSheet}
         header={<BottomSheetTitleSC>Update Review</BottomSheetTitleSC>}
       >
         <BottomSheetBodySC
@@ -579,7 +591,7 @@ const ReviewForm: FC<ReviewFormProps> = ({ productID, userReview }) => {
               <RatingErrorTextSC>Please select a rating</RatingErrorTextSC>
             )}
             <RatingButtonContainerSC>
-              <Button width="full" clickHandler={handleRatingSubmit}>
+              <Button width="full" onClick={handleSubmitRating}>
                 Next
               </Button>
             </RatingButtonContainerSC>
@@ -592,13 +604,13 @@ const ReviewForm: FC<ReviewFormProps> = ({ productID, userReview }) => {
               </ReviewErrorTextSC>
             )}
             <ReviewButtonContainerSC>
-              <Button width="full" clickHandler={updateReviewHandler}>
+              <Button width="full" onClick={handleUpdateReview}>
                 Update Review
               </Button>
               <Button
                 width="full"
                 styleType="secondary"
-                clickHandler={() => {
+                onClick={() => {
                   setShowReviewForm(false);
                 }}
               >
@@ -611,23 +623,19 @@ const ReviewForm: FC<ReviewFormProps> = ({ productID, userReview }) => {
       {/* DELETE REVIEW BOTTOM SHEET */}
       <BottomSheet
         open={isDeleteReviewBottomSheetOpen}
-        onDismiss={closeBottomSheet}
+        onDismiss={handleCloseBottomSheet}
         header={<BottomSheetTitleSC>Delete Review</BottomSheetTitleSC>}
       >
         <DeleteReviewBottomSheetBodySC>
           <DeletePromptSC>
             Are you sure you want to delete this review?
           </DeletePromptSC>
-          <Button
-            styleType="primary"
-            clickHandler={deleteReviewHandler}
-            width="full"
-          >
+          <Button styleType="primary" onClick={handleDeleteReview} width="full">
             Delete Review
           </Button>
           <Button
             styleType="secondary"
-            clickHandler={closeBottomSheet}
+            onClick={handleCloseBottomSheet}
             width="full"
           >
             Cancel
@@ -637,7 +645,7 @@ const ReviewForm: FC<ReviewFormProps> = ({ productID, userReview }) => {
       <SnackBar
         type={snackbar.type}
         message={snackbar.message}
-        onClose={snackbarCloseHandler}
+        onClose={handleCloseSnackbar}
         open={snackbar.open}
         onUndo={snackbar.onUndo}
       />

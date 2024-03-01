@@ -1,7 +1,12 @@
 import { FC, useState } from "react";
+
+// 3rd-party dependencies imports
 import { Cancel, CheckCircle } from "@mui/icons-material";
 
-import UsernameInputInterface from "./username-input.interface";
+// props or interfaces imports
+import UsernameInputProps from "./username-input.interface";
+
+// styling imports
 import {
   InputSC,
   LabelContainerSC,
@@ -14,7 +19,7 @@ import {
 } from "./username-input.style";
 import COLORS from "../../styles/colors";
 
-const UsernameInput: FC<UsernameInputInterface> = ({
+const UsernameInput: FC<UsernameInputProps> = ({
   disabled = false,
   id,
   label = "Username",
@@ -35,7 +40,7 @@ const UsernameInput: FC<UsernameInputInterface> = ({
   const tooltipMessage =
     "Username must be 4-20 characters and include only letters, numbers, or underscores.";
 
-  const focusHandler = () => {
+  const handleFocus = () => {
     if (!hasBeenFocused) {
       setHasBeenFocused(true);
     }
@@ -43,7 +48,7 @@ const UsernameInput: FC<UsernameInputInterface> = ({
     setIsFocus(true);
   };
 
-  const blurHandler = () => {
+  const handleBlur = () => {
     setIsFocus(false);
   };
 
@@ -67,8 +72,8 @@ const UsernameInput: FC<UsernameInputInterface> = ({
         id={id}
         name={name}
         onChange={onChange}
-        onFocus={focusHandler}
-        onBlur={blurHandler}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
         placeholder={placeholder}
         value={value}
         type="text"

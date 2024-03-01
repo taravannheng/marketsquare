@@ -1,24 +1,31 @@
 import { FC } from "react";
+
+// 3rd-party dependencies imports
+import _ from "lodash";
 import SearchIcon from "@mui/icons-material/Search";
 import ClearIcon from "@mui/icons-material/Clear";
 
-import SearchBoxInterface from "./searchbox.interface";
+// props or interfaces imports
+import SearchBoxProps from "./searchbox.interface";
+
+// styling imports
 import {
   ClearIconSC,
   SearchIconSC,
   SearchBoxSC,
   TextFieldSC,
 } from "./searchbox.style";
-import _ from "lodash";
 
-const SearchBox: FC<SearchBoxInterface> = ({ searchTerm, setSearchTerm }) => {
-  const handleSearchTermChange = (
+  
+const SearchBox: FC<SearchBoxProps> = ({ searchTerm, setSearchTerm }) => {
+  
+  const handleChangeSearchTerm = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     setSearchTerm(event.target.value);
   };
 
-  const clearSearchTermHandler = () => {
+  const handleClearSearchTerm = () => {
     setSearchTerm("");
   };
 
@@ -34,10 +41,10 @@ const SearchBox: FC<SearchBoxInterface> = ({ searchTerm, setSearchTerm }) => {
         variant="filled"
         value={searchTerm}
         placeholder="Search products..."
-        onChange={handleSearchTermChange}
+        onChange={handleChangeSearchTerm}
       />
       {!_.isEmpty(searchTerm) && (
-        <ClearIconSC onClick={clearSearchTermHandler}>
+        <ClearIconSC onClick={handleClearSearchTerm}>
           <ClearIcon />
         </ClearIconSC>
       )}

@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
 
-export default interface OrderListDisplayInterface {
+export default interface OrderListDisplayProps {
   children?: ReactNode;
 }

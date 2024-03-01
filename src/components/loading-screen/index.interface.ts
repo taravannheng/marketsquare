@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
 
-export default interface LoadingScreenInterface {
+export default interface LoadingScreenProps {
   children?: ReactNode;
 }

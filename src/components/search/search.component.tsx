@@ -1,17 +1,28 @@
 import { FC, useEffect, useState } from "react";
+
+// 3rd-party dependencies imports
 import _ from "lodash";
 import { useSelector } from "react-redux";
 
-import SearchInterface from "./search.interface";
-import ProductInterface from "../../interfaces/product-interface";
-import { SearchSC } from "./search.style";
+// component imports
 import SearchBox from "../searchbox/searchbox.component";
 import SuggestionList from "../suggestion-list/suggestion-list.component";
+
+// api imports
 import { searchProducts } from "../../apis/products/products.api";
 import getCorrectedSearchTerm from "../../apis/search/search.api";
+
+// state management imports
 import { selectProducts } from "../../store/product/product.selector";
 
-const Search: FC<SearchInterface> = () => {
+// props or interfaces imports
+import SearchProps from "./search.interface";
+import ProductInterface from "../../interfaces/product-interface";
+
+// styling imports
+import { SearchSC } from "./search.style";
+
+const Search: FC<SearchProps> = () => {
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [suggestions, setSuggestions] = useState<ProductInterface[]>([]);
   const [correctedSearchTerm, setCorrectedSearchTerm] = useState<string>("");
