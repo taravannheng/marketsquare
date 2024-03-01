@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 
 import PasswordInterface from "../../interfaces/password.interface";
 
-export interface PasswordInputInterface {
+export interface PasswordInputProps {
   children?: ReactNode;
   className?: string;
   disabled?: boolean;

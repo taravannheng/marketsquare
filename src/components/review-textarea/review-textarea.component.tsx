@@ -1,7 +1,12 @@
 import { FC } from "react";
-import { TextField, createTheme, ThemeProvider } from "@mui/material";
 
+// 3rd-party dependencies imports
+import { createTheme, ThemeProvider } from "@mui/material";
+
+// props or interfaces imports
 import ReviewTextAreaProps from "./review-textarea.interface";
+
+// styling imports
 import {
   RemainingCharactersCounterSC,
   RemainingCharactersSC,

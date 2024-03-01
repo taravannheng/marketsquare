@@ -2,8 +2,8 @@ import { ReactNode } from "react";
 
 import { MenuInterface } from "../navigation-menu/index.interface";
 
-interface NavigationMenuItemInterface extends MenuInterface {
+interface NavigationMenuItemProps extends MenuInterface {
   children?: ReactNode;
 }
 
-export default NavigationMenuItemInterface;
+export default NavigationMenuItemProps;

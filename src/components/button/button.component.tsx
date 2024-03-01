@@ -1,7 +1,12 @@
 import { FC, useState } from "react";
-import { Box } from "@mui/material";
 
+// component imports
+import ProgressIndicator from "../progress-indicator/index.component";
+
+// props or interfaces imports 
 import ButtonProps from "./button.interface";
+
+// styling imports
 import {
   IconSC,
   PrimaryButtonSC,
@@ -9,14 +14,13 @@ import {
   SecondaryButtonSC,
   TertiaryButtonSC,
 } from "./button.styles";
-import ProgressIndicator from "../progress-indicator/index.component";
 import { space, borderRadius } from "../../styles/styles";
 
 const Button: FC<ButtonProps> = ({
   actionType = "button",
   styleType = "primary",
   children,
-  clickHandler,
+  onClick,
   disabled = false,
   icon,
   iconPosition = "left",
@@ -35,7 +39,7 @@ const Button: FC<ButtonProps> = ({
       {styleType === "primary" && (
         <PrimaryButtonSC
           type={actionType}
-          onClick={clickHandler}
+          onClick={onClick}
           href={href}
           disabled={disabled}
           sx={{
@@ -61,7 +65,7 @@ const Button: FC<ButtonProps> = ({
       {styleType === "secondary" && (
         <SecondaryButtonSC
           type={actionType}
-          onClick={clickHandler}
+          onClick={onClick}
           href={href}
           disabled={disabled}
           onMouseEnter={() => setIsHovered(true)}
@@ -90,7 +94,7 @@ const Button: FC<ButtonProps> = ({
       {styleType === "tertiary" && (
         <TertiaryButtonSC
           type={actionType}
-          onClick={clickHandler}
+          onClick={onClick}
           href={href}
           disabled={disabled}
           onMouseEnter={() => setIsHovered(true)}

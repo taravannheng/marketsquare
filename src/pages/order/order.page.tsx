@@ -1,16 +1,22 @@
 import { FC, useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
+// 3rd-party dependencies imports
+import { useSelector } from 'react-redux';
 
+// component imports
+import Header from '../../components/header/index.component';
+import SnackBar from '../../components/snackbar/snackbar.component';
+import OrderListDisplay from '../../components/order-list-display/order-list-display.component';
+
+// state management imports
+import { selectUser } from '../../store/user/user.selector';
+
+// styling imports
 import { PageSC } from './order.styles';
 
-import Header from '../../components/header/index.component';
-import OrderListDisplay from '../../components/order-list-display/order-list-display.component';
-import SnackBar from '../../components/snackbar/snackbar.component';
-
+// constants or helper functions imports
 import { ROUTES } from '../../utils/constants';
-import { useSelector } from 'react-redux';
-import { selectUser } from '../../store/user/user.selector';
 
 const OrderHistoryPage: FC = () => {
   const user = useSelector(selectUser);
@@ -28,7 +34,7 @@ const OrderHistoryPage: FC = () => {
     type: "info",
   });
 
-  const snackbarCloseHandler = () => {
+  const closeSnackbar = () => {
     setSnackbar({
       open: false,
       message: "",
@@ -58,7 +64,7 @@ const OrderHistoryPage: FC = () => {
       <SnackBar
           type={snackbar.type}
           message={snackbar.message}
-          onClose={snackbarCloseHandler}
+          onClose={closeSnackbar}
           open={snackbar.open}
         />
     </>

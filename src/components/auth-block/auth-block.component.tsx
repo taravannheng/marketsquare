@@ -1,11 +1,18 @@
 import { FC } from "react";
 
+// props or interfaces imports
 import AuthBlockProps from "./auth-block.interface";
+
+// component imports
+import Button from "../button/button.component";
+
+// constants or helper function imports
+import { ROUTES } from "../../utils/constants";
+
+// styling imports
 import {
   AuthBlockSC,
 } from "./auth-block.styles";
-import { ROUTES } from "../../utils/constants";
-import Button from "../button/button.component";
 
 const AuthBlock: FC<AuthBlockProps> = () => {
   return (

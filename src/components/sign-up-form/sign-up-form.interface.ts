@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
 
-export default interface SignUpFormInterface {
+export default interface SignUpFormProps {
   children?: ReactNode;
 }
