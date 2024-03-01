@@ -1,7 +1,18 @@
 import { FC } from "react";
-import { ArrowBackRounded } from "@mui/icons-material";
 
-import OrderSummaryDisplayInterface from "./index.interface";
+// 3rd-party dependencies imports
+import { ArrowBackRounded } from "@mui/icons-material";
+import _ from "lodash";
+
+// component imports
+import Button from "../button/button.component";
+import OrderSummary from "../order-summary/index.component";
+import OrderDetails from "../order-details/index.component";
+
+// props or interfaces imports
+import OrderSummaryDisplayProps from "./index.interface";
+
+// styling imports
 import {
   BackNavSC,
   ContentSC,
@@ -10,13 +21,11 @@ import {
   OrderSummaryDisplaySC,
   TitleSC,
 } from "./index.styles";
-import Button from "../button/button.component";
-import { ROUTES } from "../../utils/constants";
-import OrderSummary from "../order-summary/index.component";
-import OrderDetails from "../order-details/index.component";
-import _ from "lodash";
 
-const OrderSummaryDisplay: FC<OrderSummaryDisplayInterface> = ({
+// constants or helper function imports
+import { ROUTES } from "../../utils/constants";
+
+const OrderSummaryDisplay: FC<OrderSummaryDisplayProps> = ({
   orderID,
   cartID,
   customer,
@@ -32,7 +41,7 @@ const OrderSummaryDisplay: FC<OrderSummaryDisplayInterface> = ({
   return (
     <OrderSummaryDisplaySC>
       <BackNavSC>
-        <Button styleType="tertiary" icon={<ArrowBackRounded />} clickHandler={redirectToHomepage}>
+        <Button styleType="tertiary" icon={<ArrowBackRounded />} onClick={redirectToHomepage}>
           Home
         </Button>
       </BackNavSC>

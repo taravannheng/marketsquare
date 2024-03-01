@@ -1,8 +1,13 @@
 import { FC, useState } from 'react';
-import { StarRounded, StarOutlineRounded } from "@mui/icons-material";
+
+// 3rd-party dependencies imports
+import { StarRounded } from "@mui/icons-material";
 import { Stack } from '@mui/material';
 
+// props or interfaces imports
 import RatingSelectProps from './rating-select.interface';
+
+// styling imports
 import { RatingSelectSC, IconSC, LabelSC } from './rating-select.styles';
 import { COLORS } from '../../styles/styles';
 

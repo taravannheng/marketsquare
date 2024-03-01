@@ -1,9 +1,14 @@
 import { FC } from "react";
-import _ from "lodash";
-import CloseIcon from "@mui/icons-material/Close";
-import { IconButton, ThemeProvider, createTheme } from "@mui/material";
 
-import SnackbarInterface from "./snackbar.interface";
+// 3rd-party dependencies imports
+import _ from "lodash";
+import { IconButton, ThemeProvider, createTheme } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
+
+// props or interfaces imports
+import SnackbarProps from "./snackbar.interface";
+
+// styling imports
 import { SnackbarSC, UndoButtonSC } from "./snackbar.style";
 import COLORS from "../../styles/colors";
 
@@ -21,7 +26,7 @@ const theme = createTheme({
   },
 });
 
-const SnackBar: FC<SnackbarInterface> = ({
+const SnackBar: FC<SnackbarProps> = ({
   onClose,
   open,
   type,

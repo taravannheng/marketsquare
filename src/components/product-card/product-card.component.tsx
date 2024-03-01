@@ -1,7 +1,10 @@
 import { FC } from "react";
 import { useNavigate } from "react-router-dom";
 
-import ProductCardInterface from "./product-card.interface";
+// props or interfaces imports
+import ProductCardProps from "./product-card.interface";
+
+// styling imports
 import {
   ProductCardSC,
   CardContentSC,
@@ -10,9 +13,11 @@ import {
   ProductPriceSC,
   CardMediaContainerSC,
 } from "./product-card.styles";
+
+// constants or helper functions imports
 import { formatPrice, adjustCloudinaryImgSize } from "../../utils/helpers";
 
-const ProductCard: FC<ProductCardInterface> = ({
+const ProductCard: FC<ProductCardProps> = ({
   imgUrls,
   name,
   price,
@@ -25,20 +30,20 @@ const ProductCard: FC<ProductCardInterface> = ({
   const firstImgUrl = imgUrls[0];
   const imgUrl = adjustCloudinaryImgSize(firstImgUrl, MAX_IMG_SIZE);
 
-  const showDetailsHandler = () => {
+  const handleShowDetails = () => {
     navigate(`/product/${_id}`);
   };
 
   return (
     <>
-      <ProductCardSC onClick={showDetailsHandler}>
+      <ProductCardSC onClick={handleShowDetails}>
         <CardMediaContainerSC>
           <CardMediaSC image={imgUrl} title={name} />
         </CardMediaContainerSC>
         <CardContentSC>
-            <ProductNameSC gutterBottom variant="body1">
-              {name}
-            </ProductNameSC>
+          <ProductNameSC gutterBottom variant="body1">
+            {name}
+          </ProductNameSC>
           <ProductPriceSC variant="body1" color="text.primary">
             ${formatPrice(price)}
           </ProductPriceSC>

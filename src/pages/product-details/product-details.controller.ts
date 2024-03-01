@@ -1,11 +1,15 @@
+// 3rd-party dependencies imports
 import _ from "lodash";
 
+// api imports
+import { getReviewsByProductID } from "../../apis/reviews/reviews.api";
 import { getRelatedProducts } from "../../apis/products/related-products.api";
 import {
   getMultipleProducts,
   getProduct,
 } from "../../apis/products/products.api";
-import { getReviewsByProductID } from "../../apis/reviews/reviews.api";
+
+// props or interfaces imports
 import ProductInterface from "../../interfaces/product-interface";
 import ReviewInterface from "../../interfaces/review-interface";
 

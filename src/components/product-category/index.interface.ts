@@ -1,9 +1,9 @@
 import { ReactNode } from "react";
 
-interface ProductCategoryInterface {
+interface ProductCategoryProps {
   children?: ReactNode;
   title: string;
   images: string[];
 }
 
-export default ProductCategoryInterface;
+export default ProductCategoryProps;

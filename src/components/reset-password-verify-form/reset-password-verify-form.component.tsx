@@ -1,21 +1,30 @@
 import { FC, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
+// component imports
 import Alert from "../alert/alert.component";
 import FourDigitInput from "../four-digit-input/four-digit-input.component";
-import ResetPasswordVerifyFormI from "./reset-password-verify-form.interface";
+import Button from "../button/button.component";
+
+// api imports
+import { verifyPasswordReset } from "../../apis/passwords/password.api";
+
+// props or interfaces imports
+import ResetPasswordVerifyFormProps from "./reset-password-verify-form.interface";
+
+// styling imports
 import {
   AlertContainerSC,
   ButtonContainerSC,
   FormSC,
   TitleSC,
 } from "./reset-password-verify-form.styles";
-import { verifyPasswordReset } from "../../apis/passwords/password.api";
-import Button from "../button/button.component";
+
+// constants or helper functions imports
 import { checkFourDigits } from "../../utils/helpers";
 import { ROUTES } from "../../utils/constants";
 
-const ResetPasswordVerifyForm: FC<ResetPasswordVerifyFormI> = () => {
+const ResetPasswordVerifyForm: FC<ResetPasswordVerifyFormProps> = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const params = new URLSearchParams(location.search);
@@ -37,7 +46,7 @@ const ResetPasswordVerifyForm: FC<ResetPasswordVerifyFormI> = () => {
   });
   const [alertVisible, setAlertVisible] = useState<boolean>(true);
 
-  const formHandler = async () => {
+  const handleFormSubmit = async () => {
     setIsLoading(true);
 
     // convert the four digits to number
@@ -97,7 +106,7 @@ const ResetPasswordVerifyForm: FC<ResetPasswordVerifyFormI> = () => {
     setIsLoading(false);
   };
 
-  const digitChangeHandler = (index: number, value: string) => {
+  const handleChangeDigit = (index: number, value: string) => {
     setFourDigits((prevValues) => {
       const newValues = [...prevValues];
       newValues[index] = value;
@@ -136,12 +145,12 @@ const ResetPasswordVerifyForm: FC<ResetPasswordVerifyFormI> = () => {
       </AlertContainerSC>
       <FourDigitInput
         values={fourDigits}
-        onChange={digitChangeHandler}
+        onChange={handleChangeDigit}
         refs={refs}
       />
       <ButtonContainerSC>
         <Button
-          clickHandler={formHandler}
+          onClick={handleFormSubmit}
           isLoading={isLoading}
           width="full"
           disabled={isLoading}

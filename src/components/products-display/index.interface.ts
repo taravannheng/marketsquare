@@ -2,10 +2,10 @@ import { ReactNode } from "react";
 
 import ProductInterface from "../../interfaces/product-interface";
 
-interface ProductsDisplayInterface {
+interface ProductsDisplayProps {
   children?: ReactNode;
   title?: string;
   products: ProductInterface[];
 }
 
-export default ProductsDisplayInterface;
+export default ProductsDisplayProps;

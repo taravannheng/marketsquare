@@ -1,12 +1,28 @@
 import { FC, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import _ from "lodash";
 
+// 3rd-party dependencies imports
+import _ from "lodash";
+import { Box } from "@mui/material";
+
+// component imports
 import UsernameInput from "../username-input/username-input.component";
 import PasswordInput from "../password-input/password-input.component";
 import EmailInput from "../email-input/email-input.component";
 import Divider from "../divider/divider.component";
-import SignUpFormInterface from "./sign-up-form.interface";
+import Alert from "../alert/alert.component";
+import Button from "../button/button.component";
+
+// api imports
+import { createUser, getUserByEmail } from "../../apis/users/users.api";
+
+// props or interfaces imports
+import SignUpFormProps from "./sign-up-form.interface";
+import UsernameInterface from "../../interfaces/username.interface";
+import EmailInterface from "../../interfaces/email.interface";
+import PasswordInterface from "../../interfaces/password.interface";
+
+// styling imports
 import {
   AlertContainerSC,
   InputContainerSC,
@@ -15,19 +31,16 @@ import {
   SocialLogoSC,
   TitleSC,
 } from "./sign-up-form.style";
-import { checkEmail, checkPassword, checkUsername } from "../../utils/helpers";
-import { ROUTES } from "../../utils/constants";
-import GoogleLogo from "../../assets/socials/social-google.png";
-import { createUser, getUserByEmail } from "../../apis/users/users.api";
-import UsernameInterface from "../../interfaces/username.interface";
-import EmailInterface from "../../interfaces/email.interface";
-import PasswordInterface from "../../interfaces/password.interface";
-import Alert from "../alert/alert.component";
-import Button from "../button/button.component";
-import { Box } from "@mui/material";
 import space from "../../styles/spacing";
 
-const SignUpForm: FC<SignUpFormInterface> = () => {
+// constants or helper functions imports
+import { checkEmail, checkPassword, checkUsername } from "../../utils/helpers";
+import { ROUTES } from "../../utils/constants";
+
+// asset imports
+import GoogleLogo from "../../assets/socials/social-google.png";
+
+const SignUpForm: FC<SignUpFormProps> = () => {
   const navigate = useNavigate();
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -75,7 +88,7 @@ const SignUpForm: FC<SignUpFormInterface> = () => {
   });
   const [alertVisible, setAlertVisible] = useState<boolean>(false);
 
-  const usernameChangeHandler = (event: any) => {
+  const handleUsernameChange = (event: any) => {
     const username = event.target.value;
 
     const usernameStatus = checkUsername(username);
@@ -92,7 +105,7 @@ const SignUpForm: FC<SignUpFormInterface> = () => {
     });
   };
 
-  const emailChangeHandler = async (event: any) => {
+  const handleEmailChange = async (event: any) => {
     const email = event.target.value;
 
     const { isValid, validityDetails } = checkEmail(email);
@@ -109,7 +122,7 @@ const SignUpForm: FC<SignUpFormInterface> = () => {
     });
   };
 
-  const passwordChangeHandler = (event: any) => {
+  const handlePasswordChange = (event: any) => {
     const password = event.target.value;
 
     const passwordStatus = checkPassword(password);
@@ -137,7 +150,7 @@ const SignUpForm: FC<SignUpFormInterface> = () => {
     });
   };
 
-  const formHandler = async (event: any) => {
+  const handleFormSubmit = async (event: any) => {
     event.preventDefault();
 
     setIsLoading(true);
@@ -207,7 +220,7 @@ const SignUpForm: FC<SignUpFormInterface> = () => {
   }, [email.isValid]);
 
   return (
-    <SignUpFormSC onSubmit={formHandler}>
+    <SignUpFormSC onSubmit={handleFormSubmit}>
       <TitleSC variant="h1">Sign Up</TitleSC>
       <AlertContainerSC>
         {alertVisible && (
@@ -221,14 +234,14 @@ const SignUpForm: FC<SignUpFormInterface> = () => {
         )}
       </AlertContainerSC>
       <InputContainerSC>
-        <UsernameInput username={username} onChange={usernameChangeHandler} />
+        <UsernameInput username={username} onChange={handleUsernameChange} />
         <EmailInput
           email={email}
-          onChange={emailChangeHandler}
+          onChange={handleEmailChange}
           checkUniqueness={true}
           isUnique={isUniqueEmail}
         />
-        <PasswordInput password={password} onChange={passwordChangeHandler} />
+        <PasswordInput password={password} onChange={handlePasswordChange} />
       </InputContainerSC>
       <Box sx={{ marginTop: `${space.xl}`, marginBottom: `${space.l}` }}>
         <Button actionType="submit" width="full" isLoading={isLoading} disabled={isLoading}>

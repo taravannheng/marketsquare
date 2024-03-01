@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import SlideShowItemInterface from "../../interfaces/slideshow-item.interface";
 
-interface SlideShowInterface  {
+interface SlideShowProps  {
   children?: ReactNode;
   data: SlideShowItemInterface[]
   indicatorType: 'dot' | 'number';
@@ -10,4 +10,4 @@ interface SlideShowInterface  {
   aspectRatio?: '16:9' | '4:3' | '1:1'  | '21:9';
 }
 
-export default SlideShowInterface;
+export default SlideShowProps;

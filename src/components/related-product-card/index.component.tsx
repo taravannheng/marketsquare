@@ -1,8 +1,16 @@
 import { FC } from "react";
 import { useNavigate } from "react-router-dom";
 
+// 3rd-party dependencies imports
+import _ from "lodash";
+
+// component imports
 import Rating from "../rating/index.component";
-import RelatedProductCardInterface from "./index.interface";
+
+// props or interfaces imports
+import RelatedProductCardProps from "./index.interface";
+
+// styling imports
 import {
   CardContentSC,
   CardMediaSC,
@@ -10,10 +18,11 @@ import {
   ProductPriceSC,
   RelatedProductCardSC,
 } from "./index.styles";
-import _ from "lodash";
+
+// constants or helper functions imports
 import { adjustCloudinaryImgSize } from "../../utils/helpers";
 
-const RelatedProductCard: FC<RelatedProductCardInterface> = ({
+const RelatedProductCard: FC<RelatedProductCardProps> = ({
   product,
   width,
   height,
@@ -27,7 +36,7 @@ const RelatedProductCard: FC<RelatedProductCardInterface> = ({
   const imgUrl = adjustCloudinaryImgSize(product.imgUrls[0], DEFAULT_IMG_SIZE);
 
   // HANDLERS
-  const showDetailsHandler = () => {
+  const handleShowDetails = () => {
     navigate(`/product/${product._id}`);
   };
 
@@ -38,7 +47,7 @@ const RelatedProductCard: FC<RelatedProductCardInterface> = ({
         height: `${height && height} !important`,
         backgroundColor: `${backgroundColor && backgroundColor} !important`,
       }}
-      onClick={showDetailsHandler}
+      onClick={handleShowDetails}
     >
       {!_.isEmpty(product) && (
         <>

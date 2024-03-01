@@ -1,10 +1,16 @@
 import { FC } from "react";
-import { v4 as uuidv4 } from "uuid";
+
+// 3rd-party dependencies imports
 import _ from "lodash";
 
+// component imports
 import RelatedProductCard from "../related-product-card/index.component";
-import OrderSummaryInterface from "./index.interface";
+
+// props or interfaces imports
+import OrderSummaryProps from "./index.interface";
 import ProductInterface from "../../interfaces/product-interface";
+
+// styling imports
 import {
   ContentSC,
   EmptyContentSC,
@@ -15,7 +21,7 @@ import {
   TotalTextSC,
 } from "./index.style";
 
-const OrderSummary: FC<OrderSummaryInterface> = ({ products, totalAmount }) => {
+const OrderSummary: FC<OrderSummaryProps> = ({ products, totalAmount }) => {
   const totalInCents = totalAmount;
   const totalInDollars = totalInCents / 100;
 
@@ -24,13 +30,19 @@ const OrderSummary: FC<OrderSummaryInterface> = ({ products, totalAmount }) => {
       {!_.isEmpty(products) && (
         <ContentSC>
           <TitleSC variant="h5">Products</TitleSC>
-          <ProductStackSC direction='column' spacing={1}>
+          <ProductStackSC direction="column" spacing={1}>
             {products.map((product: ProductInterface) => {
-              return <RelatedProductCard key={`order-related-product-card-${product?._id ?? ''}`} product={product} />;
+              return (
+                <RelatedProductCard
+                  key={`order-related-product-card-${product?._id ?? ""}`}
+                  product={product}
+                />
+              );
             })}
           </ProductStackSC>
           <TotalTextSC variant="body1">
-            Total: <TotalAmountSC variant="caption">${totalInDollars}</TotalAmountSC>
+            Total:{" "}
+            <TotalAmountSC variant="caption">${totalInDollars}</TotalAmountSC>
           </TotalTextSC>
         </ContentSC>
       )}
