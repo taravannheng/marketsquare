@@ -15,7 +15,7 @@ import SnackBar from "../../components/snackbar/snackbar.component";
 import ReviewDisplay from "../../components/review-display/index.component";
 import ProgressIndicator from "../../components/progress-indicator/progress-indicator.component";
 import ProductDetailsDisplay from "../../components/product-details-display/product-details-display.component";
-import RelatedProductDisplay from "../../components/related-product-display/index.component";
+import RelatedProductDisplay from "../../components/related-product-display/related-product-display.component";
 
 // state management imports
 import REVIEW_ACTION_TYPES from "../../store/review/review.types";
@@ -38,7 +38,7 @@ import {
   ProductDetailsPageSC,
   ReviewDisplayContainerSC,
 } from "./index.style";
-import { RelatedProductDisplaySC } from "../../components/related-product-display/index.styles";
+import { RelatedProductDisplaySC } from "../../components/related-product-display/related-product-display.styles";
 
 // constants or helper functions imports
 import footerUtilityLinksSample from "../../sample/footer/utility-links-sample";
