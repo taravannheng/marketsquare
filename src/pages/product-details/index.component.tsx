@@ -7,7 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { ArrowBackIosRounded } from "@mui/icons-material";
 
 // component imports
-import Header from "../../components/header/index.component";
+import Header from "../../components/header/header.component";
 import Footer from "../../components/footer/footer.component";
 import Button from "../../components/button/button.component";
 import Divider from "../../components/divider/divider.component";

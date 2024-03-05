@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
 // component imports
-import Header from '../../components/header/index.component';
+import Header from '../../components/header/header.component';
 import Footer from '../../components/footer/footer.component';
 import ResetPasswordVerifyForm from '../../components/reset-password-verify-form/reset-password-verify-form.component';
 

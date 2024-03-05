@@ -7,7 +7,7 @@ import Cookies from "js-cookie";
 import { useDispatch, useSelector } from "react-redux";
 
 // component imports
-import Header from "../../components/header/index.component";
+import Header from "../../components/header/header.component";
 import ProductsDisplay from "../../components/products-display/index.component";
 import Footer from "../../components/footer/footer.component";
 import SnackBar from "../../components/snackbar/snackbar.component";
