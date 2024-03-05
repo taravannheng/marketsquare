@@ -6,10 +6,10 @@ import SeeMoreText from "../see-more-text/see-more-text.component";
 import Avatar from "../avatar/avatar.component";
 
 // props or interfaces imports
-import ReviewProps from "./index.interface";
+import ReviewProps from "./review.interface";
 
 // styling imports
-import { ReviewSC, ContentSC, ReviewerSC, CommentSC } from "./index.styles";
+import { ReviewSC, ContentSC, ReviewerSC, CommentSC } from "./review.styles";
 
 const Review: FC<ReviewProps> = ({
   width,

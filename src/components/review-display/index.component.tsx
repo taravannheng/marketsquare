@@ -5,7 +5,7 @@ import _ from "lodash";
 import { useSelector } from "react-redux";
 
 // component imports
-import Review from "../review/index.component";
+import Review from "../review/review.component";
 import ReviewForm from "../review-form/review-form.component";
 
 // state management imports
@@ -14,7 +14,7 @@ import { selectProductReviews } from "../../store/review/review.selector";
 
 // props or interfaces imports
 import ReviewDisplayProps from "./index.interface";
-import ReviewInterface from "../review/index.interface";
+import ReviewInterface from "../review/review.interface";
 
 // styling imports
 import {

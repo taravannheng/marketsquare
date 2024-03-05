@@ -1,4 +1,4 @@
-import ReviewInterface from "../review/index.interface";
+import ReviewInterface from "../review/review.interface";
 
 interface ReviewFormProps {
   productID: string;
