@@ -2,7 +2,7 @@ import React, { FC, Suspense, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, ScrollRestoration, useLocation } from "react-router-dom";
 
 import LandingPage from "./pages/landing/landing.component";
-import ProductDetailsPage from "./pages/product-details/index.component";
+import ProductDetailsPage from "./pages/product-details/product-details.component";
 import SignInPage from "./pages/signin/signin.component";
 import SignUpPage from "./pages/signup/signup.component";
 import ResetPasswordRequestPage from "./pages/reset-password-request/reset-password-request.page";

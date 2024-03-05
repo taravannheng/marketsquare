@@ -37,7 +37,7 @@ import {
   EmptyContentSC,
   ProductDetailsPageSC,
   ReviewDisplayContainerSC,
-} from "./index.style";
+} from "./product-details.style";
 import { RelatedProductDisplaySC } from "../../components/related-product-display/related-product-display.styles";
 
 // constants or helper functions imports
