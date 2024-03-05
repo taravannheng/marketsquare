@@ -4,7 +4,7 @@ import { FC } from 'react';
 import _ from 'lodash';
 
 // component imports
-import NavigationMenuItem from '../navigation-menu-item/index.component';
+import NavigationMenuItem from '../navigation-menu-item/navigation-menu-item.component';
 
 // props or interfaces imports
 import NavigationMenuProps from './navigation-menu.interface'
