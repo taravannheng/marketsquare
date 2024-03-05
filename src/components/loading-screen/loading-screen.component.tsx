@@ -1,10 +1,10 @@
 import { FC } from 'react';
 
 // props or interfaces imports
-import LoadingScreenProps from './index.interface';
+import LoadingScreenProps from './loading-screen.interface';
 
 // styling imports
-import { LoadingScreenSC } from './index.styles';
+import { LoadingScreenSC } from './loading-screen.styles';
 
 // constants or helper functions improts
 import { LOGO_URLS } from '../../utils/constants';
