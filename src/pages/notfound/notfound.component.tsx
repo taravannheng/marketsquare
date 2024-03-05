@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 // component imports
 import Header from '../../components/header/index.component';
-import Footer from '../../components/footer/index.component';
+import Footer from '../../components/footer/footer.component';
 import NotFoundDisplay from '../../components/notfound-display/notfound-display.component';
 
 // constants or helper functions imports

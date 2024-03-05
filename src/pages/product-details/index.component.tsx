@@ -8,7 +8,7 @@ import { ArrowBackIosRounded } from "@mui/icons-material";
 
 // component imports
 import Header from "../../components/header/index.component";
-import Footer from "../../components/footer/index.component";
+import Footer from "../../components/footer/footer.component";
 import Button from "../../components/button/button.component";
 import Divider from "../../components/divider/divider.component";
 import SnackBar from "../../components/snackbar/snackbar.component";
