@@ -11,7 +11,7 @@ import _ from "lodash";
 import Cookies from "js-cookie";
 
 // component imports
-import SlideShow from "../slideshow/index.component";
+import SlideShow from "../slideshow/slideshow.component";
 import SeeMoreText from "../see-more-text/see-more-text.component";
 import Rating from "../rating/rating.component";
 import Button from "../button/button.component";

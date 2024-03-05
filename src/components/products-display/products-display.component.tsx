@@ -10,7 +10,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 // component imports
 import Sort from "../sort/sort.component";
 import ProductCard from "../product-card/product-card.component";
-import SlideShow from "../slideshow/index.component";
+import SlideShow from "../slideshow/slideshow.component";
 import ProductCardSkeleton from "../product-card/product-card-skeleton.component";
 
 // api imports
