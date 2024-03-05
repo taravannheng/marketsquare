@@ -21,7 +21,7 @@ import { getProducts } from "../../apis/products/products.api";
 import { getUser } from "../../apis/users/users.api";
 
 // styling imports
-import { LandingPageSC } from "./index.styles";
+import { LandingPageSC } from "./landing.styles";
 
 // constants or helper function imports
 import footerItemsSample from "../../sample/footer/utility-links-sample";
