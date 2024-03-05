@@ -1,7 +1,7 @@
 import { FC } from "react";
 
 // props or interfaces imports
-import ProductCategoryProps from './index.interface';
+import ProductCategoryProps from './product-category.interface';
 
 // styling imports
 import {
@@ -13,7 +13,7 @@ import {
   RightContainerSC,
   RightContainerTopContentSC,
   TitleSC,
-} from "./index.styles";
+} from "./product-category.styles";
 
 const ProductCategory: FC<ProductCategoryProps> = ({ title, images }) => {
   return (
