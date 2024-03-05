@@ -31,7 +31,7 @@ import { selectWishlist } from "../../store/wishlist/wishlist.selector";
 import WISHLIST_ACTION_TYPES from "../../store/wishlist/wishlist.types";
 
 // props or interfaces imports
-import ProductDetailsDisplayProps from "./index.interface";
+import ProductDetailsDisplayProps from "./product-details-display.interface";
 import ProductInterface from "../../interfaces/product-interface";
 
 // styling imports
@@ -50,7 +50,7 @@ import {
   WishlistIconContainerSC,
   WishlistBorderIconSC,
   WishlistFilledIconSC,
-} from "./index.styles";
+} from "./product-details-display.styles";
 import { COLORS, BREAKPOINTS } from "../../styles/styles";
 
 // constants or helper function imports

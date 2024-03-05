@@ -14,7 +14,7 @@ import Divider from "../../components/divider/divider.component";
 import SnackBar from "../../components/snackbar/snackbar.component";
 import ReviewDisplay from "../../components/review-display/index.component";
 import ProgressIndicator from "../../components/progress-indicator/index.component";
-import ProductDetailsDisplay from "../../components/product-details-display/index.component";
+import ProductDetailsDisplay from "../../components/product-details-display/product-details-display.component";
 import RelatedProductDisplay from "../../components/related-product-display/index.component";
 
 // state management imports
