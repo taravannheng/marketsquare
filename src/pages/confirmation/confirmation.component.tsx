@@ -20,7 +20,7 @@ import REVIEW_ACTION_TYPES from "../../store/review/review.types";
 import { createOrder } from "../../apis/orders/order.api";
 
 // styling imports
-import { ConfirmationPageSC } from "./index.styles";
+import { ConfirmationPageSC } from "./confirmation.styles";
 
 // constants or helper functions imports
 import footerUtilityLinksSample from "../../sample/footer/utility-links-sample";

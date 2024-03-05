@@ -10,13 +10,13 @@ import ResetPasswordVerifyPage from "./pages/reset-password-verify/reset-passwor
 import UpdatePasswordPage from "./pages/update-password/update-password.page";
 import { ROUTES } from "./utils/constants";
 import GlobalStyle from "./styles/globalstyles";
-import PrivateConfirmationRoute from "./pages/confirmation/index.private";
+import PrivateConfirmationRoute from "./pages/confirmation/confirmation.private";
 import PrivateWishlistRoute from "./pages/wishlist/wishlist.private";
 import PrivateReviewRoute from "./pages/review/review.private";
 import PrivateOrderHistoryRoute from "./pages/order/order.private";
 import PrivateProfileRoute from "./pages/profile/profile.private";
 
-const ConfirmationPage = React.lazy(() => import("./pages/confirmation/index.component"));
+const ConfirmationPage = React.lazy(() => import("./pages/confirmation/confirmation.component"));
 const ProfilePage = React.lazy(() => import("./pages/profile/profile.page"));
 const WishlistPage = React.lazy(() => import("./pages/wishlist/wishlist.page"));
 const OrderHistoryPage = React.lazy(() => import("./pages/order/order.page"));
