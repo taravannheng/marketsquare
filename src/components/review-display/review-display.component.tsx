@@ -13,7 +13,7 @@ import { selectUser } from "../../store/user/user.selector";
 import { selectProductReviews } from "../../store/review/review.selector";
 
 // props or interfaces imports
-import ReviewDisplayProps from "./index.interface";
+import ReviewDisplayProps from "./review-display.interface";
 import ReviewInterface from "../review/review.interface";
 
 // styling imports
@@ -23,7 +23,7 @@ import {
   ReviewStackSC,
   ReviewTitleSC,
   TitleSC,
-} from "./index.styles";
+} from "./review-display.styles";
 
 const ReviewDisplay: FC<ReviewDisplayProps> = ({ reviews, productID }) => {
   const user = useSelector(selectUser);
