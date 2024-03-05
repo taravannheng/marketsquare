@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import _ from "lodash";
 
 // component imports
-import Rating from "../rating/index.component";
+import Rating from "../rating/rating.component";
 
 // props or interfaces imports
 import RelatedProductCardProps from "./index.interface";

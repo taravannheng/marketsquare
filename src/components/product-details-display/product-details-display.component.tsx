@@ -13,7 +13,7 @@ import Cookies from "js-cookie";
 // component imports
 import SlideShow from "../slideshow/index.component";
 import SeeMoreText from "../see-more-text/see-more-text.component";
-import Rating from "../rating/index.component";
+import Rating from "../rating/rating.component";
 import Button from "../button/button.component";
 import Dialog from "../dialog/dialog.component";
 import SnackBar from "../snackbar/snackbar.component";
