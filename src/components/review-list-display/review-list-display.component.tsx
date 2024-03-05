@@ -10,7 +10,7 @@ import ReviewsIcon from "@mui/icons-material/Reviews";
 
 // component imports
 import Button from "../button/button.component";
-import ProgressIndicator from "../progress-indicator/index.component";
+import ProgressIndicator from "../progress-indicator/progress-indicator.component";
 import ReviewListItem from "../review-list-item/review-list-item.component";
 
 // api imports
