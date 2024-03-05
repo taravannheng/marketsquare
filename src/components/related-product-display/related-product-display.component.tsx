@@ -4,14 +4,14 @@ import { FC } from "react";
 import _ from "lodash";
 
 // component imports
-import RelatedProductCard from "../related-product-card/index.component";
+import RelatedProductCard from "../related-product-card/related-product-card.component";
 
 // props or interfaces imports
-import RelatedProductDisplayProps from "./index.interface";
+import RelatedProductDisplayProps from "./related-product-display.interface";
 import ProductInterface from "../../interfaces/product-interface";
 
 // styling imports
-import { RelatedProductDisplaySC, StackSC, TitleSC, EmptyTextSC } from "./index.styles";
+import { RelatedProductDisplaySC, StackSC, TitleSC, EmptyTextSC } from "./related-product-display.styles";
 
 const RelatedProductDisplay: FC<RelatedProductDisplayProps> = ({
   products,

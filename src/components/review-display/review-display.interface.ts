@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-import ReviewInterface from "../review/index.interface";
+import ReviewInterface from "../review/review.interface";
 
 export default interface ReviewDisplayProps {
   children?: ReactNode;

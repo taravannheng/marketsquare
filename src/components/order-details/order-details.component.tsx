@@ -30,7 +30,7 @@ import {
   ShippingMethodSC,
   ShippingSC,
   ShippingTitleSC,
-} from "./index.style";
+} from "./order-details.style";
 
 // constants or helper functions imports
 import { getCardLogo } from "../../utils/helpers";

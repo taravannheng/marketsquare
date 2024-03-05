@@ -4,7 +4,7 @@ import { FC } from "react";
 import { CircularProgress } from "@mui/material";
 
 // props or interfaces imports
-import ProgressIndicatorProps from './index.interface';
+import ProgressIndicatorProps from './progress-indicator.interface';
 
 // styling imports
 import { createTheme, ThemeProvider } from "@mui/material/styles";

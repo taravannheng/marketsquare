@@ -6,7 +6,7 @@ import { ExpandCircleDown } from "@mui/icons-material";
 import _ from "lodash";
 
 // props or interfaces imports
-import FooterProps from "./index.interface";
+import FooterProps from "./footer.interface";
 
 // styling imports
 import {
@@ -31,7 +31,7 @@ import {
   AccordionDetailsSC,
   UtilityLinkAccordionContainerSC,
   SiteDescriptionSC,
-} from "./index.styles";
+} from "./footer.styles";
 
 // constants or helper function imports
 import { LOGO_URLS, ROUTES } from "../../utils/constants";

@@ -12,7 +12,7 @@ import SlideshowSkeleton from "./slideshow-skeleton.component";
 import IconButton from "../icon-button/icon-button.component";
 
 // props or interfaces imports
-import SlideShowProps from "./index.interface";
+import SlideShowProps from "./slideshow.interface";
 import SlideShowItemInterface from "../../interfaces/slideshow-item.interface";
 
 // styling imports
@@ -28,7 +28,7 @@ import {
   SlideShowSC,
   ControlSC,
   ControlButtonContainerSC,
-} from "./index.styles";
+} from "./slideshow.styles";
 
 // constants or helper functions imports
 import { adjustCloudinaryImgSize } from "../../utils/helpers";

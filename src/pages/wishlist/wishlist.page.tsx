@@ -5,7 +5,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 // component imports
-import Header from "../../components/header/index.component";
+import Header from "../../components/header/header.component";
 import WishlistDisplay from "../../components/wishlist-display/wishlist-display.component";
 import SnackBar from "../../components/snackbar/snackbar.component";
 

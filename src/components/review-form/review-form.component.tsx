@@ -15,7 +15,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import Button from "../button/button.component";
 import RatingSelect from "../rating-select/rating-select.component";
 import ReviewTextArea from "../review-textarea/review-textarea.component";
-import Review from "../review/index.component";
+import Review from "../review/review.component";
 import SnackBar from "../snackbar/snackbar.component";
 import Dialog from "../dialog/dialog.component";
 

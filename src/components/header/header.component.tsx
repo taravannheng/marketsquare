@@ -22,12 +22,12 @@ import Cart from "../cart/cart.component";
 // import NavigationMenu from "../navigation-menu/index.component";   DISABLE MENU TEMPORARILY
 import Search from "../search/search.component";
 import Avatar from "../avatar/avatar.component";
-import Menu from "../../components/menu/menu.component";
+import Menu from "../menu/menu.component";
 import AuthBlock from "../auth-block/auth-block.component";
 import List from "../list/list.component";
 
 // props or interfaces imports
-import HeaderProps from "./index.interface";
+import HeaderProps from "./header.interface";
 
 // state management imports
 import { selectUser } from "../../store/user/user.selector";
@@ -60,7 +60,7 @@ import {
   BackIconSC,
   SearchIconSC,
   BigSearchContainerSC,
-} from "./index.styles";
+} from "./header.styles";
 import { COLORS, space } from "../../styles/styles";
 
 // constants or helper function imports

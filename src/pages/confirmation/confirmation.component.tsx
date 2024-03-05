@@ -6,9 +6,9 @@ import _ from "lodash";
 import { useSelector, useDispatch } from "react-redux";
 
 // component imports
-import Header from "../../components/header/index.component";
-import Footer from "../../components/footer/index.component";
-import OrderSummaryDisplay from "../../components/order-summary-display/index.component";
+import Header from "../../components/header/header.component";
+import Footer from "../../components/footer/footer.component";
+import OrderSummaryDisplay from "../../components/order-summary-display/order-summary-display.component";
 
 // state management imports
 import { selectUser } from '../../store/user/user.selector';
@@ -20,7 +20,7 @@ import REVIEW_ACTION_TYPES from "../../store/review/review.types";
 import { createOrder } from "../../apis/orders/order.api";
 
 // styling imports
-import { ConfirmationPageSC } from "./index.styles";
+import { ConfirmationPageSC } from "./confirmation.styles";
 
 // constants or helper functions imports
 import footerUtilityLinksSample from "../../sample/footer/utility-links-sample";

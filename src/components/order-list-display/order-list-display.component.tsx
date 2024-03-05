@@ -14,7 +14,7 @@ import { getMultipleProducts } from "../../apis/products/products.api";
 
 // component imports
 import Button from "../button/button.component";
-import ProgressIndicator from "../progress-indicator/index.component";
+import ProgressIndicator from "../progress-indicator/progress-indicator.component";
 import OrderListItem from "../order-list-item/order-list-item.component";
 import Divider from "../divider/divider.component";
 

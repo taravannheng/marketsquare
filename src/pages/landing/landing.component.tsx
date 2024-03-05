@@ -7,9 +7,9 @@ import Cookies from "js-cookie";
 import { useDispatch, useSelector } from "react-redux";
 
 // component imports
-import Header from "../../components/header/index.component";
-import ProductsDisplay from "../../components/products-display/index.component";
-import Footer from "../../components/footer/index.component";
+import Header from "../../components/header/header.component";
+import ProductsDisplay from "../../components/products-display/products-display.component";
+import Footer from "../../components/footer/footer.component";
 import SnackBar from "../../components/snackbar/snackbar.component";
 
 // state management imports
@@ -21,7 +21,7 @@ import { getProducts } from "../../apis/products/products.api";
 import { getUser } from "../../apis/users/users.api";
 
 // styling imports
-import { LandingPageSC } from "./index.styles";
+import { LandingPageSC } from "./landing.styles";
 
 // constants or helper function imports
 import footerItemsSample from "../../sample/footer/utility-links-sample";
