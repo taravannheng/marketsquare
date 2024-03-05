@@ -6,7 +6,7 @@ import _ from "lodash";
 
 // component imports
 import Button from "../button/button.component";
-import OrderSummary from "../order-summary/index.component";
+import OrderSummary from "../order-summary/order-summary.component";
 import OrderDetails from "../order-details/order-details.component";
 
 // props or interfaces imports

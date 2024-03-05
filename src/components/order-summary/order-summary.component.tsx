@@ -7,7 +7,7 @@ import _ from "lodash";
 import RelatedProductCard from "../related-product-card/index.component";
 
 // props or interfaces imports
-import OrderSummaryProps from "./index.interface";
+import OrderSummaryProps from "./order-summary.interface";
 import ProductInterface from "../../interfaces/product-interface";
 
 // styling imports
@@ -19,7 +19,7 @@ import {
   TitleSC,
   TotalAmountSC,
   TotalTextSC,
-} from "./index.style";
+} from "./order-summary.style";
 
 const OrderSummary: FC<OrderSummaryProps> = ({ products, totalAmount }) => {
   const totalInCents = totalAmount;
