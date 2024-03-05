@@ -10,7 +10,7 @@ import OrderSummary from "../order-summary/order-summary.component";
 import OrderDetails from "../order-details/order-details.component";
 
 // props or interfaces imports
-import OrderSummaryDisplayProps from "./index.interface";
+import OrderSummaryDisplayProps from "./order-summary-display.interface";
 
 // styling imports
 import {
@@ -20,7 +20,7 @@ import {
   OrderSummaryContainerSC,
   OrderSummaryDisplaySC,
   TitleSC,
-} from "./index.styles";
+} from "./order-summary-display.styles";
 
 // constants or helper function imports
 import { ROUTES } from "../../utils/constants";

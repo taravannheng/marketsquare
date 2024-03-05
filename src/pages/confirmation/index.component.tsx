@@ -8,7 +8,7 @@ import { useSelector, useDispatch } from "react-redux";
 // component imports
 import Header from "../../components/header/header.component";
 import Footer from "../../components/footer/footer.component";
-import OrderSummaryDisplay from "../../components/order-summary-display/index.component";
+import OrderSummaryDisplay from "../../components/order-summary-display/order-summary-display.component";
 
 // state management imports
 import { selectUser } from '../../store/user/user.selector';
