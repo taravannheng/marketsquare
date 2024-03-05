@@ -23,7 +23,7 @@ import { selectWishlists } from "../../store/wishlist/wishlist.selector";
 import WISHLIST_ACTION_TYPES from "../../store/wishlist/wishlist.types";
 
 // props or interfaces imports
-import ProductsDisplayProps from "./index.interface";
+import ProductsDisplayProps from "./products-display.interface";
 import ProductInterface from "../../interfaces/product-interface";
 import SlideShowItemInterface from "../../interfaces/slideshow-item.interface";
 
@@ -35,7 +35,7 @@ import {
   PaginationStackSC,
   SlideShowContainerSC,
   TitleContainerSC,
-} from "./index.styles";
+} from "./products-display.styles";
 import { COLORS, BREAKPOINTS, space } from "../../styles/styles";
 
 // constants or helper functions imports

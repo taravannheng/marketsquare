@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 // component imports
 import Header from "../../components/header/header.component";
-import ProductsDisplay from "../../components/products-display/index.component";
+import ProductsDisplay from "../../components/products-display/products-display.component";
 import Footer from "../../components/footer/footer.component";
 import SnackBar from "../../components/snackbar/snackbar.component";
 
