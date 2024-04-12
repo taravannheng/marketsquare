@@ -5,7 +5,7 @@ import _ from "lodash";
 
 // component imports
 import SuggestionItem from "../suggestion-item/suggestion-item.component";
-import ProgressIndicator from "../progress-indicator/index.component";
+import ProgressIndicator from "../progress-indicator/progress-indicator.component";
 
 // props or interfaces imports
 import SuggestionListProps from "./suggestion-list.interface";

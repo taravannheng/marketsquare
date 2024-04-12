@@ -4,7 +4,7 @@ import { FC } from "react";
 import { StarRounded, StarOutlineRounded } from "@mui/icons-material";
 
 // props or interfaces imports
-import RatingProps from "./index.interface";
+import RatingProps from "./rating.interface";
 
 // styling imports
 import {
@@ -15,7 +15,7 @@ import {
   ShortRatingLabelSC,
   ShortRatingNumberSC,
   ShortRatingIconSC,
-} from "./index.styles";
+} from "./rating.styles";
 
 const Rating: FC<RatingProps> = ({
   type = "long",

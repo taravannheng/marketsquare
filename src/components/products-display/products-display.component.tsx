@@ -10,7 +10,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 // component imports
 import Sort from "../sort/sort.component";
 import ProductCard from "../product-card/product-card.component";
-import SlideShow from "../slideshow/index.component";
+import SlideShow from "../slideshow/slideshow.component";
 import ProductCardSkeleton from "../product-card/product-card-skeleton.component";
 
 // api imports
@@ -23,7 +23,7 @@ import { selectWishlists } from "../../store/wishlist/wishlist.selector";
 import WISHLIST_ACTION_TYPES from "../../store/wishlist/wishlist.types";
 
 // props or interfaces imports
-import ProductsDisplayProps from "./index.interface";
+import ProductsDisplayProps from "./products-display.interface";
 import ProductInterface from "../../interfaces/product-interface";
 import SlideShowItemInterface from "../../interfaces/slideshow-item.interface";
 
@@ -35,12 +35,12 @@ import {
   PaginationStackSC,
   SlideShowContainerSC,
   TitleContainerSC,
-} from "./index.styles";
+} from "./products-display.styles";
 import { COLORS, BREAKPOINTS, space } from "../../styles/styles";
 
-// constants or helper functions imports
+// util imports
 import { SLIDESHOWIDS } from "../../utils/constants";
-import { getProductsPerPage } from "../../utils/helpers";
+import { getProductsPerPage } from "../../utils/helpers/misc_helpers";
 
 const theme = createTheme({
   palette: {

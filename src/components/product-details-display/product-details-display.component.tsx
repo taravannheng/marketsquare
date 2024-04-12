@@ -11,9 +11,9 @@ import _ from "lodash";
 import Cookies from "js-cookie";
 
 // component imports
-import SlideShow from "../slideshow/index.component";
+import SlideShow from "../slideshow/slideshow.component";
 import SeeMoreText from "../see-more-text/see-more-text.component";
-import Rating from "../rating/index.component";
+import Rating from "../rating/rating.component";
 import Button from "../button/button.component";
 import Dialog from "../dialog/dialog.component";
 import SnackBar from "../snackbar/snackbar.component";
@@ -31,7 +31,7 @@ import { selectWishlist } from "../../store/wishlist/wishlist.selector";
 import WISHLIST_ACTION_TYPES from "../../store/wishlist/wishlist.types";
 
 // props or interfaces imports
-import ProductDetailsDisplayProps from "./index.interface";
+import ProductDetailsDisplayProps from "./product-details-display.interface";
 import ProductInterface from "../../interfaces/product-interface";
 
 // styling imports
@@ -50,11 +50,11 @@ import {
   WishlistIconContainerSC,
   WishlistBorderIconSC,
   WishlistFilledIconSC,
-} from "./index.styles";
+} from "./product-details-display.styles";
 import { COLORS, BREAKPOINTS } from "../../styles/styles";
 
-// constants or helper function imports
-import { adjustCloudinaryImgSize, formatPrice } from "../../utils/helpers";
+// util imports
+import { adjustCloudinaryImgSize, formatPrice } from "../../utils/helpers/misc_helpers";
 import { ROUTES } from "../../utils/constants";
 
 const ProductDetailsDisplay: FC<ProductDetailsDisplayProps> = ({

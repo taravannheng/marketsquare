@@ -12,7 +12,7 @@ import SlideshowSkeleton from "./slideshow-skeleton.component";
 import IconButton from "../icon-button/icon-button.component";
 
 // props or interfaces imports
-import SlideShowProps from "./index.interface";
+import SlideShowProps from "./slideshow.interface";
 import SlideShowItemInterface from "../../interfaces/slideshow-item.interface";
 
 // styling imports
@@ -28,10 +28,10 @@ import {
   SlideShowSC,
   ControlSC,
   ControlButtonContainerSC,
-} from "./index.styles";
+} from "./slideshow.styles";
 
-// constants or helper functions imports
-import { adjustCloudinaryImgSize } from "../../utils/helpers";
+// util imports
+import { adjustCloudinaryImgSize, getAspectRatio } from "../../utils/helpers/misc_helpers";
 
 const SlideShow: FC<SlideShowProps> = ({
   data,
@@ -54,25 +54,7 @@ const SlideShow: FC<SlideShowProps> = ({
   const isExtraLargeScreen = useMediaQuery("(min-width: 1024px)");
 
   // DETERMINE ASPECT RATIO
-  let paddingBottom = "56.25%"; // 16:9 Default Aspect Ratio
-
-  switch (aspectRatio) {
-    case "1:1":
-      paddingBottom = "100%";
-      break;
-    case "4:3":
-      paddingBottom = "75%";
-      break;
-    case "16:9":
-      paddingBottom = "56.25%";
-      break;
-    case "21:9":
-      paddingBottom = "42.86%";
-      break;
-    default:
-      paddingBottom = "56.25%";
-      break;
-  }
+  let paddingBottom = getAspectRatio(aspectRatio); // 16:9 Default Aspect Ratio
 
   // DETERMINE IMAGE SIZE
   if (isExtraLargeScreen) {

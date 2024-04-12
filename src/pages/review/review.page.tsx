@@ -5,7 +5,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 // component imports
-import Header from "../../components/header/index.component";
+import Header from "../../components/header/header.component";
 import ReviewListDisplay from "../../components/review-list-display/review-list-display.component";
 import SnackBar from "../../components/snackbar/snackbar.component";
 
@@ -17,6 +17,7 @@ import { PageSC } from "./review.styles";
 
 // constants or helper functions imports
 import { ROUTES } from "../../utils/constants";
+import { getSnackbarMessages } from "../../utils/helpers/misc_helpers";
 
 const ReviewPage: FC = () => {
   const user = useSelector(selectUser);
@@ -44,11 +45,7 @@ const ReviewPage: FC = () => {
 
   useEffect(() => {
     if (isSignedIn && user) {
-      setSnackbar({
-        open: true,
-        message: "You have successfully signed in!",
-        type: "success",
-      });
+      setSnackbar(getSnackbarMessages('signedIn'));
 
       // navigate to home page to reset the url to prevent the snackbar from appearing again
       navigate(`${ROUTES.REVIEWS}`);

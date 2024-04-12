@@ -1,8 +1,8 @@
 import { FC } from 'react';
 
 // component imports
-import Header from '../../components/header/index.component';
-import Footer from '../../components/footer/index.component';
+import Header from '../../components/header/header.component';
+import Footer from '../../components/footer/footer.component';
 import UpdatePasswordForm from '../../components/update-password-form/update-password-form.component';
 
 // styling imports

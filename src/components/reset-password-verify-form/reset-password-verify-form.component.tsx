@@ -21,7 +21,7 @@ import {
 } from "./reset-password-verify-form.styles";
 
 // constants or helper functions imports
-import { checkFourDigits } from "../../utils/helpers";
+import { checkFourDigits } from "../../utils/helpers/form_helpers";
 import { ROUTES } from "../../utils/constants";
 
 const ResetPasswordVerifyForm: FC<ResetPasswordVerifyFormProps> = () => {

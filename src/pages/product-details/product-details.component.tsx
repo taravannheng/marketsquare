@@ -7,15 +7,15 @@ import { useSelector, useDispatch } from "react-redux";
 import { ArrowBackIosRounded } from "@mui/icons-material";
 
 // component imports
-import Header from "../../components/header/index.component";
-import Footer from "../../components/footer/index.component";
+import Header from "../../components/header/header.component";
+import Footer from "../../components/footer/footer.component";
 import Button from "../../components/button/button.component";
 import Divider from "../../components/divider/divider.component";
 import SnackBar from "../../components/snackbar/snackbar.component";
-import ReviewDisplay from "../../components/review-display/index.component";
-import ProgressIndicator from "../../components/progress-indicator/index.component";
-import ProductDetailsDisplay from "../../components/product-details-display/index.component";
-import RelatedProductDisplay from "../../components/related-product-display/index.component";
+import ReviewDisplay from "../../components/review-display/review-display.component";
+import ProgressIndicator from "../../components/progress-indicator/progress-indicator.component";
+import ProductDetailsDisplay from "../../components/product-details-display/product-details-display.component";
+import RelatedProductDisplay from "../../components/related-product-display/related-product-display.component";
 
 // state management imports
 import REVIEW_ACTION_TYPES from "../../store/review/review.types";
@@ -37,12 +37,13 @@ import {
   EmptyContentSC,
   ProductDetailsPageSC,
   ReviewDisplayContainerSC,
-} from "./index.style";
-import { RelatedProductDisplaySC } from "../../components/related-product-display/index.styles";
+} from "./product-details.style";
+import { RelatedProductDisplaySC } from "../../components/related-product-display/related-product-display.styles";
 
-// constants or helper functions imports
+// util imports
 import footerUtilityLinksSample from "../../sample/footer/utility-links-sample";
 import { ROUTES } from "../../utils/constants";
+import { getSnackbarMessages } from "../../utils/helpers/misc_helpers";
 
 const ProductDetailsPage: FC = () => {
   const location = useLocation();
@@ -117,11 +118,7 @@ const ProductDetailsPage: FC = () => {
 
     // if signedIn is true, display snackbar
     if (signedIn) {
-      setSnackbar({
-        open: true,
-        message: "You have successfully signed in!",
-        type: "success",
-      });
+      setSnackbar(getSnackbarMessages('signedIn'));
     }
   }, [productID]);
 

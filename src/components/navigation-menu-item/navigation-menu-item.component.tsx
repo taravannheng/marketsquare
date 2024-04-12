@@ -4,7 +4,7 @@ import { FC, useState } from "react";
 import _ from "lodash";
   
 // props or interfaces imports
-import NavigationMenuItemProps from "./index.interface";
+import NavigationMenuItemProps from "./navigation-menu-item.interface";
 
 // styling imports
 import {
@@ -19,7 +19,7 @@ MenuTextSC,
 NavigationMenuItemSC,
 SubMenuMediaSC,
 SubMenuSC,
-} from "./index.styles";
+} from "./navigation-menu-item.styles";
 
 const NavigationMenuItem: FC<NavigationMenuItemProps> = ({
   imgUrl,

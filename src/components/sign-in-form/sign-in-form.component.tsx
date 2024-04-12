@@ -33,8 +33,9 @@ import {
 } from "./sign-in-form.style";
 import space from "../../styles/spacing";
 
-// constants or helper functions imports
-import { checkEmail, checkPassword } from "../../utils/helpers";
+// util imports
+import { checkEmail, checkPassword } from "../../utils/helpers/form_helpers";
+import { getAlertMessages } from "../../utils/helpers/misc_helpers";
 import { ROUTES } from "../../utils/constants";
 
 // asset imports
@@ -173,17 +174,11 @@ const SignInForm: FC<SignInFormProps> = () => {
 
         // display error message
         if (error.response.status === 401) {
-          setAlert({
-            type: "error",
-            message: "Email or password is incorrect. Please try again!",
-          });
+          setAlert(getAlertMessages('incorrectCredential'));
           return setAlertVisible(true);
         }
 
-        setAlert({
-          type: "error",
-          message: "Internal Server Error! Please try again later.",
-        });
+        setAlert(getAlertMessages('internalServerError'));
 
         setAlertVisible(true);
       }
@@ -194,42 +189,27 @@ const SignInForm: FC<SignInFormProps> = () => {
 
   useEffect(() => {
     if (isNewUser) {
-      setAlert({
-        type: "success",
-        message: "You have successfully created an account! Please sign in.",
-      });
+      setAlert(getAlertMessages('newUser'));
       setAlertVisible(true);
     }
 
     if (wishlist) {
-      setAlert({
-        type: "info",
-        message: "Please sign in to view your wishlist!",
-      });
+      setAlert(getAlertMessages('wishlistSignIn'));
       setAlertVisible(true);
     }
 
     if (reviews) {
-      setAlert({
-        type: "info",
-        message: "Please sign in to view your reviews!",
-      });
+      setAlert(getAlertMessages('reviewsSignIn'));
       setAlertVisible(true);
     }
 
     if (orderHistory) {
-      setAlert({
-        type: "info",
-        message: "Please sign in to view your order history!",
-      });
+      setAlert(getAlertMessages('orderHistorySignIn'));
       setAlertVisible(true);
     }
 
     if (updatedPassword) {
-      setAlert({
-        type: "success",
-        message: "You have successfully updated your password! Please sign in.",
-      });
+      setAlert(getAlertMessages('updatedPassword'));
       setAlertVisible(true);
     }
   }, []);

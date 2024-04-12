@@ -5,7 +5,7 @@ import _ from "lodash";
 import { useSelector } from "react-redux";
 
 // component imports
-import Review from "../review/index.component";
+import Review from "../review/review.component";
 import ReviewForm from "../review-form/review-form.component";
 
 // state management imports
@@ -13,8 +13,8 @@ import { selectUser } from "../../store/user/user.selector";
 import { selectProductReviews } from "../../store/review/review.selector";
 
 // props or interfaces imports
-import ReviewDisplayProps from "./index.interface";
-import ReviewInterface from "../review/index.interface";
+import ReviewDisplayProps from "./review-display.interface";
+import ReviewInterface from "../review/review.interface";
 
 // styling imports
 import {
@@ -23,7 +23,7 @@ import {
   ReviewStackSC,
   ReviewTitleSC,
   TitleSC,
-} from "./index.styles";
+} from "./review-display.styles";
 
 const ReviewDisplay: FC<ReviewDisplayProps> = ({ reviews, productID }) => {
   const user = useSelector(selectUser);

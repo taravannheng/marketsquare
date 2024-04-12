@@ -14,8 +14,8 @@ import {
   CardMediaContainerSC,
 } from "./product-card.styles";
 
-// constants or helper functions imports
-import { formatPrice, adjustCloudinaryImgSize } from "../../utils/helpers";
+// util imports
+import { formatPrice, adjustCloudinaryImgSize } from "../../utils/helpers/misc_helpers";
 
 const ProductCard: FC<ProductCardProps> = ({
   imgUrls,
