@@ -32,8 +32,8 @@ import {
   ShippingTitleSC,
 } from "./index.style";
 
-// constants or helper functions imports
-import { getCardLogo } from "../../utils/helpers";
+// util imports
+import { getCardLogo } from "../../utils/helpers/misc_helpers";
 import { ROUTES } from "../../utils/constants";
 
 const OrderDetails: FC<OrderDetailsProps> = ({

@@ -22,7 +22,7 @@ import {
 } from "./reset-password-request-form.styles";
 
 // constants or helper functions imports
-import { checkEmail } from "../../utils/helpers";
+import { checkEmail } from "../../utils/helpers/form_helpers";
 
 const ResetPasswordRequestForm: FC<ResetPasswordRequestFormProps> = () => {
   const location = useLocation();

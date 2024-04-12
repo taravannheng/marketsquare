@@ -38,9 +38,9 @@ import {
 } from "./index.styles";
 import { COLORS, BREAKPOINTS, space } from "../../styles/styles";
 
-// constants or helper functions imports
+// util imports
 import { SLIDESHOWIDS } from "../../utils/constants";
-import { getProductsPerPage } from "../../utils/helpers";
+import { getProductsPerPage } from "../../utils/helpers/misc_helpers";
 
 const theme = createTheme({
   palette: {

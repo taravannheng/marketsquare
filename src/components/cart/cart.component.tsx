@@ -48,8 +48,8 @@ import {
   selectCartLength,
 } from "../../store/cart/cart.selector";
 
-// constants and helper functions imports
-import { formatPrice } from "../../utils/helpers";
+// util imports
+import { formatPrice } from "../../utils/helpers/misc_helpers";
 import { ROUTES } from "../../utils/constants";
 
 const Cart: FC<CartProps> = () => {

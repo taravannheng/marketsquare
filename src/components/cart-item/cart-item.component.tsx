@@ -4,11 +4,11 @@ import { FC } from "react";
 import { Add, Remove, Delete } from "@mui/icons-material";
 import { useSelector, useDispatch } from "react-redux";
 
-// props or interfaces imports
+// interface imports
 import CartItemProps from "./cart-item.interface";
 
-// constants or helper functions imports
-import { adjustCloudinaryImgSize, formatPrice } from "../../utils/helpers";
+// util imports
+import { adjustCloudinaryImgSize, formatPrice } from "../../utils/helpers/misc_helpers";
 
 // styling imports
 import {

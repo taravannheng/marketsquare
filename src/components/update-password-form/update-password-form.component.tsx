@@ -24,7 +24,7 @@ import {
 
 // constants or helper functions imports
 import { ROUTES } from "../../utils/constants";
-import { checkPassword, checkPasswordMatch } from "../../utils/helpers";
+import { checkPassword, checkPasswordMatch } from "../../utils/helpers/form_helpers";
 
 const UpdatePasswordForm: FC<UpdatePasswordFormProps> = () => {
   const navigate = useNavigate();
