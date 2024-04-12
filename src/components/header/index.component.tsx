@@ -6,10 +6,7 @@ import {
   AppBar,
   useMediaQuery,
 } from "@mui/material";
-import ReviewsIcon from '@mui/icons-material/Reviews';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
-import FavoriteIcon from '@mui/icons-material/Favorite';
+
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from '@mui/icons-material/Search';
 import { AccountCircle, ArrowBackIos, Login } from "@mui/icons-material";
@@ -67,7 +64,8 @@ import { COLORS, space } from "../../styles/styles";
 // import navMenuList from "../../sample/navigation-menu/navigationMenuSample"; DISABLE MENU TEMPORARILY
 // import menuListSample from "../../sample/menu/menu"; DISABLE MENU TEMPORARILY
 // import listSample from "../../sample/list/list.sample";
-import { LOGO_URLS, ROUTES } from "../../utils/constants";
+import { LOGO_URLS, ROUTES, HEADER_LIST_ITEMS } from "../../utils/constants";
+import { getLogoSize } from '../../utils/helpers/misc_helpers';
 
 const Header: FC<HeaderProps> = () => {
   const [showMobileSearch, setShowMobileSearch] = useState(false);
@@ -79,39 +77,9 @@ const Header: FC<HeaderProps> = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const dispatch = useDispatch();
-
-  // LIST ITEMS
-  const listItems = [
-    {
-      id: 'list-item-profile',
-      text: 'Profile',
-      icon: <AccountCircleIcon />,
-      href: `${ROUTES.PROFILE}`,
-    },
-    {
-      id: 'list-item-wishlist',
-      text: 'Wishlist',
-      icon: <FavoriteIcon />,
-      href: `${ROUTES.WISHLIST}`,
-    },
-    {
-      id: 'list-item-order-history',
-      text: 'Order History',
-      icon: <ShoppingBagIcon />,
-      href: `${ROUTES.ORDER_HISTORY}`,
-    },
-    {
-      id: 'list-item-reviews',
-      text: 'Reviews',
-      icon: <ReviewsIcon />,
-      href: `${ROUTES.REVIEWS}`,
-    },
-  ];
   
   // DETERMINE LOGO SIZE
-  const smallLogoSize = "32";
-  const bigLogoSize = "44";
-  const logoSize = isBigScreen ? bigLogoSize : smallLogoSize;
+  const logoSize = getLogoSize(isBigScreen);
 
   // HANDLERS
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -254,7 +222,7 @@ const Header: FC<HeaderProps> = () => {
             {!_.isEmpty(user) && <EmailSC>{user.email}</EmailSC>}
           </DrawerHeadSC>
           <DrawerBodySC>
-            <List items={listItems} />
+            <List items={HEADER_LIST_ITEMS} />
           </DrawerBodySC>
           <DrawerBottomSC>
             <SignOutSC onClick={handleSignOut}>Sign Out</SignOutSC>

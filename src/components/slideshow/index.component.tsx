@@ -31,7 +31,7 @@ import {
 } from "./index.styles";
 
 // util imports
-import { adjustCloudinaryImgSize } from "../../utils/helpers/misc_helpers";
+import { adjustCloudinaryImgSize, getAspectRatio } from "../../utils/helpers/misc_helpers";
 
 const SlideShow: FC<SlideShowProps> = ({
   data,
@@ -54,25 +54,7 @@ const SlideShow: FC<SlideShowProps> = ({
   const isExtraLargeScreen = useMediaQuery("(min-width: 1024px)");
 
   // DETERMINE ASPECT RATIO
-  let paddingBottom = "56.25%"; // 16:9 Default Aspect Ratio
-
-  switch (aspectRatio) {
-    case "1:1":
-      paddingBottom = "100%";
-      break;
-    case "4:3":
-      paddingBottom = "75%";
-      break;
-    case "16:9":
-      paddingBottom = "56.25%";
-      break;
-    case "21:9":
-      paddingBottom = "42.86%";
-      break;
-    default:
-      paddingBottom = "56.25%";
-      break;
-  }
+  let paddingBottom = getAspectRatio(aspectRatio); // 16:9 Default Aspect Ratio
 
   // DETERMINE IMAGE SIZE
   if (isExtraLargeScreen) {

@@ -29,33 +29,6 @@ import {
   ProductPriceSC,
 } from "./order-list-item.styles";
 
-const getRatingText = (rating: number) => {
-  let label = "";
-
-  switch (rating) {
-    case 1:
-      label = "Poor";
-      break;
-    case 2:
-      label = "Fair";
-      break;
-    case 3:
-      label = "Average";
-      break;
-    case 4:
-      label = "Good";
-      break;
-    case 5:
-      label = "Excellent";
-      break;
-    default:
-      label = "";
-      break;
-  }
-
-  return `Your rating: ${rating} (${label})`;
-};
-
 const ProductList: FC<ProductListProps> = ({ productList }) => {
   return (
     <>
@@ -86,10 +59,6 @@ const ProductItem: FC<ProductItemProps> = ({ productItem }) => {
 };
 
 const OrderListItem: FC<OrderListItemProps> = ({ order }) => {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-  // const product = useSelector(selectProduct(review.productID));
-  const user = useSelector(selectUser);
   const [snackbar, setSnackbar] = useState<{
     open: boolean;
     message: string;

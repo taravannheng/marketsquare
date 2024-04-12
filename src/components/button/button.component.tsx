@@ -3,7 +3,7 @@ import { FC, useState } from "react";
 // component imports
 import ProgressIndicator from "../progress-indicator/index.component";
 
-// props or interfaces imports 
+// interface imports 
 import ButtonProps from "./button.interface";
 
 // styling imports

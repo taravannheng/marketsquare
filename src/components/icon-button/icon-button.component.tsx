@@ -7,6 +7,9 @@ import IconButtonProps from "./icon-button.interface";
 import { IconButtonSC } from "./icon-button.styles";
 import { COLORS } from "../../styles/styles";
 
+// util imports
+import { getIconButtonIconSize } from "../../utils/helpers/misc_helpers";
+
 
 const IconButton: FC<IconButtonProps> = ({
   icon,
@@ -15,26 +18,7 @@ const IconButton: FC<IconButtonProps> = ({
   isDestructive = false,
   sx,
 }) => {
-  let width, height;
-
-  switch (size) {
-    case "small":
-      width = "24px";
-      height = "24px";
-      break;
-    case "medium":
-      width = "32px";
-      height = "32px";
-      break;
-    case "large":
-      width = "44px";
-      height = "44px";
-      break;
-    default:
-      width = "44px";
-      height = "44px";
-      break;
-  }
+  let { width, height } = getIconButtonIconSize(size);
 
   return (
     <IconButtonSC

@@ -10,6 +10,9 @@ import DinersLogo from "../../assets/cards/diners.png";
 import VisaLogo from "../../assets/cards/visa.png";
 import MastercardLogo from "../../assets/cards/mastercard.png";
 
+// util imports
+import { ALERT_MESSAGES, SNACKBAR_MESSAGES } from "../constants";
+
 export const getCardLogo = (cardBrand) => {
   let cardLogo = "";
 
@@ -75,4 +78,132 @@ export const adjustCloudinaryImgSize = (url, width) => {
   const newUrl = width === 0 ? `${endpoint}${public_id}` : `${endpoint}${optimization}${public_id}`;
 
   return newUrl;
+}
+
+export const getAvatarSize = (size) => {
+  const sizes = {
+    small: "28px",
+    medium: "32px",
+    large: "44px"
+  };
+  
+  return sizes[size] || "32px";
+};
+
+export const getLogoSize = (isBigScreen = true) => {
+  const smallLogoSize = "32";
+  const bigLogoSize = "44";
+
+  return isBigScreen ? bigLogoSize : smallLogoSize;
+}
+
+export const getIconButtonIconSize = (size) => {
+  let width, height;
+
+  switch (size) {
+    case "small":
+      width = "24px";
+      height = "24px";
+      break;
+    case "medium":
+      width = "32px";
+      height = "32px";
+      break;
+    case "large":
+      width = "44px";
+      height = "44px";
+      break;
+    default:
+      width = "44px";
+      height = "44px";
+      break;
+  }
+
+  return {width, height};
+}
+
+export const getRatingLabel = (hoveredStar) => {
+  let label = '';
+
+  switch (hoveredStar) {
+    case 1:
+      label = 'Poor';
+      break;
+    case 2:
+      label = 'Fair';
+      break;
+    case 3:
+      label = 'Average';
+      break;
+    case 4:
+      label = 'Good';
+      break;
+    case 5:
+      label = 'Excellent';
+      break;
+    default:
+      label = 'How would you rate this product?';
+      break;
+  }
+
+  return label;
+}
+
+export const getRatingText = (rating) => {
+  let label = "";
+
+  switch (rating) {
+    case 1:
+      label = "Poor";
+      break;
+    case 2:
+      label = "Fair";
+      break;
+    case 3:
+      label = "Average";
+      break;
+    case 4:
+      label = "Good";
+      break;
+    case 5:
+      label = "Excellent";
+      break;
+    default:
+      label = "";
+      break;
+  }
+
+  return `Your rating: ${rating} (${label})`;
+};
+
+export const getAlertMessages = (type) => {
+  return ALERT_MESSAGES[type] ?? 'N/A';
+}
+
+export const getSnackbarMessages = (type) => {
+  return SNACKBAR_MESSAGES[type];
+}
+
+export const getAspectRatio = (aspectRatio) => {
+  let paddingBottom = "56.25%"; // 16:9 Default Aspect Ratio
+
+  switch (aspectRatio) {
+    case "1:1":
+      paddingBottom = "100%";
+      break;
+    case "4:3":
+      paddingBottom = "75%";
+      break;
+    case "16:9":
+      paddingBottom = "56.25%";
+      break;
+    case "21:9":
+      paddingBottom = "42.86%";
+      break;
+    default:
+      paddingBottom = "56.25%";
+      break;
+  }
+
+  return paddingBottom;
 }

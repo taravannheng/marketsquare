@@ -11,30 +11,12 @@ import RatingSelectProps from './rating-select.interface';
 import { RatingSelectSC, IconSC, LabelSC } from './rating-select.styles';
 import { COLORS } from '../../styles/styles';
 
+// util imports
+import { getRatingLabel } from '../../utils/helpers/misc_helpers';
+
 const RatingSelect: FC<RatingSelectProps> = ({ rating, setRating }) => {
   const [hoveredStar, setHoveredStar] = useState(rating);
-  let label = '';
-
-  switch (hoveredStar) {
-    case 1:
-      label = 'Poor';
-      break;
-    case 2:
-      label = 'Fair';
-      break;
-    case 3:
-      label = 'Average';
-      break;
-    case 4:
-      label = 'Good';
-      break;
-    case 5:
-      label = 'Excellent';
-      break;
-    default:
-      label = 'How would you rate this product?';
-      break;
-  }
+  let label = getRatingLabel(hoveredStar);
 
   return (
     <RatingSelectSC>

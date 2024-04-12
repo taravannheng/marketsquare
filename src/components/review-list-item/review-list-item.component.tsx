@@ -26,32 +26,8 @@ import {
   RatingSC,
 } from "./review-list-item.styles";
 
-const getRatingText = (rating: number) => {
-  let label = "";
-
-  switch (rating) {
-    case 1:
-      label = "Poor";
-      break;
-    case 2:
-      label = "Fair";
-      break;
-    case 3:
-      label = "Average";
-      break;
-    case 4:
-      label = "Good";
-      break;
-    case 5:
-      label = "Excellent";
-      break;
-    default:
-      label = "";
-      break;
-  }
-
-  return `Your rating: ${rating} (${label})`;
-};
+// util imports
+import { getRatingText } from "../../utils/helpers/misc_helpers";
 
 const ReviewListItem: FC<ReviewListItemProps> = ({ review }) => {
   const navigate = useNavigate();
