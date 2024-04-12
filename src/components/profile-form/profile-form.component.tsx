@@ -23,7 +23,7 @@ import {
 import { selectUser } from "../../store/user/user.selector";
 import USER_ACTION_TYPES from "../../store/user/user.types";
 
-// props or interfaces imports
+// interface imports
 import ProfileFormProps, {
   ChangePasswordButtonProps,
 } from "./profile-form.interface";
@@ -40,8 +40,8 @@ import {
 } from "./profile-form.styles";
 import { space } from "../../styles/styles";
 
-// constants or helper functions imports
-import { checkEmail, checkUsername } from "../../utils/helpers";
+// util imports
+import { checkEmail, checkUsername } from "../../utils/helpers/form_helpers";
 import { ROUTES } from "../../utils/constants";
 
 const ChangePasswordButton: FC<ChangePasswordButtonProps> = () => {

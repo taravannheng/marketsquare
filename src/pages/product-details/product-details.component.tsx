@@ -40,9 +40,10 @@ import {
 } from "./product-details.style";
 import { RelatedProductDisplaySC } from "../../components/related-product-display/related-product-display.styles";
 
-// constants or helper functions imports
+// util imports
 import footerUtilityLinksSample from "../../sample/footer/utility-links-sample";
 import { ROUTES } from "../../utils/constants";
+import { getSnackbarMessages } from "../../utils/helpers/misc_helpers";
 
 const ProductDetailsPage: FC = () => {
   const location = useLocation();
@@ -117,11 +118,7 @@ const ProductDetailsPage: FC = () => {
 
     // if signedIn is true, display snackbar
     if (signedIn) {
-      setSnackbar({
-        open: true,
-        message: "You have successfully signed in!",
-        type: "success",
-      });
+      setSnackbar(getSnackbarMessages('signedIn'));
     }
   }, [productID]);
 

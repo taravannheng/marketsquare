@@ -53,8 +53,8 @@ import {
 } from "./product-details-display.styles";
 import { COLORS, BREAKPOINTS } from "../../styles/styles";
 
-// constants or helper function imports
-import { adjustCloudinaryImgSize, formatPrice } from "../../utils/helpers";
+// util imports
+import { adjustCloudinaryImgSize, formatPrice } from "../../utils/helpers/misc_helpers";
 import { ROUTES } from "../../utils/constants";
 
 const ProductDetailsDisplay: FC<ProductDetailsDisplayProps> = ({

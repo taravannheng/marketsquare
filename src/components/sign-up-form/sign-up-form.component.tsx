@@ -34,7 +34,7 @@ import {
 import space from "../../styles/spacing";
 
 // constants or helper functions imports
-import { checkEmail, checkPassword, checkUsername } from "../../utils/helpers";
+import { checkEmail, checkPassword, checkUsername } from "../../utils/helpers/form_helpers";
 import { ROUTES } from "../../utils/constants";
 
 // asset imports

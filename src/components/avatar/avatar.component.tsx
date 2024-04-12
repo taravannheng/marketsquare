@@ -1,20 +1,13 @@
 import { FC } from "react";
 
-// props or interfaces imports
+// interface imports
 import AvatarProps from "./avatar.interface";
 
 // styling imports
 import { AvatarSC } from "./avatar.style";
 
-const getSize = (size: string): string => {
-  const sizes: Record<string, string> = {
-    small: "28px",
-    medium: "32px",
-    large: "44px"
-  };
-  
-  return sizes[size] || "32px";
-};
+// util imports
+import { getAvatarSize } from "../../utils/helpers/misc_helpers.js";
 
 const Avatar: FC<AvatarProps> = ({
   size = "small",
@@ -26,8 +19,8 @@ const Avatar: FC<AvatarProps> = ({
   const commonProps = {
     onClick: onClick,
     sx: {
-      width: getSize(size),
-      height: getSize(size),
+      width: getAvatarSize(size),
+      height: getAvatarSize(size),
     },
   };
   

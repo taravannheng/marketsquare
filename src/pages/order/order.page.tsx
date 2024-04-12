@@ -15,8 +15,9 @@ import { selectUser } from '../../store/user/user.selector';
 // styling imports
 import { PageSC } from './order.styles';
 
-// constants or helper functions imports
+// util imports
 import { ROUTES } from '../../utils/constants';
+import { getSnackbarMessages } from '../../utils/helpers/misc_helpers';
 
 const OrderHistoryPage: FC = () => {
   const user = useSelector(selectUser);
@@ -44,11 +45,7 @@ const OrderHistoryPage: FC = () => {
 
   useEffect(() => {
     if (isSignedIn && user) {
-      setSnackbar({
-        open: true,
-        message: "You have successfully signed in!",
-        type: "success",
-      });
+      setSnackbar(getSnackbarMessages('signedIn'));
 
       // navigate to home page to reset the url to prevent the snackbar from appearing again
       navigate(`${ROUTES.ORDER_HISTORY}`);

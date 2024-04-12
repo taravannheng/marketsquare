@@ -19,8 +19,8 @@ import {
   RelatedProductCardSC,
 } from "./related-product-card.styles";
 
-// constants or helper functions imports
-import { adjustCloudinaryImgSize } from "../../utils/helpers";
+// util imports
+import { adjustCloudinaryImgSize } from "../../utils/helpers/misc_helpers";
 
 const RelatedProductCard: FC<RelatedProductCardProps> = ({
   product,

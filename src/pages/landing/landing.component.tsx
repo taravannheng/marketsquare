@@ -26,6 +26,7 @@ import { LandingPageSC } from "./landing.styles";
 // constants or helper function imports
 import footerItemsSample from "../../sample/footer/utility-links-sample";
 import { ROUTES } from "../../utils/constants";
+import { getSnackbarMessages } from "../../utils/helpers/misc_helpers";
 
 const LandingPage: FC = () => {
   const navigate = useNavigate();
@@ -81,11 +82,7 @@ const LandingPage: FC = () => {
       // set user state
       dispatch({ type: "SET_USER", payload: { ...response.data } });
 
-      setSnackbar({
-        open: true,
-        message: "You have successfully signed in!",
-        type: "success",
-      });
+      setSnackbar(getSnackbarMessages('signedIn'));
 
       // navigate to home page to reset the url to prevent the snackbar from appearing again
       navigate(`${ROUTES.LANDING}`);
@@ -93,11 +90,7 @@ const LandingPage: FC = () => {
 
     // for local strategy
     if (isSignedIn && user) {
-      setSnackbar({
-        open: true,
-        message: "You have successfully signed in!",
-        type: "success",
-      });
+      setSnackbar(getSnackbarMessages('signedIn'));
 
       // navigate to home page to reset the url to prevent the snackbar from appearing again
       navigate(`${ROUTES.LANDING}`);
@@ -114,11 +107,7 @@ const LandingPage: FC = () => {
     }
 
     if (isSignedOut && _.isEmpty(user)) {
-      setSnackbar({
-        open: true,
-        message: "You have successfully signed out!",
-        type: "success",
-      });
+      setSnackbar(getSnackbarMessages('signedOut'));
 
       // navigate to home page to reset the url to prevent the snackbar from appearing again
       navigate(`${ROUTES.LANDING}`);

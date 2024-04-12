@@ -5,7 +5,7 @@ import { Grid, Link } from "@mui/material";
 import { ExpandCircleDown } from "@mui/icons-material";
 import _ from "lodash";
 
-// props or interfaces imports
+// interfaces imports
 import FooterProps from "./footer.interface";
 
 // styling imports
@@ -33,50 +33,11 @@ import {
   SiteDescriptionSC,
 } from "./footer.styles";
 
-// constants or helper function imports
-import { LOGO_URLS, ROUTES } from "../../utils/constants";
-
-// asset imports
-import FacebookLogo from "../../assets/socials/social-facebook.png";
-import InstagramLogo from "../../assets/socials/social-instagram.png";
-import LinkedinLogo from "../../assets/socials/social-linkedin.png";
-import TwitterLogo from "../../assets/socials/social-twitter.png";
-import YoutubeLogo from "../../assets/socials/social-youtube.png";
+// util imports
+import { LOGO_URLS, ROUTES, SOCIAL_LOGOS } from "../../utils/constants";
 
 const Footer: FC<FooterProps> = ({ footerItems }) => {
   const isEmptyFooterItems = footerItems && footerItems.length === 0;
-  const SOCIAL_LOGOS = [
-    {
-      id: "sl_fb",
-      href: "/",
-      image: FacebookLogo,
-      title: "social facebook logo",
-    },
-    {
-      id: "sl_ig",
-      href: "/",
-      image: InstagramLogo,
-      title: "social instagram logo",
-    },
-    {
-      id: "sl_li",
-      href: "/",
-      image: LinkedinLogo,
-      title: "social linkedin logo",
-    },
-    {
-      id: "sl_twt",
-      href: "/",
-      image: TwitterLogo,
-      title: "social twitter logo",
-    },
-    {
-      id: "sl_yt",
-      href: "/",
-      image: YoutubeLogo,
-      title: "social youtube logo",
-    },
-  ];
 
   return (
     <FooterSC>

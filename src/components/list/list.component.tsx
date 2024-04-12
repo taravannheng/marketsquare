@@ -3,7 +3,7 @@ import { FC } from "react";
 // component imports
 import ListItem from "../list-item/list-item.component";
 
-// props or interfaces imports
+// interfaces imports
 import ListComponentProps from "./list.interface";
 import ListItemInterface from "../../interfaces/list-item.interface";
 
